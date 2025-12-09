@@ -5,7 +5,10 @@
 .hero {
   height: 100%;
   height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   width: 100vw;
+  max-width: 100vw;
   display: flex;
   padding: clamp(12px, 2vmin, 20px);
   overflow: hidden;
@@ -18,6 +21,8 @@
   display: grid;
   grid-template-columns: minmax(320px, 420px) 1fr;
   gap: clamp(12px, 2vmin, 20px);
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* ============================================
@@ -27,9 +32,11 @@
 .hero-left {
   display: flex;
   flex-direction: column;
-  gap: clamp(10px, 1.5vmin, 16px);
+  gap: clamp(8px, 1vmin, 12px);
   height: 100%;
   min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 /* Info Section - Top */
@@ -37,11 +44,11 @@
   display: flex;
   flex-direction: column;
   gap: clamp(4px, 0.6vmin, 8px);
-  padding: clamp(14px, 2vmin, 20px);
+  padding: clamp(12px, 1.5vmin, 18px);
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  flex: 1;
+  flex: 0 0 auto;
   min-height: 0;
   overflow: hidden;
 }
@@ -214,7 +221,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   overflow: hidden;
-  flex: 1.3;
+  flex: 0 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -260,7 +267,7 @@
   font-size: clamp(12px, 1.5vmin, 15px);
   line-height: 1.6;
   background: #131414;
-  flex: 1;
+  flex: 0 0 auto;
   overflow: hidden;
   white-space: pre;
 }
@@ -298,18 +305,22 @@
 
 /* Social Section - IMPROVED DESIGN */
 .social-section {
-  flex: 0.7;
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .social-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(8px, 1vmin, 12px);
+  grid-template-rows: repeat(2, 1fr);
+  gap: clamp(6px, 0.8vmin, 10px);
   flex: 1;
   align-content: stretch;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* Modern Social Cards */
@@ -318,13 +329,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(8px, 1vmin, 12px);
-  border-radius: 10px;
+  padding: clamp(6px, 0.8vmin, 10px);
+  border-radius: 8px;
   text-decoration: none;
   overflow: hidden;
   background: #131414;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
+  min-height: 0;
 }
 
 .social-card-fun:hover {
@@ -338,25 +350,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(6px, 0.8vmin, 10px);
+  gap: clamp(4px, 0.5vmin, 8px);
   flex: 1;
+  min-height: 0;
 }
 
 .social-icon-wrap {
-  width: clamp(28px, 3.5vmin, 36px);
-  height: clamp(28px, 3.5vmin, 36px);
+  width: clamp(24px, 3vmin, 36px);
+  height: clamp(24px, 3vmin, 36px);
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  border-radius: 6px;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .social-icon {
-  width: clamp(16px, 2vmin, 20px);
-  height: clamp(16px, 2vmin, 20px);
+  width: clamp(14px, 1.8vmin, 20px);
+  height: clamp(14px, 1.8vmin, 20px);
   color: #8b949e;
   transition: all 0.3s ease;
 }
@@ -367,10 +380,12 @@
   align-items: center;
   gap: 1px;
   text-align: center;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .social-platform {
-  font-size: clamp(10px, 1.2vmin, 12px);
+  font-size: clamp(9px, 1.1vmin, 12px);
   font-weight: 600;
   color: #e6edf3;
   letter-spacing: 0.2px;
@@ -378,7 +393,7 @@
 }
 
 .social-handle {
-  font-size: clamp(8px, 0.9vmin, 10px);
+  font-size: clamp(7px, 0.9vmin, 10px);
   color: #6e7681;
   white-space: nowrap;
   overflow: hidden;
@@ -488,6 +503,7 @@
   flex-direction: column;
   height: 100%;
   min-height: 0;
+  max-height: 100%;
 }
 
 .tabs-header {
@@ -542,10 +558,12 @@
   padding: clamp(12px, 1.8vmin, 20px);
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: none;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  max-height: 100%;
   gap: clamp(8px, 1.2vmin, 14px);
 }
 
@@ -1659,20 +1677,59 @@
 /* Mobile landscape / small tablet */
 @media (max-width: 640px) {
   .hero {
-    padding: clamp(8px, 1.2vmin, 12px);
+    padding: clamp(6px, 1vmin, 10px);
   }
   
   .hero-grid {
-    gap: clamp(8px, 1.2vmin, 12px);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: clamp(6px, 1vmin, 10px);
   }
   
   .hero-left {
-    flex-direction: column;
-    max-height: 42vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 38vh;
+    min-height: 0;
+    gap: clamp(4px, 0.6vmin, 8px);
   }
   
-  .info-section, .code-card {
-    min-width: 100%;
+  .info-section {
+    flex: 1 1 45%;
+    min-width: 140px;
+    padding: clamp(8px, 1.2vmin, 12px);
+  }
+  
+  .code-card {
+    flex: 1 1 45%;
+    min-width: 140px;
+  }
+  
+  .social-section {
+    flex: 1 1 100%;
+  }
+  
+  .social-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: clamp(4px, 0.5vmin, 6px);
+  }
+  
+  .social-card-fun {
+    padding: clamp(4px, 0.5vmin, 8px);
+  }
+  
+  .social-icon-wrap {
+    width: clamp(20px, 2.5vmin, 28px);
+    height: clamp(20px, 2.5vmin, 28px);
+  }
+  
+  .social-platform {
+    font-size: clamp(8px, 1vmin, 10px);
+  }
+  
+  .social-handle {
+    display: none;
   }
   
   .tab-btn span {
@@ -1680,7 +1737,7 @@
   }
   
   .tab-btn {
-    padding: clamp(10px, 1.6vmin, 14px) clamp(12px, 1.8vmin, 16px);
+    padding: clamp(8px, 1.2vmin, 12px) clamp(10px, 1.4vmin, 14px);
   }
   
   .projects-grid {
@@ -1695,27 +1752,82 @@
     grid-template-columns: 1fr;
   }
   
-  .social-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .hobbies-grid {
-    grid-template-columns: 1fr;
+  .name {
+    font-size: clamp(20px, 4vmin, 28px);
+  }
+  
+  .role-typing {
+    font-size: clamp(12px, 1.8vmin, 16px);
+    min-height: clamp(16px, 2.2vmin, 20px);
+  }
+  
+  .bio-tags {
+    gap: clamp(4px, 0.6vmin, 6px);
+  }
+  
+  .bio-tag {
+    padding: clamp(3px, 0.4vmin, 5px) clamp(6px, 0.8vmin, 10px);
+    font-size: clamp(8px, 1vmin, 10px);
+  }
+  
+  .skills-section {
+    display: none;
+  }
+  
+  .resume-btn {
+    padding: clamp(6px, 0.8vmin, 10px) clamp(10px, 1.4vmin, 16px);
+    font-size: clamp(10px, 1.2vmin, 12px);
   }
 }
 
 /* Very small screens / mobile portrait */
 @media (max-width: 480px) {
+  .hero {
+    padding: clamp(4px, 0.8vmin, 8px);
+  }
+  
   .hero-left {
-    max-height: 45vh;
+    max-height: 35vh;
   }
   
   .code-card {
     display: none;
   }
   
+  .info-section {
+    flex: 0 0 auto;
+  }
+  
+  .social-section {
+    flex: 1 1 auto;
+  }
+  
   .social-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: clamp(3px, 0.4vmin, 5px);
+  }
+  
+  .social-card-fun {
+    padding: clamp(4px, 0.5vmin, 8px);
+  }
+  
+  .social-icon-wrap {
+    width: clamp(18px, 2.2vmin, 24px);
+    height: clamp(18px, 2.2vmin, 24px);
+  }
+  
+  .social-icon {
+    width: clamp(10px, 1.2vmin, 14px);
+    height: clamp(10px, 1.2vmin, 14px);
+  }
+  
+  .social-platform {
+    font-size: clamp(7px, 0.9vmin, 9px);
   }
   
   .social-handle {
@@ -1723,25 +1835,196 @@
   }
   
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(6px, 0.8vmin, 10px);
+  }
+  
+  .project-card {
+    min-height: 0;
+  }
+  
+  .project-header {
+    height: clamp(30px, 4vmin, 45px);
+  }
+  
+  .project-body {
+    padding: clamp(8px, 1vmin, 12px);
+  }
+  
+  .project-title {
+    font-size: clamp(12px, 1.4vmin, 14px);
+  }
+  
+  .project-subtitle, .project-desc {
+    font-size: clamp(9px, 1.1vmin, 11px);
+  }
+  
+  .project-tech {
+    display: none;
   }
   
   .skills-compact {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+  }
+  
+  .skill-group {
+    padding: clamp(8px, 1vmin, 12px);
+  }
+  
+  .skill-category {
+    font-size: clamp(10px, 1.2vmin, 12px);
+  }
+  
+  .skill-chip {
+    font-size: clamp(9px, 1.1vmin, 11px);
+    padding: clamp(3px, 0.4vmin, 5px) clamp(6px, 0.8vmin, 10px);
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(6px, 0.8vmin, 10px);
+  }
+  
+  .hobby-card {
+    padding: clamp(10px, 1.2vmin, 14px);
+  }
+  
+  .hobby-card-header h4 {
+    font-size: clamp(10px, 1.2vmin, 12px);
+  }
+  
+  .hobby-activity-item {
+    padding: clamp(6px, 0.8vmin, 10px);
+    font-size: clamp(11px, 1.3vmin, 13px);
+  }
+  
+  .book-title {
+    font-size: clamp(11px, 1.3vmin, 13px);
+  }
+  
+  .book-author {
+    font-size: clamp(9px, 1.1vmin, 11px);
+  }
+  
+  .series-tag {
+    padding: clamp(6px, 0.8vmin, 10px) clamp(10px, 1.2vmin, 14px);
+    font-size: clamp(10px, 1.2vmin, 12px);
+  }
+  
+  .song-link {
+    padding: clamp(4px, 0.6vmin, 8px) clamp(8px, 1vmin, 12px);
+    font-size: clamp(9px, 1.1vmin, 11px);
+  }
+  
+  .tabs-content {
+    padding: clamp(8px, 1.2vmin, 14px);
+  }
+  
+  .pane-header {
+    font-size: clamp(11px, 1.4vmin, 14px);
+    margin-bottom: clamp(6px, 1vmin, 10px);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .hero-left {
+    max-height: 28vh;
+  }
+  
+  .social-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .social-icon-wrap {
+    width: clamp(20px, 2.5vmin, 28px);
+    height: clamp(20px, 2.5vmin, 28px);
+  }
+  
+  .social-platform {
+    display: none;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .name {
+    font-size: clamp(18px, 3.5vmin, 24px);
   }
 }
 
 /* Very short screens (landscape mobile) */
 @media (max-height: 500px) {
+  .hero-grid {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    grid-template-rows: 1fr;
+  }
+  
   .hero-left {
-    flex-direction: row;
+    flex-direction: column;
     max-height: none;
     height: 100%;
   }
   
   .info-section {
-    flex: 0.6;
+    flex: 0 0 auto;
+    max-height: 40%;
+  }
+  
+  .code-card {
+    flex: 1;
+    min-height: 0;
+  }
+  
+  .social-section {
+    flex: 0 0 auto;
+    max-height: 25%;
+  }
+  
+  .social-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .social-handle, .social-stat {
+    display: none;
+  }
+  
+  .name {
+    font-size: clamp(18px, 3vmin, 28px);
+  }
+  
+  .role-typing {
+    font-size: clamp(11px, 1.6vmin, 16px);
+  }
+  
+  .bio-section, .skills-section {
+    display: none;
+  }
+}
+
+/* Medium height screens */
+@media (max-height: 700px) and (min-height: 501px) {
+  .hero-left {
+    gap: clamp(6px, 1vmin, 10px);
+  }
+  
+  .info-section {
+    padding: clamp(10px, 1.4vmin, 16px);
+  }
+  
+  .name {
+    font-size: clamp(22px, 4vmin, 36px);
+  }
+  
+  .bio-section {
+    display: none;
   }
   
   .code-card {
@@ -1749,16 +2032,46 @@
   }
   
   .social-section {
-    flex: 0.6;
+    flex: 0.5;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 641px) and (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(280px, 340px) 1fr;
   }
   
-  .social-cards-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .social-handle, .social-stat {
-    display: none;
+  .skills-compact {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .hero-grid {
+    grid-template-columns: minmax(380px, 480px) 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1800px) {
+  .hero {
+    max-width: 1800px;
+    margin: 0 auto;
   }
 }
 
