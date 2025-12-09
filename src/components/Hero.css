@@ -117,11 +117,95 @@
   flex-shrink: 0;
 }
 
-.bio {
-  font-size: clamp(11px, 1.4vmin, 13px);
-  color: var(--text-secondary);
-  line-height: 1.4;
+/* Bio Section - Tags Style */
+.bio-section {
   flex-shrink: 0;
+}
+
+.bio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+.bio-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(4px, 0.5vmin, 6px);
+  padding: clamp(4px, 0.5vmin, 6px) clamp(8px, 1vmin, 12px);
+  background: rgba(88, 166, 255, 0.08);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 6px;
+  font-size: clamp(9px, 1.1vmin, 11px);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.bio-tag:hover {
+  background: rgba(88, 166, 255, 0.15);
+  border-color: rgba(88, 166, 255, 0.4);
+}
+
+.bio-tag-icon {
+  font-size: clamp(10px, 1.2vmin, 12px);
+}
+
+.bio-tag.education {
+  background: rgba(63, 185, 80, 0.08);
+  border-color: rgba(63, 185, 80, 0.2);
+}
+
+.bio-tag.education:hover {
+  background: rgba(63, 185, 80, 0.15);
+  border-color: rgba(63, 185, 80, 0.4);
+}
+
+.bio-tag.passion {
+  background: rgba(210, 153, 34, 0.08);
+  border-color: rgba(210, 153, 34, 0.2);
+  color: #d29922;
+}
+
+.bio-tag.passion:hover {
+  background: rgba(210, 153, 34, 0.15);
+  border-color: rgba(210, 153, 34, 0.4);
+}
+
+/* Skills Section - Pills Style */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.5vmin, 6px);
+  flex-shrink: 0;
+}
+
+.skills-label {
+  font-size: clamp(9px, 1vmin, 11px);
+  font-weight: 600;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(4px, 0.5vmin, 6px);
+}
+
+.skill-tag {
+  padding: clamp(3px, 0.4vmin, 5px) clamp(8px, 1vmin, 10px);
+  background: rgba(139, 148, 158, 0.1);
+  border-radius: 4px;
+  font-size: clamp(9px, 1.1vmin, 11px);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent-cyan);
 }
 
 /* Code Card - VS Code Dark+ Theme - LARGER TEXT */
@@ -178,6 +262,7 @@
   background: #1e1e1e;
   flex: 1;
   overflow: hidden;
+  white-space: pre;
 }
 
 .code-content code {
@@ -186,15 +271,16 @@
 }
 
 .code-content .line {
-  display: flex;
+  display: block;
   min-height: clamp(18px, 2.2vmin, 24px);
+  white-space: pre;
 }
 
 .code-content .ln {
+  display: inline-block;
   width: clamp(22px, 2.6vmin, 30px);
   color: #6e7681;
   user-select: none;
-  flex-shrink: 0;
   text-align: right;
   padding-right: clamp(10px, 1.4vmin, 14px);
 }
@@ -1181,17 +1267,7 @@
   }
 }
 
-/* Top Skills & Resume Button */
-.top-skills {
-  font-size: clamp(10px, 1.2vmin, 12px);
-  color: var(--text-secondary);
-  line-height: 1.4;
-  flex-shrink: 0;
-}
-
-.top-skills strong {
-  color: var(--accent-cyan);
-}
+/* Resume Button */
 
 .resume-btn {
   display: inline-flex;

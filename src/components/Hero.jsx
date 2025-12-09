@@ -298,13 +298,33 @@ const Hero = () => {
               />
             </div>
 
-            <p className="bio">
-              B.Tech CE @ SPIT · Minor @ SPJIMR · Transforming data into insights
-            </p>
+            <div className="bio-section">
+              <div className="bio-tags">
+                <span className="bio-tag education">
+                  <span className="bio-tag-icon">🎓</span>
+                  B.Tech CE @ SPIT
+                </span>
+                <span className="bio-tag education">
+                  <span className="bio-tag-icon">📚</span>
+                  Minor @ SPJIMR
+                </span>
+                <span className="bio-tag passion">
+                  <span className="bio-tag-icon">✨</span>
+                  Data Storytelling
+                </span>
+              </div>
+            </div>
 
-            <p className="top-skills">
-              <strong>Top Skills:</strong> Data Analytics • Data Science • Machine Learning • Web Applications • Android Development
-            </p>
+            <div className="skills-section">
+              <span className="skills-label">Top Skills</span>
+              <div className="skills-tags">
+                <span className="skill-tag">Data Analytics</span>
+                <span className="skill-tag">Data Science</span>
+                <span className="skill-tag">Machine Learning</span>
+                <span className="skill-tag">Web Dev</span>
+                <span className="skill-tag">Android</span>
+              </div>
+            </div>
 
             <a 
               href="https://drive.google.com/file/d/134zdT9FaQX6siuHMxnICxBqZrK_R3YXV/view?usp=sharing" 
@@ -336,14 +356,13 @@ const Hero = () => {
             <pre className="code-content">
               <code>
                 <span className="line"><span className="ln">1</span><span className="kw">class</span> <span className="cls">DataScientist</span><span className="p">:</span></span>
-                <span className="line"><span className="ln">2</span>  <span className="kw">def</span> <span className="fn">__init__</span><span className="p">(</span><span className="sf">self</span><span className="p">):</span></span>
-                <span className="line"><span className="ln">3</span>    <span className="sf">self</span><span className="p">.</span><span className="pr">name</span> <span className="op">=</span> <span className="st">"Prasad Gade"</span></span>
-                <span className="line"><span className="ln">4</span>    <span className="sf">self</span><span className="p">.</span><span className="pr">roles</span> <span className="op">=</span> <span className="p">[</span><span className="st">"DS"</span><span className="p">,</span> <span className="st">"ML"</span><span className="p">,</span> <span className="st">"DA"</span><span className="p">]</span></span>
-                <span className="line"><span className="ln">5</span>    <span className="sf">self</span><span className="p">.</span><span className="pr">passion</span> <span className="op">=</span> <span className="st">"Data"</span></span>
-                <span className="line"><span className="ln">6</span>    <span className="sf">self</span><span className="p">.</span><span className="pr">skills</span> <span className="op">=</span> <span className="p">[</span><span className="st">"Py"</span><span className="p">,</span> <span className="st">"ML"</span><span className="p">,</span> <span className="st">"AI"</span><span className="p">]</span></span>
-                <span className="line"><span className="ln">7</span></span>
-                <span className="line"><span className="ln">8</span>  <span className="kw">def</span> <span className="fn">transform</span><span className="p">(</span><span className="sf">self</span><span className="p">,</span> <span className="pm">data</span><span className="p">):</span></span>
-                <span className="line"><span className="ln">9</span>    <span className="kw">return</span> <span className="sf">self</span><span className="p">.</span><span className="fn">insights</span><span className="p">(</span><span className="pm">data</span><span className="p">)</span></span>
+                <span className="line"><span className="ln">2</span>{"    "}<span className="kw">def</span> <span className="fn">__init__</span><span className="p">(</span><span className="sf">self</span><span className="p">):</span></span>
+                <span className="line"><span className="ln">3</span>{"        "}<span className="sf">self</span><span className="p">.</span><span className="pr">name</span> <span className="op">=</span> <span className="st">"Prasad Gade"</span></span>
+                <span className="line"><span className="ln">4</span>{"        "}<span className="sf">self</span><span className="p">.</span><span className="pr">role</span> <span className="op">=</span> <span className="st">"DS | ML | DA"</span></span>
+                <span className="line"><span className="ln">5</span>{"        "}<span className="sf">self</span><span className="p">.</span><span className="pr">skills</span> <span className="op">=</span> <span className="p">[</span><span className="st">"Py"</span><span className="p">,</span> <span className="st">"ML"</span><span className="p">]</span></span>
+                <span className="line"><span className="ln">6</span></span>
+                <span className="line"><span className="ln">7</span>{"    "}<span className="kw">def</span> <span className="fn">transform</span><span className="p">(</span><span className="sf">self</span><span className="p">,</span> <span className="pm">data</span><span className="p">):</span></span>
+                <span className="line"><span className="ln">8</span>{"        "}<span className="kw">return</span> <span className="sf">self</span><span className="p">.</span><span className="fn">insights</span><span className="p">(</span><span className="pm">data</span><span className="p">)</span></span>
               </code>
             </pre>
           </motion.div>
