@@ -14,9 +14,17 @@ const Education = () => {
       icon: GraduationCap,
       degree: 'B.Tech in Computer Engineering',
       school: "Bhartiya Vidya Bhavan's SPIT, Mumbai",
-      minor: 'Minor in Management - SPJIMR',
+      minor: null,
       date: 'Expected June 2027',
       grade: 'CGPA: 9.4/10.0',
+    },
+    {
+      icon: GraduationCap,
+      degree: 'Minor in Management',
+      school: 'SP Jain Institute of Management & Research (SPJIMR)',
+      minor: null,
+      date: 'Expected June 2027',
+      grade: 'Ongoing',
     },
     {
       icon: BookOpen,

@@ -72,6 +72,28 @@
   color: var(--text-muted);
 }
 
+.achievement-cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 14px;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.achievement-cert-btn:hover {
+  background: rgba(88, 166, 255, 0.2);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
 /* Certifications */
 .certifications {
   background: var(--bg-card);
@@ -109,11 +131,35 @@
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .cert-card:hover {
   border-color: var(--accent-cyan);
   transform: translateY(-2px);
+}
+
+.cert-view-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 6px;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cert-view-btn:hover {
+  background: rgba(88, 166, 255, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--accent-green);
 }
 
 .cert-logo {

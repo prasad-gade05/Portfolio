@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Trophy, Users, FileText, Award } from 'lucide-react'
+import { Trophy, FileText, Award, ExternalLink } from 'lucide-react'
 import './Achievements.css'
 
 const Achievements = () => {
@@ -17,14 +17,7 @@ const Achievements = () => {
       date: 'March 2025',
       color: '#d29922',
       gradient: 'linear-gradient(135deg, #d29922 0%, #f59e0b 100%)',
-    },
-    {
-      icon: Users,
-      title: 'General Secretary - Student Council',
-      description: 'Led organization of "Sparsh 2024" celebrating 350th anniversary of Chhatrapati Shivaji Maharaj\'s coronation',
-      date: 'Aug 2023 - June 2024',
-      color: '#58a6ff',
-      gradient: 'linear-gradient(135deg, #58a6ff 0%, #3fb950 100%)',
+      certificateLink: 'https://drive.google.com/file/d/19EXpm1wVqM35qLiHvbcFzmwwwEiFSr_4/view?usp=drive_link',
     },
     {
       icon: FileText,
@@ -33,15 +26,17 @@ const Achievements = () => {
       date: 'April 2024',
       color: '#3fb950',
       gradient: 'linear-gradient(135deg, #3fb950 0%, #58a6ff 100%)',
+      certificateLink: 'https://ijies.net/finial-docs/finial-pdf/220424918.pdf',
     },
   ]
 
   const certifications = [
-    { name: 'Data Science Job Simulation', org: 'BCG (Forage)', date: 'Jan 2025' },
-    { name: 'Developer & Technology Simulation', org: 'Accenture UK (Forage)', date: 'Jan 2025' },
-    { name: 'Cloud Computing on AWS', org: 'Udemy', date: 'Jul 2024' },
-    { name: 'Java Training', org: 'IIT Bombay', date: 'Mar 2024' },
-    { name: 'Introduction to Machine Learning', org: 'Infosys', date: 'Nov 2022' },
+    { name: 'Data Science Job Simulation', org: 'BCG (Forage)', date: 'Jan 2025', link: 'https://drive.google.com/file/d/1gpK6qqplU6bqYPZBVsR0iIuJwvS9_HoX/view?usp=drive_link' },
+    { name: 'Developer & Technology Simulation', org: 'Accenture UK (Forage)', date: 'Jan 2025', link: 'https://drive.google.com/file/d/1pOHKmObTLFRdyLv6xlPkTdhbIK2NTT4Y/view?usp=drive_link' },
+    { name: 'Cloud Computing on AWS', org: 'Udemy', date: 'Jul 2024', link: 'https://drive.google.com/file/d/1ax32PpCzf4mP2hFectfl5lubdnKU5FV6/view?usp=drive_link' },
+    { name: 'The World of Computer Networking', org: 'Udemy', date: 'Jun 2024', link: 'https://drive.google.com/file/d/1yzSMpeOIgKBUel5RJ9TANkUIbMajd_FE/view?usp=drive_link' },
+    { name: 'Java Training', org: 'IIT Bombay', date: 'Mar 2024', link: 'https://drive.google.com/file/d/1i7k6dmtUvIENZHQk_xJkmoKe2Lyhjnpv/view?usp=drive_link' },
+    { name: 'Arduino Course', org: 'Robo-Tech-X', date: 'Aug 2023', link: 'https://drive.google.com/file/d/1DsDhr7ArZC82L7uLxHtBjRuT8j6TQRR5/view?usp=sharing' },
   ]
 
   return (
@@ -80,6 +75,17 @@ const Achievements = () => {
               <h3>{achievement.title}</h3>
               <p>{achievement.description}</p>
               <span className="achievement-date">{achievement.date}</span>
+              {achievement.certificateLink && (
+                <a 
+                  href={achievement.certificateLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="achievement-cert-btn"
+                >
+                  <ExternalLink size={14} />
+                  View Certificate
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
@@ -112,6 +118,16 @@ const Achievements = () => {
                   <p>{cert.org}</p>
                   <span className="cert-date">{cert.date}</span>
                 </div>
+                {cert.link && (
+                  <a 
+                    href={cert.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="cert-view-btn"
+                  >
+                    <ExternalLink size={12} />
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

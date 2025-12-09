@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Mail, MapPin } from 'lucide-react'
-import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard, FaSpotify } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
@@ -70,6 +70,16 @@ const Contact = () => {
       bgColor: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
       description: 'Life beyond code',
       stats: 'Follow'
+    },
+    { 
+      icon: FaSpotify, 
+      name: 'Spotify', 
+      handle: 'prasad_gade',
+      href: 'https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau?si=kXL6l30RRi-wn_ZMEHL7HQ',
+      color: '#ffffff',
+      bgColor: '#1DB954',
+      description: 'Music & playlists',
+      stats: '🎵'
     },
     { 
       icon: Mail, 

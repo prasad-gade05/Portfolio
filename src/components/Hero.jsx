@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { 
   MapPin, Code, Briefcase, GraduationCap, Trophy, Award,
-  ExternalLink, Folder, BarChart2
+  ExternalLink, Folder, BarChart2, Heart, Music, FileText
 } from 'lucide-react'
-import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard, FaPython, FaJs, FaJava, FaReact, FaNodeJs, FaDocker, FaAws, FaLinux, FaGitAlt, FaDatabase } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard, FaPython, FaJs, FaJava, FaReact, FaNodeJs, FaDocker, FaAws, FaLinux, FaGitAlt, FaDatabase, FaSpotify } from 'react-icons/fa'
 import { SiTypescript, SiCplusplus, SiPandas, SiNumpy, SiScikitlearn, SiPytorch, SiTensorflow, SiKeras, SiPlotly, SiFlask, SiFastapi, SiStreamlit, SiMongodb, SiSqlite, SiPostgresql, SiLangchain } from 'react-icons/si'
 import { HiMail } from 'react-icons/hi'
 import './Hero.css'
@@ -91,6 +91,17 @@ const Hero = () => {
       statLabel: 'hello!',
       vibe: 'contact'
     },
+    { 
+      icon: FaSpotify, 
+      href: 'https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau?si=kXL6l30RRi-wn_ZMEHL7HQ', 
+      label: 'Spotify', 
+      handle: 'prasad_gade', 
+      bgColor: '#191414',
+      accentColor: '#1DB954',
+      stat: '🎵',
+      statLabel: 'music',
+      vibe: 'music'
+    },
   ]
 
   const skillIcons = {
@@ -116,26 +127,28 @@ const Hero = () => {
     company: 'R3 Systems India Pvt. Ltd.',
     date: 'Jun - Jul 2023',
     points: ['Power BI dashboards', 'Business Intelligence', '70% improved data visibility'],
-    tags: ['Power BI', 'Data Analysis', 'BI']
+    tags: ['Power BI', 'Data Analysis', 'BI'],
+    certificateLink: 'https://drive.google.com/file/d/1FP5WnbkzvDJZOVNOtqmmt1sJCc7pjzju/view?usp=sharing'
   }
 
   const education = [
-    { degree: 'B.Tech Computer Engineering', school: 'SPIT Mumbai', minor: 'Minor: Management @ SPJIMR', date: 'Expected 2027', grade: '9.4 CGPA' },
+    { degree: 'B.Tech Computer Engineering', school: 'SPIT Mumbai', date: 'Expected 2027', grade: '9.4 CGPA' },
+    { degree: 'Minor in Management', school: 'SPJIMR (SP Jain Institute of Management & Research)', date: 'Expected 2027', grade: 'Ongoing' },
     { degree: 'Diploma in Computer Technology', school: 'K. K. Wagh Polytechnic', date: '2021 - 2024', grade: '96.51%' },
   ]
 
   const achievements = [
-    { title: '1st Place - Tech Horizon Hackathon', desc: '80+ teams', date: 'Mar 2025', color: '#d29922' },
-    { title: 'General Secretary - Student Council', desc: 'Led Sparsh 2024', date: '2023-24', color: '#58a6ff' },
-    { title: 'Published Researcher', desc: 'IJIES Journal', date: 'Apr 2024', color: '#3fb950' },
+    { title: '1st Place - Tech Horizon Hackathon', desc: '80+ teams', date: 'Mar 2025', color: '#d29922', link: 'https://drive.google.com/file/d/19EXpm1wVqM35qLiHvbcFzmwwwEiFSr_4/view?usp=drive_link' },
+    { title: 'Published Researcher', desc: 'IJIES Journal', date: 'Apr 2024', color: '#3fb950', link: 'https://ijies.net/finial-docs/finial-pdf/220424918.pdf' },
   ]
 
   const certifications = [
-    { name: 'Data Science Job Simulation', org: 'BCG', date: 'Jan 2025' },
-    { name: 'Developer & Tech Simulation', org: 'Accenture', date: 'Jan 2025' },
-    { name: 'Cloud Computing on AWS', org: 'Udemy', date: 'Jul 2024' },
-    { name: 'Java Training', org: 'IIT Bombay', date: 'Mar 2024' },
-    { name: 'Intro to ML', org: 'Infosys', date: 'Nov 2022' },
+    { name: 'Data Science Job Simulation', org: 'BCG (Forage)', date: 'Jan 2025', link: 'https://drive.google.com/file/d/1gpK6qqplU6bqYPZBVsR0iIuJwvS9_HoX/view?usp=drive_link' },
+    { name: 'Developer & Technology Simulation', org: 'Accenture UK (Forage)', date: 'Jan 2025', link: 'https://drive.google.com/file/d/1pOHKmObTLFRdyLv6xlPkTdhbIK2NTT4Y/view?usp=drive_link' },
+    { name: 'Cloud Computing on AWS', org: 'Udemy', date: 'Jul 2024', link: 'https://drive.google.com/file/d/1ax32PpCzf4mP2hFectfl5lubdnKU5FV6/view?usp=drive_link' },
+    { name: 'The World of Computer Networking', org: 'Udemy', date: 'Jun 2024', link: 'https://drive.google.com/file/d/1yzSMpeOIgKBUel5RJ9TANkUIbMajd_FE/view?usp=drive_link' },
+    { name: 'Java Training', org: 'IIT Bombay', date: 'Mar 2024', link: 'https://drive.google.com/file/d/1i7k6dmtUvIENZHQk_xJkmoKe2Lyhjnpv/view?usp=drive_link' },
+    { name: 'Arduino Course', org: 'Robo-Tech-X', date: 'Aug 2023', link: 'https://drive.google.com/file/d/1DsDhr7ArZC82L7uLxHtBjRuT8j6TQRR5/view?usp=sharing' },
   ]
 
   const projects = [
@@ -143,17 +156,31 @@ const Hero = () => {
       title: 'Lex Simulacra',
       subtitle: 'AI Legal Courtroom Simulator',
       category: 'AI',
-      stats: '99% accuracy',
+      stats: '8 AI Agents',
+      description: 'Multi-agent legal simulation with LangGraph for realistic trial proceedings.',
       tech: ['LangChain', 'FastAPI', 'ChromaDB'],
       gradient: 'linear-gradient(135deg, #58a6ff 0%, #3fb950 100%)',
+      github: 'https://github.com/prasad-gade05/Law_Courtroom_Simulator',
     },
     {
       title: 'Intrusion Detection',
-      subtitle: 'ML/DL Comparative Analysis',
+      subtitle: 'TII-SSRC-23 Analysis',
       category: 'ML',
-      stats: '99.99% recall',
+      stats: '100% recall',
+      description: 'Compared 6 ML/DL models on 8.6M samples. Tree models outperformed.',
       tech: ['XGBoost', 'PyTorch', 'SHAP'],
       gradient: 'linear-gradient(135deg, #3fb950 0%, #58a6ff 100%)',
+      github: 'https://github.com/prasad-gade05/IDS_on_TII-SSRC-23',
+    },
+    {
+      title: 'Celestial Classifier',
+      subtitle: 'SDSS Dataset Analysis',
+      category: 'ML',
+      stats: '4 ML Models',
+      description: 'Classification of celestial objects from Sloan Digital Sky Survey dataset.',
+      tech: ['Keras', 'Scikit-learn'],
+      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
+      github: 'https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset',
     },
     {
       title: 'KindHearts',
@@ -161,32 +188,54 @@ const Hero = () => {
       category: 'Web',
       badge: '1st Place',
       stats: '80+ teams',
+      description: 'Multi-role donation platform with crypto payments and real-time tracking.',
       tech: ['React', 'TypeScript', 'MongoDB'],
       gradient: 'linear-gradient(135deg, #d29922 0%, #f59e0b 100%)',
-    },
-    {
-      title: 'Celestial Classifier',
-      subtitle: 'SDSS Dataset Analysis',
-      category: 'ML',
-      stats: '99.07% accuracy',
-      tech: ['Keras', 'Scikit-learn'],
-      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
-    },
-    {
-      title: 'NutriSnap',
-      subtitle: 'AI Nutrition Tracker',
-      category: 'AI',
-      stats: '95% accuracy',
-      tech: ['Flask', 'Gemini API', 'OpenCV'],
-      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      github: 'https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform',
     },
     {
       title: 'Audio Visualizer',
       subtitle: 'Real-Time Music Viz',
       category: 'Web',
-      stats: '1000+ visitors',
+      stats: '3D Globe',
+      description: 'Audio visualization with file upload, system capture, and 3D globe mode.',
       tech: ['TypeScript', 'Web Audio', 'Canvas'],
       gradient: 'linear-gradient(135deg, #f85149 0%, #ff7b72 100%)',
+      github: 'https://github.com/prasad-gade05/audio_visualizer_app',
+      demo: 'https://prasad-gade05.github.io/audio_visualizer_app/',
+    },
+    {
+      title: 'Attendance Tracker',
+      subtitle: 'Smart Schedule & Attendance',
+      category: 'Web',
+      stats: 'Offline Ready',
+      description: 'Attendance simulation to calculate required classes with goal tracking.',
+      tech: ['React', 'TypeScript', 'Dexie.js'],
+      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
+      github: 'https://github.com/prasad-gade05/attendance',
+      demo: 'https://prasad-gade05.github.io/attendance/',
+    },
+    {
+      title: 'Habit Tracker',
+      subtitle: 'Privacy-First Tracking',
+      category: 'Web',
+      stats: 'Local Storage',
+      description: 'Client-side habit tracking with GitHub-style contribution charts.',
+      tech: ['React 19', 'Zustand', 'Dexie.js'],
+      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      github: 'https://github.com/prasad-gade05/Habit-Tracker',
+      demo: 'https://prasad-gade05.github.io/Habit-Tracker/',
+    },
+    {
+      title: 'NutriSnap',
+      subtitle: 'AI Nutrition Tracker',
+      category: 'AI',
+      stats: 'Image Analysis',
+      description: 'Nutrition tracking using Gemini API for food image analysis.',
+      tech: ['React', 'Gemini API'],
+      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      github: 'https://github.com/prasad-gade05/nutrition_tracker',
+      demo: 'https://prasadsnutritiontracker.netlify.app/',
     },
   ]
 
@@ -197,7 +246,36 @@ const Hero = () => {
     { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'achievements', label: 'Achievements', icon: Trophy },
     { id: 'certifications', label: 'Certs', icon: Award },
+    { id: 'volunteering', label: 'Volunteer', icon: Heart },
+    { id: 'hobbies', label: 'Hobbies', icon: Music },
   ]
+
+  const volunteering = [
+    {
+      title: 'Teaching Assistant',
+      organization: "Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology",
+      location: 'Munshi Nagar, Andheri, Mumbai',
+      date: '2025',
+      certificateLink: 'https://drive.google.com/file/d/1JnA6WtIeWsKkc0x4YsTQ95hjl5PNQwgh/view?usp=sharing',
+    },
+    {
+      title: 'General Secretary - Students Council',
+      organization: 'K. K. Wagh Polytechnic',
+      location: 'Nashik',
+      date: '2023 - 2024',
+      certificateLink: null,
+    },
+  ]
+
+  const hobbies = {
+    hobby: 'Playing and watching cricket',
+    book: 'How to Win Friends and Influence People by Dale Carnegie',
+    songs: [
+      { name: 'Take Me Home, Country Roads', link: 'https://open.spotify.com/track/1YYhDizHx7PnDhAhko6cDS?si=b5b58f4e8aa2480e' },
+      { name: 'Main Zindagi Ka Saath Nibhata Chala Gaya - Mohammed Rafi', link: 'https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN?si=59e59c8d6f1747a6' },
+    ],
+    series: ['Squid Games', 'Money Heist'],
+  }
 
   return (
     <section className="hero">
@@ -226,15 +304,30 @@ const Hero = () => {
             
             <div className="role-typing">
               <TypeAnimation
-                sequence={['Data Scientist', 2000, 'ML Engineer', 2000, 'Data Storyteller', 2000]}
+                sequence={['Data Scientist', 2000, 'ML Engineer', 2000, 'Computer Engineer', 2000, 'Data Analyst', 2000, 'Data Science & Business Intelligence', 2000, 'Cross Platform Application Developer', 2000]}
                 wrapper="span"
                 repeat={Infinity}
               />
             </div>
 
             <p className="bio">
-              B.Tech CE @ SPIT · Minor @ SPJIMR · Former Gen Sec · Transforming data into insights
+              B.Tech CE @ SPIT · Minor @ SPJIMR · Transforming data into insights
             </p>
+
+            <p className="top-skills">
+              <strong>Top Skills:</strong> Data Analytics • Data Science • Machine Learning • Web Applications • Android Development
+            </p>
+
+            <a 
+              href="https://drive.google.com/file/d/134zdT9FaQX6siuHMxnICxBqZrK_R3YXV/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="resume-btn"
+            >
+              <FileText size={14} />
+              View Resume
+              <ExternalLink size={12} />
+            </a>
           </motion.div>
 
           {/* Code Card - Middle */}
@@ -362,10 +455,25 @@ const Hero = () => {
                           </div>
                           <h3 className="project-title">{project.title}</h3>
                           <p className="project-subtitle">{project.subtitle}</p>
+                          {project.description && (
+                            <p className="project-desc">{project.description}</p>
+                          )}
                           <div className="project-tech">
                             {project.tech.map((t, j) => (
                               <span key={j} className="tech-tag">{t}</span>
                             ))}
+                          </div>
+                          <div className="project-card-links">
+                            {project.github && (
+                              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-card-link">
+                                <FaGithub size={12} />
+                              </a>
+                            )}
+                            {project.demo && (
+                              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-card-link demo">
+                                <ExternalLink size={12} />
+                              </a>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -441,6 +549,17 @@ const Hero = () => {
                         <span key={i} className="exp-tag">{tag}</span>
                       ))}
                     </div>
+                    {experience.certificateLink && (
+                      <a 
+                        href={experience.certificateLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="exp-cert-link"
+                      >
+                        <ExternalLink size={12} />
+                        View Certificate
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               )}
@@ -488,6 +607,12 @@ const Hero = () => {
                         <div className="achieve-content">
                           <h3>{ach.title}</h3>
                           <p>{ach.desc}</p>
+                          {ach.link && (
+                            <a href={ach.link} target="_blank" rel="noopener noreferrer" className="achieve-link">
+                              <ExternalLink size={10} />
+                              View Certificate
+                            </a>
+                          )}
                         </div>
                         <span className="achieve-date">{ach.date}</span>
                       </div>
@@ -513,9 +638,92 @@ const Hero = () => {
                           <span className="cert-name">{cert.name}</span>
                           <span className="cert-org">{cert.org}</span>
                         </div>
-                        <span className="cert-date">{cert.date}</span>
+                        <div className="cert-actions">
+                          <span className="cert-date">{cert.date}</span>
+                          {cert.link && (
+                            <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">
+                              <ExternalLink size={10} />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {activeTab === 'volunteering' && (
+                <motion.div 
+                  key="volunteering"
+                  className="tab-pane volunteering-pane"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <div className="volunteer-list">
+                    {volunteering.map((vol, i) => (
+                      <div key={i} className="volunteer-item">
+                        <div className="volunteer-icon">
+                          <Heart size={18} />
+                        </div>
+                        <div className="volunteer-content">
+                          <h3>{vol.title}</h3>
+                          <p className="volunteer-org">{vol.organization}</p>
+                          <p className="volunteer-location">{vol.location}</p>
+                          <div className="volunteer-meta">
+                            <span className="volunteer-date">{vol.date}</span>
+                            {vol.certificateLink && (
+                              <a href={vol.certificateLink} target="_blank" rel="noopener noreferrer" className="volunteer-cert-link">
+                                <ExternalLink size={10} />
+                                View Certificate
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {activeTab === 'hobbies' && (
+                <motion.div 
+                  key="hobbies"
+                  className="tab-pane hobbies-pane"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <div className="hobbies-content">
+                    <div className="hobby-item">
+                      <span className="hobby-label">🏏 Favourite Hobby</span>
+                      <span className="hobby-value">{hobbies.hobby}</span>
+                    </div>
+                    <div className="hobby-item">
+                      <span className="hobby-label">📚 Current Book</span>
+                      <span className="hobby-value">{hobbies.book}</span>
+                    </div>
+                    <div className="hobby-item">
+                      <span className="hobby-label">🎵 Recent Fav Songs</span>
+                      <div className="hobby-songs">
+                        {hobbies.songs.map((song, i) => (
+                          <a key={i} href={song.link} target="_blank" rel="noopener noreferrer" className="song-link">
+                            <FaSpotify size={12} />
+                            {song.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="hobby-item">
+                      <span className="hobby-label">📺 Fav Series</span>
+                      <div className="hobby-series">
+                        {hobbies.series.map((series, i) => (
+                          <span key={i} className="series-tag">{series}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}

@@ -25,87 +25,130 @@ const Projects = () => {
       subtitle: 'AI-Powered Legal Courtroom Simulator',
       category: 'ai',
       featured: false,
-      description: '8-agent multi-role legal simulation achieving 99% citation accuracy with advanced RAG pipeline processing 100K+ legal documents.',
+      description: 'AI-powered legal courtroom simulator using multi-agent orchestration with LangGraph. Simulates realistic trial proceedings with defense lawyers, prosecutors, and judges using advanced RAG for accurate legal reasoning.',
       stats: [
-        { value: '99%', label: 'Accuracy' },
-        { value: '75%', label: 'Time Saved' },
-        { value: '3.2×', label: 'Relevance' },
+        { value: '99%', label: 'Citation Accuracy' },
+        { value: '8', label: 'AI Agents' },
       ],
-      tech: ['LangChain', 'LangGraph', 'FastAPI', 'ChromaDB', 'Streamlit'],
+      tech: ['LangChain', 'LangGraph', 'FastAPI', 'ChromaDB', 'Streamlit', 'Ollama'],
       date: 'Nov 2025',
       gradient: 'linear-gradient(135deg, #58a6ff 0%, #3fb950 100%)',
+      github: 'https://github.com/prasad-gade05/Law_Courtroom_Simulator',
+      demo: null,
     },
     {
       title: 'Intrusion Detection System',
-      subtitle: 'ML/DL Comparative Analysis',
+      subtitle: 'TII-SSRC-23 Dataset Analysis',
       category: 'ml',
       featured: false,
-      description: 'Compared 6 models on 8.6M samples achieving 99.99% recall and 100% precision. Tree models outperformed with 12.8× speed advantage.',
+      description: 'Comprehensive ML study comparing 6 ML/DL models on 8.6M network traffic samples. Decision Tree achieved 100% recall with complete interpretability, outperforming complex deep learning architectures.',
       stats: [
-        { value: '99.99%', label: 'Recall' },
+        { value: '100%', label: 'Recall' },
         { value: '8.6M', label: 'Samples' },
-        { value: '12.8×', label: 'Faster' },
+        { value: '12.8×', label: 'Speed Advantage' },
       ],
-      tech: ['XGBoost', 'PyTorch', 'SHAP', 'Scikit-learn'],
+      tech: ['XGBoost', 'PyTorch', 'TensorFlow', 'SHAP', 'Scikit-learn'],
       date: 'Oct 2025',
       gradient: 'linear-gradient(135deg, #3fb950 0%, #58a6ff 100%)',
-    },
-    {
-      title: 'KindHearts',
-      subtitle: 'Multi-Role Donation Platform',
-      category: 'web',
-      featured: true,
-      badge: 'Hackathon Winner',
-      description: 'Won 1st place among 80+ teams. Built transparent donation ecosystem with smart request tracking and LLM-driven matchmaking.',
-      stats: [
-        { value: '60%', label: 'Faster Processing' },
-        { value: '45%', label: 'More Engagement' },
-      ],
-      tech: ['React', 'TypeScript', 'MongoDB', 'Tailwind'],
-      date: 'Mar 2025',
-      gradient: 'linear-gradient(135deg, #d29922 0%, #f59e0b 100%)',
+      github: 'https://github.com/prasad-gade05/IDS_on_TII-SSRC-23',
+      demo: null,
     },
     {
       title: 'Celestial Object Classifier',
       subtitle: 'SDSS Dataset Analysis',
       category: 'ml',
       featured: false,
-      description: 'Classified 10,000 celestial objects (stars, galaxies, quasars) with 99.07% accuracy using Neural Networks optimized via Keras Tuner.',
+      description: 'Classification of celestial objects from Sloan Digital Sky Survey (SDSS) dataset. Trained KNN, Decision Tree, Neural Network, and Random Forest models with saved models for inference.',
       stats: [
-        { value: '99.07%', label: 'Accuracy' },
-        { value: '10K', label: 'Objects' },
+        { value: '4', label: 'ML Models' },
+        { value: 'SDSS', label: 'Dataset' },
       ],
-      tech: ['Keras', 'Keras Tuner', 'Scikit-learn', 'Pandas'],
+      tech: ['Keras', 'Scikit-learn', 'Pandas', 'NumPy', 'Jupyter'],
       date: 'Nov 2024',
       gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
+      github: 'https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset',
+      demo: null,
     },
     {
-      title: 'NutriSnap',
-      subtitle: 'AI Nutrition Tracker',
-      category: 'ai',
-      featured: false,
-      description: 'Nutrition tracking app using Gemini API for food image analysis with 95% accurate nutrient estimates and interactive dashboards.',
+      title: 'KindHearts',
+      subtitle: 'Multi-Role Donation Management Platform',
+      category: 'web',
+      featured: true,
+      badge: 'Hackathon Winner',
+      description: 'Won 1st place among 80+ teams. Comprehensive donation platform connecting donors, institutes, and shopkeepers. Features real-time tracking, crypto payments via MetaMask, and Kanban-style order management.',
       stats: [
-        { value: '95%', label: 'Accuracy' },
-        { value: '85%', label: 'Faster Logging' },
+        { value: '60%', label: 'Faster Processing' },
+        { value: '45%', label: 'More Engagement' },
       ],
-      tech: ['Flask', 'Gemini API', 'OpenCV', 'SQLite'],
-      date: 'Aug 2025',
-      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      tech: ['React', 'TypeScript', 'MongoDB', 'Node.js', 'MetaMask', 'Redux'],
+      date: 'Feb 2025',
+      gradient: 'linear-gradient(135deg, #d29922 0%, #f59e0b 100%)',
+      github: 'https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform',
+      demo: null,
     },
     {
       title: 'Audio Visualizer',
       subtitle: 'Real-Time Music Visualization',
       category: 'web',
       featured: false,
-      description: 'Interactive audio visualization with multiple dynamic modes. Reached 1000+ unique visitors within the first month.',
+      description: 'Web-based audio visualization tool with file upload and system audio capture. Features multiple visualization modes including a 3D audio globe with modern shadcn/ui components.',
       stats: [
-        { value: '1000+', label: 'Visitors' },
-        { value: '55%', label: 'Engagement' },
+        { value: '3D', label: 'Globe Viz' },
+        { value: 'Multi', label: 'Modes' },
       ],
-      tech: ['TypeScript', 'Web Audio API', 'Canvas', 'shadcn/ui'],
+      tech: ['React', 'TypeScript', 'Vite', 'Web Audio API', 'Canvas', 'shadcn/ui'],
       date: 'Aug 2025',
       gradient: 'linear-gradient(135deg, #f85149 0%, #ff7b72 100%)',
+      github: 'https://github.com/prasad-gade05/audio_visualizer_app',
+      demo: 'https://prasad-gade05.github.io/audio_visualizer_app/',
+    },
+    {
+      title: 'Smart Schedule & Attendance',
+      subtitle: 'Intelligent Attendance Management',
+      category: 'web',
+      featured: false,
+      description: 'Modern application for managing academic schedules and attendance. Features attendance simulation to calculate required classes, historical data import, dynamic scheduling with extra classes and special dates.',
+      stats: [
+        { value: '75%', label: 'Goal Tracking' },
+        { value: 'Offline', label: 'Ready' },
+      ],
+      tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Dexie.js', 'IndexedDB'],
+      date: 'Oct 2025',
+      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
+      github: 'https://github.com/prasad-gade05/attendance',
+      demo: 'https://prasad-gade05.github.io/attendance/',
+    },
+    {
+      title: 'Habit Tracker',
+      subtitle: 'Privacy-First Habit Tracking',
+      category: 'web',
+      featured: false,
+      description: 'Privacy-first, client-side habit tracking application. Features GitHub-style contribution charts, detailed analytics, streak tracking, and data export. All data stored locally in IndexedDB.',
+      stats: [
+        { value: 'Private', label: 'Local Storage' },
+        { value: 'Streaks', label: 'Tracking' },
+      ],
+      tech: ['React 19', 'TypeScript', 'Vite', 'Zustand', 'Dexie.js', 'Recharts'],
+      date: 'Sep 2025',
+      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      github: 'https://github.com/prasad-gade05/Habit-Tracker',
+      demo: 'https://prasad-gade05.github.io/Habit-Tracker/',
+    },
+    {
+      title: 'NutriSnap',
+      subtitle: 'AI-Powered Meal Journal',
+      category: 'ai',
+      featured: false,
+      description: 'Intelligent nutrition tracking app using Google Gemini API for food image analysis. Provides detailed nutritional breakdown from photos or text descriptions without manual database lookups.',
+      stats: [
+        { value: '📷', label: 'Image Analysis' },
+        { value: 'Private', label: 'Local Data' },
+      ],
+      tech: ['React', 'Vite', 'Gemini API', 'Local Storage', 'CSS'],
+      date: 'Aug 2025',
+      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
+      github: 'https://github.com/prasad-gade05/nutrition_tracker',
+      demo: 'https://prasadsnutritiontracker.netlify.app/',
     },
   ]
 
@@ -196,6 +239,31 @@ const Projects = () => {
                     {project.tech.map((tech, i) => (
                       <span key={i} className="tech-tag">{tech}</span>
                     ))}
+                  </div>
+
+                  <div className="project-links">
+                    {project.github && (
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="project-link github-link"
+                      >
+                        <Github size={14} />
+                        View Code
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a 
+                        href={project.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="project-link demo-link"
+                      >
+                        <ExternalLink size={14} />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>

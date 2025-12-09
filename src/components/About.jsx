@@ -51,9 +51,8 @@ const About = () => {
           </p>
           
           <p>
-            When I'm not training models or analyzing datasets, you'll find me leading teams 
-            as a <span className="highlight">former General Secretary</span> of the Student 
-            Council, organizing events, and contributing to open-source projects.
+            When I'm not training models or analyzing datasets, you'll find me collaborating 
+            with teams, organizing events, and contributing to open-source projects.
           </p>
 
           <div className="about-highlights">
