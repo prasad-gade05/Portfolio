@@ -36,7 +36,13 @@
   height: 100%;
   min-height: 0;
   max-height: 100%;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.hero-left::-webkit-scrollbar {
+  display: none;
 }
 
 /* Info Section - Top */
@@ -48,9 +54,7 @@
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  flex: 0 0 auto;
-  min-height: 0;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .info-header {
@@ -221,8 +225,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   overflow: hidden;
-  flex: 0 1 auto;
-  min-height: 0;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
@@ -327,11 +330,9 @@
 
 /* Social Section - IMPROVED DESIGN */
 .social-section {
-  flex: 1 1 auto;
-  min-height: 0;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .social-cards-grid {
@@ -339,10 +340,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: clamp(6px, 0.8vmin, 10px);
-  flex: 1;
-  align-content: stretch;
-  min-height: 0;
-  overflow: hidden;
 }
 
 /* Modern Social Cards */
@@ -640,14 +637,19 @@
 
 .projects-pane {
   gap: clamp(10px, 1.4vmin, 16px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.projects-pane::-webkit-scrollbar {
+  display: none;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: clamp(10px, 1.4vmin, 16px);
-  flex: 1;
-  min-height: 0;
 }
 
 .project-card {
@@ -838,15 +840,19 @@
 
 .skills-pane {
   gap: clamp(10px, 1.2vmin, 14px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.skills-pane::-webkit-scrollbar {
+  display: none;
 }
 
 .skills-compact {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: clamp(10px, 1.4vmin, 16px);
-  flex: 1;
-  min-height: 0;
 }
 
 .skill-group {
@@ -857,8 +863,6 @@
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
-  min-height: 0;
-  overflow: hidden;
 }
 
 .skill-category {
@@ -874,9 +878,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(6px, 0.7vmin, 8px);
-  flex: 1;
-  align-content: flex-start;
-  overflow: hidden;
 }
 
 .skill-chip {
