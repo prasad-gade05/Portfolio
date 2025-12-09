@@ -659,34 +659,32 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 0;
 }
 
 .project-card:hover {
   border-color: var(--accent-cyan);
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(88, 166, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(13, 185, 129, 0.15);
 }
 
 .project-badge {
   position: absolute;
-  top: clamp(6px, 0.8vmin, 10px);
-  right: clamp(6px, 0.8vmin, 10px);
-  padding: clamp(3px, 0.4vmin, 4px) clamp(8px, 1vmin, 12px);
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
   background: linear-gradient(135deg, #d29922, #f59e0b);
   color: #000;
-  font-size: clamp(9px, 1.1vmin, 11px);
+  font-size: 10px;
   font-weight: 700;
   border-radius: 4px;
   z-index: 10;
 }
 
 .project-header {
-  height: clamp(40px, 5vmin, 60px);
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.9;
   flex-shrink: 0;
   background: #1a1a1a;
 }
@@ -694,94 +692,90 @@
 .project-header svg {
   color: var(--accent-cyan);
   opacity: 0.8;
-  width: clamp(18px, 2.2vmin, 26px);
-  height: clamp(18px, 2.2vmin, 26px);
+  width: 22px;
+  height: 22px;
 }
 
 .project-body {
-  padding: clamp(10px, 1.2vmin, 14px) clamp(12px, 1.4vmin, 16px);
+  padding: 12px 14px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  justify-content: space-between;
 }
 
 .project-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: clamp(6px, 0.8vmin, 10px);
+  margin-bottom: 8px;
 }
 
 .project-cat {
-  font-size: clamp(10px, 1.2vmin, 12px);
+  font-size: 11px;
   font-family: var(--font-mono);
   color: var(--accent-cyan);
   font-weight: 500;
 }
 
 .project-stats {
-  font-size: clamp(10px, 1.2vmin, 12px);
+  font-size: 11px;
   font-family: var(--font-mono);
   color: var(--accent-green);
   font-weight: 500;
 }
 
 .project-title {
-  font-size: clamp(14px, 1.8vmin, 18px);
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: clamp(4px, 0.5vmin, 6px);
+  margin-bottom: 4px;
 }
 
 .project-subtitle {
-  font-size: clamp(11px, 1.3vmin, 13px);
+  font-size: 12px;
   color: var(--text-muted);
-  margin-bottom: clamp(6px, 0.7vmin, 8px);
+  margin-bottom: 8px;
 }
 
 .project-desc {
-  font-size: clamp(10px, 1.2vmin, 12px);
+  font-size: 11px;
   color: var(--text-secondary);
-  line-height: 1.4;
-  margin-bottom: clamp(8px, 1vmin, 12px);
+  line-height: 1.5;
+  margin-bottom: 10px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex: 1;
 }
 
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(4px, 0.5vmin, 6px);
-  margin-bottom: clamp(8px, 1vmin, 12px);
+  gap: 5px;
+  margin-bottom: 10px;
 }
 
 .tech-tag {
-  padding: clamp(3px, 0.4vmin, 5px) clamp(8px, 1vmin, 10px);
-  background: rgba(88, 166, 255, 0.12);
+  padding: 4px 8px;
+  background: rgba(13, 185, 129, 0.12);
   border-radius: 4px;
-  font-size: clamp(9px, 1.1vmin, 11px);
+  font-size: 10px;
   font-family: var(--font-mono);
   color: var(--text-muted);
 }
 
 .project-card-links {
   display: flex;
-  gap: 6px;
-  margin-top: 0;
-  padding-top: 0;
+  gap: 8px;
+  margin-top: auto;
 }
 
 .project-card-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(24px, 2.8vmin, 32px);
-  height: clamp(24px, 2.8vmin, 32px);
+  width: 28px;
+  height: 28px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
@@ -790,18 +784,23 @@
   text-decoration: none;
 }
 
+.project-card-link svg {
+  width: 14px;
+  height: 14px;
+}
+
 .project-card-link:hover {
-  background: rgba(88, 166, 255, 0.15);
+  background: rgba(13, 185, 129, 0.15);
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
 }
 
 .project-card-link.demo {
-  background: rgba(63, 185, 80, 0.08);
+  background: rgba(0, 188, 125, 0.08);
 }
 
 .project-card-link.demo:hover {
-  background: rgba(63, 185, 80, 0.2);
+  background: rgba(0, 188, 125, 0.2);
   border-color: var(--accent-green);
   color: var(--accent-green);
 }
@@ -809,9 +808,9 @@
 .view-all-btn {
   display: inline-flex;
   align-items: center;
-  gap: clamp(6px, 0.8vmin, 10px);
+  gap: 8px;
   margin-top: auto;
-  padding: clamp(8px, 1vmin, 12px) clamp(14px, 1.6vmin, 20px);
+  padding: 10px 16px;
   background: transparent;
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
@@ -1671,372 +1670,14 @@
   font-style: italic;
 }
 
-/* Mobile landscape / small tablet */
-@media (max-width: 640px) {
-  .hero {
-    padding: clamp(6px, 1vmin, 10px);
-  }
-  
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet screens */
+@media (max-width: 900px) {
   .hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    gap: clamp(6px, 1vmin, 10px);
-  }
-  
-  .hero-left {
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-height: 38vh;
-    min-height: 0;
-    gap: clamp(4px, 0.6vmin, 8px);
-  }
-  
-  .info-section {
-    flex: 1 1 45%;
-    min-width: 140px;
-    padding: clamp(8px, 1.2vmin, 12px);
-  }
-  
-  .code-card {
-    flex: 1 1 45%;
-    min-width: 140px;
-  }
-  
-  .social-section {
-    flex: 1 1 100%;
-  }
-  
-  .social-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: clamp(4px, 0.5vmin, 6px);
-  }
-  
-  .social-card-fun {
-    padding: clamp(6px, 0.8vmin, 10px);
-  }
-  
-  .social-icon-wrap {
-    width: clamp(26px, 3vmin, 34px);
-    height: clamp(26px, 3vmin, 34px);
-  }
-  
-  .social-icon {
-    width: clamp(14px, 1.8vmin, 18px);
-    height: clamp(14px, 1.8vmin, 18px);
-  }
-  
-  .social-platform {
-    font-size: clamp(9px, 1.1vmin, 11px);
-  }
-  
-  .social-handle {
-    display: none;
-  }
-  
-  .tab-btn span {
-    display: none;
-  }
-  
-  .tab-btn {
-    padding: clamp(8px, 1.2vmin, 12px) clamp(10px, 1.4vmin, 14px);
-  }
-  
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .skills-compact {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .certs-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hobbies-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .name {
-    font-size: clamp(20px, 4vmin, 28px);
-  }
-  
-  .role-typing {
-    font-size: clamp(12px, 1.8vmin, 16px);
-    min-height: clamp(16px, 2.2vmin, 20px);
-  }
-  
-  .bio-tags {
-    gap: clamp(4px, 0.6vmin, 6px);
-  }
-  
-  .bio-tag {
-    padding: clamp(3px, 0.4vmin, 5px) clamp(6px, 0.8vmin, 10px);
-    font-size: clamp(8px, 1vmin, 10px);
-  }
-  
-  .skills-section {
-    display: none;
-  }
-}
-
-/* Very small screens / mobile portrait */
-@media (max-width: 480px) {
-  .hero {
-    padding: clamp(4px, 0.8vmin, 8px);
-  }
-  
-  .hero-left {
-    max-height: 35vh;
-  }
-  
-  .code-card {
-    display: none;
-  }
-  
-  .info-section {
-    flex: 0 0 auto;
-  }
-  
-  .social-section {
-    flex: 1 1 auto;
-  }
-  
-  .social-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: clamp(3px, 0.4vmin, 5px);
-  }
-  
-  .social-card-fun {
-    padding: clamp(5px, 0.6vmin, 8px);
-  }
-  
-  .social-icon-wrap {
-    width: clamp(22px, 2.6vmin, 30px);
-    height: clamp(22px, 2.6vmin, 30px);
-  }
-  
-  .social-icon {
-    width: clamp(12px, 1.5vmin, 16px);
-    height: clamp(12px, 1.5vmin, 16px);
-  }
-  
-  .social-platform {
-    font-size: clamp(8px, 1vmin, 10px);
-  }
-  
-  .social-handle {
-    display: none;
-  }
-  
-  .projects-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(6px, 0.8vmin, 10px);
-  }
-  
-  .project-card {
-    min-height: 0;
-  }
-  
-  .project-header {
-    height: clamp(30px, 4vmin, 45px);
-  }
-  
-  .project-body {
-    padding: clamp(8px, 1vmin, 12px);
-  }
-  
-  .project-title {
-    font-size: clamp(12px, 1.4vmin, 14px);
-  }
-  
-  .project-subtitle, .project-desc {
-    font-size: clamp(9px, 1.1vmin, 11px);
-  }
-  
-  .project-tech {
-    display: none;
-  }
-  
-  .skills-compact {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  
-  .skill-group {
-    padding: clamp(8px, 1vmin, 12px);
-  }
-  
-  .skill-category {
-    font-size: clamp(10px, 1.2vmin, 12px);
-  }
-  
-  .skill-chip {
-    font-size: clamp(9px, 1.1vmin, 11px);
-    padding: clamp(3px, 0.4vmin, 5px) clamp(6px, 0.8vmin, 10px);
-  }
-  
-  .hobbies-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(6px, 0.8vmin, 10px);
-  }
-  
-  .hobby-card {
-    padding: clamp(10px, 1.2vmin, 14px);
-  }
-  
-  .hobby-card-header h4 {
-    font-size: clamp(10px, 1.2vmin, 12px);
-  }
-  
-  .hobby-activity-item {
-    padding: clamp(6px, 0.8vmin, 10px);
-    font-size: clamp(11px, 1.3vmin, 13px);
-  }
-  
-  .book-title {
-    font-size: clamp(11px, 1.3vmin, 13px);
-  }
-  
-  .book-author {
-    font-size: clamp(9px, 1.1vmin, 11px);
-  }
-  
-  .series-tag {
-    padding: clamp(6px, 0.8vmin, 10px) clamp(10px, 1.2vmin, 14px);
-    font-size: clamp(10px, 1.2vmin, 12px);
-  }
-  
-  .song-link {
-    padding: clamp(4px, 0.6vmin, 8px) clamp(8px, 1vmin, 12px);
-    font-size: clamp(9px, 1.1vmin, 11px);
-  }
-  
-  .tabs-content {
-    padding: clamp(8px, 1.2vmin, 14px);
-  }
-  
-  .pane-header {
-    font-size: clamp(11px, 1.4vmin, 14px);
-    margin-bottom: clamp(6px, 1vmin, 10px);
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 360px) {
-  .hero-left {
-    max-height: 28vh;
-  }
-  
-  .social-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .social-icon-wrap {
-    width: clamp(20px, 2.5vmin, 28px);
-    height: clamp(20px, 2.5vmin, 28px);
-  }
-  
-  .social-platform {
-    display: none;
-  }
-  
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hobbies-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .name {
-    font-size: clamp(18px, 3.5vmin, 24px);
-  }
-}
-
-/* Very short screens (landscape mobile) */
-@media (max-height: 500px) {
-  .hero-grid {
-    grid-template-columns: minmax(200px, 280px) 1fr;
-    grid-template-rows: 1fr;
-  }
-  
-  .hero-left {
-    flex-direction: column;
-    max-height: none;
-    height: 100%;
-  }
-  
-  .info-section {
-    flex: 0 0 auto;
-    max-height: 40%;
-  }
-  
-  .code-card {
-    flex: 1;
-    min-height: 0;
-  }
-  
-  .social-section {
-    flex: 0 0 auto;
-    max-height: 25%;
-  }
-  
-  .social-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-  }
-  
-  .social-handle, .social-stat {
-    display: none;
-  }
-  
-  .name {
-    font-size: clamp(18px, 3vmin, 28px);
-  }
-  
-  .role-typing {
-    font-size: clamp(11px, 1.6vmin, 16px);
-  }
-  
-  .bio-section, .skills-section {
-    display: none;
-  }
-}
-
-/* Medium height screens */
-@media (max-height: 700px) and (min-height: 501px) {
-  .hero-left {
-    gap: clamp(6px, 1vmin, 10px);
-  }
-  
-  .info-section {
-    padding: clamp(10px, 1.4vmin, 16px);
-  }
-  
-  .name {
-    font-size: clamp(22px, 4vmin, 36px);
-  }
-  
-  .bio-section {
-    display: none;
-  }
-  
-  .code-card {
-    flex: 0.8;
-  }
-  
-  .social-section {
-    flex: 0.5;
-  }
-}
-
-/* Tablet portrait */
-@media (min-width: 641px) and (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: minmax(280px, 340px) 1fr;
+    grid-template-columns: minmax(260px, 320px) 1fr;
   }
   
   .projects-grid {
@@ -2047,9 +1688,581 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .hero {
+    padding: 8px;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+  }
+  
+  .hero-left {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+    gap: 8px;
+  }
+  
+  .info-section {
+    flex: 0 0 auto;
+    padding: 12px;
+  }
+  
+  .code-card {
+    display: none;
+  }
+  
+  .social-section {
+    flex: 0 0 auto;
+  }
+  
+  .social-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .social-card-fun {
+    padding: 8px 6px;
+  }
+  
+  .social-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .social-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .social-platform {
+    font-size: 9px;
+  }
+  
+  .social-handle {
+    display: none;
+  }
+  
+  .name {
+    font-size: 28px;
+  }
+  
+  .role-typing {
+    font-size: 14px;
+    min-height: 18px;
+  }
+  
+  .bio-tag {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .skills-section {
+    display: none;
+  }
+  
+  .tab-btn span {
+    display: none;
+  }
+  
+  .tab-btn {
+    padding: 10px 12px;
+  }
+  
+  .tabs-content {
+    padding: 12px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .project-header {
+    height: 40px;
+  }
+  
+  .project-body {
+    padding: 10px;
+  }
+  
+  .project-title {
+    font-size: 13px;
+  }
+  
+  .project-subtitle {
+    font-size: 11px;
+  }
+  
+  .project-desc {
+    font-size: 10px;
+    -webkit-line-clamp: 2;
+  }
+  
+  .project-tech {
+    gap: 4px;
+  }
+  
+  .tech-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  
+  .skills-compact {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .skill-group {
+    padding: 10px;
+  }
+  
+  .skill-category {
+    font-size: 11px;
+  }
+  
+  .skill-chip {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
   
   .hobbies-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .hobby-card {
+    padding: 12px;
+  }
+  
+  .hobby-card-header h4 {
+    font-size: 12px;
+  }
+  
+  .hobby-activity-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .book-title {
+    font-size: 12px;
+  }
+  
+  .book-author {
+    font-size: 10px;
+  }
+  
+  .series-tag {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .song-link {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pane-header {
+    font-size: 13px;
+  }
+  
+  .edu-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .edu-meta {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .exp-card {
+    padding: 14px;
+  }
+  
+  .exp-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .achieve-item {
+    padding: 12px;
+  }
+  
+  .cert-item {
+    padding: 10px;
+  }
+  
+  .volunteer-item {
+    padding: 12px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .hero {
+    padding: 6px;
+  }
+  
+  .hero-grid {
+    gap: 6px;
+  }
+  
+  .hero-left {
+    gap: 6px;
+  }
+  
+  .info-section {
+    padding: 10px;
+  }
+  
+  .name {
+    font-size: 24px;
+  }
+  
+  .role-typing {
+    font-size: 12px;
+    min-height: 16px;
+  }
+  
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .location {
+    font-size: 10px;
+  }
+  
+  .bio-tags {
+    gap: 4px;
+  }
+  
+  .bio-tag {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  
+  .social-cards-grid {
+    gap: 4px;
+  }
+  
+  .social-card-fun {
+    padding: 6px 4px;
+  }
+  
+  .social-icon-wrap {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .social-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .social-platform {
+    font-size: 8px;
+  }
+  
+  .tabs-content {
+    padding: 10px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  
+  .project-header {
+    height: 35px;
+  }
+  
+  .project-body {
+    padding: 8px;
+  }
+  
+  .project-title {
+    font-size: 12px;
+  }
+  
+  .project-subtitle {
+    font-size: 10px;
+  }
+  
+  .project-desc {
+    display: none;
+  }
+  
+  .project-tech {
+    display: none;
+  }
+  
+  .project-card-links {
+    margin-top: 6px;
+  }
+  
+  .skills-compact {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .skill-group {
+    padding: 8px;
+  }
+  
+  .skill-category {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .skill-chip {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  
+  .skill-chip svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  
+  .hobby-card {
+    padding: 10px;
+  }
+  
+  .hobby-card-header {
+    margin-bottom: 8px;
+  }
+  
+  .hobby-card-header h4 {
+    font-size: 11px;
+  }
+  
+  .hobby-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .hobby-activity-item {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  
+  .hobby-activity-item svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .book-info {
+    padding: 8px;
+  }
+  
+  .book-title {
+    font-size: 11px;
+  }
+  
+  .book-author {
+    font-size: 9px;
+  }
+  
+  .series-tag {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .series-tag svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .song-link {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+  
+  .pane-header {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .edu-list {
+    gap: 8px;
+  }
+  
+  .edu-item {
+    padding: 10px;
+  }
+  
+  .edu-main h3 {
+    font-size: 12px;
+  }
+  
+  .edu-main p {
+    font-size: 10px;
+  }
+  
+  .edu-grade {
+    font-size: 11px;
+  }
+  
+  .exp-card {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .exp-header h3 {
+    font-size: 14px;
+  }
+  
+  .exp-company {
+    font-size: 12px;
+  }
+  
+  .exp-points li {
+    font-size: 11px;
+  }
+  
+  .exp-tag {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  
+  .achieve-list {
+    gap: 8px;
+  }
+  
+  .achieve-item {
+    padding: 10px 12px;
+  }
+  
+  .achieve-content h3 {
+    font-size: 12px;
+  }
+  
+  .achieve-content p {
+    font-size: 10px;
+  }
+  
+  .certs-grid {
+    gap: 6px;
+  }
+  
+  .cert-item {
+    padding: 8px 10px;
+  }
+  
+  .cert-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 9px;
+  }
+  
+  .cert-name {
+    font-size: 11px;
+  }
+  
+  .cert-org {
+    font-size: 9px;
+  }
+  
+  .volunteer-list {
+    gap: 8px;
+  }
+  
+  .volunteer-item {
+    padding: 10px;
+  }
+  
+  .volunteer-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .volunteer-content h3 {
+    font-size: 13px;
+  }
+  
+  .volunteer-org {
+    font-size: 11px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .name {
+    font-size: 20px;
+  }
+  
+  .role-typing {
+    font-size: 11px;
+  }
+  
+  .social-platform {
+    font-size: 7px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-grid {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .hero-left {
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .info-section {
+    flex: 0 0 auto;
+  }
+  
+  .code-card {
+    display: none;
+  }
+  
+  .social-section {
+    flex: 1 1 auto;
+  }
+  
+  .bio-section, .skills-section {
+    display: none;
+  }
+  
+  .name {
+    font-size: 20px;
+  }
+  
+  .role-typing {
+    font-size: 12px;
   }
 }
 
