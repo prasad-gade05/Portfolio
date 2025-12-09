@@ -1,7 +1,7 @@
 .loading-screen {
   position: fixed;
   inset: 0;
-  background: #0d1117;
+  background: #0c0c0c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +25,8 @@
   position: absolute;
   inset: 0;
   border: 2px solid transparent;
-  border-top-color: #58a6ff;
-  border-right-color: #3fb950;
+  border-top-color: #0db981;
+  border-right-color: #c27aff;
   border-radius: 50%;
 }
 

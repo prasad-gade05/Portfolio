@@ -3,11 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { 
   MapPin, Code, Briefcase, GraduationCap, Trophy, Award,
-  ExternalLink, Folder, BarChart2, Heart, Music, FileText, Gamepad2, Book, Tv, Headphones
+  ExternalLink, Folder, Heart, Music, FileText, Gamepad2, Book, Tv, Headphones,
+  Brain, Shield, Star, Globe, Rocket, Zap, Database, BarChart3
 } from 'lucide-react'
 import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard, FaPython, FaJs, FaJava, FaReact, FaNodeJs, FaDocker, FaAws, FaLinux, FaGitAlt, FaDatabase, FaSpotify } from 'react-icons/fa'
 import { SiTypescript, SiCplusplus, SiPandas, SiNumpy, SiScikitlearn, SiPytorch, SiTensorflow, SiKeras, SiPlotly, SiFlask, SiFastapi, SiStreamlit, SiMongodb, SiSqlite, SiPostgresql, SiLangchain } from 'react-icons/si'
 import { HiMail } from 'react-icons/hi'
+import { GiCricketBat, GiBookCover } from 'react-icons/gi'
+import { MdMovie } from 'react-icons/md'
+import { TbBrandMinecraft } from 'react-icons/tb'
 import './Hero.css'
 
 const Hero = () => {
@@ -75,10 +79,22 @@ const Hero = () => {
   const skillIcons = {
     'Python': FaPython, 'JavaScript': FaJs, 'TypeScript': SiTypescript, 'Java': FaJava, 'C++': SiCplusplus, 'SQL': FaDatabase,
     'Pandas': SiPandas, 'NumPy': SiNumpy, 'Scikit-Learn': SiScikitlearn, 'PyTorch': SiPytorch, 'TensorFlow': SiTensorflow, 'LangChain': SiLangchain, 'Keras': SiKeras,
-    'Matplotlib': SiPlotly, 'Seaborn': SiPlotly, 'Power BI': BarChart2, 'Plotly': SiPlotly,
+    'Matplotlib': SiPlotly, 'Seaborn': SiPlotly, 'Power BI': BarChart3, 'Plotly': SiPlotly,
     'React': FaReact, 'Flask': SiFlask, 'FastAPI': SiFastapi, 'Node.js': FaNodeJs, 'Streamlit': SiStreamlit,
     'MongoDB': SiMongodb, 'SQLite': SiSqlite, 'ChromaDB': FaDatabase, 'PostgreSQL': SiPostgresql,
     'Git': FaGitAlt, 'Docker': FaDocker, 'AWS': FaAws, 'Linux': FaLinux,
+  }
+
+  // Project icons mapping
+  const projectIcons = {
+    'Lex Simulacra': Brain,
+    'Intrusion Detection': Shield,
+    'Celestial Classifier': Star,
+    'KindHearts': Heart,
+    'Audio Visualizer': Music,
+    'Attendance Tracker': BarChart3,
+    'Habit Tracker': Zap,
+    'NutriSnap': Globe,
   }
 
   const skills = {
@@ -127,7 +143,6 @@ const Hero = () => {
       stats: '8 AI Agents',
       description: 'Multi-agent legal simulation with LangGraph for realistic trial proceedings.',
       tech: ['LangChain', 'FastAPI', 'ChromaDB'],
-      gradient: 'linear-gradient(135deg, #58a6ff 0%, #3fb950 100%)',
       github: 'https://github.com/prasad-gade05/Law_Courtroom_Simulator',
     },
     {
@@ -137,7 +152,6 @@ const Hero = () => {
       stats: '100% recall',
       description: 'Compared 6 ML/DL models on 8.6M samples. Tree models outperformed.',
       tech: ['XGBoost', 'PyTorch', 'SHAP'],
-      gradient: 'linear-gradient(135deg, #3fb950 0%, #58a6ff 100%)',
       github: 'https://github.com/prasad-gade05/IDS_on_TII-SSRC-23',
     },
     {
@@ -147,7 +161,6 @@ const Hero = () => {
       stats: '4 ML Models',
       description: 'Classification of celestial objects from Sloan Digital Sky Survey dataset.',
       tech: ['Keras', 'Scikit-learn'],
-      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
       github: 'https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset',
     },
     {
@@ -158,7 +171,6 @@ const Hero = () => {
       stats: '80+ teams',
       description: 'Multi-role donation platform with crypto payments and real-time tracking.',
       tech: ['React', 'TypeScript', 'MongoDB'],
-      gradient: 'linear-gradient(135deg, #d29922 0%, #f59e0b 100%)',
       github: 'https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform',
     },
     {
@@ -168,7 +180,6 @@ const Hero = () => {
       stats: '3D Globe',
       description: 'Audio visualization with file upload, system capture, and 3D globe mode.',
       tech: ['TypeScript', 'Web Audio', 'Canvas'],
-      gradient: 'linear-gradient(135deg, #f85149 0%, #ff7b72 100%)',
       github: 'https://github.com/prasad-gade05/audio_visualizer_app',
       demo: 'https://prasad-gade05.github.io/audio_visualizer_app/',
     },
@@ -179,7 +190,6 @@ const Hero = () => {
       stats: 'Offline Ready',
       description: 'Attendance simulation to calculate required classes with goal tracking.',
       tech: ['React', 'TypeScript', 'Dexie.js'],
-      gradient: 'linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%)',
       github: 'https://github.com/prasad-gade05/attendance',
       demo: 'https://prasad-gade05.github.io/attendance/',
     },
@@ -190,7 +200,6 @@ const Hero = () => {
       stats: 'Local Storage',
       description: 'Client-side habit tracking with GitHub-style contribution charts.',
       tech: ['React 19', 'Zustand', 'Dexie.js'],
-      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
       github: 'https://github.com/prasad-gade05/Habit-Tracker',
       demo: 'https://prasad-gade05.github.io/Habit-Tracker/',
     },
@@ -201,7 +210,6 @@ const Hero = () => {
       stats: 'Image Analysis',
       description: 'Nutrition tracking using Gemini API for food image analysis.',
       tech: ['React', 'Gemini API'],
-      gradient: 'linear-gradient(135deg, #3fb950 0%, #7ee787 100%)',
       github: 'https://github.com/prasad-gade05/nutrition_tracker',
       demo: 'https://prasadsnutritiontracker.netlify.app/',
     },
@@ -256,8 +264,14 @@ const Hero = () => {
   ]
 
   const hobbies = {
-    hobby: 'Playing cricket and Minecraft',
-    book: 'How to Win Friends and Influence People by Dale Carnegie',
+    sports: {
+      cricket: 'Cricket',
+      minecraft: 'Minecraft'
+    },
+    book: {
+      title: 'How to Win Friends and Influence People',
+      author: 'Dale Carnegie'
+    },
     songs: [
       { name: 'Take Me Home, Country Roads - John Denver', link: 'https://open.spotify.com/track/1YYhDizHx7PnDhAhko6cDS?si=b5b58f4e8aa2480e' },
       { name: 'Main Zindagi Ka Saath Nibhata Chala Gaya - Mohammed Rafi', link: 'https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN?si=59e59c8d6f1747a6' },
@@ -301,15 +315,12 @@ const Hero = () => {
             <div className="bio-section">
               <div className="bio-tags">
                 <span className="bio-tag education">
-                  <span className="bio-tag-icon">🎓</span>
                   B.Tech CE @ SPIT
                 </span>
                 <span className="bio-tag education">
-                  <span className="bio-tag-icon">📚</span>
                   Minor @ SPJIMR
                 </span>
                 <span className="bio-tag passion">
-                  <span className="bio-tag-icon">✨</span>
                   Data Storytelling
                 </span>
               </div>
@@ -434,44 +445,47 @@ const Hero = () => {
                   transition={{ duration: 0.15 }}
                 >
                   <div className="projects-grid">
-                    {projects.map((project, i) => (
-                      <div key={i} className="project-card">
-                        {project.badge && (
-                          <span className="project-badge">{project.badge}</span>
-                        )}
-                        <div className="project-header" style={{ background: project.gradient }}>
-                          <BarChart2 size={20} />
-                        </div>
-                        <div className="project-body">
-                          <div className="project-meta">
-                            <span className="project-cat">{project.category}</span>
-                            <span className="project-stats">{project.stats}</span>
-                          </div>
-                          <h3 className="project-title">{project.title}</h3>
-                          <p className="project-subtitle">{project.subtitle}</p>
-                          {project.description && (
-                            <p className="project-desc">{project.description}</p>
+                    {projects.map((project, i) => {
+                      const ProjectIcon = projectIcons[project.title] || Folder
+                      return (
+                        <div key={i} className="project-card">
+                          {project.badge && (
+                            <span className="project-badge">{project.badge}</span>
                           )}
-                          <div className="project-tech">
-                            {project.tech.map((t, j) => (
-                              <span key={j} className="tech-tag">{t}</span>
-                            ))}
+                          <div className="project-header">
+                            <ProjectIcon size={20} />
                           </div>
-                          <div className="project-card-links">
-                            {project.github && (
-                              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-card-link">
-                                <FaGithub size={14} />
-                              </a>
+                          <div className="project-body">
+                            <div className="project-meta">
+                              <span className="project-cat">{project.category}</span>
+                              <span className="project-stats">{project.stats}</span>
+                            </div>
+                            <h3 className="project-title">{project.title}</h3>
+                            <p className="project-subtitle">{project.subtitle}</p>
+                            {project.description && (
+                              <p className="project-desc">{project.description}</p>
                             )}
-                            {project.demo && (
-                              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-card-link demo">
-                                <ExternalLink size={14} />
-                              </a>
-                            )}
+                            <div className="project-tech">
+                              {project.tech.map((t, j) => (
+                                <span key={j} className="tech-tag">{t}</span>
+                              ))}
+                            </div>
+                            <div className="project-card-links">
+                              {project.github && (
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-card-link">
+                                  <FaGithub size={14} />
+                                </a>
+                              )}
+                              {project.demo && (
+                                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-card-link demo">
+                                  <ExternalLink size={14} />
+                                </a>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                   <a 
                     href="https://github.com/prasad-gade05" 
@@ -723,7 +737,16 @@ const Hero = () => {
                         <h4>Sports & Gaming</h4>
                       </div>
                       <div className="hobby-card-content">
-                        <p>{hobbies.hobby}</p>
+                        <div className="hobby-activities">
+                          <div className="hobby-activity-item">
+                            <GiCricketBat size={18} />
+                            <span>{hobbies.sports.cricket}</span>
+                          </div>
+                          <div className="hobby-activity-item">
+                            <TbBrandMinecraft size={18} />
+                            <span>{hobbies.sports.minecraft}</span>
+                          </div>
+                        </div>
                       </div>
                       <div className="hobby-card-decoration"></div>
                     </div>
@@ -731,12 +754,15 @@ const Hero = () => {
                     <div className="hobby-card hobby-reading">
                       <div className="hobby-card-header">
                         <div className="hobby-card-icon">
-                          <Book size={20} />
+                          <GiBookCover size={20} />
                         </div>
                         <h4>Currently Reading</h4>
                       </div>
                       <div className="hobby-card-content">
-                        <p>{hobbies.book}</p>
+                        <div className="book-info">
+                          <span className="book-title">{hobbies.book.title}</span>
+                          <span className="book-author">by {hobbies.book.author}</span>
+                        </div>
                       </div>
                       <div className="hobby-card-decoration"></div>
                     </div>
@@ -771,7 +797,10 @@ const Hero = () => {
                       <div className="hobby-card-content">
                         <div className="hobby-tags">
                           {hobbies.series.map((series, i) => (
-                            <span key={i} className="series-tag">{series}</span>
+                            <span key={i} className="series-tag">
+                              <MdMovie size={14} />
+                              {series}
+                            </span>
                           ))}
                         </div>
                       </div>

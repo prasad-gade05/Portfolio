@@ -4,29 +4,40 @@
    ============================================ */
 
 :root {
-  /* Colors - GitHub Dark Theme */
-  --bg-primary: #0d1117;
-  --bg-secondary: #010409;
-  --bg-tertiary: #161b22;
-  --bg-card: rgba(22, 27, 34, 0.8);
+  /* Colors - Dark Emerald Theme */
+  --bg-primary: #0c0c0c;
+  --bg-secondary: #080808;
+  --bg-tertiary: #141414;
+  --bg-card: rgba(20, 20, 20, 0.85);
   --bg-glass: rgba(255, 255, 255, 0.02);
   
-  /* Accent Colors - GitHub Style */
-  --accent-cyan: #58a6ff;
-  --accent-green: #3fb950;
-  --accent-orange: #d29922;
-  --accent-red: #f85149;
-  --accent-blue: #58a6ff;
+  /* Accent Colors - Emerald & Purple Palette */
+  --accent-cyan: #0db981;
+  --accent-green: #00bc7d;
+  --accent-orange: #fff085;
+  --accent-red: #ef4545;
+  --accent-blue: #50a2ff;
+  --accent-purple: #c27aff;
+  --accent-magenta: #c765e9;
+  --accent-deep-purple: #9860c6;
+  --accent-muted-blue: #3b588e;
+  --accent-teal: #0db981;
+  --accent-lime: #7dff8a;
+  --accent-coral: #ff6b6b;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
-  --gradient-subtle: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, rgba(63, 185, 80, 0.1) 100%);
-  --gradient-glow: radial-gradient(ellipse at center, rgba(88, 166, 255, 0.1) 0%, transparent 70%);
+  --gradient-primary: linear-gradient(135deg, #0db981 0%, #c27aff 100%);
+  --gradient-secondary: linear-gradient(135deg, #c765e9 0%, #9860c6 100%);
+  --gradient-tertiary: linear-gradient(135deg, #50a2ff 0%, #0db981 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(13, 185, 129, 0.1) 0%, rgba(194, 122, 255, 0.1) 100%);
+  --gradient-glow: radial-gradient(ellipse at center, rgba(13, 185, 129, 0.1) 0%, transparent 70%);
+  --gradient-purple: linear-gradient(135deg, #9860c6 0%, #c765e9 100%);
+  --gradient-warm: linear-gradient(135deg, #fff085 0%, #ef4545 100%);
   
   /* Text Colors */
-  --text-primary: #e6edf3;
-  --text-secondary: #8b949e;
-  --text-muted: #6e7681;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
   
   /* Typography */
   --font-primary: 'Inter', sans-serif;
@@ -34,12 +45,14 @@
   --font-mono: 'JetBrains Mono', monospace;
   
   /* Borders */
-  --border-subtle: #30363d;
-  --border-glow: rgba(88, 166, 255, 0.4);
+  --border-subtle: #252525;
+  --border-glow: rgba(13, 185, 129, 0.4);
   
   /* Shadows */
-  --glow-cyan: 0 0 40px rgba(88, 166, 255, 0.2);
-  --glow-green: 0 0 40px rgba(63, 185, 80, 0.2);
+  --glow-cyan: 0 0 40px rgba(13, 185, 129, 0.25);
+  --glow-green: 0 0 40px rgba(0, 188, 125, 0.25);
+  --glow-purple: 0 0 40px rgba(194, 122, 255, 0.25);
+  --glow-magenta: 0 0 40px rgba(199, 101, 233, 0.25);
 }
 
 *, *::before, *::after {
@@ -74,7 +87,7 @@ body {
 
 ::selection {
   background: var(--accent-cyan);
-  color: white;
+  color: var(--bg-primary);
 }
 
 /* Hide scrollbars */
