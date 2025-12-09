@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { 
   MapPin, Code, Briefcase, GraduationCap, Trophy, Award,
-  ExternalLink, Folder, BarChart2, Heart, Music, FileText
+  ExternalLink, Folder, BarChart2, Heart, Music, FileText, Gamepad2, Book, Tv, Headphones
 } from 'lucide-react'
 import { FaGithub, FaLinkedin, FaKaggle, FaTwitter, FaInstagram, FaKeyboard, FaPython, FaJs, FaJava, FaReact, FaNodeJs, FaDocker, FaAws, FaLinux, FaGitAlt, FaDatabase, FaSpotify } from 'react-icons/fa'
 import { SiTypescript, SiCplusplus, SiPandas, SiNumpy, SiScikitlearn, SiPytorch, SiTensorflow, SiKeras, SiPlotly, SiFlask, SiFastapi, SiStreamlit, SiMongodb, SiSqlite, SiPostgresql, SiLangchain } from 'react-icons/si'
@@ -11,96 +11,64 @@ import { HiMail } from 'react-icons/hi'
 import './Hero.css'
 
 const Hero = () => {
-  const [activeTab, setActiveTab] = useState('projects')
+  const [activeTabs, setActiveTabs] = useState(['projects']) // Support multiple active tabs
 
   const socialLinks = [
     { 
       icon: FaGithub, 
       href: 'https://github.com/prasad-gade05', 
       label: 'GitHub', 
-      handle: '@prasad-gade05', 
-      bgColor: '#161b22',
-      accentColor: '#6e7681',
-      stat: '15+',
-      statLabel: 'repos',
-      vibe: 'code'
+      handle: 'prasad-gade05', 
+      vibe: 'github'
     },
     { 
       icon: FaLinkedin, 
       href: 'https://www.linkedin.com/in/prasad-gade05/', 
       label: 'LinkedIn', 
       handle: 'prasad-gade05', 
-      bgColor: '#1a1f2e',
-      accentColor: '#58a6ff',
-      stat: '500+',
-      statLabel: 'connections',
-      vibe: 'professional'
+      vibe: 'linkedin'
     },
     { 
       icon: FaKaggle, 
       href: 'https://kaggle.com/prasadgade', 
       label: 'Kaggle', 
       handle: 'prasadgade', 
-      bgColor: '#1a2332',
-      accentColor: '#58a6ff',
-      stat: 'DS',
-      statLabel: 'notebooks',
-      vibe: 'data'
+      vibe: 'kaggle'
     },
     { 
       icon: FaKeyboard, 
       href: 'https://monkeytype.com/profile/prasad_gade05', 
       label: 'Monkeytype', 
       handle: 'prasad_gade05', 
-      bgColor: '#1e1e1e',
-      accentColor: '#8b949e',
-      stat: '100+',
-      statLabel: 'WPM',
-      vibe: 'speed'
+      vibe: 'monkeytype'
     },
     { 
       icon: FaTwitter, 
       href: 'https://twitter.com/prasad_gade05', 
       label: 'Twitter', 
       handle: '@prasad_gade05', 
-      bgColor: '#1a1f2e',
-      accentColor: '#6e7681',
-      stat: 'X',
-      statLabel: 'thoughts',
-      vibe: 'social'
+      vibe: 'twitter'
     },
     { 
       icon: FaInstagram, 
       href: 'https://instagram.com/prasad_gade05', 
       label: 'Instagram', 
       handle: '@prasad_gade05', 
-      bgColor: '#1f1a1e',
-      accentColor: '#8b949e',
-      stat: 'IG',
-      statLabel: 'moments',
-      vibe: 'creative'
+      vibe: 'instagram'
     },
     { 
       icon: HiMail, 
       href: 'mailto:prasadgade4405@gmail.com', 
       label: 'Email', 
       handle: 'prasadgade4405@gmail.com', 
-      bgColor: '#1e1a1a',
-      accentColor: '#8b949e',
-      stat: 'Say',
-      statLabel: 'hello!',
-      vibe: 'contact'
+      vibe: 'email'
     },
     { 
       icon: FaSpotify, 
       href: 'https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau?si=kXL6l30RRi-wn_ZMEHL7HQ', 
       label: 'Spotify', 
       handle: 'prasad_gade', 
-      bgColor: '#191414',
-      accentColor: '#1DB954',
-      stat: '🎵',
-      statLabel: 'music',
-      vibe: 'music'
+      vibe: 'spotify'
     },
   ]
 
@@ -242,13 +210,33 @@ const Hero = () => {
   const tabs = [
     { id: 'projects', label: 'Projects', icon: Folder },
     { id: 'skills', label: 'Skills', icon: Code },
-    { id: 'experience', label: 'Experience', icon: Briefcase },
-    { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'achievements', label: 'Achievements', icon: Trophy },
-    { id: 'certifications', label: 'Certs', icon: Award },
-    { id: 'volunteering', label: 'Volunteer', icon: Heart },
-    { id: 'hobbies', label: 'Hobbies', icon: Music },
+    { id: 'experience', label: 'Experience', icon: Briefcase, splitGroup: 'exp-edu' },
+    { id: 'education', label: 'Education', icon: GraduationCap, splitGroup: 'exp-edu' },
+    { id: 'achievements', label: 'Achievements', icon: Trophy, splitGroup: 'ach-cert' },
+    { id: 'certifications', label: 'Certs', icon: Award, splitGroup: 'ach-cert' },
+    { id: 'volunteering', label: 'Volunteer', icon: Heart, splitGroup: 'vol-hob' },
+    { id: 'hobbies', label: 'Hobbies', icon: Music, splitGroup: 'vol-hob' },
   ]
+
+  // Define split groups
+  const splitGroups = {
+    'exp-edu': ['experience', 'education'],
+    'ach-cert': ['achievements', 'certifications'],
+    'vol-hob': ['volunteering', 'hobbies'],
+  }
+
+  // Handle tab click - if part of a split group, open both
+  const handleTabClick = (tab) => {
+    if (tab.splitGroup && splitGroups[tab.splitGroup]) {
+      setActiveTabs(splitGroups[tab.splitGroup])
+    } else {
+      setActiveTabs([tab.id])
+    }
+  }
+
+  const isTabActive = (tab) => {
+    return activeTabs.includes(tab.id)
+  }
 
   const volunteering = [
     {
@@ -268,7 +256,7 @@ const Hero = () => {
   ]
 
   const hobbies = {
-    hobby: 'Playing and watching cricket',
+    hobby: 'Playing cricket and Minecraft',
     book: 'How to Win Friends and Influence People by Dale Carnegie',
     songs: [
       { name: 'Take Me Home, Country Roads', link: 'https://open.spotify.com/track/1YYhDizHx7PnDhAhko6cDS?si=b5b58f4e8aa2480e' },
@@ -380,11 +368,7 @@ const Hero = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={`social-card-fun social-${link.vibe}`}
-                  style={{ 
-                    '--card-bg': link.bgColor,
-                    '--card-accent': link.accentColor
-                  }}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="social-card-content">
@@ -394,10 +378,6 @@ const Hero = () => {
                     <div className="social-details">
                       <span className="social-platform">{link.label}</span>
                       <span className="social-handle">{link.handle}</span>
-                    </div>
-                    <div className="social-stat">
-                      <span className="stat-value">{link.stat}</span>
-                      <span className="stat-label">{link.statLabel}</span>
                     </div>
                   </div>
                 </motion.a>
@@ -418,19 +398,19 @@ const Hero = () => {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.id)}
+                className={`tab-btn ${isTabActive(tab) ? 'active' : ''}`}
+                onClick={() => handleTabClick(tab)}
               >
-                <tab.icon size={12} />
+                <tab.icon size={14} />
                 <span>{tab.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Tab Content */}
-          <div className="tabs-content">
+          {/* Tab Content - Split View Support */}
+          <div className={`tabs-content ${activeTabs.length > 1 ? 'split-view' : ''}`}>
             <AnimatePresence mode="wait">
-              {activeTab === 'projects' && (
+              {activeTabs.includes('projects') && (
                 <motion.div 
                   key="projects"
                   className="tab-pane projects-pane"
@@ -446,7 +426,7 @@ const Hero = () => {
                           <span className="project-badge">{project.badge}</span>
                         )}
                         <div className="project-header" style={{ background: project.gradient }}>
-                          <BarChart2 size={18} />
+                          <BarChart2 size={20} />
                         </div>
                         <div className="project-body">
                           <div className="project-meta">
@@ -466,12 +446,12 @@ const Hero = () => {
                           <div className="project-card-links">
                             {project.github && (
                               <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-card-link">
-                                <FaGithub size={12} />
+                                <FaGithub size={14} />
                               </a>
                             )}
                             {project.demo && (
                               <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-card-link demo">
-                                <ExternalLink size={12} />
+                                <ExternalLink size={14} />
                               </a>
                             )}
                           </div>
@@ -492,7 +472,7 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'skills' && (
+              {activeTabs.includes('skills') && (
                 <motion.div 
                   key="skills"
                   className="tab-pane skills-pane"
@@ -510,7 +490,7 @@ const Hero = () => {
                             const IconComp = skillIcons[skill]
                             return (
                               <span key={i} className="skill-chip">
-                                {IconComp && <IconComp size={12} />}
+                                {IconComp && <IconComp size={14} />}
                                 {skill}
                               </span>
                             )
@@ -522,15 +502,19 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'experience' && (
+              {activeTabs.includes('experience') && (
                 <motion.div 
                   key="experience"
-                  className="tab-pane experience-pane"
+                  className={`tab-pane experience-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
+                  <div className="pane-header">
+                    <Briefcase size={16} />
+                    <span>Experience</span>
+                  </div>
                   <div className="exp-card">
                     <div className="exp-header">
                       <div>
@@ -564,15 +548,19 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'education' && (
+              {activeTabs.includes('education') && (
                 <motion.div 
                   key="education"
-                  className="tab-pane education-pane"
+                  className={`tab-pane education-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
+                  <div className="pane-header">
+                    <GraduationCap size={16} />
+                    <span>Education</span>
+                  </div>
                   <div className="edu-list">
                     {education.map((edu, i) => (
                       <div key={i} className="edu-item">
@@ -591,15 +579,19 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'achievements' && (
+              {activeTabs.includes('achievements') && (
                 <motion.div 
                   key="achievements"
-                  className="tab-pane achievements-pane"
+                  className={`tab-pane achievements-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
+                  <div className="pane-header">
+                    <Trophy size={16} />
+                    <span>Achievements</span>
+                  </div>
                   <div className="achieve-list">
                     {achievements.map((ach, i) => (
                       <div key={i} className="achieve-item" style={{ '--accent': ach.color }}>
@@ -621,15 +613,19 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'certifications' && (
+              {activeTabs.includes('certifications') && (
                 <motion.div 
                   key="certifications"
-                  className="tab-pane certs-pane"
+                  className={`tab-pane certs-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
+                  <div className="pane-header">
+                    <Award size={16} />
+                    <span>Certifications</span>
+                  </div>
                   <div className="certs-grid">
                     {certifications.map((cert, i) => (
                       <div key={i} className="cert-item">
@@ -652,20 +648,24 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'volunteering' && (
+              {activeTabs.includes('volunteering') && (
                 <motion.div 
                   key="volunteering"
-                  className="tab-pane volunteering-pane"
+                  className={`tab-pane volunteering-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
+                  <div className="pane-header">
+                    <Heart size={16} />
+                    <span>Volunteering</span>
+                  </div>
                   <div className="volunteer-list">
                     {volunteering.map((vol, i) => (
                       <div key={i} className="volunteer-item">
                         <div className="volunteer-icon">
-                          <Heart size={18} />
+                          <Heart size={16} />
                         </div>
                         <div className="volunteer-content">
                           <h3>{vol.title}</h3>
@@ -687,42 +687,73 @@ const Hero = () => {
                 </motion.div>
               )}
 
-              {activeTab === 'hobbies' && (
+              {activeTabs.includes('hobbies') && (
                 <motion.div 
                   key="hobbies"
-                  className="tab-pane hobbies-pane"
+                  className={`tab-pane hobbies-pane ${activeTabs.length > 1 ? 'split' : ''}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <div className="hobbies-content">
-                    <div className="hobby-item">
-                      <span className="hobby-label">🏏 Favourite Hobby</span>
-                      <span className="hobby-value">{hobbies.hobby}</span>
-                    </div>
-                    <div className="hobby-item">
-                      <span className="hobby-label">📚 Current Book</span>
-                      <span className="hobby-value">{hobbies.book}</span>
-                    </div>
-                    <div className="hobby-item">
-                      <span className="hobby-label">🎵 Recent Fav Songs</span>
-                      <div className="hobby-songs">
-                        {hobbies.songs.map((song, i) => (
-                          <a key={i} href={song.link} target="_blank" rel="noopener noreferrer" className="song-link">
-                            <FaSpotify size={12} />
-                            {song.name}
-                          </a>
-                        ))}
+                  <div className="pane-header">
+                    <Music size={16} />
+                    <span>Hobbies & Interests</span>
+                  </div>
+                  <div className="hobbies-grid">
+                    <div className="hobby-card hobby-sports">
+                      <div className="hobby-card-icon">
+                        <Gamepad2 size={24} />
                       </div>
-                    </div>
-                    <div className="hobby-item">
-                      <span className="hobby-label">📺 Fav Series</span>
-                      <div className="hobby-series">
-                        {hobbies.series.map((series, i) => (
-                          <span key={i} className="series-tag">{series}</span>
-                        ))}
+                      <div className="hobby-card-content">
+                        <h4>Sports & Gaming</h4>
+                        <p>{hobbies.hobby}</p>
                       </div>
+                      <div className="hobby-card-decoration"></div>
+                    </div>
+                    
+                    <div className="hobby-card hobby-reading">
+                      <div className="hobby-card-icon">
+                        <Book size={24} />
+                      </div>
+                      <div className="hobby-card-content">
+                        <h4>Currently Reading</h4>
+                        <p>{hobbies.book}</p>
+                      </div>
+                      <div className="hobby-card-decoration"></div>
+                    </div>
+                    
+                    <div className="hobby-card hobby-music">
+                      <div className="hobby-card-icon">
+                        <Headphones size={24} />
+                      </div>
+                      <div className="hobby-card-content">
+                        <h4>Favorite Tracks</h4>
+                        <div className="hobby-songs">
+                          {hobbies.songs.map((song, i) => (
+                            <a key={i} href={song.link} target="_blank" rel="noopener noreferrer" className="song-link">
+                              <FaSpotify size={14} />
+                              <span>{song.name}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="hobby-card-decoration"></div>
+                    </div>
+                    
+                    <div className="hobby-card hobby-series">
+                      <div className="hobby-card-icon">
+                        <Tv size={24} />
+                      </div>
+                      <div className="hobby-card-content">
+                        <h4>Binge Watching</h4>
+                        <div className="hobby-tags">
+                          {hobbies.series.map((series, i) => (
+                            <span key={i} className="series-tag">{series}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="hobby-card-decoration"></div>
                     </div>
                   </div>
                 </motion.div>
