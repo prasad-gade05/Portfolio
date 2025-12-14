@@ -25,8 +25,8 @@
   position: absolute;
   inset: 0;
   border: 2px solid transparent;
-  border-top-color: #c9a227;
-  border-right-color: #c27aff;
+  border-top-color: var(--accent-cyan);
+  border-right-color: var(--accent-purple);
   border-radius: 50%;
 }
 

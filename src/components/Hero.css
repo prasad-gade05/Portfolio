@@ -69,21 +69,21 @@
   align-items: center;
   gap: 6px;
   padding: clamp(4px, 0.6vmin, 6px) clamp(10px, 1.2vmin, 14px);
-  background: rgba(63, 185, 80, 0.15);
-  border: 1px solid rgba(63, 185, 80, 0.4);
+  background: rgba(0, 230, 118, 0.15);
+  border: 1px solid rgba(0, 230, 118, 0.4);
   border-radius: 50px;
   font-size: clamp(10px, 1.4vmin, 12px);
   font-weight: 500;
-  color: #3fb950;
+  color: var(--accent-green);
 }
 
 .status-dot {
   width: clamp(6px, 0.8vmin, 8px);
   height: clamp(6px, 0.8vmin, 8px);
-  background: #3fb950;
+  background: var(--accent-green);
   border-radius: 50%;
   animation: pulse 2s infinite;
-  box-shadow: 0 0 8px rgba(63, 185, 80, 0.6);
+  box-shadow: 0 0 8px rgba(0, 230, 118, 0.6);
 }
 
 @keyframes pulse {
@@ -137,7 +137,7 @@
 
 .profile-image-wrapper:hover .profile-image {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(201, 162, 39, 0.6);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.6);
 }
 
 .profile-image {
@@ -150,7 +150,7 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-cyan);
-  box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
   flex-shrink: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -177,7 +177,7 @@
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(201, 162, 39, 0.2);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 229, 255, 0.2);
   cursor: default;
   max-width: 90vw;
   max-height: 90vh;
@@ -223,7 +223,7 @@
   font-size: clamp(28px, 5vmin, 48px);
   font-weight: 700;
   line-height: 1.1;
-  background: linear-gradient(135deg, #c9a227 0%, #d4af37 50%, #c9a227 100%);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -284,14 +284,14 @@
 }
 
 .bio-tag.passion {
-  background: rgba(210, 153, 34, 0.08);
-  border-color: rgba(210, 153, 34, 0.2);
-  color: #d29922;
+  background: rgba(255, 171, 0, 0.08);
+  border-color: rgba(255, 171, 0, 0.2);
+  color: var(--accent-orange);
 }
 
 .bio-tag.passion:hover {
-  background: rgba(210, 153, 34, 0.15);
-  border-color: rgba(210, 153, 34, 0.4);
+  background: rgba(255, 171, 0, 0.15);
+  border-color: rgba(255, 171, 0, 0.4);
 }
 
 /* Skills Section - Pills Style */
@@ -370,8 +370,8 @@
 }
 
 .code-header .resume-btn:hover {
-  background: rgba(201, 162, 39, 0.15);
-  box-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
   transform: translateY(-1px);
 }
 
@@ -388,7 +388,7 @@
 
 .dot.red { background: #ff5f56; }
 .dot.yellow { background: #ffbd2e; }
-.dot.green { background: #c9a227; }
+.dot.green { background: #00e676; }
 
 .code-filename {
   font-size: clamp(12px, 1.5vmin, 14px);
@@ -430,15 +430,15 @@
 }
 
 /* VS Code Dark+ Syntax Colors */
-.code-content .kw { color: #d6984a; }
-.code-content .cls { color: #8cb243; }
-.code-content .fn { color: #d4af37; }
-.code-content .sf { color: #aeaca6; }
-.code-content .pr { color: #aeaca6; }
-.code-content .pm { color: #c9a227; }
-.code-content .st { color: #8cb243; }
-.code-content .op { color: #aeaca6; }
-.code-content .p { color: #d6984a; }
+.code-content .kw { color: var(--accent-purple); }
+.code-content .cls { color: var(--accent-green); }
+.code-content .fn { color: var(--accent-cyan); }
+.code-content .sf { color: var(--text-secondary); }
+.code-content .pr { color: var(--text-secondary); }
+.code-content .pm { color: var(--accent-orange); }
+.code-content .st { color: var(--accent-green); }
+.code-content .op { color: var(--text-secondary); }
+.code-content .p { color: var(--accent-purple); }
 
 /* Social Section - IMPROVED DESIGN */
 .social-section {
@@ -779,7 +779,7 @@
 .project-card:hover {
   border-color: var(--accent-cyan);
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(201, 162, 39, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.15);
 }
 
 .project-badge {
@@ -787,7 +787,7 @@
   top: 8px;
   right: 8px;
   padding: 4px 10px;
-  background: linear-gradient(135deg, #d29922, #f59e0b);
+  background: var(--gradient-warm);
   color: #000;
   font-size: 10px;
   font-weight: 700;
@@ -878,7 +878,7 @@
 
 .tech-tag {
   padding: 4px 8px;
-  background: rgba(201, 162, 39, 0.12);
+  background: rgba(0, 229, 255, 0.12);
   border-radius: 4px;
   font-size: 10px;
   font-family: var(--font-mono);
@@ -911,17 +911,17 @@
 }
 
 .project-card-link:hover {
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(0, 229, 255, 0.15);
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
 }
 
 .project-card-link.demo {
-  background: rgba(201, 162, 39, 0.08);
+  background: rgba(0, 230, 118, 0.08);
 }
 
 .project-card-link.demo:hover {
-  background: rgba(201, 162, 39, 0.2);
+  background: rgba(0, 230, 118, 0.2);
   border-color: var(--accent-green);
   color: var(--accent-green);
 }
@@ -1317,7 +1317,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c9a227 0%, #8cb243 50%, #d4af37 100%);
+  background: var(--gradient-tertiary);
   border-radius: 8px;
   font-size: clamp(9px, 1.1vmin, 11px);
   font-weight: 700;
@@ -1506,7 +1506,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
+  background: var(--gradient-primary);
   border-radius: 10px;
   color: white;
   flex-shrink: 0;
@@ -1747,8 +1747,8 @@
   align-items: center;
   gap: clamp(10px, 1.2vmin, 14px);
   padding: clamp(8px, 1vmin, 12px) clamp(12px, 1.4vmin, 16px);
-  background: rgba(201, 162, 39, 0.1);
-  border: 1px solid rgba(201, 162, 39, 0.2);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   border-radius: 8px;
   font-size: clamp(14px, 1.6vmin, 17px);
   font-weight: 600;
@@ -1757,13 +1757,13 @@
 }
 
 .hobby-activity-item:hover {
-  background: rgba(201, 162, 39, 0.15);
-  border-color: rgba(201, 162, 39, 0.4);
+  background: rgba(0, 229, 255, 0.15);
+  border-color: rgba(0, 229, 255, 0.4);
   transform: translateX(4px);
 }
 
 .hobby-activity-item svg {
-  color: #c9a227;
+  color: var(--accent-cyan);
   flex-shrink: 0;
 }
 
