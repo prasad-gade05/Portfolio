@@ -69,8 +69,8 @@
   align-items: center;
   gap: 6px;
   padding: clamp(4px, 0.6vmin, 6px) clamp(10px, 1.2vmin, 14px);
-  background: rgba(0, 230, 118, 0.15);
-  border: 1px solid rgba(0, 230, 118, 0.4);
+  background: rgba(var(--rgb-green), 0.15);
+  border: 1px solid rgba(var(--rgb-green), 0.4);
   border-radius: 50px;
   font-size: clamp(10px, 1.4vmin, 12px);
   font-weight: 500;
@@ -333,7 +333,7 @@
 
 /* Code Card - VS Code Dark+ Theme - LARGER TEXT */
 .code-card {
-  background: #131414;
+  background: var(--bg-code);
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   overflow: hidden;
@@ -348,7 +348,7 @@
   align-items: center;
   gap: 10px;
   padding: clamp(10px, 1.4vmin, 14px) clamp(12px, 1.6vmin, 16px);
-  background: #1a1a1a;
+  background: var(--bg-tertiary);
   border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
@@ -393,7 +393,7 @@
 .code-filename {
   font-size: clamp(12px, 1.5vmin, 14px);
   font-family: var(--font-mono);
-  color: #cccccc;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
@@ -403,7 +403,7 @@
   font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
   font-size: clamp(12px, 1.5vmin, 15px);
   line-height: 1.6;
-  background: #131414;
+  background: var(--bg-code);
   flex: 0 0 auto;
   overflow: hidden;
   white-space: pre;
@@ -423,7 +423,7 @@
 .code-content .ln {
   display: inline-block;
   width: clamp(22px, 2.6vmin, 30px);
-  color: #6e7681;
+  color: var(--text-muted);
   user-select: none;
   text-align: right;
   padding-right: clamp(10px, 1.4vmin, 14px);
@@ -466,8 +466,8 @@
   border-radius: 10px;
   text-decoration: none;
   overflow: hidden;
-  background: #131414;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
   min-height: 0;
 }
@@ -520,14 +520,14 @@
 .social-platform {
   font-size: clamp(11px, 1.4vmin, 14px);
   font-weight: 600;
-  color: #e6edf3;
+  color: var(--text-primary);
   letter-spacing: 0.2px;
   white-space: nowrap;
 }
 
 .social-handle {
   font-size: clamp(9px, 1.1vmin, 12px);
-  color: #6e7681;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -540,6 +540,10 @@
 }
 .social-github .social-icon { color: #e6edf3; }
 .social-github .social-icon-wrap { background: rgba(110, 118, 129, 0.1); }
+
+[data-theme='light'] .social-github .social-icon { color: #24292f; }
+[data-theme='light'] .social-github .social-icon-wrap { background: rgba(36, 41, 47, 0.1); }
+
 .social-github:hover {
   background: rgba(110, 118, 129, 0.15);
   border-color: #e6edf3;
@@ -647,6 +651,26 @@
   scrollbar-width: none;
   background: rgba(0, 0, 0, 0.2);
   padding: 0 4px;
+  align-items: center;
+}
+
+.theme-toggle-tab {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-cyan);
 }
 
 .tabs-header::-webkit-scrollbar {
@@ -766,7 +790,7 @@
 }
 
 .project-card {
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   overflow: hidden;
@@ -807,7 +831,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: #1a1a1a;
+  background: var(--bg-tertiary);
 }
 
 .project-header svg {
@@ -979,7 +1003,7 @@
   flex-direction: column;
   gap: clamp(6px, 0.8vmin, 10px);
   padding: clamp(12px, 1.4vmin, 18px);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   flex: 1;
@@ -1043,7 +1067,7 @@
   flex-direction: column;
   gap: clamp(10px, 1.4vmin, 16px);
   padding: clamp(16px, 2vmin, 24px);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   border-left: 4px solid var(--accent-cyan);
@@ -1157,7 +1181,7 @@
   justify-content: space-between;
   gap: clamp(12px, 1.6vmin, 18px);
   padding: clamp(14px, 1.8vmin, 20px);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   transition: border-color 0.2s ease;
@@ -1231,7 +1255,7 @@
   align-items: center;
   gap: clamp(12px, 1.6vmin, 18px);
   padding: clamp(14px, 1.6vmin, 18px) clamp(16px, 1.8vmin, 20px);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   border-left: 4px solid var(--accent);
@@ -1300,7 +1324,7 @@
   align-items: center;
   gap: clamp(10px, 1.2vmin, 14px);
   padding: clamp(12px, 1.4vmin, 16px) clamp(14px, 1.6vmin, 18px);
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   transition: all 0.2s ease;
@@ -1490,7 +1514,7 @@
   display: flex;
   gap: clamp(12px, 1.6vmin, 18px);
   padding: clamp(14px, 1.8vmin, 20px);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
   transition: border-color 0.2s;
@@ -1585,7 +1609,7 @@
 .hobby-card {
   position: relative;
   padding: clamp(14px, 1.8vmin, 20px);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   overflow: hidden;

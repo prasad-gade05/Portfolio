@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import {
@@ -25,6 +25,8 @@ import {
   Zap,
   Database,
   BarChart3,
+  Sun,
+  Moon,
 } from "lucide-react";
 import {
   FaGithub,
@@ -76,6 +78,15 @@ const Hero = () => {
   const [activeTabs, setActiveTabs] = useState(["projects"]); // Support multiple active tabs
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [showMinecraftModal, setShowMinecraftModal] = useState(false);
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   const socialLinks = [
     {
@@ -785,6 +796,13 @@ const Hero = () => {
                 <span>{tab.label}</span>
               </button>
             ))}
+            <button
+              className="theme-toggle-tab"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
           </div>
 
           {/* Tab Content - Split View Support */}
