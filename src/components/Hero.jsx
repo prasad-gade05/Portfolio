@@ -1198,6 +1198,12 @@ const Hero = () => {
                           <Headphones size={20} />
                         </div>
                         <h4>Favorite Tracks</h4>
+                        <div className="equalizer">
+                          <span className="bar"></span>
+                          <span className="bar"></span>
+                          <span className="bar"></span>
+                          <span className="bar"></span>
+                        </div>
                       </div>
                       <div className="hobby-card-content">
                         <div className="hobby-songs">

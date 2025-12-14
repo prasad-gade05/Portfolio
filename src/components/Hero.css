@@ -1736,13 +1736,23 @@
   font-size: clamp(12px, 1.4vmin, 14px);
   color: var(--accent-red);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.series-tag:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.series-tag:nth-child(even) {
+  transform: rotate(2deg);
 }
 
 .series-tag:hover {
   background: rgba(251, 113, 133, 0.2);
   border-color: var(--accent-red);
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* Hobby Activities (Sports & Gaming) */
@@ -1848,6 +1858,32 @@
   font-size: clamp(11px, 1.3vmin, 13px);
   color: var(--accent-orange);
   font-style: italic;
+}
+
+/* Equalizer Animation */
+.equalizer {
+  display: flex;
+  gap: 2px;
+  height: 12px;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.bar {
+  width: 3px;
+  background: var(--accent-purple);
+  animation: equalize 1s infinite ease-in-out;
+  border-radius: 1px;
+}
+
+.bar:nth-child(1) { animation-delay: 0.0s; height: 6px; }
+.bar:nth-child(2) { animation-delay: 0.2s; height: 10px; }
+.bar:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+.bar:nth-child(4) { animation-delay: 0.1s; height: 12px; }
+
+@keyframes equalize {
+  0%, 100% { height: 4px; opacity: 0.6; }
+  50% { height: 100%; opacity: 1; }
 }
 
 /* ============================================
