@@ -1,0 +1,51 @@
+.animated-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center alignment */
+  justify-content: center;
+  gap: 0; 
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(24px, 4vmin, 40px);
+  font-weight: 700;
+  line-height: 0.9;
+  cursor: default;
+  transform-style: preserve-3d;
+  flex-shrink: 0;
+  padding: 20px; /* Increased hit area to prevent flicker on hover */
+}
+
+.animated-first-name {
+  display: flex;
+  gap: 0.02em;
+  color: var(--accent-cyan, #00e5ff); /* Changed from white to cyan/blue */
+  position: relative;
+  z-index: 50; /* Ensure it sits above other elements for hit testing */
+}
+
+.animated-char {
+  display: inline-block;
+  cursor: default;
+  /* Removed transition: color 0.1s; to let Framer Motion handle it */
+  position: relative; /* Ensure it catches events properly */
+  z-index: 51; /* Even higher individual z-index */
+}
+
+.animated-last-name-wrapper {
+  position: relative;
+  height: 1em;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content */
+  min-width: 4ch;
+  width: 100%; /* Ensure it spans width for centering */
+  z-index: 10; /* Lower z-index than first name */
+  pointer-events: none; /* Let clicks/hovers pass through if it accidentally overlaps */
+}
+
+.animated-last-name {
+  position: absolute;
+  /* left: 0; Removed for centering */
+  color: var(--text-muted, #888888);
+  white-space: nowrap;
+}

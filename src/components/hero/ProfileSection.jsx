@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { MapPin } from "lucide-react";
 import { profileData } from "../../data/portfolioData";
+import AnimatedName from "./AnimatedName";
 
 const ProfileSection = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -36,7 +37,7 @@ const ProfileSection = () => {
             className="profile-image"
           />
         </div>
-        <h1 className="name">{profileData.name}</h1>
+        <AnimatedName />
       </div>
 
       {/* Profile Image Modal */}
