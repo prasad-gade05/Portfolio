@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useSpring, animate } from 'framer-motion';
 import './AnimatedName.css';
 
 const LANGUAGES = ["GADE", "गडे", "가데", "ガデ"];
@@ -8,6 +8,11 @@ const CHAR_COLORS = ['#3b82f6', '#22c55e', '#ef4444', '#eab308', '#a855f7', '#ec
 
 const AnimatedName = () => {
   const [langIndex, setLangIndex] = useState(0);
+  
+  // Idle State
+  const [isIdle, setIsIdle] = useState(false);
+  const [idleHighlightIndex, setIdleHighlightIndex] = useState(-1);
+  const lastInteraction = useRef(Date.now());
 
   // Magnetic Text Effect State (Local translation)
   const textRef = useRef(null);
@@ -19,19 +24,74 @@ const AnimatedName = () => {
   const rotateY = useMotionValue(0);
   
   // Physics Configs
-  const magnetSpringConfig = { damping: 15, stiffness: 150, mass: 0.1 };
+  const magnetSpringConfig = { damping: 20, stiffness: 400, mass: 0.1 }; // Snappier magnet
   const springX = useSpring(textX, magnetSpringConfig);
   const springY = useSpring(textY, magnetSpringConfig);
   
-  const tiltSpringConfig = { stiffness: 100, damping: 30, mass: 0.5 };
+  const tiltSpringConfig = { stiffness: 600, damping: 30, mass: 0.5 }; // Much snappier tilt
   const springRotateX = useSpring(rotateX, tiltSpringConfig);
   const springRotateY = useSpring(rotateY, tiltSpringConfig);
 
-  // Global Mouse Listener for 3D Tilt - REMOVED in favor of local for "seesaw" effect
-  // useEffect(() => { ... })
+  // Idle Detection
+  useEffect(() => {
+    const checkIdle = setInterval(() => {
+      if (Date.now() - lastInteraction.current > 3000 && !isIdle) {
+        setIsIdle(true);
+      }
+    }, 1000);
+    return () => clearInterval(checkIdle);
+  }, [isIdle]);
+
+  // Idle Animation Sequence
+  useEffect(() => {
+    if (!isIdle) return;
+
+    const runIdleSequence = async () => {
+      // Sequence: Tilt Left (Right side comes forward) -> Highlight First Char -> Reset -> Tilt Right -> Highlight Last Char -> Reset
+      
+      // 1. Tilt slightly to hint interaction (Right side goes back / Left side forward)
+      animate(rotateY, -15, { duration: 0.5, ease: "easeInOut" });
+      setIdleHighlightIndex(0); // Highlight 'P'
+      
+      await new Promise(r => setTimeout(r, 400));
+      setIdleHighlightIndex(-1);
+      
+      await new Promise(r => setTimeout(r, 200));
+      animate(rotateY, 0, { duration: 0.5, ease: "easeInOut" });
+      
+      await new Promise(r => setTimeout(r, 800));
+
+      // 2. Tilt other way
+      if (!isIdle) return; // Check if still idle
+      animate(rotateY, 15, { duration: 0.5, ease: "easeInOut" });
+      setIdleHighlightIndex(NAME_CHARS.length - 1); // Highlight 'D'
+      
+      await new Promise(r => setTimeout(r, 400));
+      setIdleHighlightIndex(-1);
+      
+      await new Promise(r => setTimeout(r, 200));
+      animate(rotateY, 0, { duration: 0.5, ease: "easeInOut" });
+    };
+
+    // Run immediately and then interval
+    runIdleSequence();
+    const interval = setInterval(runIdleSequence, 6000);
+    
+    return () => clearInterval(interval);
+  }, [isIdle, rotateY]);
 
   // Local Mouse Logic for Magnetic + Tilt
   const handleTextMouseMove = (e) => {
+    // Reset Idle
+    lastInteraction.current = Date.now();
+    if (isIdle) {
+      setIsIdle(false);
+      setIdleHighlightIndex(-1);
+      // Ensure we clear any idle animations on the values
+      rotateX.stop();
+      rotateY.stop();
+    }
+
     if (!textRef.current) return;
     const rect = textRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -42,7 +102,7 @@ const AnimatedName = () => {
     const distanceY = e.clientY - centerY;
     
     // Magnetic pull
-    textX.set(distanceX * 0.2); // Increased slightly
+    textX.set(distanceX * 0.2); 
     textY.set(distanceY * 0.2);
 
     // Tilt Logic (Element Relative)
@@ -99,6 +159,11 @@ const AnimatedName = () => {
           <motion.span
             key={i}
             className="animated-char"
+            animate={
+              isIdle && idleHighlightIndex === i 
+                ? { color: CHAR_COLORS[i % CHAR_COLORS.length], y: -5 } 
+                : { color: 'var(--accent-cyan)', y: 0 }
+            }
             whileHover={{ 
               color: CHAR_COLORS[i % CHAR_COLORS.length],
               y: -5 
