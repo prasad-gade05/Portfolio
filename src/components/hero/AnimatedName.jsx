@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, animate } from 'framer-motion';
 import './AnimatedName.css';
 
@@ -13,6 +13,7 @@ const AnimatedName = () => {
   const [isIdle, setIsIdle] = useState(false);
   const [idleHighlightIndex, setIdleHighlightIndex] = useState(-1);
   const lastInteraction = useRef(Date.now());
+  const idleTimeoutRef = useRef(null);
 
   // Magnetic Text Effect State (Local translation)
   const textRef = useRef(null);
@@ -22,15 +23,40 @@ const AnimatedName = () => {
   // 3D Tilt State (Global rotation)
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
+
+  // Ghost Cursor State
+  const ghostX = useMotionValue(0);
+  const ghostY = useMotionValue(0);
+  const ghostOpacity = useMotionValue(0);
   
   // Physics Configs
-  const magnetSpringConfig = { damping: 20, stiffness: 400, mass: 0.1 }; // Snappier magnet
+  const magnetSpringConfig = { damping: 20, stiffness: 400, mass: 0.1 };
   const springX = useSpring(textX, magnetSpringConfig);
   const springY = useSpring(textY, magnetSpringConfig);
   
-  const tiltSpringConfig = { stiffness: 600, damping: 30, mass: 0.5 }; // Much snappier tilt
+  const tiltSpringConfig = { stiffness: 600, damping: 30, mass: 0.5 };
   const springRotateX = useSpring(rotateX, tiltSpringConfig);
   const springRotateY = useSpring(rotateY, tiltSpringConfig);
+
+  // Reusable Physics Logic
+  const applyPhysics = useCallback((offsetX, offsetY, rect) => {
+    // Magnetic pull
+    textX.set(offsetX * 0.2); 
+    textY.set(offsetY * 0.2);
+
+    // Tilt Logic
+    const MAX_ROTATION = 35;
+    const radius = Math.min(rect.width, rect.height) / 2;
+    
+    const xPct = Math.max(-1, Math.min(1, offsetX / radius));
+    const yPct = Math.max(-1, Math.min(1, offsetY / radius));
+    
+    const rotY = xPct * -MAX_ROTATION; 
+    const rotX = yPct * MAX_ROTATION;
+
+    rotateX.set(rotX);
+    rotateY.set(rotY);
+  }, [textX, textY, rotateX, rotateY]);
 
   // Idle Detection
   useEffect(() => {
@@ -42,54 +68,92 @@ const AnimatedName = () => {
     return () => clearInterval(checkIdle);
   }, [isIdle]);
 
-  // Idle Animation Sequence
+  // Idle Animation Sequence with Ghost Cursor
   useEffect(() => {
-    if (!isIdle) return;
+    if (!isIdle || !textRef.current) return;
+
+    const rect = textRef.current.getBoundingClientRect();
+    const radius = Math.min(rect.width, rect.height) / 2;
+    
+    // Animation controls
+    let controls = [];
 
     const runIdleSequence = async () => {
-      // Sequence: Tilt Left (Right side comes forward) -> Highlight First Char -> Reset -> Tilt Right -> Highlight Last Char -> Reset
-      
-      // 1. Tilt slightly to hint interaction (Right side goes back / Left side forward)
-      animate(rotateY, -15, { duration: 0.5, ease: "easeInOut" });
-      setIdleHighlightIndex(0); // Highlight 'P'
-      
-      await new Promise(r => setTimeout(r, 400));
-      setIdleHighlightIndex(-1);
-      
-      await new Promise(r => setTimeout(r, 200));
-      animate(rotateY, 0, { duration: 0.5, ease: "easeInOut" });
-      
-      await new Promise(r => setTimeout(r, 800));
+      // Reset
+      ghostOpacity.set(0);
+      ghostX.set(0);
+      ghostY.set(0);
 
-      // 2. Tilt other way
-      if (!isIdle) return; // Check if still idle
-      animate(rotateY, 15, { duration: 0.5, ease: "easeInOut" });
-      setIdleHighlightIndex(NAME_CHARS.length - 1); // Highlight 'D'
+      // Fade in cursor
+      controls.push(animate(ghostOpacity, 1, { duration: 0.3 }));
       
-      await new Promise(r => setTimeout(r, 400));
-      setIdleHighlightIndex(-1);
+      // Move Left (Tilt Right)
+      // Simulate moving from center to left
+      const moveLeft = animate(0, -radius * 0.8, {
+        duration: 0.8,
+        ease: "easeInOut",
+        onUpdate: (val) => {
+          ghostX.set(val); // Visual cursor
+          applyPhysics(val, 0, rect); // Apply physics
+          
+          // Highlight 'P' when mostly left
+          if (val < -radius * 0.5) setIdleHighlightIndex(0);
+          else setIdleHighlightIndex(-1);
+        }
+      });
+      controls.push(moveLeft);
+      await moveLeft.then();
+
+      // Move Right (Tilt Left)
+      const moveRight = animate(-radius * 0.8, radius * 0.8, {
+        duration: 1.2,
+        ease: "easeInOut",
+        onUpdate: (val) => {
+          ghostX.set(val);
+          applyPhysics(val, 0, rect);
+
+          // Highlight 'D' when mostly right
+          if (val > radius * 0.5) setIdleHighlightIndex(NAME_CHARS.length - 1);
+          else setIdleHighlightIndex(-1);
+        }
+      });
+      controls.push(moveRight);
+      await moveRight.then();
+
+      // Return Center & Fade Out
+      const moveCenter = animate(radius * 0.8, 0, {
+        duration: 0.8,
+        ease: "easeInOut",
+        onUpdate: (val) => {
+          ghostX.set(val);
+          applyPhysics(val, 0, rect);
+          setIdleHighlightIndex(-1);
+        }
+      });
+      controls.push(moveCenter);
+      controls.push(animate(ghostOpacity, 0, { duration: 0.5, delay: 0.3 }));
       
-      await new Promise(r => setTimeout(r, 200));
-      animate(rotateY, 0, { duration: 0.5, ease: "easeInOut" });
+      await moveCenter.then();
     };
 
     // Run immediately and then interval
     runIdleSequence();
-    const interval = setInterval(runIdleSequence, 6000);
+    const interval = setInterval(runIdleSequence, 5000);
     
-    return () => clearInterval(interval);
-  }, [isIdle, rotateY]);
+    return () => {
+      clearInterval(interval);
+      controls.forEach(c => c.stop());
+    };
+  }, [isIdle, ghostX, ghostY, ghostOpacity, applyPhysics]);
 
-  // Local Mouse Logic for Magnetic + Tilt
+  // Local Mouse Logic
   const handleTextMouseMove = (e) => {
     // Reset Idle
     lastInteraction.current = Date.now();
     if (isIdle) {
       setIsIdle(false);
       setIdleHighlightIndex(-1);
-      // Ensure we clear any idle animations on the values
-      rotateX.stop();
-      rotateY.stop();
+      ghostOpacity.set(0);
     }
 
     if (!textRef.current) return;
@@ -97,33 +161,14 @@ const AnimatedName = () => {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    // Distance from center
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
+    const offsetX = e.clientX - centerX;
+    const offsetY = e.clientY - centerY;
     
-    // Magnetic pull
-    textX.set(distanceX * 0.2); 
-    textY.set(distanceY * 0.2);
-
-    // Tilt Logic (Element Relative)
-    // Max rotation deg - Increased for more pronounced effect
-    const MAX_ROTATION = 35;
-    
-    // Calculate percentage from center (-1 to 1)
-    // Use smaller dimension to make tilt more sensitive
-    const radius = Math.min(rect.width, rect.height) / 2;
-    
-    const xPct = Math.max(-1, Math.min(1, distanceX / radius));
-    const yPct = Math.max(-1, Math.min(1, distanceY / radius));
-    
-    const rotY = xPct * -MAX_ROTATION; 
-    const rotX = yPct * MAX_ROTATION;
-
-    rotateX.set(rotX);
-    rotateY.set(rotY);
+    applyPhysics(offsetX, offsetY, rect);
   };
 
   const handleTextMouseLeave = () => {
+    lastInteraction.current = Date.now();
     textX.set(0);
     textY.set(0);
     rotateX.set(0);
@@ -153,6 +198,16 @@ const AnimatedName = () => {
       onMouseMove={handleTextMouseMove}
       onMouseLeave={handleTextMouseLeave}
     >
+      {/* Ghost Cursor with Trail */}
+      <motion.div 
+        className="ghost-cursor"
+        style={{ 
+          x: ghostX, 
+          y: ghostY,
+          opacity: ghostOpacity 
+        }}
+      />
+
       {/* Static First Name */}
       <div className="animated-first-name" style={{ pointerEvents: 'auto' }}>
         {NAME_CHARS.map((char, i) => (
