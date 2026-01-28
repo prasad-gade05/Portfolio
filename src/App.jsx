@@ -31,6 +31,7 @@ function App() {
       'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
       'b', 'a'
     ]
+    const hesoyamCode = ['h', 'e', 's', 'o', 'y', 'a', 'm']
     let keys = []
 
     const handleKeyDown = (e) => {
@@ -38,8 +39,14 @@ function App() {
       if (keys.length > konamiCode.length) {
         keys.shift()
       }
-      if (keys.length === konamiCode.length && 
-          keys.every((key, index) => key.toLowerCase() === konamiCode[index].toLowerCase())) {
+
+      const checkCode = (code) => {
+        if (keys.length < code.length) return false
+        const recentKeys = keys.slice(-code.length)
+        return recentKeys.every((key, index) => key.toLowerCase() === code[index].toLowerCase())
+      }
+
+      if (checkCode(konamiCode) || checkCode(hesoyamCode)) {
         const count = 200
         const defaults = { origin: { y: 0.7 } }
 
