@@ -16,6 +16,7 @@ import {
   FaGitAlt,
   FaDatabase,
   FaSpotify,
+  FaReddit,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -69,6 +70,13 @@ export const socialLinks = [
     label: "Kaggle",
     handle: "prasadgade",
     vibe: "kaggle",
+  },
+  {
+    icon: FaReddit,
+    href: "https://www.reddit.com/user/prasad_gade05/",
+    label: "Reddit",
+    handle: "prasad_gade05",
+    vibe: "reddit",
   },
   {
     icon: FaKeyboard,
