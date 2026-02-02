@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TbBrandMinecraft } from "react-icons/tb";
 import { Move3D, FileText } from "lucide-react";
 import "./Hero.css";
 import "./MinecraftSkinViewer.css";
-import ResumeViewer from "./ResumeViewer";
 import ProfileSection from "./hero/ProfileSection";
 import CodeCard from "./hero/CodeCard";
 import SocialLinks from "./hero/SocialLinks";
 import ContentTabs from "./hero/ContentTabs";
-import MinecraftSkinViewer from "./MinecraftSkinViewer";
 import ClickSparkle from "./ClickSparkle";
+
+const ResumeViewer = lazy(() => import("./ResumeViewer"));
+const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
 
 const Hero = () => {
   const [showMinecraftModal, setShowMinecraftModal] = useState(false);
@@ -50,10 +51,12 @@ const Hero = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div style={{ flex: 1, overflow: 'hidden' }}>
-                <ResumeViewer 
-                  pdfUrl={`${import.meta.env.BASE_URL}Prasad_Gade_Resume.pdf`}
-                  onClose={() => setShowResumeModal(false)}
-                />
+                <Suspense fallback={<div style={{color: 'white', padding: '20px'}}>Loading PDF Viewer...</div>}>
+                  <ResumeViewer 
+                    pdfUrl={`${import.meta.env.BASE_URL}Prasad_Gade_Resume.pdf`}
+                    onClose={() => setShowResumeModal(false)}
+                  />
+                </Suspense>
               </div>
             </motion.div>
           </motion.div>
@@ -80,11 +83,13 @@ const Hero = () => {
                 <span className="minecraft-gamertag">prasadgade05</span>
               </div>
               <div className="minecraft-skin-container">
-                <MinecraftSkinViewer
-                  skinUrl={`${import.meta.env.BASE_URL}minecraft-skin.png`}
-                  width={280}
-                  height={400}
-                />
+                <Suspense fallback={<div style={{color: 'white', padding: '20px'}}>Loading 3D Viewer...</div>}>
+                  <MinecraftSkinViewer
+                    skinUrl={`${import.meta.env.BASE_URL}minecraft-skin.png`}
+                    width={280}
+                    height={400}
+                  />
+                </Suspense>
                 <div className="minecraft-controls-hint">
                   <Move3D />
                   <span>Drag to rotate • Scroll to zoom</span>

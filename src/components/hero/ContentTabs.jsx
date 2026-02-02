@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Folder,
@@ -20,8 +20,9 @@ import { FaGithub, FaSpotify } from "react-icons/fa";
 import { GiCricketBat, GiBookCover } from "react-icons/gi";
 import { MdMovie } from "react-icons/md";
 import { TbBrandMinecraft } from "react-icons/tb";
-import MoviesModal from "./MoviesModal";
 import "../../components/hero/MoviesModal.css";
+
+const MoviesModal = lazy(() => import("./MoviesModal"));
 
 // Data Imports
 import {
@@ -638,12 +639,16 @@ const ContentTabs = ({ onOpenMinecraft }) => {
         </AnimatePresence>
       </div>
 
-      <MoviesModal 
-        isOpen={isMoviesModalOpen}
-        onClose={() => setIsMoviesModalOpen(false)}
-        movies={movies}
-        shows={webShows}
-      />
+      <Suspense fallback={null}>
+        {isMoviesModalOpen && (
+          <MoviesModal 
+            isOpen={isMoviesModalOpen}
+            onClose={() => setIsMoviesModalOpen(false)}
+            movies={movies}
+            shows={webShows}
+          />
+        )}
+      </Suspense>
     </motion.div>
   );
 };

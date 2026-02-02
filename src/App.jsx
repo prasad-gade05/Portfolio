@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState, lazy, Suspense } from 'react'
+import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import './App.css'
 
 // Components
 import Hero from './components/Hero'
-import NeuralBackground from './components/NeuralBackground'
 import LoadingScreen from './components/LoadingScreen'
+
+const NeuralBackground = lazy(() => import('./components/NeuralBackground'))
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+  const cursorX = useMotionValue(-100)
+  const cursorY = useMotionValue(-100)
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500)
@@ -19,7 +21,8 @@ function App() {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY })
+      cursorX.set(e.clientX)
+      cursorY.set(e.clientY)
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
@@ -86,16 +89,18 @@ function App() {
             transition={{ duration: 0.5 }}
           >
             {/* Cursor glow effect */}
-            <div 
+            <motion.div 
               className="cursor-glow"
               style={{
-                left: cursorPosition.x,
-                top: cursorPosition.y,
+                left: cursorX,
+                top: cursorY,
               }}
             />
             
             {/* Neural Network Background */}
-            <NeuralBackground />
+            <Suspense fallback={null}>
+              <NeuralBackground />
+            </Suspense>
             
             {/* Main Content - Single View */}
             <main>
