@@ -5,19 +5,12 @@ import './App.css'
 
 // Components
 import Hero from './components/Hero'
-import LoadingScreen from './components/LoadingScreen'
 
 const NeuralBackground = lazy(() => import('./components/NeuralBackground'))
 
 function App() {
-  const [loading, setLoading] = useState(true)
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500)
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -77,38 +70,32 @@ function App() {
 
   return (
     <div className="app">
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <LoadingScreen key="loading" />
-        ) : (
-          <motion.div
-            key="content"
-            className="content-wrapper"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Cursor glow effect */}
-            <motion.div 
-              className="cursor-glow"
-              style={{
-                left: cursorX,
-                top: cursorY,
-              }}
-            />
-            
-            {/* Neural Network Background */}
-            <Suspense fallback={null}>
-              <NeuralBackground />
-            </Suspense>
-            
-            {/* Main Content - Single View */}
-            <main>
-              <Hero />
-            </main>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        key="content"
+        className="content-wrapper"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Cursor glow effect */}
+        <motion.div 
+          className="cursor-glow"
+          style={{
+            left: cursorX,
+            top: cursorY,
+          }}
+        />
+        
+        {/* Neural Network Background */}
+        <Suspense fallback={null}>
+          <NeuralBackground />
+        </Suspense>
+        
+        {/* Main Content - Single View */}
+        <main>
+          <Hero />
+        </main>
+      </motion.div>
     </div>
   )
 }
