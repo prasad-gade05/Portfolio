@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Folder,
@@ -44,6 +44,23 @@ const ContentTabs = ({ onOpenMinecraft }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const [theme, setTheme] = useState('dark');
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
+
+  const handleCardTilt = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const MAX_ROTATION = 25;
+    const rotateY = ((x - centerX) / centerX) * MAX_ROTATION;
+    const rotateX = ((centerY - y) / centerY) * MAX_ROTATION;
+    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+  }, []);
+
+  const handleCardTiltReset = useCallback((e) => {
+    e.currentTarget.style.transform = '';
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -190,7 +207,12 @@ const ContentTabs = ({ onOpenMinecraft }) => {
                 {projects.map((project, i) => {
                   const ProjectIcon = projectIcons[project.title] || Folder;
                   return (
-                    <div key={i} className="project-card">
+                    <div
+                      key={i}
+                      className="project-card"
+                      onMouseMove={handleCardTilt}
+                      onMouseLeave={handleCardTiltReset}
+                    >
                       {project.badge && (
                         <span className={`project-badge${project.badge === "1st Place" ? " first-place" : ""}`}>
                           {project.badge}

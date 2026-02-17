@@ -820,18 +820,19 @@
 
 .project-card {
   background: var(--bg-panel);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid transparent;
   border-radius: 10px;
   overflow: hidden;
-  transition: all 0.25s ease;
+  transition: transform 0.15s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
   border-color: var(--accent-cyan);
-  transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 229, 255, 0.15);
 }
 
@@ -1035,6 +1036,7 @@
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
+  border-left: 4px solid var(--accent-green);
   flex: 1;
 }
 
@@ -1213,6 +1215,7 @@
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
+  border-left: 4px solid var(--accent-blue);
   transition: border-color 0.2s ease;
 }
 
@@ -1356,6 +1359,7 @@
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
+  border-left: 4px solid var(--accent-orange);
   transition: all 0.2s ease;
 }
 
@@ -1546,6 +1550,7 @@
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
+  border-left: 4px solid var(--accent-magenta);
   transition: border-color 0.2s;
 }
 
@@ -1686,21 +1691,25 @@
 .hobby-sports::before { background: var(--gradient-tertiary); }
 .hobby-sports .hobby-card-icon { color: var(--accent-green); }
 .hobby-sports .hobby-card-decoration { background: var(--accent-green); }
+.hobby-sports { border-left: 4px solid var(--accent-green); }
 
 /* Reading Card */
 .hobby-reading::before { background: linear-gradient(135deg, var(--accent-orange), var(--accent-red)); }
 .hobby-reading .hobby-card-icon { color: var(--accent-orange); }
 .hobby-reading .hobby-card-decoration { background: var(--accent-orange); }
+.hobby-reading { border-left: 4px solid var(--accent-orange); }
 
 /* Music Card - Purple/Magenta Theme */
 .hobby-music::before { background: var(--gradient-secondary); }
 .hobby-music .hobby-card-icon { color: var(--accent-purple); }
 .hobby-music .hobby-card-decoration { background: var(--accent-purple); }
+.hobby-music { border-left: 4px solid var(--accent-purple); }
 
 /* Series Card */
 .hobby-series::before { background: linear-gradient(135deg, var(--accent-red), var(--accent-magenta)); }
 .hobby-series .hobby-card-icon { color: var(--accent-red); }
 .hobby-series .hobby-card-decoration { background: var(--accent-red); }
+.hobby-series { border-left: 4px solid var(--accent-red); }
 
 .hobby-card-icon {
   display: inline-flex;
