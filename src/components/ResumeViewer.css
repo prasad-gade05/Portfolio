@@ -204,67 +204,69 @@
 /* Arcade theme overrides for Resume modal */
 [data-theme='arcade-dark'] .resume-modal-card,
 [data-theme='arcade-light'] .resume-modal-card {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 16px;
-  box-shadow: 8px 8px 0px 0px #000;
+  box-shadow: var(--arcade-shadow-lg);
 }
 
 [data-theme='arcade-dark'] .resume-modal-card {
-  background: #1A1A2E;
+  background: var(--bg-secondary);
 }
 
 [data-theme='arcade-light'] .resume-modal-card {
-  background: #FFFFFF;
-  box-shadow: 8px 8px 0px 0px #000;
+  background: var(--bg-secondary);
+  box-shadow: var(--arcade-shadow-lg);
 }
 
 [data-theme='arcade-dark'] .resume-modal-header,
 [data-theme='arcade-light'] .resume-modal-header {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }
 
 [data-theme='arcade-dark'] .resume-modal-header h3,
 [data-theme='arcade-light'] .resume-modal-header h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 [data-theme='arcade-dark'] .control-btn,
 [data-theme='arcade-light'] .control-btn {
-  border: 2px solid #000;
+  border: var(--arcade-border);
   border-radius: 8px;
-  box-shadow: 2px 2px 0px 0px #000;
+  box-shadow: var(--arcade-shadow);
   transition: all 0.1s ease;
 }
 
 [data-theme='arcade-dark'] .control-btn:hover,
 [data-theme='arcade-light'] .control-btn:hover {
   transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px transparent;
 }
 
 [data-theme='arcade-dark'] .download-btn,
 [data-theme='arcade-light'] .download-btn {
-  border: 2px solid #000;
-  border-radius: 999px;
-  box-shadow: 2px 2px 0px 0px #000;
-  font-family: 'Bebas Neue', sans-serif;
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 [data-theme='arcade-dark'] .download-btn {
-  background: #FFE600;
-  color: #000;
+  background: var(--accent-green);
+  color: #121212;
 }
 
 [data-theme='arcade-light'] .download-btn {
-  background: #0088AA;
-  color: #fff;
+  background: var(--accent-green);
+  color: #121212;
 }
 
 [data-theme='arcade-dark'] .resume-controls,
 [data-theme='arcade-light'] .resume-controls {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }

@@ -385,70 +385,72 @@
 /* Arcade theme overrides for Help modal */
 [data-theme='arcade-dark'] .help-modal-card,
 [data-theme='arcade-light'] .help-modal-card {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 16px;
-  box-shadow: 8px 8px 0px 0px #000;
+  box-shadow: var(--arcade-shadow-lg);
 }
 
 [data-theme='arcade-dark'] .help-modal-card {
-  background: #1A1A2E;
+  background: var(--bg-secondary);
 }
 
 [data-theme='arcade-light'] .help-modal-card {
-  background: #FFFFFF;
+  background: var(--bg-secondary);
 }
 
 [data-theme='arcade-dark'] .help-modal-header,
 [data-theme='arcade-light'] .help-modal-header {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }
 
 [data-theme='arcade-dark'] .help-modal-header h2,
 [data-theme='arcade-light'] .help-modal-header h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 [data-theme='arcade-dark'] .help-section,
 [data-theme='arcade-light'] .help-section {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 12px;
-  box-shadow: 3px 3px 0px 0px #000;
+  box-shadow: var(--arcade-shadow);
 }
 
 [data-theme='arcade-dark'] .help-section {
-  background: #252542;
+  background: var(--bg-tertiary);
 }
 
 [data-theme='arcade-light'] .help-section {
-  background: #F0EDE6;
+  background: var(--bg-tertiary);
 }
 
 [data-theme='arcade-dark'] .help-section-title h3,
 [data-theme='arcade-light'] .help-section-title h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  font-weight: 700;
 }
 
 [data-theme='arcade-dark'] .help-modal-footer,
 [data-theme='arcade-light'] .help-modal-footer {
-  border-top: 3px solid #000;
+  border-top: var(--arcade-border);
 }
 
 [data-theme='arcade-dark'] .help-modal-close,
 [data-theme='arcade-light'] .help-modal-close {
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0px 0px #000;
+  border: var(--arcade-border);
+  box-shadow: var(--arcade-shadow);
 }
 
 [data-theme='arcade-dark'] .help-modal-close {
-  background: #FF2D55;
-  color: #fff;
+  background: var(--accent-red);
+  color: #121212;
 }
 
 [data-theme='arcade-light'] .help-modal-close {
-  background: #CC1440;
-  color: #fff;
+  background: var(--accent-red);
+  color: #121212;
 }

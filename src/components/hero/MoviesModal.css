@@ -420,71 +420,219 @@
 /* Arcade theme overrides for Movies modal */
 [data-theme='arcade-dark'] .movies-modal-card,
 [data-theme='arcade-light'] .movies-modal-card {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 16px;
-  box-shadow: 8px 8px 0px 0px #000;
+  box-shadow: var(--arcade-shadow-lg);
 }
 
 [data-theme='arcade-dark'] .movies-modal-card {
-  background: #1A1A2E;
+  background: var(--bg-secondary);
+  border-color: #8B9FFF;
+  box-shadow: 6px 6px 0px 0px #8B9FFF;
 }
 
 [data-theme='arcade-light'] .movies-modal-card {
-  background: #FFFFFF;
+  background: var(--bg-secondary);
+  border-color: var(--accent-cyan);
+  box-shadow: 6px 6px 0px 0px var(--accent-cyan);
 }
 
 [data-theme='arcade-dark'] .movies-modal-header,
 [data-theme='arcade-light'] .movies-modal-header {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }
 
 [data-theme='arcade-dark'] .movies-modal-header h2,
 [data-theme='arcade-light'] .movies-modal-header h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+[data-theme='arcade-dark'] .movies-modal-title h3 {
+  color: #FFD666;
+}
+
+[data-theme='arcade-light'] .movies-modal-title h3 {
+  color: var(--accent-cyan);
+}
+
+[data-theme='arcade-dark'] .movies-modal-title svg {
+  color: #FF7B6B;
+}
+
+[data-theme='arcade-light'] .movies-modal-title svg {
+  color: var(--accent-red);
 }
 
 [data-theme='arcade-dark'] .movies-modal-tabs,
 [data-theme='arcade-light'] .movies-modal-tabs {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }
 
+[data-theme='arcade-dark'] .movies-tab-btn {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+[data-theme='arcade-dark'] .movies-tab-btn.active {
+  background: rgba(139, 159, 255, 0.2);
+  border-color: #8B9FFF;
+  color: #8B9FFF;
+}
+
+[data-theme='arcade-light'] .movies-tab-btn {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+[data-theme='arcade-light'] .movies-tab-btn.active {
+  background: rgba(92, 111, 255, 0.15);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Movie items - vibrant borders */
 [data-theme='arcade-dark'] .movie-item,
 [data-theme='arcade-light'] .movie-item {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 12px;
-  box-shadow: 3px 3px 0px 0px #000;
+  box-shadow: var(--arcade-shadow);
 }
 
 [data-theme='arcade-dark'] .movie-item {
-  background: #252542;
+  background: var(--bg-tertiary);
+  border-color: #C9A0DC;
+  box-shadow: 3px 3px 0px 0px #C9A0DC;
+}
+
+[data-theme='arcade-dark'] .movie-item:hover {
+  border-color: #D4B0E8;
+  box-shadow: 5px 5px 0px 0px #D4B0E8;
+  transform: translateY(-2px);
+}
+
+[data-theme='arcade-dark'] .show-item {
+  border-color: #8B9FFF;
+  box-shadow: 3px 3px 0px 0px #8B9FFF;
+}
+
+[data-theme='arcade-dark'] .show-item:hover {
+  border-color: #A0B2FF;
+  box-shadow: 5px 5px 0px 0px #A0B2FF;
 }
 
 [data-theme='arcade-light'] .movie-item {
-  background: #F0EDE6;
+  background: var(--bg-tertiary);
+  border-color: var(--accent-purple);
+  box-shadow: 3px 3px 0px 0px var(--accent-purple);
 }
 
+[data-theme='arcade-light'] .movie-item:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 5px 5px 0px 0px var(--accent-purple);
+  transform: translateY(-2px);
+}
+
+[data-theme='arcade-light'] .show-item {
+  border-color: var(--accent-cyan);
+  box-shadow: 3px 3px 0px 0px var(--accent-cyan);
+}
+
+[data-theme='arcade-light'] .show-item:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 5px 5px 0px 0px var(--accent-cyan);
+}
+
+/* Movie titles - vibrant */
+[data-theme='arcade-dark'] .movie-title {
+  color: #F0F0F8;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+[data-theme='arcade-dark'] .movie-item-header svg {
+  color: #FF7B6B;
+  opacity: 1;
+}
+
+[data-theme='arcade-dark'] .show-item .movie-item-header svg {
+  color: #8B9FFF;
+}
+
+[data-theme='arcade-light'] .movie-item-header svg {
+  color: var(--accent-red);
+  opacity: 1;
+}
+
+[data-theme='arcade-light'] .show-item .movie-item-header svg {
+  color: var(--accent-cyan);
+}
+
+/* Genre tags - vibrant */
 [data-theme='arcade-dark'] .genre-tag,
 [data-theme='arcade-light'] .genre-tag {
-  border: 2px solid #000;
-  border-radius: 999px;
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 500;
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
 }
 
+[data-theme='arcade-dark'] .genre-tag {
+  background: rgba(255, 123, 107, 0.15);
+  border-color: #FF7B6B;
+  color: #FF7B6B;
+}
+
+[data-theme='arcade-dark'] .show-item .genre-tag {
+  background: rgba(139, 159, 255, 0.15);
+  border-color: #8B9FFF;
+  color: #8B9FFF;
+}
+
+[data-theme='arcade-light'] .genre-tag {
+  background: rgba(232, 93, 74, 0.1);
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+[data-theme='arcade-light'] .show-item .genre-tag {
+  background: rgba(92, 111, 255, 0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Movie count badge */
+[data-theme='arcade-dark'] .movies-count {
+  background: rgba(255, 214, 102, 0.2);
+  color: #FFD666;
+}
+
+[data-theme='arcade-light'] .movies-count {
+  background: rgba(92, 111, 255, 0.15);
+  color: var(--accent-cyan);
+}
+
+/* Close button */
 [data-theme='arcade-dark'] .movies-modal-close,
 [data-theme='arcade-light'] .movies-modal-close {
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0px 0px #000;
+  border: var(--arcade-border);
+  box-shadow: var(--arcade-shadow);
 }
 
 [data-theme='arcade-dark'] .movies-modal-close {
-  background: #FF2D55;
-  color: #fff;
+  background: #FF6B85;
+  color: #181818;
 }
-
 [data-theme='arcade-light'] .movies-modal-close {
-  background: #CC1440;
-  color: #fff;
+  background: var(--accent-red);
+  color: #ffffff;
 }

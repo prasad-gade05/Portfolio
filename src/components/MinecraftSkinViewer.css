@@ -205,9 +205,9 @@
 /* Arcade theme overrides for Minecraft modal */
 [data-theme='arcade-dark'] .minecraft-modal-card,
 [data-theme='arcade-light'] .minecraft-modal-card {
-  border: 3px solid #000;
+  border: var(--arcade-border);
   border-radius: 16px;
-  box-shadow: 8px 8px 0px 0px #000;
+  box-shadow: var(--arcade-shadow-lg);
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-card::before,
@@ -216,73 +216,77 @@
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-card {
-  background: #1A1A2E;
+  background: var(--bg-secondary);
 }
 
 [data-theme='arcade-light'] .minecraft-modal-card {
-  background: #F5F2EB;
+  background: var(--bg-secondary);
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-header,
 [data-theme='arcade-light'] .minecraft-modal-header {
-  border-bottom: 3px solid #000;
+  border-bottom: var(--arcade-border);
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-header h3,
 [data-theme='arcade-light'] .minecraft-modal-header h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 [data-theme='arcade-light'] .minecraft-modal-header h3 {
-  color: #000;
+  color: #121212;
 }
 
 [data-theme='arcade-dark'] .minecraft-gamertag,
 [data-theme='arcade-light'] .minecraft-gamertag {
-  border: 2px solid #000;
-  border-radius: 999px;
-  box-shadow: 2px 2px 0px 0px #000;
-  font-family: 'Bebas Neue', sans-serif;
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
   letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 [data-theme='arcade-dark'] .minecraft-gamertag {
-  background: #FFE600;
-  color: #000;
+  background: var(--accent-green);
+  color: #121212;
 }
 
 [data-theme='arcade-light'] .minecraft-gamertag {
-  background: #0088AA;
-  color: #fff;
+  background: var(--accent-green);
+  color: #121212;
 }
 
 [data-theme='arcade-dark'] .minecraft-controls-hint,
 [data-theme='arcade-light'] .minecraft-controls-hint {
-  border: 2px solid #000;
-  border-radius: 999px;
-  font-family: 'Fredoka', sans-serif;
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
 }
 
 [data-theme='arcade-light'] .minecraft-controls-hint {
   color: #555;
-  background: #EBEBEB;
-  border-color: #000;
+  background: var(--bg-tertiary);
+  border-color: var(--border-separator);
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-close,
 [data-theme='arcade-light'] .minecraft-modal-close {
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0px 0px #000;
+  border: var(--arcade-border);
+  box-shadow: var(--arcade-shadow);
 }
 
 [data-theme='arcade-dark'] .minecraft-modal-close {
-  background: #FF2D55;
-  color: #fff;
+  background: var(--accent-red);
+  color: #121212;
 }
 
 [data-theme='arcade-light'] .minecraft-modal-close {
-  background: #CC1440;
-  color: #fff;
+  background: var(--accent-red);
+  color: #121212;
 }
