@@ -50,7 +50,9 @@ const ContentTabs = ({ onOpenMinecraft }) => {
     { id: 'arcade-dark', label: 'Arcade Dark', icon: Joystick },
     { id: 'arcade-light', label: 'Arcade Light', icon: Gamepad2 },
   ];
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'arcade-light'
+  );
   const [showThemePicker, setShowThemePicker] = useState(false);
   const [pickerPos, setPickerPos] = useState({ top: 0, right: 0 });
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
