@@ -43,6 +43,40 @@ import {
   webShows
 } from "../../data/portfolioData";
 
+// Computes optimal column count to minimize orphan items in the last row
+const getOptimalCols = (count, maxCols) => {
+  if (count <= 0 || maxCols <= 1) return maxCols;
+  if (count <= maxCols) return maxCols;
+
+  const minCols = Math.max(3, maxCols - 1);
+
+  for (let cols = maxCols; cols >= minCols; cols--) {
+    if (count % cols === 0) return cols;
+  }
+
+  let bestCols = maxCols;
+  let bestRemainder = count % maxCols;
+
+  for (let cols = maxCols - 1; cols >= minCols; cols--) {
+    const remainder = count % cols;
+    if (remainder > bestRemainder) {
+      bestRemainder = remainder;
+      bestCols = cols;
+    }
+  }
+
+  return bestCols;
+};
+
+const getMaxColsForWidth = () => {
+  const w = window.innerWidth;
+  if (w <= 360) return 1;
+  if (w <= 480) return 2;
+  if (w <= 900) return 2;
+  if (w <= 1100) return 3;
+  return 4;
+};
+
 const ContentTabs = ({ onOpenMinecraft }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const themes = [
@@ -57,6 +91,19 @@ const ContentTabs = ({ onOpenMinecraft }) => {
   const [showThemePicker, setShowThemePicker] = useState(false);
   const [pickerPos, setPickerPos] = useState({ top: 0, right: 0 });
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
+
+  const [maxCols, setMaxCols] = useState(getMaxColsForWidth);
+
+  useEffect(() => {
+    const handleResize = () => setMaxCols(getMaxColsForWidth());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const optimalCols = getOptimalCols(projects.length, maxCols);
+  const adaptiveGridStyle = {
+    gridTemplateColumns: `repeat(${optimalCols}, 1fr)`,
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -292,7 +339,7 @@ const ContentTabs = ({ onOpenMinecraft }) => {
               exit={{ opacity: 0, x: 10 }}
               transition={{ duration: 0.15 }}
             >
-              <div className="projects-grid">
+              <div className="projects-grid" style={adaptiveGridStyle}>
                 {projects.map((project, i) => {
                   const ProjectIcon = projectIcons[project.title] || Folder;
                   return (
