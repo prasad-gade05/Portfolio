@@ -463,13 +463,13 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
-  max-height: 260px;
+  max-height: 340px;
 }
 
 .social-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: clamp(4px, 0.5vmin, 6px);
   flex: 1;
   min-height: 0;
@@ -662,6 +662,57 @@
   border-color: #ff4500;
   transform: translateY(-3px);
 }
+
+.social-leetcode {
+  border-color: rgba(255, 161, 22, 0.3);
+}
+.social-leetcode .social-icon { color: #ffa116; }
+.social-leetcode .social-icon-wrap { background: rgba(255, 161, 22, 0.1); }
+.social-leetcode:hover {
+  background: rgba(255, 161, 22, 0.15);
+  border-color: #ffa116;
+  transform: translateY(-3px);
+}
+
+.social-streamlit {
+  border-color: rgba(255, 75, 75, 0.3);
+}
+.social-streamlit .social-icon { color: #ff4b4b; }
+.social-streamlit .social-icon-wrap { background: rgba(255, 75, 75, 0.1); }
+.social-streamlit:hover {
+  background: rgba(255, 75, 75, 0.15);
+  border-color: #ff4b4b;
+  transform: translateY(-3px);
+}
+
+.social-huggingface {
+  border-color: rgba(255, 210, 30, 0.3);
+}
+.social-huggingface .social-icon { color: #ffd21e; }
+.social-huggingface .social-icon-wrap { background: rgba(255, 210, 30, 0.1); }
+.social-huggingface:hover {
+  background: rgba(255, 210, 30, 0.15);
+  border-color: #ffd21e;
+  transform: translateY(-3px);
+}
+
+[data-theme='light'] .social-leetcode .social-icon { color: #d48f00; }
+[data-theme='light'] .social-leetcode .social-icon-wrap { background: rgba(255, 161, 22, 0.12); }
+
+[data-theme='light'] .social-streamlit .social-icon { color: #e03e3e; }
+[data-theme='light'] .social-streamlit .social-icon-wrap { background: rgba(255, 75, 75, 0.12); }
+
+[data-theme='light'] .social-huggingface .social-icon { color: #d4a800; }
+[data-theme='light'] .social-huggingface .social-icon-wrap { background: rgba(255, 210, 30, 0.12); }
+
+[data-theme='arcade-light'] .social-leetcode .social-icon { color: #d48f00; }
+[data-theme='arcade-light'] .social-leetcode .social-icon-wrap { background: rgba(255, 161, 22, 0.15); }
+
+[data-theme='arcade-light'] .social-streamlit .social-icon { color: #e03e3e; }
+[data-theme='arcade-light'] .social-streamlit .social-icon-wrap { background: rgba(255, 75, 75, 0.15); }
+
+[data-theme='arcade-light'] .social-huggingface .social-icon { color: #d4a800; }
+[data-theme='arcade-light'] .social-huggingface .social-icon-wrap { background: rgba(255, 210, 30, 0.15); }
 
 /* ============================================
    RIGHT COLUMN - TABBED CONTENT
@@ -1663,11 +1714,12 @@
   
   .social-section {
     flex-basis: 100%;
-    max-height: 170px;
+    max-height: 230px;
   }
   
   .social-cards-grid {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
   
   .social-stat {
@@ -2295,7 +2347,7 @@
   
   .social-cards-grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 6px;
   }
   
@@ -2939,7 +2991,7 @@
   }
   
   .social-section {
-    max-height: 100px;
+    max-height: 140px;
   }
   
   .social-card-fun {

@@ -35,6 +35,8 @@ import {
   SiSqlite,
   SiPostgresql,
   SiLangchain,
+  SiLeetcode,
+  SiHuggingface,
 } from "react-icons/si";
 import { HiMail } from "react-icons/hi";
 import {
@@ -50,6 +52,7 @@ import {
 } from "lucide-react";
 
 export const socialLinks = [
+  // Row 1
   {
     icon: FaGithub,
     href: "https://github.com/prasad-gade05",
@@ -65,6 +68,14 @@ export const socialLinks = [
     vibe: "linkedin",
   },
   {
+    icon: HiMail,
+    href: "mailto:prasadgade4405@gmail.com",
+    label: "Email",
+    handle: "prasadgade4405@gmail.com",
+    vibe: "email",
+  },
+  // Row 2
+  {
     icon: FaKaggle,
     href: "https://kaggle.com/prasadgade",
     label: "Kaggle",
@@ -72,11 +83,26 @@ export const socialLinks = [
     vibe: "kaggle",
   },
   {
-    icon: FaReddit,
-    href: "https://www.reddit.com/user/prasad_gade05/",
-    label: "Reddit",
-    handle: "prasad_gade05",
-    vibe: "reddit",
+    icon: SiLeetcode,
+    href: "https://leetcode.com/u/prasad-gade05/",
+    label: "LeetCode",
+    handle: "prasad-gade05",
+    vibe: "leetcode",
+  },
+  {
+    icon: SiStreamlit,
+    href: "https://share.streamlit.io/user/prasad-gade05",
+    label: "Streamlit",
+    handle: "prasad-gade05",
+    vibe: "streamlit",
+  },
+  // Row 3
+  {
+    icon: SiHuggingface,
+    href: "https://huggingface.co/prasad-gade05",
+    label: "Hugging Face",
+    handle: "prasad-gade05",
+    vibe: "huggingface",
   },
   {
     icon: FaKeyboard,
@@ -92,19 +118,20 @@ export const socialLinks = [
     handle: "@prasad_gade05",
     vibe: "twitter",
   },
+  // Row 4
+  {
+    icon: FaReddit,
+    href: "https://www.reddit.com/user/prasad_gade05/",
+    label: "Reddit",
+    handle: "prasad_gade05",
+    vibe: "reddit",
+  },
   {
     icon: FaInstagram,
     href: "https://instagram.com/prasad_gade05",
     label: "Instagram",
     handle: "@prasad_gade05",
     vibe: "instagram",
-  },
-  {
-    icon: HiMail,
-    href: "mailto:prasadgade4405@gmail.com",
-    label: "Email",
-    handle: "prasadgade4405@gmail.com",
-    vibe: "email",
   },
   {
     icon: FaSpotify,
