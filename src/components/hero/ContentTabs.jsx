@@ -17,6 +17,7 @@ import {
   Headphones,
   Joystick,
   Palette,
+  Pencil,
   User,
 } from "lucide-react";
 import { FaGithub, FaSpotify } from "react-icons/fa";
@@ -78,7 +79,7 @@ const getMaxColsForWidth = () => {
   return 5;
 };
 
-const ContentTabs = ({ onOpenMinecraft }) => {
+const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const themes = [
     { id: 'dark', label: 'Dark', icon: Moon },
@@ -778,6 +779,13 @@ const ContentTabs = ({ onOpenMinecraft }) => {
                       >
                         <TbBrandMinecraft size={18} />
                         <span>{hobbies.sports.minecraft}</span>
+                      </div>
+                      <div 
+                        className="hobby-activity-item minecraft-clickable"
+                        onClick={onStartDoodle}
+                      >
+                        <Pencil size={18} />
+                        <span>Paper Playground</span>
                       </div>
                     </div>
                   </div>

@@ -1,14 +1,19 @@
-import { useEffect, useState, lazy, Suspense } from 'react'
+import { useEffect, useState, lazy, Suspense, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import confetti from 'canvas-confetti'
+import { captureDOM } from './utils/domCapture'
 import './App.css'
 
 // Components
 import Hero from './components/Hero'
 
 const NeuralBackground = lazy(() => import('./components/NeuralBackground'))
+const TissueOverlay = lazy(() => import('./components/tissue/TissueOverlay'))
 
 function App() {
+  const [isTissueMode, setIsTissueMode] = useState(false)
+  const [capturedImage, setCapturedImage] = useState(null)
+  const [isCapturing, setIsCapturing] = useState(false)
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
@@ -31,6 +36,13 @@ function App() {
     let keys = []
 
     const handleKeyDown = (e) => {
+      // Exit tissue mode on Escape
+      if (e.key === 'Escape' && isTissueMode) {
+        setIsTissueMode(false)
+        setCapturedImage(null)
+        return
+      }
+
       keys.push(e.key)
       if (keys.length > konamiCode.length) {
         keys.shift()
@@ -66,16 +78,41 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isTissueMode])
+
+  const handlePeel = useCallback(async () => {
+    if (isCapturing || isTissueMode) return
+    setIsCapturing(true)
+
+    const appContent = document.getElementById('app-content')
+    if (!appContent) {
+      setIsCapturing(false)
+      return
+    }
+
+    const dataUrl = await captureDOM(appContent)
+    if (dataUrl) {
+      setCapturedImage(dataUrl)
+      setIsTissueMode(true)
+    }
+    setIsCapturing(false)
+  }, [isCapturing, isTissueMode])
+
+  const handleExitTissue = useCallback(() => {
+    setIsTissueMode(false)
+    setCapturedImage(null)
   }, [])
 
   return (
     <div className="app">
       <motion.div
         key="content"
+        id="app-content"
         className="content-wrapper"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        animate={{ opacity: isTissueMode ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        style={{ pointerEvents: isTissueMode ? 'none' : 'auto' }}
       >
         {/* Cursor glow effect */}
         <motion.div 
@@ -93,9 +130,27 @@ function App() {
         
         {/* Main Content - Single View */}
         <main>
-          <Hero />
+          <Hero onStartDoodle={handlePeel} />
         </main>
       </motion.div>
+
+      {/* Tissue Paper Physics Mode */}
+      <AnimatePresence>
+        {isTissueMode && capturedImage && (
+          <motion.div
+            key="tissue"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ position: 'fixed', inset: 0, zIndex: 10000 }}
+          >
+            <Suspense fallback={null}>
+              <TissueOverlay textureUrl={capturedImage} onExit={handleExitTissue} />
+            </Suspense>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

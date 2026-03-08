@@ -13,7 +13,7 @@ import ClickSparkle from "./ClickSparkle";
 const ResumeViewer = lazy(() => import("./ResumeViewer"));
 const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
 
-const Hero = () => {
+const Hero = ({ onStartDoodle }) => {
   const [showMinecraftModal, setShowMinecraftModal] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
 
@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
 
         {/* Right Column - Tabbed Content */}
-        <ContentTabs onOpenMinecraft={() => setShowMinecraftModal(true)} />
+        <ContentTabs onOpenMinecraft={() => setShowMinecraftModal(true)} onStartDoodle={onStartDoodle} />
       </div>
 
       {/* Minecraft Skin Modal - Centrally Managed */}
