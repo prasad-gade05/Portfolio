@@ -755,16 +755,28 @@
   height: 32px;
   border-radius: 6px;
   color: var(--text-secondary);
-  background: transparent;
+  background: rgba(var(--rgb-cyan), 0.06);
+  border: 1px solid rgba(var(--rgb-cyan), 0.15);
   transition: all 0.2s ease;
   flex-shrink: 0;
   cursor: pointer;
-  border: none;
+  animation: theme-btn-glow 2.5s ease-in-out infinite;
 }
 
 .theme-toggle-tab:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--rgb-cyan), 0.12);
   color: var(--accent-cyan);
+  animation: none;
+  box-shadow: 0 0 18px rgba(var(--rgb-cyan), 0.6), 0 0 30px rgba(var(--rgb-cyan), 0.2);
+}
+
+@keyframes theme-btn-glow {
+  0%, 100% { 
+    box-shadow: 0 0 7px rgba(var(--rgb-cyan), 0.4), 0 0 14px rgba(var(--rgb-cyan), 0.12); 
+  }
+  50% { 
+    box-shadow: 0 0 14px rgba(var(--rgb-cyan), 0.6), 0 0 28px rgba(var(--rgb-cyan), 0.22); 
+  }
 }
 
 .theme-picker-dropdown {
@@ -813,8 +825,25 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
+[data-theme='light'] .theme-toggle-tab {
+  background: rgba(0, 123, 181, 0.1);
+  border-color: rgba(0, 123, 181, 0.3);
+  animation: light-theme-btn-glow 2.5s ease-in-out infinite;
+}
+
 [data-theme='light'] .theme-toggle-tab:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 123, 181, 0.15);
+  animation: none;
+  box-shadow: 0 0 18px rgba(0, 123, 181, 0.55), 0 0 32px rgba(0, 123, 181, 0.2);
+}
+
+@keyframes light-theme-btn-glow {
+  0%, 100% { 
+    box-shadow: 0 0 8px rgba(0, 123, 181, 0.4), 0 0 16px rgba(0, 123, 181, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 0 16px rgba(0, 123, 181, 0.6), 0 0 30px rgba(0, 123, 181, 0.25); 
+  }
 }
 
 .tabs-header::-webkit-scrollbar {
@@ -2170,6 +2199,10 @@
 
 .minecraft-clickable:hover::after {
   opacity: 1;
+}
+
+.minecraft-clickable.doodle-clickable::after {
+  content: 'Start Playing Game ▸';
 }
 
 @keyframes mc-shimmer {
@@ -3868,24 +3901,44 @@
 [data-theme='arcade-light'] .theme-toggle-tab {
   border: var(--arcade-border);
   border-radius: 8px;
-  box-shadow: var(--arcade-shadow);
   transition: all 0.1s ease;
 }
 
 [data-theme='arcade-dark'] .theme-toggle-tab {
   background: var(--accent-red);
   color: #181818;
+  animation: arcade-dark-btn-glow 2.5s ease-in-out infinite;
 }
 
 [data-theme='arcade-light'] .theme-toggle-tab {
   background: var(--accent-red);
   color: #181818;
+  animation: arcade-light-btn-glow 2.5s ease-in-out infinite;
 }
 
 [data-theme='arcade-dark'] .theme-toggle-tab:hover,
 [data-theme='arcade-light'] .theme-toggle-tab:hover {
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0px 0px var(--border-separator);
+  animation: none;
+  box-shadow: 1px 1px 0px 0px var(--border-separator), 0 0 18px rgba(255, 107, 133, 0.5);
+}
+
+@keyframes arcade-dark-btn-glow {
+  0%, 100% { 
+    box-shadow: 3px 3px 0px 0px #383838, 0 0 8px rgba(255, 107, 133, 0.45), 0 0 16px rgba(255, 107, 133, 0.15); 
+  }
+  50% { 
+    box-shadow: 3px 3px 0px 0px #383838, 0 0 16px rgba(255, 107, 133, 0.65), 0 0 30px rgba(255, 107, 133, 0.25); 
+  }
+}
+
+@keyframes arcade-light-btn-glow {
+  0%, 100% { 
+    box-shadow: 3px 3px 0px 0px #1a1a2e, 0 0 10px rgba(232, 68, 94, 0.5), 0 0 18px rgba(232, 68, 94, 0.2); 
+  }
+  50% { 
+    box-shadow: 3px 3px 0px 0px #1a1a2e, 0 0 18px rgba(232, 68, 94, 0.7), 0 0 34px rgba(232, 68, 94, 0.3); 
+  }
 }
 
 [data-theme='arcade-dark'] .theme-picker-dropdown,

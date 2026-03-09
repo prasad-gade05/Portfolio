@@ -194,6 +194,17 @@
   border: 1px solid rgba(213, 0, 249, 0.2) !important;
 }
 
+/* Easter egg section spans full width on desktop to avoid lonely last row */
+@media (min-width: 901px) {
+  .help-section-easter {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .help-section-easter .help-section-title {
+    justify-content: center;
+  }
+}
+
 /* Navigation section spans full width on desktop */
 .help-section-navigate {
   grid-column: span 2;
@@ -249,13 +260,42 @@
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  animation: help-btn-glow 2.5s ease-in-out infinite;
 }
 
 .help-button:hover {
   background: rgba(var(--rgb-cyan), 0.2);
   border-color: var(--accent-cyan);
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 18px rgba(var(--rgb-cyan), 0.6), 0 0 30px rgba(var(--rgb-cyan), 0.2);
+  animation: none;
+}
+
+@keyframes help-btn-glow {
+  0%, 100% { 
+    box-shadow: 0 0 7px rgba(var(--rgb-cyan), 0.4), 0 0 14px rgba(var(--rgb-cyan), 0.12); 
+  }
+  50% { 
+    box-shadow: 0 0 14px rgba(var(--rgb-cyan), 0.6), 0 0 28px rgba(var(--rgb-cyan), 0.22); 
+  }
+}
+
+[data-theme='light'] .help-button {
+  animation: light-help-btn-glow 2.5s ease-in-out infinite;
+}
+
+[data-theme='light'] .help-button:hover {
+  animation: none;
+  box-shadow: 0 0 18px rgba(0, 123, 181, 0.55), 0 0 32px rgba(0, 123, 181, 0.2);
+}
+
+@keyframes light-help-btn-glow {
+  0%, 100% { 
+    box-shadow: 0 0 8px rgba(0, 123, 181, 0.4), 0 0 16px rgba(0, 123, 181, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 0 16px rgba(0, 123, 181, 0.6), 0 0 30px rgba(0, 123, 181, 0.25); 
+  }
 }
 
 .help-button svg {

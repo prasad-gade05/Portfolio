@@ -781,7 +781,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
                         <span>{hobbies.sports.minecraft}</span>
                       </div>
                       <div 
-                        className="hobby-activity-item minecraft-clickable"
+                        className="hobby-activity-item minecraft-clickable doodle-clickable"
                         onClick={onStartDoodle}
                       >
                         <Pencil size={18} />
