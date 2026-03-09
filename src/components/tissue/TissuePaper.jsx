@@ -6,6 +6,47 @@ import { ClothSimulation } from './clothPhysics'
 const SEGMENTS = 30
 const SNAP_DISTANCE = 0.35
 
+// Pre-allocated reusable objects — eliminates per-frame/per-event GC pressure
+const _dragTarget = new THREE.Vector3()
+const _planeNormal = new THREE.Vector3(0, 0, 1)
+
+// Fast vertex normal computation using flat array ops (no THREE.Vector3 allocations)
+function computeNormalsFast(index, posArr, normalArr) {
+  normalArr.fill(0)
+
+  for (let i = 0; i < index.length; i += 3) {
+    const a = index[i] * 3
+    const b = index[i + 1] * 3
+    const c = index[i + 2] * 3
+
+    const abx = posArr[b] - posArr[a]
+    const aby = posArr[b + 1] - posArr[a + 1]
+    const abz = posArr[b + 2] - posArr[a + 2]
+    const acx = posArr[c] - posArr[a]
+    const acy = posArr[c + 1] - posArr[a + 1]
+    const acz = posArr[c + 2] - posArr[a + 2]
+
+    const nx = aby * acz - abz * acy
+    const ny = abz * acx - abx * acz
+    const nz = abx * acy - aby * acx
+
+    normalArr[a] += nx; normalArr[a + 1] += ny; normalArr[a + 2] += nz
+    normalArr[b] += nx; normalArr[b + 1] += ny; normalArr[b + 2] += nz
+    normalArr[c] += nx; normalArr[c + 1] += ny; normalArr[c + 2] += nz
+  }
+
+  for (let i = 0; i < normalArr.length; i += 3) {
+    const x = normalArr[i], y = normalArr[i + 1], z = normalArr[i + 2]
+    const len = Math.sqrt(x * x + y * y + z * z)
+    if (len > 0) {
+      const inv = 1 / len
+      normalArr[i] *= inv
+      normalArr[i + 1] *= inv
+      normalArr[i + 2] *= inv
+    }
+  }
+}
+
 // Glowing board-pin — emissive red sphere with pulsing point light
 // `waiting` variant pulses faster/brighter to indicate it's waiting to catch tissue
 const BoardPin = ({ position, onClick, waiting = false }) => {
@@ -27,7 +68,7 @@ const BoardPin = ({ position, onClick, waiting = false }) => {
         position={[0, 0, 0.08]}
         onClick={(e) => { e.stopPropagation(); onClick() }}
       >
-        <sphereGeometry args={[0.1, 16, 16]} />
+        <sphereGeometry args={[0.1, 8, 6]} />
         <meshStandardMaterial
           color="#e74c3c"
           emissive="#ff2222"
@@ -38,7 +79,7 @@ const BoardPin = ({ position, onClick, waiting = false }) => {
         />
       </mesh>
       <mesh position={[0, 0, 0.07]}>
-        <ringGeometry args={[0.1, waiting ? 0.28 : 0.22, 24]} />
+        <ringGeometry args={[0.1, waiting ? 0.28 : 0.22, 12]} />
         <meshBasicMaterial
           color="#ff4444"
           transparent
@@ -183,7 +224,7 @@ const TissuePaper = ({ textureUrl, isPinMode, onPinUsed, onPinReturned, resetKey
     dragState.current.particleIndex = nearestIdx
     cloth.pin(nearestIdx)
 
-    const normal = new THREE.Vector3(0, 0, 1)
+    const normal = _planeNormal
     dragState.current.dragPlane.setFromNormalAndCoplanarPoint(normal, point)
   }, [cloth, isPinMode, onPinUsed])
 
@@ -210,10 +251,9 @@ const TissuePaper = ({ textureUrl, isPinMode, onPinUsed, onPinReturned, resetKey
 
     if (dragState.current.isDragging && dragState.current.particleIndex >= 0) {
       raycasterRef.current.setFromCamera(mouseNDC.current, camera)
-      const target = new THREE.Vector3()
-      const hit = raycasterRef.current.ray.intersectPlane(dragState.current.dragPlane, target)
+      const hit = raycasterRef.current.ray.intersectPlane(dragState.current.dragPlane, _dragTarget)
       if (hit) {
-        cloth.setPosition(dragState.current.particleIndex, target.x, target.y, target.z)
+        cloth.setPosition(dragState.current.particleIndex, _dragTarget.x, _dragTarget.y, _dragTarget.z)
       }
     }
 
@@ -258,15 +298,13 @@ const TissuePaper = ({ textureUrl, isPinMode, onPinUsed, onPinReturned, resetKey
       }
     }
 
-    const posAttr = meshRef.current.geometry.attributes.position
-    const positions = cloth.positions
-
-    for (let i = 0; i < cloth.particleCount; i++) {
-      const idx = i * 3
-      posAttr.setXYZ(i, positions[idx], positions[idx + 1], positions[idx + 2])
-    }
+    const geo = meshRef.current.geometry
+    const posAttr = geo.attributes.position
+    posAttr.array.set(cloth.positions)
     posAttr.needsUpdate = true
-    meshRef.current.geometry.computeVertexNormals()
+
+    computeNormalsFast(geo.index.array, posAttr.array, geo.attributes.normal.array)
+    geo.attributes.normal.needsUpdate = true
   })
 
   const getPinPos = (pIdx) => {

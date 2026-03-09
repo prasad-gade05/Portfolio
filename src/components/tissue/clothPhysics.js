@@ -13,7 +13,17 @@ export class ClothSimulation {
     this.positions = new Float32Array(this.particleCount * 3)
     this.prevPositions = new Float32Array(this.particleCount * 3)
     this.pinned = new Uint8Array(this.particleCount)
-    this.constraints = []
+    // SoA constraint storage — flat typed arrays for cache-friendly hot-loop access
+    const structH = segmentsX * (segmentsY + 1)
+    const structV = (segmentsX + 1) * segmentsY
+    const shearC = segmentsX * segmentsY * 2
+    const bendH = Math.max(0, segmentsX - 1) * (segmentsY + 1)
+    const bendV = (segmentsX + 1) * Math.max(0, segmentsY - 1)
+    const maxConstraints = structH + structV + shearC + bendH + bendV
+    this.constraintA = new Uint16Array(maxConstraints)
+    this.constraintB = new Uint16Array(maxConstraints)
+    this.constraintRest = new Float32Array(maxConstraints)
+    this.constraintCount = 0
 
     this.gravity = -0.0015
     this.damping = 0.985
@@ -43,115 +53,121 @@ export class ClothSimulation {
       }
     }
 
-    // Structural constraints (horizontal + vertical neighbors)
-    for (let j = 0; j < this.rows; j++) {
-      for (let i = 0; i < this.cols; i++) {
-        const idx = j * this.cols + i
+    const diagDist = Math.sqrt(stepX * stepX + stepY * stepY)
+    const cA = this.constraintA
+    const cB = this.constraintB
+    const cR = this.constraintRest
+    const cols = this.cols
+    let ci = 0
 
-        if (i < this.cols - 1) {
-          this.constraints.push({ a: idx, b: idx + 1, rest: stepX })
+    for (let j = 0; j < this.rows; j++) {
+      for (let i = 0; i < cols; i++) {
+        const idx = j * cols + i
+
+        if (i < cols - 1) {
+          cA[ci] = idx; cB[ci] = idx + 1; cR[ci] = stepX; ci++
         }
         if (j < this.rows - 1) {
-          this.constraints.push({ a: idx, b: idx + this.cols, rest: stepY })
+          cA[ci] = idx; cB[ci] = idx + cols; cR[ci] = stepY; ci++
         }
-
-        // Shear constraints (diagonals)
-        if (i < this.cols - 1 && j < this.rows - 1) {
-          const diagDist = Math.sqrt(stepX * stepX + stepY * stepY)
-          this.constraints.push({ a: idx, b: idx + this.cols + 1, rest: diagDist })
-          this.constraints.push({ a: idx + 1, b: idx + this.cols, rest: diagDist })
+        if (i < cols - 1 && j < this.rows - 1) {
+          cA[ci] = idx; cB[ci] = idx + cols + 1; cR[ci] = diagDist; ci++
+          cA[ci] = idx + 1; cB[ci] = idx + cols; cR[ci] = diagDist; ci++
         }
-
-        // Bend constraints (skip one neighbor for stiffness)
-        if (i < this.cols - 2) {
-          this.constraints.push({ a: idx, b: idx + 2, rest: stepX * 2 })
+        if (i < cols - 2) {
+          cA[ci] = idx; cB[ci] = idx + 2; cR[ci] = stepX * 2; ci++
         }
         if (j < this.rows - 2) {
-          this.constraints.push({ a: idx, b: idx + this.cols * 2, rest: stepY * 2 })
+          cA[ci] = idx; cB[ci] = idx + cols * 2; cR[ci] = stepY * 2; ci++
         }
       }
     }
+    this.constraintCount = ci
   }
 
   update() {
-    // Verlet integration step
-    for (let i = 0; i < this.particleCount; i++) {
-      if (this.pinned[i]) continue
+    const pos = this.positions
+    const prev = this.prevPositions
+    const pinned = this.pinned
+    const count = this.particleCount
+    const gravity = this.gravity
+    const damping = this.damping
+    const floorY = this.floorY
+    const ceilY = this.ceilY
+    const wallL = this.wallL
+    const wallR = this.wallR
+
+    // Merged Verlet integration + boundary collision (single pass)
+    for (let i = 0; i < count; i++) {
+      if (pinned[i]) continue
 
       const idx = i * 3
 
-      const vx = (this.positions[idx] - this.prevPositions[idx]) * this.damping
-      const vy = (this.positions[idx + 1] - this.prevPositions[idx + 1]) * this.damping
-      const vz = (this.positions[idx + 2] - this.prevPositions[idx + 2]) * this.damping
+      const vx = (pos[idx] - prev[idx]) * damping
+      const vy = (pos[idx + 1] - prev[idx + 1]) * damping
+      const vz = (pos[idx + 2] - prev[idx + 2]) * damping
 
-      this.prevPositions[idx] = this.positions[idx]
-      this.prevPositions[idx + 1] = this.positions[idx + 1]
-      this.prevPositions[idx + 2] = this.positions[idx + 2]
+      prev[idx] = pos[idx]
+      prev[idx + 1] = pos[idx + 1]
+      prev[idx + 2] = pos[idx + 2]
 
-      this.positions[idx] += vx
-      this.positions[idx + 1] += vy + this.gravity
-      this.positions[idx + 2] += vz
+      let px = pos[idx] + vx
+      let py = pos[idx + 1] + vy + gravity
+      let pz = pos[idx + 2] + vz
+
+      if (py < floorY) { py = floorY; prev[idx + 1] = floorY }
+      else if (py > ceilY) { py = ceilY; prev[idx + 1] = ceilY }
+      if (px < wallL) { px = wallL; prev[idx] = wallL }
+      else if (px > wallR) { px = wallR; prev[idx] = wallR }
+
+      pos[idx] = px
+      pos[idx + 1] = py
+      pos[idx + 2] = pz
     }
 
-    // Boundary collision — keep every particle inside the viewport
-    for (let i = 0; i < this.particleCount; i++) {
-      if (this.pinned[i]) continue
-      const idx = i * 3
+    // SoA constraint resolution
+    const cA = this.constraintA
+    const cB = this.constraintB
+    const cR = this.constraintRest
+    const cCount = this.constraintCount
+    const iterations = this.iterations
 
-      if (this.positions[idx + 1] < this.floorY) {
-        this.positions[idx + 1] = this.floorY
-        this.prevPositions[idx + 1] = this.floorY
-      }
-      if (this.positions[idx + 1] > this.ceilY) {
-        this.positions[idx + 1] = this.ceilY
-        this.prevPositions[idx + 1] = this.ceilY
-      }
-      if (this.positions[idx] < this.wallL) {
-        this.positions[idx] = this.wallL
-        this.prevPositions[idx] = this.wallL
-      }
-      if (this.positions[idx] > this.wallR) {
-        this.positions[idx] = this.wallR
-        this.prevPositions[idx] = this.wallR
-      }
-    }
+    for (let k = 0; k < iterations; k++) {
+      for (let c = 0; c < cCount; c++) {
+        const a = cA[c]
+        const b = cB[c]
+        const ia = a * 3
+        const ib = b * 3
 
-    // Constraint resolution
-    for (let k = 0; k < this.iterations; k++) {
-      for (let c = 0; c < this.constraints.length; c++) {
-        const constraint = this.constraints[c]
-        const ia = constraint.a * 3
-        const ib = constraint.b * 3
-
-        const dx = this.positions[ib] - this.positions[ia]
-        const dy = this.positions[ib + 1] - this.positions[ia + 1]
-        const dz = this.positions[ib + 2] - this.positions[ia + 2]
+        const dx = pos[ib] - pos[ia]
+        const dy = pos[ib + 1] - pos[ia + 1]
+        const dz = pos[ib + 2] - pos[ia + 2]
 
         const dist = Math.sqrt(dx * dx + dy * dy + dz * dz)
         if (dist < 0.0001) continue
 
-        const diff = (dist - constraint.rest) / dist
-        const pinnedA = this.pinned[constraint.a]
-        const pinnedB = this.pinned[constraint.b]
+        const diff = (dist - cR[c]) / dist
+        const pA = pinned[a]
+        const pB = pinned[b]
 
-        if (pinnedA && pinnedB) continue
+        if (pA && pB) continue
 
-        if (pinnedA) {
-          this.positions[ib] -= dx * diff
-          this.positions[ib + 1] -= dy * diff
-          this.positions[ib + 2] -= dz * diff
-        } else if (pinnedB) {
-          this.positions[ia] += dx * diff
-          this.positions[ia + 1] += dy * diff
-          this.positions[ia + 2] += dz * diff
+        if (pA) {
+          pos[ib] -= dx * diff
+          pos[ib + 1] -= dy * diff
+          pos[ib + 2] -= dz * diff
+        } else if (pB) {
+          pos[ia] += dx * diff
+          pos[ia + 1] += dy * diff
+          pos[ia + 2] += dz * diff
         } else {
           const half = diff * 0.5
-          this.positions[ia] += dx * half
-          this.positions[ia + 1] += dy * half
-          this.positions[ia + 2] += dz * half
-          this.positions[ib] -= dx * half
-          this.positions[ib + 1] -= dy * half
-          this.positions[ib + 2] -= dz * half
+          pos[ia] += dx * half
+          pos[ia + 1] += dy * half
+          pos[ia + 2] += dz * half
+          pos[ib] -= dx * half
+          pos[ib + 1] -= dy * half
+          pos[ib + 2] -= dz * half
         }
       }
     }
@@ -198,14 +214,16 @@ export class ClothSimulation {
   }
 
   findNearest(x, y, z) {
+    const pos = this.positions
+    const count = this.particleCount
     let minDist = Infinity
     let minIdx = -1
 
-    for (let i = 0; i < this.particleCount; i++) {
+    for (let i = 0; i < count; i++) {
       const idx = i * 3
-      const dx = this.positions[idx] - x
-      const dy = this.positions[idx + 1] - y
-      const dz = this.positions[idx + 2] - z
+      const dx = pos[idx] - x
+      const dy = pos[idx + 1] - y
+      const dz = pos[idx + 2] - z
       const dist = dx * dx + dy * dy + dz * dz
 
       if (dist < minDist) {
