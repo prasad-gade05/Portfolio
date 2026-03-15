@@ -20,7 +20,7 @@ import {
   Pencil,
   User,
 } from "lucide-react";
-import { FaGithub, FaSpotify } from "react-icons/fa";
+import { FaGithub, FaKaggle, FaSpotify } from "react-icons/fa";
 import { SiHuggingface } from "react-icons/si";
 import { GiCricketBat, GiBookCover } from "react-icons/gi";
 import { MdMovie } from "react-icons/md";
@@ -419,6 +419,17 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
                               title="Hugging Face Dataset"
                             >
                               <SiHuggingface size={14} />
+                            </a>
+                          )}
+                          {project.kaggleDataset && (
+                            <a
+                              href={project.kaggleDataset}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-card-link"
+                              title="Kaggle Dataset"
+                            >
+                              <FaKaggle size={14} />
                             </a>
                           )}
                         </div>

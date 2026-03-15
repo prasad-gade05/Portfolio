@@ -310,6 +310,7 @@ export const projects = [
     github: "https://github.com/prasad-gade05/IPL_Analysis",
     demo: "https://analytics-ipl.streamlit.app/",
     dataset: "https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025",
+    kaggleDataset: "https://www.kaggle.com/datasets/prasadgade/ipl-2008-2025-enriched-dataset",
   },
   {
     title: "UPI Analytics",
@@ -322,6 +323,7 @@ export const projects = [
     github: "https://github.com/prasad-gade05/UPI_DS_Project",
     demo: "https://upi-analytics.streamlit.app/",
     dataset: "https://huggingface.co/datasets/prasad-gade05/india-upi-ecosystem-2018-2025",
+    kaggleDataset: "https://www.kaggle.com/datasets/prasadgade/india-upi-ecosystem-2018-2025",
   },
   {
     title: "Lex Simulacra",
