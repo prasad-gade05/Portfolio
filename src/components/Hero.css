@@ -1874,6 +1874,7 @@
 .volunteer-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -1883,18 +1884,43 @@
   color: var(--accent-cyan);
 }
 
-.volunteer-cert-link {
+.volunteer-cert-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.volunteer-cert-label {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   font-size: clamp(10px, 1.2vmin, 12px);
+  color: var(--text-muted);
+}
+
+.volunteer-cert-list {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.volunteer-cert-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(10px, 1.2vmin, 12px);
   color: var(--accent-green);
   text-decoration: none;
-  transition: color 0.2s;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 2px 8px;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .volunteer-cert-link:hover {
   color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
 }
 
 /* ============================================

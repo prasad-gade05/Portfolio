@@ -431,8 +431,16 @@ export const volunteering = [
       "Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology",
     location: "Munshi Nagar, Andheri, Mumbai",
     date: "2025 - Present",
-    certificateLink:
-      "https://drive.google.com/file/d/1JnA6WtIeWsKkc0x4YsTQ95hjl5PNQwgh/view?usp=sharing",
+    certificateLinks: [
+      {
+        label: "Certificate 1",
+        url: "https://drive.google.com/file/d/1JnA6WtIeWsKkc0x4YsTQ95hjl5PNQwgh/view?usp=sharing",
+      },
+      {
+        label: "Certificate 2",
+        url: "https://drive.google.com/file/d/1-r042D5BRYzXpcAFEzDLwKD053YxiKcD/view?usp=sharing",
+      },
+    ],
   },
   {
     title: "General Secretary - Students Council",

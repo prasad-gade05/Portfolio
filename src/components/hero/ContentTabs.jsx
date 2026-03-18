@@ -731,35 +731,57 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
                 <span>Volunteering</span>
               </div>
               <div className="volunteer-list">
-                {volunteering.map((vol, i) => (
-                  <div key={i} className="volunteer-item"
-                    onMouseMove={handleCardTilt}
-                    onMouseLeave={handleCardTiltReset}
-                  >
-                    <div className="volunteer-icon">
-                      <Heart size={16} />
-                    </div>
-                    <div className="volunteer-content">
-                      <h3>{vol.title}</h3>
-                      <p className="volunteer-org">{vol.organization}</p>
-                      <p className="volunteer-location">{vol.location}</p>
-                      <div className="volunteer-meta">
-                        <span className="volunteer-date">{vol.date}</span>
-                        {vol.certificateLink && (
-                          <a
-                            href={vol.certificateLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="volunteer-cert-link"
-                          >
-                            <ExternalLink size={10} />
-                            View Certificate
-                          </a>
-                        )}
+                {volunteering.map((vol, i) => {
+                  const certificateLinks =
+                    Array.isArray(vol.certificateLinks) && vol.certificateLinks.length > 0
+                      ? vol.certificateLinks
+                      : vol.certificateLink
+                      ? [{ label: "Certificate", url: vol.certificateLink }]
+                      : [];
+
+                  return (
+                    <div key={i} className="volunteer-item"
+                      onMouseMove={handleCardTilt}
+                      onMouseLeave={handleCardTiltReset}
+                    >
+                      <div className="volunteer-icon">
+                        <Heart size={16} />
+                      </div>
+                      <div className="volunteer-content">
+                        <h3>{vol.title}</h3>
+                        <p className="volunteer-org">{vol.organization}</p>
+                        <p className="volunteer-location">{vol.location}</p>
+                        <div className="volunteer-meta">
+                          <span className="volunteer-date">{vol.date}</span>
+                          {certificateLinks.length > 0 && (
+                            <div className="volunteer-cert-group">
+                              <span className="volunteer-cert-label">
+                                <ExternalLink size={10} />
+                                {certificateLinks.length > 1
+                                  ? `Certificates (${certificateLinks.length})`
+                                  : "Certificate"}
+                              </span>
+                              <div className="volunteer-cert-list">
+                                {certificateLinks.map((cert, certIndex) => (
+                                  <a
+                                    key={cert.url || certIndex}
+                                    href={cert.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="volunteer-cert-link"
+                                    aria-label={`Open ${cert.label || `Certificate ${certIndex + 1}`}`}
+                                  >
+                                    {cert.label || `Certificate ${certIndex + 1}`}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
           )}
