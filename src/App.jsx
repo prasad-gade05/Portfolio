@@ -24,7 +24,7 @@ function App() {
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, [cursorX, cursorY])
 
   useEffect(() => {
     const konamiCode = [

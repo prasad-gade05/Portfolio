@@ -137,7 +137,7 @@ const TissuePaper = ({ textureUrl, isPinMode, onPinUsed, onPinReturned, resetKey
 
   const cloth = useMemo(() => {
     return new ClothSimulation(initialSize.current.w, initialSize.current.h, SEGMENTS, SEGMENTS)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   // Board pins: particle indices pinned directly on the tissue
   const [boardPins, setBoardPins] = useState([])
@@ -277,12 +277,14 @@ const TissuePaper = ({ textureUrl, isPinMode, onPinUsed, onPinReturned, resetKey
 
         if (dist < SNAP_DISTANCE) {
           // Snap particle to pin position, zero velocity, pin it
+          /* eslint-disable react-hooks/immutability -- Physics engine requires direct mutation of typed arrays */
           cloth.positions[pi] = wp.position[0]
           cloth.positions[pi + 1] = wp.position[1]
           cloth.positions[pi + 2] = wp.position[2]
           cloth.prevPositions[pi] = wp.position[0]
           cloth.prevPositions[pi + 1] = wp.position[1]
           cloth.prevPositions[pi + 2] = wp.position[2]
+          /* eslint-enable react-hooks/immutability */
           cloth.pin(nearIdx)
 
           caughtIds.push(wp.id)

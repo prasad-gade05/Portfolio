@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './ClickSparkle.css';
 
-const Sparkle = ({ x, y, onComplete }) => {
-  // Generate random configuration for this specific sparkle
+// Generate sparkle configuration at creation time (not render time)
+const generateSparkleConfig = () => {
   const lineCount = 10 + Math.floor(Math.random() * 4); // 10-13 lines
-  const lines = Array.from({ length: lineCount }).map((_, i) => ({
+  return Array.from({ length: lineCount }).map((_, i) => ({
     id: i,
-    angle: (360 / lineCount) * i + (Math.random() * 20 - 10), // Even distribution + random jitter
-    length: 12 + Math.random() * 14, // Increased length (was 8+12)
-    width: 2 + Math.random() * 1, // Added width variation
-    color: Math.random() > 0.6 ? '#ffffff' : 'var(--accent-cyan)' // Mix of white and cyan
+    angle: (360 / lineCount) * i + (Math.random() * 20 - 10),
+    length: 12 + Math.random() * 14,
+    width: 2 + Math.random() * 1,
+    color: Math.random() > 0.6 ? '#ffffff' : 'var(--accent-cyan)'
   }));
+};
 
-  return (
+const Sparkle = ({ x, y, lines, onComplete }) => {  return (
     <motion.div
       className="click-sparkle-container"
       style={{ left: x, top: y }}
@@ -61,7 +63,8 @@ const ClickSparkle = () => {
     const newSparkle = {
       id: Date.now(),
       x: e.clientX,
-      y: e.clientY
+      y: e.clientY,
+      lines: generateSparkleConfig()
     };
     setSparkles(prev => [...prev, newSparkle]);
   }, []);
@@ -83,6 +86,7 @@ const ClickSparkle = () => {
             key={sparkle.id}
             x={sparkle.x}
             y={sparkle.y}
+            lines={sparkle.lines}
             onComplete={() => removeSparkle(sparkle.id)}
           />
         ))}

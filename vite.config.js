@@ -17,7 +17,12 @@ export default defineConfig({
             if (id.includes('@react-three')) {
               return 'vendor';
             }
-            if (id.includes('three') || id.includes('skinview3d')) {
+            // Keep skinview3d and its bundled three.js together (they're tightly coupled)
+            if (id.includes('skinview3d')) {
+              return 'skinview-vendor';
+            }
+            // Main three.js for @react-three/fiber usage
+            if (id.includes('three')) {
               return 'three-vendor';
             }
             if (id.includes('react-pdf') || id.includes('pdfjs-dist')) {

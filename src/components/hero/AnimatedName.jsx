@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, animate } from 'framer-motion';
+import { AnimatePresence, useMotionValue, useSpring, animate } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './AnimatedName.css';
 
 const LANGUAGES = ["GADE", "गडे", "가데", "ガデ"];
@@ -12,8 +13,12 @@ const AnimatedName = () => {
   // Idle State
   const [isIdle, setIsIdle] = useState(false);
   const [idleHighlightIndex, setIdleHighlightIndex] = useState(-1);
-  const lastInteraction = useRef(Date.now());
-  const idleTimeoutRef = useRef(null);
+  const lastInteraction = useRef(0);
+  
+  // Initialize lastInteraction on mount
+  useEffect(() => {
+    lastInteraction.current = Date.now();
+  }, []);
 
   // Magnetic Text Effect State (Local translation)
   const textRef = useRef(null);

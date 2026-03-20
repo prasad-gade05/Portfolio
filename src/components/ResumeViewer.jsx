@@ -14,7 +14,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 const ResumeViewer = ({ pdfUrl, onClose }) => {
   const [numPages, setNumPages] = useState(null);
   const [scale, setScale] = useState(1.0);
-  const [containerWidth, setContainerWidth] = useState(null);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -31,7 +30,6 @@ const ResumeViewer = ({ pdfUrl, onClose }) => {
       } else {
         setScale(1.0);
       }
-      setContainerWidth(width);
     };
 
     handleResize();
