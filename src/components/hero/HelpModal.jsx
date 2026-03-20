@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Code, Gamepad2, Film, FileText, Sparkles } from "lucide-react";
+import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, Link2, FileText } from "lucide-react";
 import "./HelpModal.css";
 
 const HelpModal = ({ onClose }) => {
@@ -28,111 +28,116 @@ const HelpModal = ({ onClose }) => {
         </div>
 
         <div className="help-modal-content">
-          {/* Who am I */}
+          {/* Row 1 */}
           <section className="help-section">
             <div className="help-section-title">
               <User size={16} />
               <h3>Who am I?</h3>
             </div>
             <p>
-              Hi, I'm <strong>Prasad</strong> — a computer engineer who builds software, 
+              Hi, I'm <strong>Prasad</strong>, a computer engineer who builds software, 
               works with data, and creates intelligent tools to solve real problems.
             </p>
           </section>
 
-          {/* What is this site */}
           <section className="help-section">
             <div className="help-section-title">
               <Globe size={16} />
               <h3>What is this site?</h3>
             </div>
             <p>
-              This dashboard is my digital home — showcasing my software, skills, and data stories 
-              all in one view. Think of it as an interactive, visual version of my resume.
+              This is my digital home, showcasing my work, skills, and interests all in one view. 
+              Think of it as an interactive, visual resume that also reflects my personality.
             </p>
             <p className="help-subtext">
-              <em>For recruiters, collaborators, and anyone curious about who I am and what I build.</em>
+              <em>For everyone: recruiters, friends, tech folks, non-tech folks, or anyone curious about who I am.</em>
             </p>
           </section>
 
-          {/* What are projects */}
           <section className="help-section">
             <div className="help-section-title">
               <Folder size={16} />
               <h3>What are "projects"?</h3>
             </div>
             <p>
-              Each card is a real project — apps, data analysis, or AI tools. 
+              Each card is a real project: apps, data analysis, or AI tools. 
               The title tells you what problem it solves.
             </p>
           </section>
 
-          {/* GitHub explanation */}
+          {/* Row 2 */}
           <section className="help-section">
             <div className="help-section-title">
               <Github size={16} />
-              <h3>Why GitHub links?</h3>
+              <h3>Project links</h3>
+            </div>
+            <ul className="help-list">
+              <li><strong>GitHub</strong>: where developers store and share code</li>
+              <li><strong>HuggingFace</strong>: a platform for AI models and demos</li>
+              <li><strong>Kaggle</strong>: a site for data science projects and competitions</li>
+            </ul>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-title">
+              <Link2 size={16} />
+              <h3>Why two links?</h3>
             </div>
             <p>
-              These links let employers and collaborators verify my work 
-              and see how I actually build things.
+              Some projects have <strong>GitHub</strong> (source code) + <strong>Live</strong> (try it yourself). 
+              ML projects often lack live links since they're about training models, not hosting apps.
             </p>
           </section>
 
-          {/* How to navigate */}
-          <section className="help-section help-section-navigate">
+          <section className="help-section">
             <div className="help-section-title">
               <Compass size={16} />
               <h3>How to explore</h3>
             </div>
             <ul className="help-list">
-              <li><strong>Tabs</strong> — Switch between Skills, Projects, Education, Hobbies</li>
-              <li><strong>Skills</strong> — Python, JS, etc. are programming languages; React, Flask are tools</li>
-              <li><strong>Social icons</strong> — Open my profiles (LinkedIn, GitHub, etc.)</li>
-              <li><strong>Resume</strong> — Opens traditional PDF resume</li>
+              <li><strong>Tabs</strong>: Skills, Projects, Education, Hobbies</li>
+              <li><strong>Social icons</strong>: my profiles (LinkedIn, GitHub)</li>
+              <li><strong>Resume</strong>: opens traditional PDF resume</li>
             </ul>
           </section>
 
-          {/* Interactive features */}
-          <section className="help-section">
-            <div className="help-section-title">
-              <Sparkles size={16} />
-              <h3>Interactive bits</h3>
-            </div>
-            <ul className="help-list">
-              <li><strong>My photo</strong> — Click to enlarge</li>
-              <li><strong>prasad_gade.py</strong> — My intro in code style (for fun!)</li>
-              <li><strong>Minecraft button</strong> — See my game character</li>
-              <li><strong>See All Movies</strong> — My watchlist</li>
-            </ul>
-          </section>
-
-          {/* Theme toggle */}
+          {/* Row 3 */}
           <section className="help-section">
             <div className="help-section-title">
               <Palette size={16} />
               <h3>Themes</h3>
             </div>
             <p>
-              Cycle through <strong>4 themes</strong> — Dark, Light, Arcade Dark, and Arcade Light — 
-              using the toggle button. The arcade themes bring a retro game aesthetic!
+              Cycle through <strong>4 themes</strong>: Dark, Light, Arcade Dark, and Arcade Light 
+              using the toggle button. Arcade themes have a retro game look!
             </p>
           </section>
 
-          {/* Paper Playground / Doodle */}
           <section className="help-section">
             <div className="help-section-title">
               <Sparkles size={16} />
+              <h3>Interactive bits</h3>
+            </div>
+            <ul className="help-list">
+              <li><strong>My photo</strong>: click to enlarge</li>
+              <li><strong>prasad_gade.py</strong>: my intro in code style (for fun!)</li>
+              <li><strong>Resume button</strong>: view or download my resume</li>
+              <li><strong>See All Movies</strong>: my personal watchlist</li>
+            </ul>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-title">
+              <FileText size={16} />
               <h3>Paper Playground</h3>
             </div>
             <p>
-              Head to the <strong>Hobbies</strong> tab and click <strong>Paper Playground</strong> — 
-              it captures the page and turns it into a draggable tissue paper with real-time physics! 
-              Pin it, fold it, drag it around, and press <kbd>Esc</kbd> to return.
+              Head to <strong>Hobbies</strong> tab and click <strong>Paper Playground</strong>. 
+              It turns the page into draggable paper with real physics! Press <kbd>Esc</kbd> to return.
             </p>
           </section>
 
-          {/* Easter egg hint for nerds */}
+          {/* Easter egg - always last/bottom */}
           <section className="help-section help-section-easter">
             <div className="help-section-title">
               <Gamepad2 size={16} />
@@ -140,6 +145,9 @@ const HelpModal = ({ onClose }) => {
             </div>
             <p className="easter-hint">
               Try some classic controller moves on your keyboard… 🎮✨
+            </p>
+            <p className="easter-ps">
+              <em>PS: If you grew up with Konami or typed cheats in San Andreas, you might already know what to do.</em>
             </p>
           </section>
         </div>
