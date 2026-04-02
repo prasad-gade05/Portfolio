@@ -1010,9 +1010,9 @@
   box-shadow: 0 8px 30px rgba(0, 229, 255, 0.15);
 }
 
-/* Dark theme - visible default border that transitions to cyan on hover */
+/* Dark theme - subtle cyan default border that intensifies on hover */
 [data-theme='dark'] .project-card {
-  border: 1px solid #3a3a3a;
+  border: 1px solid rgba(0, 229, 255, 0.25);
 }
 
 [data-theme='dark'] .project-card:hover {
