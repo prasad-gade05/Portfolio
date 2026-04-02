@@ -1010,6 +1010,15 @@
   box-shadow: 0 8px 30px rgba(0, 229, 255, 0.15);
 }
 
+/* Dark theme - visible default border that transitions to cyan on hover */
+[data-theme='dark'] .project-card {
+  border: 1px solid #3a3a3a;
+}
+
+[data-theme='dark'] .project-card:hover {
+  border-color: var(--accent-cyan);
+}
+
 .project-badge {
   position: absolute;
   top: 8px;
