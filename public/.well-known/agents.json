@@ -12,7 +12,7 @@
     "structured_data": true,
     "static_api": true,
     "mcp": false,
-    "a2a": false,
+    "a2a": true,
     "webmcp": true,
     "openapi": true,
     "oauth": false
