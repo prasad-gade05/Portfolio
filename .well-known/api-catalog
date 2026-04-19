@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://prasadgade.dev/api/",
+      "service-desc": [
+        {
+          "href": "https://prasadgade.dev/api/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://prasadgade.dev/llms-full.txt",
+          "type": "text/plain"
+        }
+      ]
+    }
+  ]
+}

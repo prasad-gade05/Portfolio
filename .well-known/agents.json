@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "name": "Prasad Gade — Portfolio",
+  "description": "Personal portfolio of Prasad Gade, a data scientist and computer engineer from Mumbai, India. This site has structured data, static JSON APIs, and LLM-readable content.",
+  "url": "https://prasadgade.dev",
+  "contact": {
+    "email": "prasadgade4405@gmail.com",
+    "url": "https://prasadgade.dev"
+  },
+  "capabilities": {
+    "llms_txt": true,
+    "structured_data": true,
+    "static_api": true,
+    "mcp": false,
+    "a2a": true,
+    "webmcp": true,
+    "openapi": true,
+    "oauth": false
+  },
+  "discovery": {
+    "robots_txt": "https://prasadgade.dev/robots.txt",
+    "sitemap": "https://prasadgade.dev/sitemap.xml",
+    "llms_txt": "https://prasadgade.dev/llms.txt",
+    "llms_full_txt": "https://prasadgade.dev/llms-full.txt",
+    "api_catalog": "https://prasadgade.dev/.well-known/api-catalog",
+    "openapi": "https://prasadgade.dev/api/openapi.json",
+    "agent_skills": "https://prasadgade.dev/.well-known/agent-skills/index.json"
+  },
+  "api_endpoints": [
+    {
+      "path": "/api/resume.json",
+      "method": "GET",
+      "description": "Structured resume data (education, experience, projects, skills, certifications)"
+    },
+    {
+      "path": "/api/projects.json",
+      "method": "GET",
+      "description": "All projects with descriptions, tech stacks, and links"
+    },
+    {
+      "path": "/api/skills.json",
+      "method": "GET",
+      "description": "Categorized technical skills"
+    },
+    {
+      "path": "/api/social.json",
+      "method": "GET",
+      "description": "Social media profiles and contact information"
+    },
+    {
+      "path": "/api/about.json",
+      "method": "GET",
+      "description": "Site philosophy, personality, hobbies, and interests"
+    }
+  ],
+  "content_types": ["application/json", "text/plain", "text/html", "text/xml"],
+  "languages": ["en"],
+  "last_updated": "2026-04-19"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "name": "Prasad Gade Portfolio",
+  "description": "Static JSON API skills for querying structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India.",
+  "skills": [
+    {
+      "name": "get-resume",
+      "type": "api",
+      "description": "Get Prasad Gade's structured resume — education, experience, projects, skills, and certifications as JSON",
+      "url": "https://prasadgade.dev/api/resume.json",
+      "sha256": "ad34b482bc45a6176b54acd2139aef74ce592c7a5e8026b37b125a8e152f3927"
+    },
+    {
+      "name": "get-projects",
+      "type": "api",
+      "description": "Get all 11 projects with descriptions, tech stacks, metrics, and links to demos and source code",
+      "url": "https://prasadgade.dev/api/projects.json",
+      "sha256": "35c839c642713d992ce4076a6a8f5cd2f5872bd41f59dab43956df3a6a211ff3"
+    },
+    {
+      "name": "get-skills",
+      "type": "api",
+      "description": "Get categorized technical skills across 6 categories including languages, ML/DS, web dev, databases, and DevOps",
+      "url": "https://prasadgade.dev/api/skills.json",
+      "sha256": "db667d3831695f936512387cd3313568f804837f5712c6b71b402de7f40b602c"
+    },
+    {
+      "name": "get-social",
+      "type": "api",
+      "description": "Get contact information (email, phone, location) and 11 social media profile links",
+      "url": "https://prasadgade.dev/api/social.json",
+      "sha256": "1d10345b7e4ace1acb90a53a523512e8a2690d90b4177e8b7715ecfd3614c577"
+    },
+    {
+      "name": "get-about",
+      "type": "api",
+      "description": "Get personality traits, hobbies, site philosophy, favorite movies, songs, and what makes this portfolio unique",
+      "url": "https://prasadgade.dev/api/about.json",
+      "sha256": "9f56b58a0296bcbc3cb6d11e861fa58021525e7950a0834789194c8c5daced19"
+    }
+  ]
+}

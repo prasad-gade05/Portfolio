@@ -1,0 +1,54 @@
+{
+  "name": "Prasad Gade Portfolio",
+  "description": "Personal portfolio agent for Prasad Gade — data scientist and computer engineer from Mumbai, India. Provides structured access to resume, projects, skills, contact information, and personality data via static JSON API.",
+  "url": "https://prasadgade.dev",
+  "provider": {
+    "organization": "Prasad Gade",
+    "url": "https://prasadgade.dev"
+  },
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "get-resume",
+      "name": "Get Resume",
+      "description": "Retrieve structured resume data including education, experience, projects, skills, and certifications",
+      "tags": ["resume", "career", "education"],
+      "examples": ["What is Prasad's education?", "Show me Prasad's work experience"]
+    },
+    {
+      "id": "get-projects",
+      "name": "Get Projects",
+      "description": "Retrieve all 11 projects with descriptions, tech stacks, metrics, and links",
+      "tags": ["projects", "portfolio", "code"],
+      "examples": ["What projects has Prasad built?", "Show me data science projects"]
+    },
+    {
+      "id": "get-skills",
+      "name": "Get Skills",
+      "description": "Retrieve categorized technical skills across 6 categories",
+      "tags": ["skills", "technology"],
+      "examples": ["What programming languages does Prasad know?", "What ML frameworks does Prasad use?"]
+    },
+    {
+      "id": "get-contact",
+      "name": "Get Contact Info",
+      "description": "Retrieve contact details and 11 social media profile links",
+      "tags": ["contact", "social"],
+      "examples": ["How can I reach Prasad?", "What is Prasad's GitHub?"]
+    },
+    {
+      "id": "get-about",
+      "name": "Get About Info",
+      "description": "Retrieve personality traits, hobbies, site philosophy, and favorite movies and songs",
+      "tags": ["about", "personal", "hobbies"],
+      "examples": ["What are Prasad's hobbies?", "Tell me about Prasad"]
+    }
+  ]
+}
