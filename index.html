@@ -213,6 +213,95 @@
       ]
     }
     </script>
+
+    <!-- SoftwareApplication schema (high-value type for AI search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Prasad Gade Portfolio",
+      "description": "Interactive personal portfolio with 4 themes, 3D Minecraft skin viewer, paper physics playground, and hidden easter eggs. Built with React, Three.js, and Framer Motion.",
+      "url": "https://prasadgade.dev",
+      "operatingSystem": "Web",
+      "applicationCategory": "LifestyleApplication",
+      "author": { "@id": "https://prasadgade.dev/#person" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "4 visual themes (light, dark, arcade light, arcade dark)",
+        "3D Minecraft skin viewer powered by skinview3d",
+        "Paper physics playground game with real physics",
+        "Hidden easter eggs (Konami code, hesoyam)",
+        "Responsive design for all screen sizes including tablets",
+        "Start Here modal for non-tech users",
+        "Auto-detect device theme preference",
+        "Static JSON API for AI agents and developers"
+      ],
+      "screenshot": "https://prasadgade.dev/profile.jpg",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <!-- FAQPage schema (8x more likely to be cited by ChatGPT) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Prasad Gade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prasad Gade is a Data Scientist and Computer Engineer from Mumbai, India. He is pursuing a B.Tech in Computer Engineering at Sardar Patel Institute of Technology (CGPA 9.26/10) with a Minor in Management from SPJIMR. He builds data pipelines, ML models, and interactive web applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Prasad Gade's technical skills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prasad works with Python, JavaScript, TypeScript, Java, C++, and SQL. His ML and data science stack includes Pandas, NumPy, Scikit-Learn, PyTorch, TensorFlow, and LangChain. He also builds with React, Flask, FastAPI, Node.js, MongoDB, PostgreSQL, Docker, and AWS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What projects has Prasad Gade built?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notable projects include IPL Analytics Platform (278K ball-by-ball records, 14 dashboard pages), UPI Analytics Platform (788 districts, 68 visualizations), Lex Simulacra (8-agent AI legal courtroom simulator with 99% citation accuracy), Intrusion Detection System (99.99% recall on 8.6M samples), and KindHearts (1st place at Tech Horizon National Hackathon). All 11 projects are listed at prasadgade.dev/api/projects.json."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Prasad Gade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prasad can be reached via email at prasadgade4405@gmail.com, through his website prasadgade.dev, on LinkedIn at linkedin.com/in/prasad-gade05, or on GitHub at github.com/prasad-gade05. He is also on Kaggle, LeetCode, Hugging Face, and Twitter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Prasad Gade's education?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prasad is pursuing a B.Tech in Computer Engineering from Sardar Patel Institute of Technology (SPIT), Mumbai with a CGPA of 9.26/10 (expected 2027). He holds a Diploma in Computer Technology from K. K. Wagh Polytechnic with 96.51% (2021-2024) and is completing a Minor in Management from SPJIMR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes this portfolio unique?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This portfolio reflects Prasad's personality beyond just technical skills. It features 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground game with real physics, hidden easter eggs triggered by the Konami code and hesoyam, and a Start Here guide for non-tech users. It is built for everyone — recruiters, friends, colleagues, and anyone curious."
+          }
+        }
+      ]
+    }
+    </script>
     <script type="module" crossorigin src="/assets/index-BC_GE4E_.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/three-vendor-Dqg4GjvC.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-CMd5IQAy.js">
@@ -221,6 +310,25 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- WebMCP Declarative — tool-annotated forms for AI agent discovery -->
+    <div hidden>
+      <form tool-name="get-resume" tool-description="Get Prasad Gade's structured resume with education, experience, projects, skills, and certifications" action="/api/resume.json" method="GET">
+        <button type="submit">Get Resume</button>
+      </form>
+      <form tool-name="get-projects" tool-description="Browse all 11 projects by Prasad Gade with descriptions, tech stacks, and demo links" action="/api/projects.json" method="GET">
+        <button type="submit">Get Projects</button>
+      </form>
+      <form tool-name="get-skills" tool-description="Get categorized technical skills across languages, ML/DS, web development, databases, and DevOps" action="/api/skills.json" method="GET">
+        <button type="submit">Get Skills</button>
+      </form>
+      <form tool-name="get-contact" tool-description="Get contact information and social media profiles for Prasad Gade" action="/api/social.json" method="GET">
+        <button type="submit">Get Contact</button>
+      </form>
+      <form tool-name="get-about" tool-description="Get personality, hobbies, favorite movies, and what makes this portfolio unique" action="/api/about.json" method="GET">
+        <button type="submit">Get About</button>
+      </form>
+    </div>
 
     <noscript>
       <div style="max-width:800px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif;color:#e6edf3;background:#0d1117;">
