@@ -21,6 +21,15 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 - Social links (JSON): https://prasadgade.dev/api/social.json
 - About & personality (JSON): https://prasadgade.dev/api/about.json
 
+## Agent Discovery
+
+- Agent endpoint: https://prasadgade.dev/agent/
+- A2A Agent Card: https://prasadgade.dev/.well-known/agent.json
+- agents.json discovery file: https://prasadgade.dev/.well-known/agents.json
+- Agent skills index: https://prasadgade.dev/.well-known/agent-skills/index.json
+- API catalog: https://prasadgade.dev/.well-known/api-catalog
+- OpenAPI spec: https://prasadgade.dev/api/openapi.json
+
 ## Detailed Content
 
 - Full LLM content: https://prasadgade.dev/llms-full.txt

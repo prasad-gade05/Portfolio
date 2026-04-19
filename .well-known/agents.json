@@ -22,6 +22,8 @@
     "sitemap": "https://prasadgade.dev/sitemap.xml",
     "llms_txt": "https://prasadgade.dev/llms.txt",
     "llms_full_txt": "https://prasadgade.dev/llms-full.txt",
+    "agent_endpoint": "https://prasadgade.dev/agent/",
+    "agent_card": "https://prasadgade.dev/.well-known/agent.json",
     "api_catalog": "https://prasadgade.dev/.well-known/api-catalog",
     "openapi": "https://prasadgade.dev/api/openapi.json",
     "agent_skills": "https://prasadgade.dev/.well-known/agent-skills/index.json"
