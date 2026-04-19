@@ -56,3 +56,6 @@ Sitemap: https://prasadgade.dev/sitemap.xml
 # LLM-readable content
 Llms-txt: https://prasadgade.dev/llms.txt
 Llms-full-txt: https://prasadgade.dev/llms-full.txt
+
+# Content Signals (contentsignals.org)
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
