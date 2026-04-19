@@ -1,0 +1,281 @@
+# Prasad Gade — Full Profile
+
+> Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at Sardar Patel Institute of Technology (CGPA 9.26/10). Builds data pipelines, ML models, and interactive web applications. Published researcher and hackathon winner.
+
+## About This Site
+
+prasadgade.dev is Prasad's personal portfolio. It is a single-page React app hosted on GitHub Pages.
+
+This site is not just a resume. It represents who Prasad is as a person. It has technical projects, but also hobbies, favorite movies, a 3D Minecraft skin, a paper physics playground, and hidden easter eggs. The site is built for everyone — recruiters, friends, colleagues, and anyone curious.
+
+Site features:
+- 4 visual themes: dark, light, arcade dark, arcade light
+- Auto-detects device theme preference
+- No-scroll desktop layout (everything fits one screen)
+- 3D Minecraft skin viewer (using skinview3d and Three.js)
+- Paper playground: the screen turns into a crumpled paper with real physics (cloth simulation)
+- Hidden easter eggs: Konami code and "hesoyam" trigger animations
+- "Start Here" modal for non-tech visitors explaining every section
+- Resume opens in an in-app modal (no redirect, retains users)
+- Responsive for mobile, tablet, and desktop-site-on-mobile
+- Every modal closes on ESC key
+- Custom domain: prasadgade.dev (CNAME via Hostinger)
+
+## Contact
+
+- Email: prasadgade4405@gmail.com
+- Phone: +91 8446240041
+- Location: Mumbai, India
+- Website: https://prasadgade.dev
+
+## Social Profiles
+
+- GitHub: https://github.com/prasad-gade05
+- LinkedIn: https://linkedin.com/in/prasad-gade05
+- Kaggle: https://kaggle.com/prasadgade
+- LeetCode: https://leetcode.com/u/prasad-gade05/
+- Streamlit: https://share.streamlit.io/user/prasad-gade05
+- Hugging Face: https://huggingface.co/prasad-gade05
+- Monkeytype: https://monkeytype.com/profile/prasad_gade05
+- Twitter: https://twitter.com/prasad_gade05
+- Reddit: https://reddit.com/user/prasad_gade05/
+- Instagram: https://instagram.com/prasad_gade05
+- Spotify: https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau
+
+## Education
+
+### B.Tech in Computer Engineering
+- Institution: Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology (SPIT), Mumbai
+- Minor: Management from SPJIMR (S. P. Jain Institute of Management & Research)
+- CGPA: 9.26/10.0
+- Expected graduation: June 2027
+
+### Diploma in Computer Technology
+- Institution: K. K. Wagh Polytechnic, Nashik
+- Grade: 96.51%
+- Duration: August 2021 to June 2024
+
+## Experience
+
+### Undergraduate Research & Teaching Assistant
+- Organization: Department of Computer Engineering, SPIT, Mumbai
+- Duration: February 2025 to present
+- Performed statistical analysis on student performance data and course feedback to generate reports for faculty
+- Conducted literature reviews and migrated manuscripts from Word to LaTeX for research publications
+- Created academic posters translating technical research into accessible visual formats
+
+### Data Analyst Intern (Summer Internship)
+- Organization: R3 Systems India Pvt. Ltd., Nashik
+- Duration: June 2023 to July 2023
+- Learned Data Analysis and Business Intelligence using Power BI
+- Delivered a sales dashboard for North Wind Traders, improving data visibility by 70%
+
+## Projects
+
+### IPL Analytics Platform — Interactive Cricket Data Dashboard
+- Category: Data Engineering & Analytics
+- Key stat: 18 IPL seasons analyzed
+- Engineered a 3-stage data pipeline processing 278,205 ball-by-ball records across 18 IPL seasons (2008-2025), producing 90 derived features and 15 aggregate parquet files
+- Built 14 interactive dashboard pages with 58 preset SQL queries, a custom query builder supporting 9 entity types, season/team/venue/player filters
+- Achieved zero data mismatches across 703 batters and 550 bowlers by fixing a critical aggregation bug; validated with 25 automated tests
+- Tech: Python, Streamlit, DuckDB, Plotly, Pandas, NumPy, PyArrow, Apache Parquet, SQL, pytest
+- Demo: https://analytics-ipl.streamlit.app/
+- GitHub: https://github.com/prasad-gade05/IPL_Analysis
+- Dataset: https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025
+
+### UPI Analytics Platform — Data Engineering & Analytics Dashboard
+- Category: Data Engineering & Analytics
+- Key stat: 9,026 JSON files processed
+- Processed 9,026 JSON files from 3 sources across 788 districts/42 months using a 4-stage medallion pipeline into a DuckDB star schema (4 dim + 4 fact tables)
+- Quantified market duopoly via HHI, measured geographic inequality using Gini coefficients, segmented adoption tiers with K-Means across 788 districts
+- Forecasted UPI volumes using Prophet/ARIMA; delivered 68 visualizations across 11-tab Streamlit + Power BI dashboards, validated by 83 tests via GitHub Actions CI/CD
+- Tech: Python, DuckDB, Pandas, Plotly, Streamlit, Power BI, Prophet, ARIMA, Scikit-learn, K-Means, BeautifulSoup4, PyArrow, GitHub Actions
+- Demo: https://upi-analytics.streamlit.app/
+- GitHub: https://github.com/prasad-gade05/UPI_DS_Project
+- Dataset: https://huggingface.co/datasets/prasad-gade05/india-upi-ecosystem-2018-2025
+
+### Lex Simulacra — AI-Powered Legal Courtroom Simulator with Multi-Agent RAG
+- Category: AI / NLP
+- Key stat: 8 AI agents in simulation
+- Built an 8-agent legal simulation (defense, prosecutor, judge) achieving 99% citation accuracy via a LangGraph workflow with state management and iterative debate
+- Reduced legal research time by 75% across 100K+ documents by architecting a RAG pipeline with BM25 re-ranking and ChromaDB vector indexing
+- Achieved 3.2x context relevance gain and 60% engagement boost via context compression (18K to 15K tokens), hallucination detection, and real-time Streamlit UI with FastAPI SSE
+- Tech: Python, LangChain, LangGraph, FastAPI, Streamlit, ChromaDB, Sentence-Transformers, Ollama LLM, Kanoon API, BM25, NLTK, Scikit-learn
+- GitHub: https://github.com/prasad-gade05/Law_Courtroom_Simulator
+
+### Comparative Analysis of ML/DL Models for Intrusion Detection
+- Category: Machine Learning / Cybersecurity
+- Key stat: 99.99% recall, 100% precision
+- Benchmarked 6 models (DT, XGBoost, Transformer, Autoencoder, LR, NB) on the 8.6M-sample TII-SSRC-23 dataset (79 features)
+- Demonstrated tree models were 12.8x faster (4.7 vs 60 min) with 20x inference throughput (1,005K/s), 10x fewer false negatives
+- Reduced classification errors by 30% via hybrid SMOTE-undersampling to address extreme 1:6653 class imbalance
+- Tech: Python, Scikit-learn, XGBoost, PyTorch, TensorFlow, SHAP, Pandas, NumPy, Imbalanced-learn
+- GitHub: https://github.com/prasad-gade05/IDS_on_TII-SSRC-23
+
+### KindHearts — Multi-Role Donation Management Platform
+- Category: Full-Stack Web
+- Key stat: 1st place, 80+ teams at Tech Horizon National Hackathon
+- Streamlined donation workflows across institutes, donors, and vendors with 60% reduction in request processing time
+- Integrated real-time request tracking, crypto-based payments via MetaMask, and impact reporting (45% engagement boost)
+- Implemented Kanban-style system for shopkeepers and comprehensive admin controls
+- Tech: React, TypeScript, MongoDB, Vite, Tailwind CSS, React Router, ESLint, Context API
+- GitHub: https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform
+
+### Celestial Object Classifier using Sloan Digital Sky Survey Dataset
+- Category: Machine Learning
+- Key stat: 99.07% accuracy
+- Classified 10,000 celestial objects into stars, galaxies, and quasars by engineering 10 features with color-indices and log-redshift
+- Improved Neural Network accuracy from 95.13% to 98.78% using Keras Tuner across 10 trials
+- Benchmarked 4 classifiers (DT: 87.75%, KNN: 94%, NN: 99%, RF: 99.07%) on 3,000 test samples via GridSearchCV with 5-fold CV and 960+ fits
+- Tech: Python, Scikit-learn, Keras, Keras Tuner, Pandas, NumPy, Matplotlib
+- GitHub: https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset
+
+### NutriSnap — Nutrition Tracker Web App
+- Category: AI / Web
+- Key stat: 95% accurate nutrient estimates via image analysis
+- Integrated Gemini API to analyze food images or manual entries for nutrition tracking
+- Implemented daily calorie/macro goals and interactive dashboards
+- Tech: Flask, Python, HTML, CSS, JavaScript, Gemini API, SQLite, Pandas, OpenCV
+- Demo: https://prasadsnutritiontracker.netlify.app/
+- GitHub: https://github.com/prasad-gade05/nutrition_tracker
+
+### Audio Visualizer App — Real-Time Music Visualization Tool
+- Category: Web / Creative
+- Key stat: 1000+ unique visitors in first month
+- Real-time audio visualization with multiple dynamic modes (bars, radial waves, scatter plots) and customizable color schemes
+- Fully client-side solution on GitHub Pages with file upload and microphone input support
+- Tech: TypeScript, Web Audio API, HTML5 Canvas, shadcn/ui, CSS3
+- Demo: https://prasadgade.dev/audio_visualizer_app/
+- GitHub: https://github.com/prasad-gade05/audio_visualizer_app
+
+### Habit Tracker (Client-Side Progressive Web App)
+- Category: Web
+- Key stat: fully offline, privacy-first
+- GitHub-style contribution charts, streaks, calendar view, and analytics
+- IndexedDB (Dexie.js) for persistent offline storage, no server dependency
+- Tech: React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Zustand, Dexie.js, Recharts, date-fns
+- Demo: https://prasadgade.dev/Habit-Tracker/
+- GitHub: https://github.com/prasad-gade05/Habit-Tracker
+
+### Attendance Management Web App (Feature-Rich PWA)
+- Category: Web
+- Key stat: offline-ready with sync
+- Subject-wise reports, student-wise analysis, editable records, data import/export
+- Offline-first using IndexedDB (Dexie.js)
+- Tech: React, TypeScript, Vite, Tailwind CSS, Zustand, Dexie.js, Recharts
+- Demo: https://prasadgade.dev/attendance/
+- GitHub: https://github.com/prasad-gade05/attendance
+
+### AI Text Summarizer, Translator, and Extractor
+- Category: AI / NLP
+- Web app using Python and Eel, integrating Hugging Face, GoogleTrans, and OCR
+- Tech: Python, HTML, CSS, JavaScript, Eel, Pytesseract, Googletrans, Pypdf2
+- GitHub: https://github.com/prasad-gade05/AI-Text-Summarizer-Translator-and-Extractor
+
+### Real-time Image & Audio Classification App
+- Category: Mobile / ML
+- Android app with Google ML Kit and TensorFlow YAMNet for real-time image labeling and audio classification
+- Tech: Android SDK, Java, Google ML Kit, TensorFlow YAMNet
+- GitHub: https://github.com/prasad-gade05/Real-time-audio-and-image-classification
+
+### Encrypted File Sharing Application
+- Category: Security
+- Secure file-sharing over networks using RSA encryption with a handshake mechanism for key distribution
+- Tech: Java, RSA Algorithm
+- GitHub: https://github.com/prasad-gade05/End-to-End-Encrypted-Chatting-Application
+
+### Portfolio Site (this site)
+- Category: Web / Creative
+- 4 themes, 3D Minecraft skin, paper physics playground, Konami code easter egg
+- Tech: React, Three.js, Framer Motion, Vite
+- Demo: https://prasadgade.dev
+- GitHub: https://github.com/prasad-gade05/prasad-gade05.github.io
+
+## Skills
+
+### Languages
+Python, JavaScript, TypeScript, Java, C++, SQL, C, HTML, PHP, VB.net, Assembly (x86)
+
+### ML / Data Science
+Pandas, NumPy, Scikit-Learn, PyTorch, TensorFlow, LangChain, Keras, Matplotlib, Seaborn, Hugging Face, OpenCV, Google ML Kit, SHAP, Imbalanced-learn
+
+### Visualization & BI
+Power BI, Plotly, Streamlit
+
+### Web Frameworks
+React, Flask, FastAPI, Node.js, Streamlit, Django, Eel
+
+### Databases
+MongoDB, SQLite, ChromaDB, PostgreSQL, DuckDB, SQL, Oracle, Firebase
+
+### DevOps & Tools
+Git, Docker, AWS, Linux, GitHub Actions, Arduino, Jupyter Notebook, Google Colab, VS Code, Vim
+
+### Soft Skills
+Leadership (served as General Secretary, Student Council), Time Management, Public Speaking, Writing, Communication
+
+## Publications
+
+### Postpartum Depression Predictor using Machine Learning
+- Journal: IJIES Vol. 9, No. 1, 2024, PP. 39-43
+- DOI: https://doi.org/10.46335/IJIES.2024.9.1.8
+- Published findings on accuracies of various ML algorithms for predicting postpartum depression
+- Tech: Decision Tree, XGBoost, Random Forest, NumPy, Matplotlib, Pandas
+
+## Leadership
+
+### General Secretary of Students Council
+- Organization: K. K. Wagh Polytechnic, Nashik
+- Duration: August 2023 to June 2024
+- Organized the institute annual fest "Sparsh 2024" on the theme "Swaraj" celebrating the 350th anniversary of the coronation of Chhatrapati Shivaji Maharaj
+
+## Certifications
+
+1. Data Science Job Simulation — BCG (Forage) — January 2025
+2. Developer & Technology Simulation — Accenture UK (Forage) — January 2025
+3. Introduction to Cloud Computing on AWS — Udemy — July 2024
+4. The World of Computer Networking — Udemy — June 2024
+5. Java Training — IIT Bombay — March 2024
+6. Arduino Course — Robo-Tech-X — August 2023
+7. Introduction to Machine Learning — Infosys — November 2022
+
+## Achievements
+
+1. Winner — Tech Horizon National Hackathon (1st place out of 80+ teams) — March 2025
+2. Published Researcher — IJIES Journal — April 2024
+3. Open-Source Dataset Contributor — Published IPL and India UPI datasets on Kaggle and Hugging Face — 2025
+
+## Volunteering
+
+### Teaching Assistant
+- Organization: Sardar Patel Institute of Technology (SPIT), Mumbai
+- Duration: 2025 to present
+
+### General Secretary — Students Council
+- Organization: K. K. Wagh Polytechnic, Nashik
+- Duration: 2023 to 2024
+
+## Hobbies & Interests
+
+- Sports: Cricket, Minecraft
+- Favorite Book: "How to Win Friends and Influence People" by Dale Carnegie
+- Favorite Songs: "Take Me Home, Country Roads" by John Denver, "Main Zindagi Ka Saath Nibhata Chala Gaya" by Mohammed Rafi
+- Favorite Series: Squid Games, Money Heist
+- Favorite Movies: 12th Fail, Sam Bahadur, American Sniper, Hacksaw Ridge, The Green Mile, 1917, WALL-E, Ratatouille, Kung Fu Panda series, Toy Story series, and many more (50+ movies listed on the portfolio)
+
+## Sub-Projects Hosted on prasadgade.dev
+
+These are separate web apps hosted as sub-paths on the same domain:
+
+- Audio Visualizer: https://prasadgade.dev/audio_visualizer_app/ — Real-time music visualization with multiple modes
+- Attendance Tracker: https://prasadgade.dev/attendance/ — Smart attendance tracking PWA with offline support
+- Habit Tracker: https://prasadgade.dev/Habit-Tracker/ — Privacy-first habit tracking with GitHub-style charts
+
+## Structured Data Endpoints
+
+- Resume (JSON): https://prasadgade.dev/api/resume.json
+- Projects (JSON): https://prasadgade.dev/api/projects.json
+- Skills (JSON): https://prasadgade.dev/api/skills.json
+- Social (JSON): https://prasadgade.dev/api/social.json
+- About (JSON): https://prasadgade.dev/api/about.json
+- Resume (PDF): https://prasadgade.dev/Prasad_Gade_Resume.pdf

@@ -1,0 +1,65 @@
+# prasadgade.dev — AI Agent & Crawler Policy
+# All AI crawlers and search engines are welcome.
+
+User-agent: *
+Allow: /
+
+# AI Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
+Sitemap: https://prasadgade.dev/sitemap.xml
+
+# LLM-readable content
+# llms.txt: https://prasadgade.dev/llms.txt
+# llms-full.txt: https://prasadgade.dev/llms-full.txt
+
+# Static API endpoints (JSON)
+# /api/resume.json — structured resume
+# /api/projects.json — all projects
+# /api/skills.json — categorized skills
+# /api/social.json — contact and social profiles
+# /api/about.json — personality, hobbies, site philosophy

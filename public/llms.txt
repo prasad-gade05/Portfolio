@@ -1,0 +1,32 @@
+# Prasad Gade
+
+> Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, and interactive web apps.
+
+This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes (dark, light, arcade dark, arcade light), a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs. The site is built for everyone — recruiters, friends, colleagues, and anyone curious about who Prasad is.
+
+## Links
+
+- Portfolio: https://prasadgade.dev
+- Resume (PDF): https://prasadgade.dev/Prasad_Gade_Resume.pdf
+- GitHub: https://github.com/prasad-gade05
+- LinkedIn: https://linkedin.com/in/prasad-gade05
+- Kaggle: https://kaggle.com/prasadgade
+- Email: prasadgade4405@gmail.com
+
+## Structured Data
+
+- Resume (JSON): https://prasadgade.dev/api/resume.json
+- Projects (JSON): https://prasadgade.dev/api/projects.json
+- Skills (JSON): https://prasadgade.dev/api/skills.json
+- Social links (JSON): https://prasadgade.dev/api/social.json
+- About & personality (JSON): https://prasadgade.dev/api/about.json
+
+## Detailed Content
+
+- Full LLM content: https://prasadgade.dev/llms-full.txt
+
+## Sub-Projects (also hosted on prasadgade.dev)
+
+- Audio Visualizer: https://prasadgade.dev/audio_visualizer_app/
+- Attendance Tracker: https://prasadgade.dev/attendance/
+- Habit Tracker: https://prasadgade.dev/Habit-Tracker/
