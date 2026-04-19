@@ -287,4 +287,5 @@ These are separate web apps hosted as sub-paths on the same domain:
 - agents.json discovery file: https://prasadgade.dev/.well-known/agents.json
 - Agent skills index: https://prasadgade.dev/.well-known/agent-skills/index.json
 - API catalog: https://prasadgade.dev/.well-known/api-catalog
-- OpenAPI specification: https://prasadgade.dev/api/openapi.json
+- OpenAPI specification: https://prasadgade.dev/openapi.json
+- Well-known OpenAPI: https://prasadgade.dev/.well-known/openapi

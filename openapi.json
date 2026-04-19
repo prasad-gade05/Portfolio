@@ -1,0 +1,333 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Prasad Gade Portfolio API",
+    "description": "Static JSON API serving structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India. All endpoints are read-only static JSON files hosted on GitHub Pages.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Prasad Gade",
+      "url": "https://prasadgade.dev",
+      "email": "prasadgade4405@gmail.com"
+    },
+    "license": {
+      "name": "Public Access",
+      "url": "https://prasadgade.dev"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://prasadgade.dev",
+      "description": "Production — GitHub Pages"
+    }
+  ],
+  "paths": {
+    "/api/resume.json": {
+      "get": {
+        "summary": "Structured resume",
+        "description": "Returns resume data as JSON with meta and data wrappers. Sourced from the same public resume available as PDF at /Prasad_Gade_Resume.pdf.",
+        "operationId": "getResume",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Resume data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "basics": {
+                          "type": "object",
+                          "properties": {
+                            "name": { "type": "string" },
+                            "label": { "type": "string" },
+                            "email": { "type": "string" },
+                            "phone": { "type": "string" },
+                            "url": { "type": "string", "format": "uri" },
+                            "location": { "type": "object" },
+                            "summary": { "type": "string" },
+                            "profiles": { "type": "array", "items": { "type": "object" } }
+                          }
+                        },
+                        "education": { "type": "array", "items": { "type": "object" } },
+                        "work": { "type": "array", "items": { "type": "object" } },
+                        "projects": { "type": "array", "items": { "type": "object" } },
+                        "skills": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        },
+                        "certifications": { "type": "array", "items": { "type": "object" } },
+                        "achievements": { "type": "array", "items": { "type": "object" } },
+                        "resume_pdf": { "type": "string", "format": "uri" }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects.json": {
+      "get": {
+        "summary": "All projects",
+        "description": "Returns project cards as JSON with meta and data wrappers.",
+        "operationId": "getProjects",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Projects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "projects": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "title": { "type": "string" },
+                              "subtitle": { "type": "string" },
+                              "category": { "type": "string" },
+                              "badge": { "type": "string" },
+                              "stats": { "type": "string" },
+                              "description": { "type": "string" },
+                              "detailed_description": {
+                                "type": "array",
+                                "items": { "type": "string" }
+                              },
+                              "tech": {
+                                "type": "array",
+                                "items": { "type": "string" }
+                              },
+                              "github": { "type": "string", "format": "uri" },
+                              "demo": { "type": ["string", "null"], "format": "uri" },
+                              "dataset": { "type": "string", "format": "uri" },
+                              "kaggle_dataset": { "type": "string", "format": "uri" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skills.json": {
+      "get": {
+        "summary": "Categorized technical skills",
+        "description": "Returns technical skills as JSON with meta and data wrappers.",
+        "operationId": "getSkills",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Skills data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "categories": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        },
+                        "top_skills": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "typing_roles": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/social.json": {
+      "get": {
+        "summary": "Contact and social profiles",
+        "description": "Returns contact details and social media profiles as JSON with meta and data wrappers.",
+        "operationId": "getSocial",
+        "tags": ["Contact"],
+        "responses": {
+          "200": {
+            "description": "Social data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "contact": { "type": "object" },
+                        "profiles": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "platform": { "type": "string" },
+                              "url": { "type": "string", "format": "uri" },
+                              "handle": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/about.json": {
+      "get": {
+        "summary": "Personality, hobbies, and interests",
+        "description": "Returns site philosophy, hobbies, interests, and site features as JSON with meta and data wrappers.",
+        "operationId": "getAbout",
+        "tags": ["Personal"],
+        "responses": {
+          "200": {
+            "description": "About data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "who": { "type": "string" },
+                        "site_philosophy": { "type": "object" },
+                        "site_features": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "hobbies": {
+                          "type": "object",
+                          "properties": {
+                            "sports": {
+                              "type": "array",
+                              "items": { "type": "string" }
+                            },
+                            "favorite_book": { "type": "object" },
+                            "favorite_songs": {
+                              "type": "array",
+                              "items": { "type": "object" }
+                            },
+                            "favorite_series": {
+                              "type": "array",
+                              "items": { "type": "string" }
+                            }
+                          }
+                        },
+                        "minecraft_gamertag": { "type": "string" },
+                        "sub_projects_under_same_domain": {
+                          "type": "array",
+                          "items": { "type": "object" }
+                        },
+                        "movies_count": { "type": "integer" },
+                        "web_shows_count": { "type": "integer" },
+                        "favorite_movies": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "favorite_web_shows": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    { "name": "Professional", "description": "Resume, projects, and skills data" },
+    { "name": "Contact", "description": "Contact and social profile information" },
+    { "name": "Personal", "description": "Personality, hobbies, and site philosophy" }
+  ]
+}

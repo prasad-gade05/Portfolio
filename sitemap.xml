@@ -55,10 +55,16 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://prasadgade.dev/api/openapi.json</loc>
+    <loc>https://prasadgade.dev/openapi.json</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://prasadgade.dev/.well-known/openapi</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://prasadgade.dev/.well-known/agents.json</loc>
