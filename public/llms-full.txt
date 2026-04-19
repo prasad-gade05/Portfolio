@@ -279,3 +279,12 @@ These are separate web apps hosted as sub-paths on the same domain:
 - Social (JSON): https://prasadgade.dev/api/social.json
 - About (JSON): https://prasadgade.dev/api/about.json
 - Resume (PDF): https://prasadgade.dev/Prasad_Gade_Resume.pdf
+
+## Agent Discovery Endpoints
+
+- Agent endpoint: https://prasadgade.dev/agent/
+- A2A Agent Card: https://prasadgade.dev/.well-known/agent.json
+- agents.json discovery file: https://prasadgade.dev/.well-known/agents.json
+- Agent skills index: https://prasadgade.dev/.well-known/agent-skills/index.json
+- API catalog: https://prasadgade.dev/.well-known/api-catalog
+- OpenAPI specification: https://prasadgade.dev/api/openapi.json

@@ -1,7 +1,7 @@
 {
   "name": "Prasad Gade Portfolio",
   "description": "Personal portfolio agent for Prasad Gade — data scientist and computer engineer from Mumbai, India. Provides structured access to resume, projects, skills, contact information, and personality data via static JSON API.",
-  "url": "https://prasadgade.dev/agent",
+  "url": "https://prasadgade.dev/agent/",
   "provider": {
     "organization": "Prasad Gade",
     "url": "https://prasadgade.dev"
