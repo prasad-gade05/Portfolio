@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "source": "prasadgade.dev",
+    "generated": "2026-04-19",
+    "version": "1.0",
+    "description": "All projects by Prasad Gade with descriptions, tech stacks, and links"
+  },
+  "data": {
+    "projects": [
+      {
+        "title": "IPL Analytics Platform",
+        "subtitle": "Interactive Cricket Data Dashboard",
+        "category": "Data",
+        "stats": "18 Seasons",
+        "description": "3-stage pipeline over 278K ball-by-ball records with 14 dashboard pages, custom SQL query builder, and validated IPL aggregates.",
+        "detailed_description": [
+          "Engineered a 3-stage data pipeline processing 278,205 ball-by-ball records across 18 IPL seasons (2008-2025), producing 90 derived features and 15 aggregate parquet files",
+          "Built 14 interactive dashboard pages with 58 preset SQL queries, a custom query builder supporting 9 entity types",
+          "Achieved zero data mismatches across 703 batters and 550 bowlers; validated with 25 automated tests"
+        ],
+        "tech": ["Python", "Streamlit", "DuckDB", "Plotly", "Pandas", "NumPy", "PyArrow", "Apache Parquet", "SQL", "pytest"],
+        "github": "https://github.com/prasad-gade05/IPL_Analysis",
+        "demo": "https://analytics-ipl.streamlit.app/",
+        "dataset": "https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025",
+        "kaggle_dataset": "https://www.kaggle.com/datasets/prasadgade/ipl-2008-2025-enriched-dataset"
+      },
+      {
+        "title": "UPI Analytics Platform",
+        "subtitle": "Data Engineering & Analytics Dashboard",
+        "category": "Data",
+        "stats": "9,026 Files",
+        "description": "Full-stack data platform analyzing India's UPI payments across 788 districts with medallion architecture and 11-tab Streamlit dashboard.",
+        "detailed_description": [
+          "Processed 9,026 JSON files from 3 sources across 788 districts/42 months using a 4-stage medallion pipeline into a DuckDB star schema",
+          "Quantified market duopoly via HHI, measured geographic inequality using Gini coefficients, segmented adoption with K-Means",
+          "Forecasted UPI volumes using Prophet/ARIMA; delivered 68 visualizations, validated by 83 tests via GitHub Actions"
+        ],
+        "tech": ["Python", "DuckDB", "Pandas", "Plotly", "Streamlit", "Power BI", "Prophet", "ARIMA", "Scikit-learn", "K-Means", "BeautifulSoup4", "PyArrow", "GitHub Actions"],
+        "github": "https://github.com/prasad-gade05/UPI_DS_Project",
+        "demo": "https://upi-analytics.streamlit.app/",
+        "dataset": "https://huggingface.co/datasets/prasad-gade05/india-upi-ecosystem-2018-2025",
+        "kaggle_dataset": "https://www.kaggle.com/datasets/prasadgade/india-upi-ecosystem-2018-2025"
+      },
+      {
+        "title": "Lex Simulacra",
+        "subtitle": "AI Legal Courtroom Simulator",
+        "category": "AI",
+        "stats": "8 AI Agents",
+        "description": "Multi-agent legal simulation with LangGraph for realistic trial proceedings.",
+        "detailed_description": [
+          "Built an 8-agent legal simulation (defense, prosecutor, judge) achieving 99% citation accuracy via LangGraph workflow",
+          "Reduced legal research time by 75% across 100K+ documents with RAG pipeline and BM25 re-ranking",
+          "Achieved 3.2x context relevance gain and 60% engagement boost via context compression and hallucination detection"
+        ],
+        "tech": ["Python", "LangChain", "LangGraph", "FastAPI", "Streamlit", "ChromaDB", "Sentence-Transformers", "Ollama LLM", "Kanoon API", "BM25", "NLTK", "Scikit-learn"],
+        "github": "https://github.com/prasad-gade05/Law_Courtroom_Simulator",
+        "demo": null
+      },
+      {
+        "title": "Intrusion Detection",
+        "subtitle": "TII-SSRC-23 Analysis",
+        "category": "ML",
+        "stats": "100% recall",
+        "description": "Compared 6 ML/DL models on 8.6M samples. Tree models outperformed.",
+        "detailed_description": [
+          "Achieved 99.99% recall and 100% precision benchmarking 6 models on the 8.6M-sample TII-SSRC-23 dataset (79 features)",
+          "Tree models were 12.8x faster with 20x inference throughput and full SHAP interpretability",
+          "Reduced classification errors by 30% via hybrid SMOTE-undersampling for 1:6653 class imbalance"
+        ],
+        "tech": ["Python", "Scikit-learn", "XGBoost", "PyTorch", "TensorFlow", "SHAP", "Pandas", "NumPy", "Imbalanced-learn"],
+        "github": "https://github.com/prasad-gade05/IDS_on_TII-SSRC-23",
+        "demo": null
+      },
+      {
+        "title": "KindHearts",
+        "subtitle": "Donation Platform",
+        "category": "Web",
+        "badge": "1st Place",
+        "stats": "80+ teams",
+        "description": "Multi-role donation platform with crypto payments and real-time tracking.",
+        "detailed_description": [
+          "Streamlined donation workflows across institutes, donors, and vendors with 60% reduction in request processing time",
+          "Integrated real-time request tracking, crypto-based payments via MetaMask, and impact reporting (45% engagement boost)",
+          "Implemented Kanban-style system for shopkeepers and comprehensive admin controls"
+        ],
+        "tech": ["React", "TypeScript", "MongoDB", "Vite", "Tailwind CSS", "React Router", "ESLint", "Context API"],
+        "github": "https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform",
+        "demo": null
+      },
+      {
+        "title": "Celestial Classifier",
+        "subtitle": "SDSS Dataset Analysis",
+        "category": "ML",
+        "stats": "4 ML Models",
+        "description": "Classification of celestial objects from Sloan Digital Sky Survey dataset.",
+        "detailed_description": [
+          "Achieved 99.07% accuracy classifying 10,000 celestial objects into stars, galaxies, and quasars",
+          "Improved Neural Network accuracy from 95.13% to 98.78% using Keras Tuner across 10 trials",
+          "Benchmarked 4 classifiers with 5-fold CV and 960+ fits"
+        ],
+        "tech": ["Python", "Scikit-learn", "Keras", "Keras Tuner", "Pandas", "NumPy", "Matplotlib"],
+        "github": "https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset",
+        "demo": null
+      },
+      {
+        "title": "NutriSnap",
+        "subtitle": "AI Nutrition Tracker",
+        "category": "AI",
+        "stats": "Image Analysis",
+        "description": "Nutrition tracking using Gemini API for food image analysis.",
+        "detailed_description": [
+          "Integrated Gemini API to analyze food images or manual entries with 95% accurate nutrient estimates",
+          "Implemented daily calorie/macro goals and interactive dashboards",
+          "Dual input modes (image/manual) with local SQLite storage"
+        ],
+        "tech": ["Flask", "Python", "HTML", "CSS", "JavaScript", "Gemini API", "SQLite", "Pandas", "OpenCV"],
+        "github": "https://github.com/prasad-gade05/nutrition_tracker",
+        "demo": "https://prasadsnutritiontracker.netlify.app/"
+      },
+      {
+        "title": "Audio Visualizer",
+        "subtitle": "Real-Time Music Viz",
+        "category": "Web",
+        "stats": "3D Globe",
+        "description": "Audio visualization with file upload, system capture, and 3D globe mode.",
+        "detailed_description": [
+          "Real-time audio visualization with multiple dynamic modes (bars, radial waves, scatter plots)",
+          "Fully client-side on GitHub Pages with file upload and microphone input",
+          "1000+ unique visitors in the first month"
+        ],
+        "tech": ["TypeScript", "Web Audio API", "HTML5 Canvas", "shadcn/ui", "CSS3"],
+        "github": "https://github.com/prasad-gade05/audio_visualizer_app",
+        "demo": "https://prasadgade.dev/audio_visualizer_app/"
+      },
+      {
+        "title": "Attendance Tracker",
+        "subtitle": "Smart Schedule & Attendance",
+        "category": "Web",
+        "stats": "Offline Ready",
+        "description": "Attendance simulation to calculate required classes with goal tracking.",
+        "detailed_description": [
+          "Subject-wise reports, student-wise analysis, editable records",
+          "Offline-first using IndexedDB (Dexie.js) for persistent data",
+          "Import/export records and data backup support"
+        ],
+        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "Dexie.js", "Recharts"],
+        "github": "https://github.com/prasad-gade05/attendance",
+        "demo": "https://prasadgade.dev/attendance/"
+      },
+      {
+        "title": "Habit Tracker",
+        "subtitle": "Privacy-First Tracking",
+        "category": "Web",
+        "stats": "Local Storage",
+        "description": "Client-side habit tracking with GitHub-style contribution charts.",
+        "detailed_description": [
+          "GitHub-style contribution charts, streaks, calendar view, and analytics",
+          "IndexedDB via Dexie.js for persistent offline storage, no server dependency",
+          "Modern UI with shadcn/ui, Tailwind, and Zustand state management"
+        ],
+        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "Dexie.js", "Recharts", "date-fns"],
+        "github": "https://github.com/prasad-gade05/Habit-Tracker",
+        "demo": "https://prasadgade.dev/Habit-Tracker/"
+      },
+      {
+        "title": "Portfolio",
+        "subtitle": "Personal Developer Portfolio",
+        "category": "Web",
+        "stats": "4 Themes",
+        "description": "Interactive portfolio with multi-theme support, 3D elements, and responsive design.",
+        "detailed_description": [
+          "4 visual themes with auto-detect device preference",
+          "3D Minecraft skin viewer (skinview3d + Three.js), paper physics playground",
+          "Hidden easter eggs (Konami code, hesoyam), responsive for all screen sizes"
+        ],
+        "tech": ["React", "Three.js", "Framer Motion", "Vite"],
+        "github": "https://github.com/prasad-gade05/prasad-gade05.github.io",
+        "demo": "https://prasadgade.dev"
+      }
+    ]
+  }
+}

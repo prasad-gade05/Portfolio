@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "source": "prasadgade.dev",
+    "generated": "2026-04-19",
+    "version": "1.0",
+    "description": "Categorized technical skills of Prasad Gade"
+  },
+  "data": {
+    "categories": {
+      "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"],
+      "ML/DS": ["Pandas", "NumPy", "Scikit-Learn", "PyTorch", "TensorFlow", "LangChain", "Keras"],
+      "Visualization": ["Matplotlib", "Seaborn", "Power BI", "Plotly"],
+      "Web": ["React", "Flask", "FastAPI", "Node.js", "Streamlit"],
+      "Databases": ["MongoDB", "SQLite", "ChromaDB", "PostgreSQL"],
+      "DevOps": ["Git", "Docker", "AWS", "Linux"]
+    },
+    "top_skills": ["Data Analytics", "Data Science", "Machine Learning", "Web Dev", "Android"],
+    "typing_roles": ["Data Scientist", "ML Engineer", "Computer Engineer", "Data Analyst", "Data Science & Business Intelligence", "Cross Platform Application Developer"]
+  }
+}

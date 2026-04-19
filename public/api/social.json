@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "source": "prasadgade.dev",
+    "generated": "2026-04-19",
+    "version": "1.0",
+    "description": "Contact information and social media profiles of Prasad Gade"
+  },
+  "data": {
+    "contact": {
+      "email": "prasadgade4405@gmail.com",
+      "phone": "+91 8446240041",
+      "location": "Mumbai, India",
+      "website": "https://prasadgade.dev"
+    },
+    "profiles": [
+      { "platform": "GitHub", "url": "https://github.com/prasad-gade05", "handle": "prasad-gade05" },
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/prasad-gade05/", "handle": "prasad-gade05" },
+      { "platform": "Kaggle", "url": "https://kaggle.com/prasadgade", "handle": "prasadgade" },
+      { "platform": "LeetCode", "url": "https://leetcode.com/u/prasad-gade05/", "handle": "prasad-gade05" },
+      { "platform": "Streamlit", "url": "https://share.streamlit.io/user/prasad-gade05", "handle": "prasad-gade05" },
+      { "platform": "Hugging Face", "url": "https://huggingface.co/prasad-gade05", "handle": "prasad-gade05" },
+      { "platform": "Monkeytype", "url": "https://monkeytype.com/profile/prasad_gade05", "handle": "prasad_gade05" },
+      { "platform": "Twitter", "url": "https://twitter.com/prasad_gade05", "handle": "@prasad_gade05" },
+      { "platform": "Reddit", "url": "https://www.reddit.com/user/prasad_gade05/", "handle": "prasad_gade05" },
+      { "platform": "Instagram", "url": "https://instagram.com/prasad_gade05", "handle": "@prasad_gade05" },
+      { "platform": "Spotify", "url": "https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau", "handle": "prasad_gade" }
+    ]
+  }
+}
