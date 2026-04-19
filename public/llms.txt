@@ -9,7 +9,7 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 - Portfolio: https://prasadgade.dev
 - Resume (PDF): https://prasadgade.dev/Prasad_Gade_Resume.pdf
 - GitHub: https://github.com/prasad-gade05
-- LinkedIn: https://linkedin.com/in/prasad-gade05
+- LinkedIn: https://www.linkedin.com/in/prasad-gade05/
 - Kaggle: https://kaggle.com/prasadgade
 - Email: prasadgade4405@gmail.com
 

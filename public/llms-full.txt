@@ -31,14 +31,14 @@ Site features:
 ## Social Profiles
 
 - GitHub: https://github.com/prasad-gade05
-- LinkedIn: https://linkedin.com/in/prasad-gade05
+- LinkedIn: https://www.linkedin.com/in/prasad-gade05/
 - Kaggle: https://kaggle.com/prasadgade
 - LeetCode: https://leetcode.com/u/prasad-gade05/
 - Streamlit: https://share.streamlit.io/user/prasad-gade05
 - Hugging Face: https://huggingface.co/prasad-gade05
 - Monkeytype: https://monkeytype.com/profile/prasad_gade05
 - Twitter: https://twitter.com/prasad_gade05
-- Reddit: https://reddit.com/user/prasad_gade05/
+- Reddit: https://www.reddit.com/user/prasad_gade05/
 - Instagram: https://instagram.com/prasad_gade05
 - Spotify: https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau
 
@@ -261,7 +261,7 @@ Leadership (served as General Secretary, Student Council), Time Management, Publ
 - Favorite Book: "How to Win Friends and Influence People" by Dale Carnegie
 - Favorite Songs: "Take Me Home, Country Roads" by John Denver, "Main Zindagi Ka Saath Nibhata Chala Gaya" by Mohammed Rafi
 - Favorite Series: Squid Games, Money Heist
-- Favorite Movies: 12th Fail, Sam Bahadur, American Sniper, Hacksaw Ridge, The Green Mile, 1917, WALL-E, Ratatouille, Kung Fu Panda series, Toy Story series, and many more (50+ movies listed on the portfolio)
+- Favorite Movies: 12th Fail, Sam Bahadur, American Sniper, Hacksaw Ridge, The Green Mile, 1917, WALL-E, Ratatouille, Kung Fu Panda series, Toy Story series, and more (47 movies listed on the portfolio)
 
 ## Sub-Projects Hosted on prasadgade.dev
 

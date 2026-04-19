@@ -54,12 +54,5 @@ Allow: /
 Sitemap: https://prasadgade.dev/sitemap.xml
 
 # LLM-readable content
-# llms.txt: https://prasadgade.dev/llms.txt
-# llms-full.txt: https://prasadgade.dev/llms-full.txt
-
-# Static API endpoints (JSON)
-# /api/resume.json — structured resume
-# /api/projects.json — all projects
-# /api/skills.json — categorized skills
-# /api/social.json — contact and social profiles
-# /api/about.json — personality, hobbies, site philosophy
+Llms-txt: https://prasadgade.dev/llms.txt
+Llms-full-txt: https://prasadgade.dev/llms-full.txt
