@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "source": "prasadgade.dev",
+    "generated": "2026-04-19",
+    "version": "1.0",
+    "description": "Personality, hobbies, site philosophy, and interests of Prasad Gade"
+  },
+  "data": {
+    "who": "Prasad Gade is a computer engineer and a data analyst who builds software, works with data, and creates intelligent tools to solve real problems.",
+    "site_philosophy": {
+      "what": "This is Prasad's digital home — an interactive, visual resume that also reflects his personality.",
+      "who_is_it_for": "Everyone. Recruiters, friends, colleagues, tech and non-tech people, or anyone curious about who Prasad is.",
+      "why": "Not created just to tick a box. Built because Prasad wanted to and enjoys it. The site gives a platform to demonstrate skills and interests.",
+      "approach": "Values simplicity, user empathy, and creativity. Includes a Start Here modal for non-tech visitors, resume opens in-app to retain people, and every UI detail is intentional."
+    },
+    "site_features": [
+      "4 visual themes: dark, light, arcade dark, arcade light",
+      "Auto-detects device theme preference",
+      "No-scroll desktop layout (everything fits one screen)",
+      "3D Minecraft skin viewer using skinview3d and Three.js",
+      "Paper playground: screen turns into a crumpled paper with real cloth physics simulation",
+      "Hidden easter eggs: Konami code and hesoyam trigger animations",
+      "Start Here modal for non-tech visitors explaining all sections",
+      "Resume opens in an in-app modal (no redirect)",
+      "Responsive for mobile, tablet, and desktop-site-on-mobile",
+      "Every modal closes on ESC key",
+      "Custom domain: prasadgade.dev"
+    ],
+    "hobbies": {
+      "sports": ["Cricket", "Minecraft"],
+      "favorite_book": {
+        "title": "How to Win Friends and Influence People",
+        "author": "Dale Carnegie"
+      },
+      "favorite_songs": [
+        {
+          "name": "Take Me Home, Country Roads",
+          "artist": "John Denver",
+          "spotify": "https://open.spotify.com/track/1YYhDizHx7PnDhAhko6cDS"
+        },
+        {
+          "name": "Main Zindagi Ka Saath Nibhata Chala Gaya",
+          "artist": "Mohammed Rafi",
+          "spotify": "https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN"
+        }
+      ],
+      "favorite_series": ["Squid Games", "Money Heist"]
+    },
+    "minecraft_gamertag": "prasadgade05",
+    "sub_projects_under_same_domain": [
+      {
+        "name": "Audio Visualizer",
+        "url": "https://prasadgade.dev/audio_visualizer_app/",
+        "description": "Real-time music visualization with multiple modes and customizable colors"
+      },
+      {
+        "name": "Attendance Tracker",
+        "url": "https://prasadgade.dev/attendance/",
+        "description": "Smart attendance tracking PWA with offline support and data visualization"
+      },
+      {
+        "name": "Habit Tracker",
+        "url": "https://prasadgade.dev/Habit-Tracker/",
+        "description": "Privacy-first habit tracking with GitHub-style contribution charts and streaks"
+      }
+    ],
+    "movies_count": 47,
+    "web_shows_count": 15,
+    "favorite_movies": ["12th Fail", "Sam Bahadur", "American Sniper", "Hacksaw Ridge", "The Green Mile", "1917", "WALL-E", "Ratatouille", "Kung Fu Panda", "Toy Story", "The Wild Robot", "Coco"],
+    "favorite_web_shows": ["Money Heist", "Squid Game", "The Family Man", "Special Ops", "Scam 1992"]
+  }
+}
