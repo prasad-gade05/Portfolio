@@ -13,15 +13,18 @@
     "static_api": true,
     "mcp": false,
     "a2a": false,
-    "webmcp": false,
-    "openapi": false,
+    "webmcp": true,
+    "openapi": true,
     "oauth": false
   },
   "discovery": {
     "robots_txt": "https://prasadgade.dev/robots.txt",
     "sitemap": "https://prasadgade.dev/sitemap.xml",
     "llms_txt": "https://prasadgade.dev/llms.txt",
-    "llms_full_txt": "https://prasadgade.dev/llms-full.txt"
+    "llms_full_txt": "https://prasadgade.dev/llms-full.txt",
+    "api_catalog": "https://prasadgade.dev/.well-known/api-catalog",
+    "openapi": "https://prasadgade.dev/api/openapi.json",
+    "agent_skills": "https://prasadgade.dev/.well-known/agent-skills/index.json"
   },
   "api_endpoints": [
     {

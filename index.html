@@ -16,6 +16,8 @@
 
     <!-- SEO & AI Discovery -->
     <link rel="canonical" href="https://prasadgade.dev/">
+    <link rel="api-catalog" href="/.well-known/api-catalog">
+    <link rel="describedby" href="/api/openapi.json" type="application/openapi+json">
     <meta name="description" content="Prasad Gade — Data Scientist and Computer Engineer from Mumbai, India. Portfolio with projects in data science, ML, web development, 3D interactive elements, and creative features.">
     <meta name="author" content="Prasad Gade">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -279,6 +281,30 @@
     </noscript>
 
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- WebMCP — expose portfolio data to AI agents via browser -->
+    <script>
+      (function() {
+        if (typeof navigator !== 'undefined' && navigator.modelContext && typeof navigator.modelContext.provideContext === 'function') {
+          var endpoints = {
+            get_resume: { path: '/api/resume.json', desc: "Get Prasad Gade's structured resume (education, experience, projects, skills, certifications)" },
+            get_projects: { path: '/api/projects.json', desc: 'Get all 11 projects with descriptions, tech stacks, metrics, and links' },
+            get_skills: { path: '/api/skills.json', desc: 'Get categorized technical skills across 6 categories' },
+            get_social: { path: '/api/social.json', desc: 'Get contact information and 11 social media profile links' },
+            get_about: { path: '/api/about.json', desc: 'Get personality, hobbies, site philosophy, and favorite movies and songs' }
+          };
+          var tools = Object.keys(endpoints).map(function(name) {
+            return {
+              name: name,
+              description: endpoints[name].desc,
+              inputSchema: { type: 'object', properties: {} },
+              execute: (function(p) { return function() { return fetch(p).then(function(r) { return r.json(); }); }; })(endpoints[name].path)
+            };
+          });
+          navigator.modelContext.provideContext({ tools: tools });
+        }
+      })();
+    </script>
     
     <!-- Suppress browser extension warnings -->
     <script>

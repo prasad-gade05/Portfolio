@@ -1,0 +1,184 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Prasad Gade Portfolio API",
+    "description": "Static JSON API serving structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India. All endpoints are read-only static JSON files hosted on GitHub Pages.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Prasad Gade",
+      "url": "https://prasadgade.dev",
+      "email": "prasadgade4405@gmail.com"
+    },
+    "license": {
+      "name": "Public Access",
+      "url": "https://prasadgade.dev"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://prasadgade.dev",
+      "description": "Production — GitHub Pages"
+    }
+  ],
+  "paths": {
+    "/api/resume.json": {
+      "get": {
+        "summary": "Structured resume",
+        "description": "Returns education, experience, projects, skills, and certifications as structured JSON. Sourced from the same resume available as PDF at /Prasad_Gade_Resume.pdf.",
+        "operationId": "getResume",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Resume data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "title": { "type": "string" },
+                    "location": { "type": "string" },
+                    "contact": { "type": "object" },
+                    "education": { "type": "array", "items": { "type": "object" } },
+                    "experience": { "type": "array", "items": { "type": "object" } },
+                    "projects": { "type": "array", "items": { "type": "object" } },
+                    "skills": { "type": "object" },
+                    "certifications": { "type": "array", "items": { "type": "object" } },
+                    "achievements": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects.json": {
+      "get": {
+        "summary": "All projects",
+        "description": "Returns all 11 projects with descriptions, tech stacks, metrics, and links to demos and source code.",
+        "operationId": "getProjects",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Projects data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": { "type": "integer" },
+                    "projects": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "tech_stack": { "type": "array", "items": { "type": "string" } },
+                          "github": { "type": "string", "format": "uri" },
+                          "live_url": { "type": "string", "format": "uri" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skills.json": {
+      "get": {
+        "summary": "Categorized technical skills",
+        "description": "Returns technical skills grouped into 6 categories: Languages, Data Science & ML, Web Development, Databases, DevOps & Tools, and Core CS.",
+        "operationId": "getSkills",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Skills data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "categories": { "type": "array", "items": { "type": "object" } },
+                    "top_skills": { "type": "array", "items": { "type": "string" } },
+                    "typing_roles": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/social.json": {
+      "get": {
+        "summary": "Contact and social profiles",
+        "description": "Returns contact details (email, phone, location) and 11 social media profile links.",
+        "operationId": "getSocial",
+        "tags": ["Contact"],
+        "responses": {
+          "200": {
+            "description": "Social data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "contact": { "type": "object" },
+                    "profiles": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "platform": { "type": "string" },
+                          "url": { "type": "string", "format": "uri" },
+                          "username": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/about.json": {
+      "get": {
+        "summary": "Personality, hobbies, and interests",
+        "description": "Returns site philosophy, personality traits, hobbies, favorite movies, songs, web shows, and site features. This is what makes the portfolio more than just an e-resume.",
+        "operationId": "getAbout",
+        "tags": ["Personal"],
+        "responses": {
+          "200": {
+            "description": "About data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "site_philosophy": { "type": "object" },
+                    "personality": { "type": "object" },
+                    "hobbies": { "type": "array", "items": { "type": "string" } },
+                    "favorites": { "type": "object" },
+                    "site_features": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    { "name": "Professional", "description": "Resume, projects, and skills data" },
+    { "name": "Contact", "description": "Contact and social profile information" },
+    { "name": "Personal", "description": "Personality, hobbies, and site philosophy" }
+  ]
+}
