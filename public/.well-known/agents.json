@@ -25,7 +25,8 @@
     "agent_endpoint": "https://prasadgade.dev/agent/",
     "agent_card": "https://prasadgade.dev/.well-known/agent.json",
     "api_catalog": "https://prasadgade.dev/.well-known/api-catalog",
-    "openapi": "https://prasadgade.dev/api/openapi.json",
+    "openapi": "https://prasadgade.dev/openapi.json",
+    "openapi_well_known": "https://prasadgade.dev/.well-known/openapi",
     "agent_skills": "https://prasadgade.dev/.well-known/agent-skills/index.json"
   },
   "api_endpoints": [

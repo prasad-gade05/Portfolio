@@ -4,7 +4,7 @@
       "anchor": "https://prasadgade.dev/api/",
       "service-desc": [
         {
-          "href": "https://prasadgade.dev/api/openapi.json",
+          "href": "https://prasadgade.dev/openapi.json",
           "type": "application/openapi+json"
         }
       ],

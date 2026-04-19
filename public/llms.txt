@@ -28,7 +28,8 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 - agents.json discovery file: https://prasadgade.dev/.well-known/agents.json
 - Agent skills index: https://prasadgade.dev/.well-known/agent-skills/index.json
 - API catalog: https://prasadgade.dev/.well-known/api-catalog
-- OpenAPI spec: https://prasadgade.dev/api/openapi.json
+- OpenAPI spec: https://prasadgade.dev/openapi.json
+- Well-known OpenAPI: https://prasadgade.dev/.well-known/openapi
 
 ## Detailed Content
 
