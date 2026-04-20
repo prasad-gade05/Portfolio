@@ -1,8 +1,8 @@
 # Prasad Gade
 
-> Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, and interactive web apps.
+> Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, dashboards, and interactive web apps.
 
-This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes (dark, light, arcade dark, arcade light), a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs. The site is built for everyone — recruiters, friends, colleagues, and anyone curious about who Prasad is.
+This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs.
 
 ## Links
 
@@ -15,7 +15,8 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 
 ## Structured Data
 
-- Resume (JSON): https://prasadgade.dev/api/resume.json
+- Resume (Primary Slim JSON): https://prasadgade.dev/api/resume.json
+- Resume (Master Detailed JSON): https://prasadgade.dev/api/resume-master.json
 - Projects (JSON): https://prasadgade.dev/api/projects.json
 - Skills (JSON): https://prasadgade.dev/api/skills.json
 - Social links (JSON): https://prasadgade.dev/api/social.json
@@ -35,8 +36,7 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 
 - Full LLM content: https://prasadgade.dev/llms-full.txt
 
-## Sub-Projects (also hosted on prasadgade.dev)
+## Public Project Set
 
-- Audio Visualizer: https://prasadgade.dev/audio_visualizer_app/
-- Attendance Tracker: https://prasadgade.dev/attendance/
-- Habit Tracker: https://prasadgade.dev/Habit-Tracker/
+- 11 public projects are exposed in the agent-facing layer.
+- Five older projects are intentionally excluded from public agent files and remain only in the private LaTeX source history.

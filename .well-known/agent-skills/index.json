@@ -6,37 +6,44 @@
     {
       "name": "get-resume",
       "type": "api",
-      "description": "Get Prasad Gade's structured resume — education, experience, projects, skills, and certifications as JSON",
+      "description": "Get Prasad Gade's primary slim resume with the default public project set and MAIN_RESUME skills",
       "url": "https://prasadgade.dev/api/resume.json",
-      "sha256": "ad34b482bc45a6176b54acd2139aef74ce592c7a5e8026b37b125a8e152f3927"
+      "sha256": "6c404a1be4cd022892b49ef43691e9be4bd1a371d8777a410abc1982bc370a7b"
+    },
+    {
+      "name": "get-resume-master",
+      "type": "api",
+      "description": "Get Prasad Gade's detailed master resume with richer background, publications, leadership, and the same public project set",
+      "url": "https://prasadgade.dev/api/resume-master.json",
+      "sha256": "467e1a9437642593350d0414d538471031bb91c2004b7adcdfeadc71d409cf0c"
     },
     {
       "name": "get-projects",
       "type": "api",
-      "description": "Get all 11 projects with descriptions, tech stacks, metrics, and links to demos and source code",
+      "description": "Get all 11 public projects with descriptions, tech stacks, metrics, and links to demos and source code",
       "url": "https://prasadgade.dev/api/projects.json",
-      "sha256": "35c839c642713d992ce4076a6a8f5cd2f5872bd41f59dab43956df3a6a211ff3"
+      "sha256": "4295b0b5fb8c1bdb9acecac7c65d00d19caf9b48057931bd777e434cdcc15711"
     },
     {
       "name": "get-skills",
       "type": "api",
-      "description": "Get categorized technical skills across 6 categories including languages, ML/DS, web dev, databases, and DevOps",
+      "description": "Get technical skills using the strict MAIN_RESUME taxonomy across 6 categories",
       "url": "https://prasadgade.dev/api/skills.json",
-      "sha256": "db667d3831695f936512387cd3313568f804837f5712c6b71b402de7f40b602c"
+      "sha256": "11e73d391a9a45f5144ce7db9a46b2bead563577659dba865613550da1f58af7"
     },
     {
       "name": "get-social",
       "type": "api",
       "description": "Get contact information (email, phone, location) and 11 social media profile links",
       "url": "https://prasadgade.dev/api/social.json",
-      "sha256": "1d10345b7e4ace1acb90a53a523512e8a2690d90b4177e8b7715ecfd3614c577"
+      "sha256": "2e8297da96d888f6417c574f41d47a47475ac9c54db8a43495e06c1c4e9e9864"
     },
     {
       "name": "get-about",
       "type": "api",
       "description": "Get personality traits, hobbies, site philosophy, favorite movies, songs, and what makes this portfolio unique",
       "url": "https://prasadgade.dev/api/about.json",
-      "sha256": "9f56b58a0296bcbc3cb6d11e861fa58021525e7950a0834789194c8c5daced19"
+      "sha256": "4a6b00fd2da381949f49bce49e9e84ede04623e0818dd2db58c4c94d675243af"
     }
   ]
 }
