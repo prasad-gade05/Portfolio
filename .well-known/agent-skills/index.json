@@ -4,42 +4,42 @@
   "description": "Static JSON API skills for querying structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India.",
   "skills": [
     {
-      "name": "get-resume",
+      "name": "get_resume",
       "type": "api",
       "description": "Get Prasad Gade's primary slim resume with the default public project set and MAIN_RESUME skills",
       "url": "https://prasadgade.dev/api/resume.json",
       "sha256": "6c404a1be4cd022892b49ef43691e9be4bd1a371d8777a410abc1982bc370a7b"
     },
     {
-      "name": "get-resume-master",
+      "name": "get_resume_master",
       "type": "api",
       "description": "Get Prasad Gade's detailed master resume with richer background, publications, leadership, and the same public project set",
       "url": "https://prasadgade.dev/api/resume-master.json",
       "sha256": "467e1a9437642593350d0414d538471031bb91c2004b7adcdfeadc71d409cf0c"
     },
     {
-      "name": "get-projects",
+      "name": "get_projects",
       "type": "api",
       "description": "Get all 11 public projects with descriptions, tech stacks, metrics, and links to demos and source code",
       "url": "https://prasadgade.dev/api/projects.json",
       "sha256": "4295b0b5fb8c1bdb9acecac7c65d00d19caf9b48057931bd777e434cdcc15711"
     },
     {
-      "name": "get-skills",
+      "name": "get_skills",
       "type": "api",
       "description": "Get technical skills using the strict MAIN_RESUME taxonomy across 6 categories",
       "url": "https://prasadgade.dev/api/skills.json",
       "sha256": "11e73d391a9a45f5144ce7db9a46b2bead563577659dba865613550da1f58af7"
     },
     {
-      "name": "get-social",
+      "name": "get_social",
       "type": "api",
       "description": "Get contact information (email, phone, location) and 11 social media profile links",
       "url": "https://prasadgade.dev/api/social.json",
       "sha256": "2e8297da96d888f6417c574f41d47a47475ac9c54db8a43495e06c1c4e9e9864"
     },
     {
-      "name": "get-about",
+      "name": "get_about",
       "type": "api",
       "description": "Get personality traits, hobbies, site philosophy, favorite movies, songs, and what makes this portfolio unique",
       "url": "https://prasadgade.dev/api/about.json",

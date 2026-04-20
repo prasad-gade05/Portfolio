@@ -6,7 +6,7 @@
     "organization": "Prasad Gade",
     "url": "https://prasadgade.dev"
   },
-  "version": "2.0.0",
+  "version": "2.1.0",
   "capabilities": {
     "streaming": false,
     "pushNotifications": false,
@@ -16,42 +16,42 @@
   "defaultOutputModes": ["application/json"],
   "skills": [
     {
-      "id": "get-resume",
+      "id": "get_resume",
       "name": "Get Primary Resume",
       "description": "Retrieve the primary slim resume data including education, work summary, 11 public projects, MAIN_RESUME skills, and core certifications",
       "tags": ["resume", "career", "education"],
       "examples": ["What is Prasad's primary resume?", "Show me Prasad's main work summary"]
     },
     {
-      "id": "get-resume-master",
+      "id": "get_resume_master",
       "name": "Get Master Resume",
       "description": "Retrieve the detailed master resume data including diploma education, TA/research role, publications, leadership, richer certifications, and the same 11 public projects",
       "tags": ["resume", "career", "detailed"],
       "examples": ["Show me the detailed resume", "What are Prasad's publications and leadership roles?"]
     },
     {
-      "id": "get-projects",
+      "id": "get_projects",
       "name": "Get Projects",
       "description": "Retrieve all 11 public projects with descriptions, tech stacks, metrics, and links",
       "tags": ["projects", "portfolio", "code"],
       "examples": ["What projects has Prasad built?", "Show me public data science projects"]
     },
     {
-      "id": "get-skills",
+      "id": "get_skills",
       "name": "Get Skills",
       "description": "Retrieve technical skills using the strict MAIN_RESUME taxonomy across 6 categories",
       "tags": ["skills", "technology"],
       "examples": ["What programming languages does Prasad know?", "Show the MAIN_RESUME skill set"]
     },
     {
-      "id": "get-contact",
-      "name": "Get Contact Info",
+      "id": "get_social",
+      "name": "Get Social and Contact Info",
       "description": "Retrieve contact details and 11 social media profile links",
       "tags": ["contact", "social"],
       "examples": ["How can I reach Prasad?", "What is Prasad's GitHub?"]
     },
     {
-      "id": "get-about",
+      "id": "get_about",
       "name": "Get About Info",
       "description": "Retrieve personality traits, hobbies, site philosophy, and favorite movies and songs",
       "tags": ["about", "personal", "hobbies"],

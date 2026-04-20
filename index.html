@@ -314,19 +314,22 @@
 
     <!-- WebMCP Declarative — tool-annotated forms for AI agent discovery -->
     <div hidden>
-      <form tool-name="get-resume" tool-description="Get Prasad Gade's structured resume with education, experience, projects, skills, and certifications" action="/api/resume.json" method="GET">
+      <form tool-name="get_resume" tool-description="Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" action="/api/resume.json" method="GET">
         <button type="submit">Get Resume</button>
       </form>
-      <form tool-name="get-projects" tool-description="Browse all 11 projects by Prasad Gade with descriptions, tech stacks, and demo links" action="/api/projects.json" method="GET">
+      <form tool-name="get_resume_master" tool-description="Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set" action="/api/resume-master.json" method="GET">
+        <button type="submit">Get Detailed Resume</button>
+      </form>
+      <form tool-name="get_projects" tool-description="Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links" action="/api/projects.json" method="GET">
         <button type="submit">Get Projects</button>
       </form>
-      <form tool-name="get-skills" tool-description="Get categorized technical skills across languages, ML/DS, web development, databases, and DevOps" action="/api/skills.json" method="GET">
+      <form tool-name="get_skills" tool-description="Get categorized technical skills across programming, data science, web development, databases, and DevOps" action="/api/skills.json" method="GET">
         <button type="submit">Get Skills</button>
       </form>
-      <form tool-name="get-contact" tool-description="Get contact information and social media profiles for Prasad Gade" action="/api/social.json" method="GET">
-        <button type="submit">Get Contact</button>
+      <form tool-name="get_social" tool-description="Get contact information and public social profile links for Prasad Gade" action="/api/social.json" method="GET">
+        <button type="submit">Get Social Links</button>
       </form>
-      <form tool-name="get-about" tool-description="Get personality, hobbies, favorite movies, and what makes this portfolio unique" action="/api/about.json" method="GET">
+      <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio" action="/api/about.json" method="GET">
         <button type="submit">Get About</button>
       </form>
     </div>
@@ -400,17 +403,19 @@
       (function() {
         if (typeof navigator !== 'undefined' && navigator.modelContext && typeof navigator.modelContext.provideContext === 'function') {
           var endpoints = {
-            get_resume: { path: '/api/resume.json', desc: "Get Prasad Gade's structured resume (education, experience, projects, skills, certifications)" },
-            get_projects: { path: '/api/projects.json', desc: 'Get all 11 projects with descriptions, tech stacks, metrics, and links' },
-            get_skills: { path: '/api/skills.json', desc: 'Get categorized technical skills across 6 categories' },
-            get_social: { path: '/api/social.json', desc: 'Get contact information and 11 social media profile links' },
-            get_about: { path: '/api/about.json', desc: 'Get personality, hobbies, site philosophy, and favorite movies and songs' }
+            get_resume: { path: '/api/resume.json', desc: "Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" },
+            get_resume_master: { path: '/api/resume-master.json', desc: 'Get Prasad Gade\'s detailed master resume with broader background, publications, leadership, and the same public project set' },
+            get_projects: { path: '/api/projects.json', desc: 'Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links' },
+            get_skills: { path: '/api/skills.json', desc: 'Get categorized technical skills across programming, data science, web development, databases, and DevOps' },
+            get_social: { path: '/api/social.json', desc: 'Get contact information and public social profile links for Prasad Gade' },
+            get_about: { path: '/api/about.json', desc: 'Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio' }
           };
           var tools = Object.keys(endpoints).map(function(name) {
             return {
               name: name,
               description: endpoints[name].desc,
               inputSchema: { type: 'object', properties: {} },
+              annotations: { readOnlyHint: true, idempotentHint: true },
               execute: (function(p) { return function() { return fetch(p).then(function(r) { return r.json(); }); }; })(endpoints[name].path)
             };
           });
