@@ -1,12 +1,12 @@
 {
   "name": "Prasad Gade Portfolio",
-  "description": "Personal portfolio agent for Prasad Gade — data scientist and computer engineer from Mumbai, India. Provides structured access to resume, projects, skills, contact information, and personality data via static JSON API.",
+  "description": "Personal portfolio agent for Prasad Gade — data scientist and computer engineer from Mumbai, India. Provides structured access to slim and detailed resume data, the 11-project public portfolio set, strict MAIN_RESUME skills, contact information, and personality data via static JSON API.",
   "url": "https://prasadgade.dev/agent/",
   "provider": {
     "organization": "Prasad Gade",
     "url": "https://prasadgade.dev"
   },
-  "version": "1.0.0",
+  "version": "2.0.0",
   "capabilities": {
     "streaming": false,
     "pushNotifications": false,
@@ -17,24 +17,31 @@
   "skills": [
     {
       "id": "get-resume",
-      "name": "Get Resume",
-      "description": "Retrieve structured resume data including education, experience, projects, skills, and certifications",
+      "name": "Get Primary Resume",
+      "description": "Retrieve the primary slim resume data including education, work summary, 11 public projects, MAIN_RESUME skills, and core certifications",
       "tags": ["resume", "career", "education"],
-      "examples": ["What is Prasad's education?", "Show me Prasad's work experience"]
+      "examples": ["What is Prasad's primary resume?", "Show me Prasad's main work summary"]
+    },
+    {
+      "id": "get-resume-master",
+      "name": "Get Master Resume",
+      "description": "Retrieve the detailed master resume data including diploma education, TA/research role, publications, leadership, richer certifications, and the same 11 public projects",
+      "tags": ["resume", "career", "detailed"],
+      "examples": ["Show me the detailed resume", "What are Prasad's publications and leadership roles?"]
     },
     {
       "id": "get-projects",
       "name": "Get Projects",
-      "description": "Retrieve all 11 projects with descriptions, tech stacks, metrics, and links",
+      "description": "Retrieve all 11 public projects with descriptions, tech stacks, metrics, and links",
       "tags": ["projects", "portfolio", "code"],
-      "examples": ["What projects has Prasad built?", "Show me data science projects"]
+      "examples": ["What projects has Prasad built?", "Show me public data science projects"]
     },
     {
       "id": "get-skills",
       "name": "Get Skills",
-      "description": "Retrieve categorized technical skills across 6 categories",
+      "description": "Retrieve technical skills using the strict MAIN_RESUME taxonomy across 6 categories",
       "tags": ["skills", "technology"],
-      "examples": ["What programming languages does Prasad know?", "What ML frameworks does Prasad use?"]
+      "examples": ["What programming languages does Prasad know?", "Show the MAIN_RESUME skill set"]
     },
     {
       "id": "get-contact",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "name": "Prasad Gade — Portfolio",
-  "description": "Personal portfolio of Prasad Gade, a data scientist and computer engineer from Mumbai, India. This site has structured data, static JSON APIs, and LLM-readable content.",
+  "description": "Personal portfolio of Prasad Gade, a data scientist and computer engineer from Mumbai, India. This site exposes slim and master resume APIs, a public 11-project portfolio API, strict MAIN_RESUME skills, and LLM-readable content.",
   "url": "https://prasadgade.dev",
   "contact": {
     "email": "prasadgade4405@gmail.com",
@@ -33,17 +33,22 @@
     {
       "path": "/api/resume.json",
       "method": "GET",
-      "description": "Structured resume data (education, experience, projects, skills, certifications)"
+      "description": "Primary slim resume data for default agent lookups"
+    },
+    {
+      "path": "/api/resume-master.json",
+      "method": "GET",
+      "description": "Detailed master resume data with richer background and project detail"
     },
     {
       "path": "/api/projects.json",
       "method": "GET",
-      "description": "All projects with descriptions, tech stacks, and links"
+      "description": "11 public portfolio projects with descriptions, tech stacks, and links"
     },
     {
       "path": "/api/skills.json",
       "method": "GET",
-      "description": "Categorized technical skills"
+      "description": "Technical skills using the strict MAIN_RESUME taxonomy"
     },
     {
       "path": "/api/social.json",
@@ -58,5 +63,5 @@
   ],
   "content_types": ["application/json", "text/plain", "text/html", "text/xml"],
   "languages": ["en"],
-  "last_updated": "2026-04-19"
+  "last_updated": "2026-04-20"
 }

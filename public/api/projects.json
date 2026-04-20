@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "prasadgade.dev",
-    "generated": "2026-04-19",
-    "version": "1.0",
-    "description": "All projects by Prasad Gade with descriptions, tech stacks, and links"
+    "generated": "2026-04-20",
+    "version": "2.0",
+    "description": "11 public portfolio projects by Prasad Gade with descriptions, tech stacks, and links"
   },
   "data": {
     "projects": [
@@ -29,7 +29,7 @@
         "subtitle": "Data Engineering & Analytics Dashboard",
         "category": "Data",
         "stats": "9,026 Files",
-        "description": "Full-stack data platform analyzing India's UPI payments across 788 districts with medallion architecture and 11-tab Streamlit dashboard.",
+        "description": "Full-stack data platform analyzing India's UPI payments across 788 districts with medallion architecture and an 11-tab dashboard.",
         "detailed_description": [
           "Processed 9,026 JSON files from 3 sources across 788 districts/42 months using a 4-stage medallion pipeline into a DuckDB star schema",
           "Quantified market duopoly via HHI, measured geographic inequality using Gini coefficients, segmented adoption with K-Means",
@@ -60,8 +60,8 @@
         "title": "Intrusion Detection",
         "subtitle": "TII-SSRC-23 Analysis",
         "category": "ML",
-        "stats": "100% recall",
-        "description": "Compared 6 ML/DL models on 8.6M samples. Tree models outperformed.",
+        "stats": "99.99% Recall",
+        "description": "Compared 6 ML/DL models on 8.6M samples and showed strong tree-model performance.",
         "detailed_description": [
           "Achieved 99.99% recall and 100% precision benchmarking 6 models on the 8.6M-sample TII-SSRC-23 dataset (79 features)",
           "Tree models were 12.8x faster with 20x inference throughput and full SHAP interpretability",
@@ -76,8 +76,8 @@
         "subtitle": "Donation Platform",
         "category": "Web",
         "badge": "1st Place",
-        "stats": "80+ teams",
-        "description": "Multi-role donation platform with crypto payments and real-time tracking.",
+        "stats": "80+ Teams",
+        "description": "Multi-role donation platform with real-time tracking, transparency, and smart request flows.",
         "detailed_description": [
           "Streamlined donation workflows across institutes, donors, and vendors with 60% reduction in request processing time",
           "Integrated real-time request tracking, crypto-based payments via MetaMask, and impact reporting (45% engagement boost)",
@@ -91,8 +91,8 @@
         "title": "Celestial Classifier",
         "subtitle": "SDSS Dataset Analysis",
         "category": "ML",
-        "stats": "4 ML Models",
-        "description": "Classification of celestial objects from Sloan Digital Sky Survey dataset.",
+        "stats": "99.07% Accuracy",
+        "description": "Classification of celestial objects from Sloan Digital Sky Survey data.",
         "detailed_description": [
           "Achieved 99.07% accuracy classifying 10,000 celestial objects into stars, galaxies, and quasars",
           "Improved Neural Network accuracy from 95.13% to 98.78% using Keras Tuner across 10 trials",
@@ -106,23 +106,23 @@
         "title": "NutriSnap",
         "subtitle": "AI Nutrition Tracker",
         "category": "AI",
-        "stats": "Image Analysis",
-        "description": "Nutrition tracking using Gemini API for food image analysis.",
+        "stats": "95% Estimates",
+        "description": "Nutrition tracking with Gemini-powered food analysis, manual entry support, and dashboard views.",
         "detailed_description": [
           "Integrated Gemini API to analyze food images or manual entries with 95% accurate nutrient estimates",
           "Implemented daily calorie/macro goals and interactive dashboards",
           "Dual input modes (image/manual) with local SQLite storage"
         ],
-        "tech": ["Flask", "Python", "HTML", "CSS", "JavaScript", "Gemini API", "SQLite", "Pandas", "OpenCV"],
+        "tech": ["Flask", "Python", "HTML", "CSS", "JavaScript", "Gemini API", "SQLite", "Pandas", "OpenCV", "Google Colab"],
         "github": "https://github.com/prasad-gade05/nutrition_tracker",
         "demo": "https://prasadsnutritiontracker.netlify.app/"
       },
       {
         "title": "Audio Visualizer",
-        "subtitle": "Real-Time Music Viz",
+        "subtitle": "Real-Time Music Visualization Tool",
         "category": "Web",
-        "stats": "3D Globe",
-        "description": "Audio visualization with file upload, system capture, and 3D globe mode.",
+        "stats": "1000+ Visitors",
+        "description": "Real-time music visualization with multiple visual modes, file upload, and microphone input.",
         "detailed_description": [
           "Real-time audio visualization with multiple dynamic modes (bars, radial waves, scatter plots)",
           "Fully client-side on GitHub Pages with file upload and microphone input",
@@ -134,10 +134,10 @@
       },
       {
         "title": "Attendance Tracker",
-        "subtitle": "Smart Schedule & Attendance",
+        "subtitle": "Feature-Rich Attendance PWA",
         "category": "Web",
-        "stats": "Offline Ready",
-        "description": "Attendance simulation to calculate required classes with goal tracking.",
+        "stats": "Offline First",
+        "description": "Attendance reports, record editing, analysis views, and local-first data handling.",
         "detailed_description": [
           "Subject-wise reports, student-wise analysis, editable records",
           "Offline-first using IndexedDB (Dexie.js) for persistent data",
@@ -151,8 +151,8 @@
         "title": "Habit Tracker",
         "subtitle": "Privacy-First Tracking",
         "category": "Web",
-        "stats": "Local Storage",
-        "description": "Client-side habit tracking with GitHub-style contribution charts.",
+        "stats": "Offline Ready",
+        "description": "Client-side habit tracking with streaks, analytics, and GitHub-style contribution charts.",
         "detailed_description": [
           "GitHub-style contribution charts, streaks, calendar view, and analytics",
           "IndexedDB via Dexie.js for persistent offline storage, no server dependency",
@@ -167,7 +167,7 @@
         "subtitle": "Personal Developer Portfolio",
         "category": "Web",
         "stats": "4 Themes",
-        "description": "Interactive portfolio with multi-theme support, 3D elements, and responsive design.",
+        "description": "Interactive portfolio with multi-theme support, 3D elements, agent-readable files, and responsive design.",
         "detailed_description": [
           "4 visual themes with auto-detect device preference",
           "3D Minecraft skin viewer (skinview3d + Three.js), paper physics playground",

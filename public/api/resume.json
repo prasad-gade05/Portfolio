@@ -1,9 +1,10 @@
 {
   "meta": {
     "source": "prasadgade.dev",
-    "generated": "2026-04-19",
-    "version": "1.0",
-    "description": "Structured resume of Prasad Gade based on the public resume"
+    "generated": "2026-04-20",
+    "version": "2.0",
+    "variant": "slim",
+    "description": "Primary slim resume of Prasad Gade for agent consumption"
   },
   "data": {
     "basics": {
@@ -50,48 +51,122 @@
     ],
     "projects": [
       {
+        "name": "IPL Analytics Platform",
+        "description": "Interactive Cricket Data Dashboard",
+        "date": "March 2026",
+        "highlights": [
+          "Processed 278,205 ball-by-ball records across 18 IPL seasons",
+          "Built 14 dashboard pages with a custom SQL query builder and validated aggregates"
+        ],
+        "url": "https://analytics-ipl.streamlit.app/"
+      },
+      {
         "name": "UPI Analytics Platform",
         "description": "Data Engineering & Analytics Dashboard",
         "date": "March 2026",
         "highlights": [
-          "Processed 9,026 JSON files from 3 sources across 788 districts/42 months using a 4-stage medallion pipeline into a DuckDB star schema",
-          "Quantified market duopoly via HHI, measured geographic inequality using Gini coefficients, segmented adoption tiers with K-Means across 788 districts",
-          "Forecasted UPI volumes using Prophet/ARIMA; delivered 68 visualizations across 11-tab Streamlit + Power BI dashboards, validated by 83 tests"
+          "Processed 9,026 JSON files across 788 districts and 42 months",
+          "Delivered 68 visualizations across Streamlit and Power BI dashboards"
         ],
-        "tech": ["Python", "DuckDB", "Pandas", "Plotly", "Streamlit", "Power BI", "Prophet", "ARIMA", "Scikit-learn", "K-Means", "BeautifulSoup4", "PyArrow", "GitHub Actions"],
         "url": "https://upi-analytics.streamlit.app/"
       },
       {
         "name": "Lex Simulacra",
-        "description": "AI-Powered Legal Courtroom Simulator with Multi-Agent RAG",
+        "description": "AI Legal Courtroom Simulator",
         "date": "November 2025",
         "highlights": [
-          "Built an 8-agent legal simulation achieving 99% citation accuracy via a LangGraph workflow",
-          "Reduced legal research time by 75% across 100K+ documents with RAG pipeline and BM25 re-ranking",
-          "Achieved 3.2x context relevance gain and 60% engagement boost via context compression and hallucination detection"
+          "Built an 8-agent legal simulation with 99% citation accuracy",
+          "Reduced legal research time by 75% across 100K+ documents"
         ],
-        "tech": ["Python", "LangChain", "LangGraph", "FastAPI", "Streamlit", "ChromaDB", "Sentence-Transformers", "Ollama LLM", "Kanoon API", "BM25", "NLTK", "Scikit-learn"],
         "url": "https://github.com/prasad-gade05/Law_Courtroom_Simulator"
       },
       {
-        "name": "Comparative Analysis of ML/DL Models for Intrusion Detection",
-        "description": "Benchmarking ML/DL models on TII-SSRC-23 dataset",
+        "name": "Intrusion Detection",
+        "description": "TII-SSRC-23 Analysis",
         "date": "October 2025",
         "highlights": [
-          "Achieved 99.99% recall and 100% precision benchmarking 6 models on 8.6M-sample dataset",
-          "Demonstrated tree models were 12.8x faster with 20x inference throughput",
-          "Reduced classification errors by 30% via hybrid SMOTE-undersampling"
+          "Benchmarked 6 ML/DL models on an 8.6M-sample dataset",
+          "Achieved 99.99% recall and 100% precision"
         ],
-        "tech": ["Python", "Scikit-learn", "XGBoost", "PyTorch", "TensorFlow", "SHAP", "Pandas", "NumPy", "Imbalanced-learn"],
         "url": "https://github.com/prasad-gade05/IDS_on_TII-SSRC-23"
+      },
+      {
+        "name": "KindHearts",
+        "description": "Donation Platform",
+        "date": "March 2025",
+        "highlights": [
+          "Built the platform that won 1st place at Tech Horizon National Hackathon",
+          "Improved donation workflow speed and transparency with real-time tracking"
+        ],
+        "url": "https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform"
+      },
+      {
+        "name": "Celestial Classifier",
+        "description": "SDSS Dataset Analysis",
+        "date": "November 2024",
+        "highlights": [
+          "Achieved 99.07% accuracy classifying 10,000 celestial objects",
+          "Benchmarked 4 classifiers with tuned neural-network performance"
+        ],
+        "url": "https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset"
+      },
+      {
+        "name": "NutriSnap",
+        "description": "AI Nutrition Tracker",
+        "date": "August 2025",
+        "highlights": [
+          "Used Gemini API for image and manual nutrition tracking",
+          "Implemented dashboard-based calorie and macro tracking"
+        ],
+        "url": "https://prasadsnutritiontracker.netlify.app/"
+      },
+      {
+        "name": "Audio Visualizer",
+        "description": "Real-Time Music Visualization Tool",
+        "date": "August 2025",
+        "highlights": [
+          "Built a client-side music visualizer with multiple display modes",
+          "Deployed it as a live GitHub Pages app"
+        ],
+        "url": "https://prasadgade.dev/audio_visualizer_app/"
+      },
+      {
+        "name": "Attendance Tracker",
+        "description": "Feature-Rich Attendance PWA",
+        "date": "October 2025",
+        "highlights": [
+          "Built attendance reports, analysis views, and editable records",
+          "Added offline-first storage with import and export support"
+        ],
+        "url": "https://prasadgade.dev/attendance/"
+      },
+      {
+        "name": "Habit Tracker",
+        "description": "Client-Side Progressive Web App",
+        "date": "September 2025",
+        "highlights": [
+          "Created streaks, calendar views, analytics, and contribution-style charts",
+          "Kept the app privacy-first with offline local storage"
+        ],
+        "url": "https://prasadgade.dev/Habit-Tracker/"
+      },
+      {
+        "name": "Portfolio",
+        "description": "Personal Developer Portfolio",
+        "date": "2026",
+        "highlights": [
+          "Built a multi-theme interactive portfolio with a Minecraft skin viewer",
+          "Added paper physics, hidden easter eggs, and agent-readable static APIs"
+        ],
+        "url": "https://prasadgade.dev"
       }
     ],
     "skills": {
       "Languages": ["Python", "C", "C++", "Java", "JavaScript"],
       "Frameworks": ["Flask", "Django"],
-      "Data Science / ML": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "PyTorch", "Scikit-Learn", "TensorFlow", "Hugging Face", "Keras", "OpenCV"],
-      "Databases / DevOps": ["SQL", "MongoDB", "Firebase", "Git", "GitHub"],
-      "Business Intelligence": ["Power BI"],
+      "Data-Science/ML": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "PyTorch", "Scikit-Learn", "TensorFlow", "Hugging Face", "Keras", "OpenCV"],
+      "Databases/DevOps": ["SQL", "MongoDB", "Firebase", "Git", "GitHub"],
+      "Business Intelligence Tools": ["Power BI"],
       "Soft Skills": ["Leadership", "Time Management", "Public Speaking", "Writing", "Communication"]
     },
     "certifications": [
@@ -129,9 +204,8 @@
     "achievements": [
       {
         "title": "Winner — Tech Horizon National Hackathon",
-        "description": "Secured 1st place out of 80+ national teams in a 36-hour hackathon by designing a full-stack donation platform (KindHearts).",
+        "description": "Secured 1st place out of 80+ national teams in a 36-hour hackathon by designing the KindHearts donation platform.",
         "date": "March 2025",
-        "tech": ["React", "TypeScript", "MongoDB", "Vite", "Tailwind CSS"],
         "url": "https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform",
         "certificate": "https://drive.google.com/file/d/19EXpm1wVqM35qLiHvbcFzmwwwEiFSr_4/view?usp=sharing"
       }

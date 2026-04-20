@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Prasad Gade Portfolio API",
-    "description": "Static JSON API serving structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India. All endpoints are read-only static JSON files hosted on GitHub Pages.",
-    "version": "1.0.0",
+    "description": "Static JSON API serving structured data about Prasad Gade — data scientist and computer engineer from Mumbai, India. Includes a primary slim resume, a detailed master resume, a public 11-project portfolio set, strict MAIN_RESUME skills, social links, and personal profile data.",
+    "version": "2.0.0",
     "contact": {
       "name": "Prasad Gade",
       "url": "https://prasadgade.dev",
@@ -23,13 +23,13 @@
   "paths": {
     "/api/resume.json": {
       "get": {
-        "summary": "Structured resume",
-        "description": "Returns resume data as JSON with meta and data wrappers. Sourced from the same public resume available as PDF at /Prasad_Gade_Resume.pdf.",
+        "summary": "Primary slim resume",
+        "description": "Returns the primary slim resume as JSON. This is the default agent-facing resume and uses the MAIN_RESUME skill taxonomy plus the full 11-project public portfolio set.",
         "operationId": "getResume",
         "tags": ["Professional"],
         "responses": {
           "200": {
-            "description": "Resume data",
+            "description": "Primary slim resume data",
             "content": {
               "application/json": {
                 "schema": {
@@ -41,25 +41,14 @@
                         "source": { "type": "string" },
                         "generated": { "type": "string" },
                         "version": { "type": "string" },
+                        "variant": { "type": "string" },
                         "description": { "type": "string" }
                       }
                     },
                     "data": {
                       "type": "object",
                       "properties": {
-                        "basics": {
-                          "type": "object",
-                          "properties": {
-                            "name": { "type": "string" },
-                            "label": { "type": "string" },
-                            "email": { "type": "string" },
-                            "phone": { "type": "string" },
-                            "url": { "type": "string", "format": "uri" },
-                            "location": { "type": "object" },
-                            "summary": { "type": "string" },
-                            "profiles": { "type": "array", "items": { "type": "object" } }
-                          }
-                        },
+                        "basics": { "type": "object" },
                         "education": { "type": "array", "items": { "type": "object" } },
                         "work": { "type": "array", "items": { "type": "object" } },
                         "projects": { "type": "array", "items": { "type": "object" } },
@@ -84,10 +73,64 @@
         }
       }
     },
+    "/api/resume-master.json": {
+      "get": {
+        "summary": "Detailed master resume",
+        "description": "Returns the detailed master resume as JSON. It adds diploma education, the current TA/research role, broader certifications, publications, leadership, and richer project detail while keeping the same 11 public projects and strict MAIN_RESUME skills.",
+        "operationId": "getResumeMaster",
+        "tags": ["Professional"],
+        "responses": {
+          "200": {
+            "description": "Detailed master resume data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "generated": { "type": "string" },
+                        "version": { "type": "string" },
+                        "variant": { "type": "string" },
+                        "description": { "type": "string" }
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "basics": { "type": "object" },
+                        "education": { "type": "array", "items": { "type": "object" } },
+                        "work": { "type": "array", "items": { "type": "object" } },
+                        "projects": { "type": "array", "items": { "type": "object" } },
+                        "skills": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        },
+                        "certifications": { "type": "array", "items": { "type": "object" } },
+                        "achievements": { "type": "array", "items": { "type": "object" } },
+                        "publications": { "type": "array", "items": { "type": "object" } },
+                        "leadership": { "type": "array", "items": { "type": "object" } },
+                        "resume_pdf": { "type": "string", "format": "uri" }
+                      }
+                    }
+                  },
+                  "required": ["meta", "data"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/projects.json": {
       "get": {
-        "summary": "All projects",
-        "description": "Returns project cards as JSON with meta and data wrappers.",
+        "summary": "Public project portfolio",
+        "description": "Returns the 11 public portfolio projects as JSON with meta and data wrappers.",
         "operationId": "getProjects",
         "tags": ["Professional"],
         "responses": {
@@ -112,29 +155,7 @@
                       "properties": {
                         "projects": {
                           "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "title": { "type": "string" },
-                              "subtitle": { "type": "string" },
-                              "category": { "type": "string" },
-                              "badge": { "type": "string" },
-                              "stats": { "type": "string" },
-                              "description": { "type": "string" },
-                              "detailed_description": {
-                                "type": "array",
-                                "items": { "type": "string" }
-                              },
-                              "tech": {
-                                "type": "array",
-                                "items": { "type": "string" }
-                              },
-                              "github": { "type": "string", "format": "uri" },
-                              "demo": { "type": ["string", "null"], "format": "uri" },
-                              "dataset": { "type": "string", "format": "uri" },
-                              "kaggle_dataset": { "type": "string", "format": "uri" }
-                            }
-                          }
+                          "items": { "type": "object" }
                         }
                       }
                     }
@@ -149,8 +170,8 @@
     },
     "/api/skills.json": {
       "get": {
-        "summary": "Categorized technical skills",
-        "description": "Returns technical skills as JSON with meta and data wrappers.",
+        "summary": "Strict MAIN_RESUME skills",
+        "description": "Returns technical skills as JSON using the strict MAIN_RESUME taxonomy.",
         "operationId": "getSkills",
         "tags": ["Professional"],
         "responses": {
@@ -179,14 +200,6 @@
                             "type": "array",
                             "items": { "type": "string" }
                           }
-                        },
-                        "top_skills": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        },
-                        "typing_roles": {
-                          "type": "array",
-                          "items": { "type": "string" }
                         }
                       }
                     }
@@ -213,32 +226,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "meta": {
-                      "type": "object",
-                      "properties": {
-                        "source": { "type": "string" },
-                        "generated": { "type": "string" },
-                        "version": { "type": "string" },
-                        "description": { "type": "string" }
-                      }
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "contact": { "type": "object" },
-                        "profiles": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "platform": { "type": "string" },
-                              "url": { "type": "string", "format": "uri" },
-                              "handle": { "type": "string" }
-                            }
-                          }
-                        }
-                      }
-                    }
+                    "meta": { "type": "object" },
+                    "data": { "type": "object" }
                   },
                   "required": ["meta", "data"]
                 }
@@ -262,59 +251,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "meta": {
-                      "type": "object",
-                      "properties": {
-                        "source": { "type": "string" },
-                        "generated": { "type": "string" },
-                        "version": { "type": "string" },
-                        "description": { "type": "string" }
-                      }
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "who": { "type": "string" },
-                        "site_philosophy": { "type": "object" },
-                        "site_features": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        },
-                        "hobbies": {
-                          "type": "object",
-                          "properties": {
-                            "sports": {
-                              "type": "array",
-                              "items": { "type": "string" }
-                            },
-                            "favorite_book": { "type": "object" },
-                            "favorite_songs": {
-                              "type": "array",
-                              "items": { "type": "object" }
-                            },
-                            "favorite_series": {
-                              "type": "array",
-                              "items": { "type": "string" }
-                            }
-                          }
-                        },
-                        "minecraft_gamertag": { "type": "string" },
-                        "sub_projects_under_same_domain": {
-                          "type": "array",
-                          "items": { "type": "object" }
-                        },
-                        "movies_count": { "type": "integer" },
-                        "web_shows_count": { "type": "integer" },
-                        "favorite_movies": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        },
-                        "favorite_web_shows": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        }
-                      }
-                    }
+                    "meta": { "type": "object" },
+                    "data": { "type": "object" }
                   },
                   "required": ["meta", "data"]
                 }

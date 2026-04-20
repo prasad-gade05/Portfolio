@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "source": "prasadgade.dev",
+    "generated": "2026-04-20",
+    "version": "2.0",
+    "variant": "master",
+    "description": "Detailed master resume of Prasad Gade for agent consumption"
+  },
+  "data": {
+    "basics": {
+      "name": "Prasad Gade",
+      "label": "Data Scientist & Computer Engineer",
+      "email": "prasadgade4405@gmail.com",
+      "phone": "+91 8446240041",
+      "url": "https://prasadgade.dev",
+      "location": {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      "summary": "Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at Sardar Patel Institute of Technology (CGPA 9.26/10), published researcher, and hackathon winner. Builds data pipelines, ML systems, dashboards, and interactive web applications.",
+      "profiles": [
+        { "network": "GitHub", "username": "prasad-gade05", "url": "https://github.com/prasad-gade05" },
+        { "network": "LinkedIn", "username": "prasad-gade05", "url": "https://www.linkedin.com/in/prasad-gade05/" },
+        { "network": "Kaggle", "username": "prasadgade", "url": "https://kaggle.com/prasadgade" },
+        { "network": "Hugging Face", "username": "prasad-gade05", "url": "https://huggingface.co/prasad-gade05" }
+      ]
+    },
+    "education": [
+      {
+        "institution": "Bhartiya Vidya Bhavan's Sardar Patel Institute of Technology",
+        "area": "Computer Engineering",
+        "studyType": "B.Tech",
+        "minor": "Management from SPJIMR (S. P. Jain Institute of Management & Research)",
+        "gpa": "9.26/10.0",
+        "location": "Mumbai, India",
+        "endDate": "Expected June 2027"
+      },
+      {
+        "institution": "K. K. Wagh Polytechnic",
+        "area": "Computer Technology",
+        "studyType": "Diploma",
+        "grade": "96.51%",
+        "location": "Nashik, India",
+        "startDate": "2021-08",
+        "endDate": "2024-06"
+      }
+    ],
+    "work": [
+      {
+        "company": "Department of Computer Engineering, SPIT",
+        "position": "Undergraduate Research & Teaching Assistant",
+        "location": "Mumbai, India",
+        "startDate": "2025-02",
+        "endDate": "Present",
+        "highlights": [
+          "Performed statistical analysis on student performance data and course feedback to generate reports for faculty",
+          "Accelerated publication workflows by conducting literature reviews and migrating manuscripts from Word to LaTeX",
+          "Created academic posters that translated technical research into accessible visual formats"
+        ],
+        "certificates": [
+          "https://drive.google.com/file/d/1ONZfT7_F0Yyn33lC7b8z9hD7ZCoUgVBa/view?usp=sharing",
+          "https://drive.google.com/file/d/1-r042D5BRYzXpcAFEzDLwKD053YxiKcD/view?usp=sharing"
+        ]
+      },
+      {
+        "company": "R3 Systems India Pvt. Ltd.",
+        "position": "Data Analyst Intern",
+        "location": "Nashik, India",
+        "startDate": "2023-06",
+        "endDate": "2023-07",
+        "highlights": [
+          "Learned Data Analysis and Business Intelligence using Power BI",
+          "Delivered a sales dashboard for North Wind Traders, improving data visibility by 70%"
+        ],
+        "certificate": "https://drive.google.com/file/d/1EOCFG5pNmzG_RJHsZO940SjWBfEEto5x/view?usp=sharing"
+      }
+    ],
+    "projects": [
+      {
+        "name": "IPL Analytics Platform",
+        "description": "Interactive Cricket Data Dashboard",
+        "date": "March 2026",
+        "highlights": [
+          "Engineered a 3-stage data pipeline processing 278,205 ball-by-ball records across 18 IPL seasons (2008-2025), producing 90 derived features and 15 aggregate parquet files",
+          "Built 14 interactive dashboard pages with 58 preset SQL queries, a custom query builder supporting 9 entity types, and one-click chart generation for 1,169 matches and 703 players",
+          "Achieved zero data mismatches across 703 batters and 550 bowlers by fixing a critical aggregation bug and validating integrity with 25 automated tests"
+        ],
+        "tech": ["Python", "Streamlit", "DuckDB", "Plotly", "Pandas", "NumPy", "PyArrow", "Apache Parquet", "SQL", "pytest"],
+        "github": "https://github.com/prasad-gade05/IPL_Analysis",
+        "demo": "https://analytics-ipl.streamlit.app/",
+        "dataset": "https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025",
+        "kaggle_dataset": "https://www.kaggle.com/datasets/prasadgade/ipl-2008-2025-enriched-dataset"
+      },
+      {
+        "name": "UPI Analytics Platform",
+        "description": "Data Engineering & Analytics Dashboard",
+        "date": "March 2026",
+        "highlights": [
+          "Processed 9,026 JSON files from 3 sources across 788 districts and 42 months using a 4-stage medallion pipeline into a DuckDB star schema",
+          "Quantified market duopoly via HHI, measured geographic inequality using Gini coefficients, and segmented adoption tiers with K-Means",
+          "Forecasted UPI volumes using Prophet and ARIMA; delivered 68 visualizations across Streamlit and Power BI dashboards, validated by 83 tests"
+        ],
+        "tech": ["Python", "DuckDB", "Pandas", "Plotly", "Streamlit", "Power BI", "Prophet", "ARIMA", "Scikit-learn", "K-Means", "BeautifulSoup4", "PyArrow", "GitHub Actions"],
+        "github": "https://github.com/prasad-gade05/UPI_DS_Project",
+        "demo": "https://upi-analytics.streamlit.app/",
+        "dataset": "https://huggingface.co/datasets/prasad-gade05/india-upi-ecosystem-2018-2025",
+        "kaggle_dataset": "https://www.kaggle.com/datasets/prasadgade/india-upi-ecosystem-2018-2025"
+      },
+      {
+        "name": "Lex Simulacra",
+        "description": "AI Legal Courtroom Simulator",
+        "date": "November 2025",
+        "highlights": [
+          "Built an 8-agent legal simulation achieving 99% citation accuracy via a LangGraph workflow with state management and iterative debate",
+          "Reduced legal research time by 75% across 100K+ documents with BM25 reranking and ChromaDB vector indexing",
+          "Achieved 3.2x context relevance gain and 60% engagement boost via context compression, hallucination detection, and real-time Streamlit UI with FastAPI SSE"
+        ],
+        "tech": ["Python", "LangChain", "LangGraph", "FastAPI", "Streamlit", "ChromaDB", "Sentence-Transformers", "Ollama LLM", "Kanoon API", "BM25", "NLTK", "Scikit-learn"],
+        "github": "https://github.com/prasad-gade05/Law_Courtroom_Simulator",
+        "demo": null
+      },
+      {
+        "name": "Intrusion Detection",
+        "description": "TII-SSRC-23 Analysis",
+        "date": "October 2025",
+        "highlights": [
+          "Achieved 99.99% recall and 100% precision by benchmarking 6 models on the 8.6M-sample TII-SSRC-23 dataset",
+          "Demonstrated tree models were 12.8x faster with 20x inference throughput and full SHAP interpretability",
+          "Reduced classification errors by 30% via hybrid SMOTE-undersampling for extreme class imbalance"
+        ],
+        "tech": ["Python", "Scikit-learn", "XGBoost", "PyTorch", "TensorFlow", "SHAP", "Pandas", "NumPy", "Imbalanced-learn"],
+        "github": "https://github.com/prasad-gade05/IDS_on_TII-SSRC-23",
+        "demo": null
+      },
+      {
+        "name": "KindHearts",
+        "description": "Donation Platform",
+        "date": "March 2025",
+        "highlights": [
+          "Secured 1st place out of 80+ national teams at Tech Horizon National Hackathon",
+          "Reduced donation request processing time by 60% with modular dashboards and protected routing",
+          "Added real-time request tracking, MetaMask-based crypto payments, and impact reporting"
+        ],
+        "tech": ["React", "TypeScript", "MongoDB", "Vite", "Tailwind CSS", "React Router", "ESLint", "Context API"],
+        "github": "https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform",
+        "demo": null
+      },
+      {
+        "name": "Celestial Classifier",
+        "description": "SDSS Dataset Analysis",
+        "date": "November 2024",
+        "highlights": [
+          "Achieved 99.07% accuracy classifying 10,000 celestial objects into stars, galaxies, and quasars",
+          "Improved neural-network accuracy from 95.13% to 98.78% using Keras Tuner across 10 trials",
+          "Benchmarked 4 classifiers on 3,000 test samples via 5-fold cross-validation and 960+ fits"
+        ],
+        "tech": ["Python", "Scikit-learn", "Keras", "Keras Tuner", "Pandas", "NumPy", "Matplotlib"],
+        "github": "https://github.com/prasad-gade05/Celestial-Object-Classifier-using-Solana-Digital-Sky-Survey-Dataset",
+        "demo": null
+      },
+      {
+        "name": "NutriSnap",
+        "description": "AI Nutrition Tracker",
+        "date": "August 2025",
+        "highlights": [
+          "Integrated Gemini API to analyze food images or manual entries with 95% accurate nutrient estimates",
+          "Implemented daily calorie and macro goals with interactive dashboards",
+          "Supported dual input modes with local SQLite storage"
+        ],
+        "tech": ["Flask", "Python", "HTML", "CSS", "JavaScript", "Gemini API", "SQLite", "Pandas", "OpenCV", "Google Colab"],
+        "github": "https://github.com/prasad-gade05/nutrition_tracker",
+        "demo": "https://prasadsnutritiontracker.netlify.app/"
+      },
+      {
+        "name": "Audio Visualizer",
+        "description": "Real-Time Music Visualization Tool",
+        "date": "August 2025",
+        "highlights": [
+          "Built a real-time audio visualization web app using the Web Audio API",
+          "Added multiple visualization modes with customizable color schemes",
+          "Deployed a fully client-side solution on GitHub Pages with file upload and microphone input support"
+        ],
+        "tech": ["TypeScript", "Web Audio API", "HTML5 Canvas", "shadcn/ui", "CSS3"],
+        "github": "https://github.com/prasad-gade05/audio_visualizer_app",
+        "demo": "https://prasadgade.dev/audio_visualizer_app/"
+      },
+      {
+        "name": "Attendance Tracker",
+        "description": "Feature-Rich Attendance PWA",
+        "date": "October 2025",
+        "highlights": [
+          "Built subject-wise reports, student-wise analysis, editable records, and filtering tools",
+          "Implemented offline-first data handling with IndexedDB and Dexie.js",
+          "Added import, export, backup, and local storage management support"
+        ],
+        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "Dexie.js", "Recharts"],
+        "github": "https://github.com/prasad-gade05/attendance",
+        "demo": "https://prasadgade.dev/attendance/"
+      },
+      {
+        "name": "Habit Tracker",
+        "description": "Client-Side Progressive Web App",
+        "date": "September 2025",
+        "highlights": [
+          "Built streaks, calendar views, analytics, and contribution-style visualizations",
+          "Kept the app fully client-side and privacy-first with IndexedDB storage",
+          "Used Zustand and modern UI tooling for maintainability and scale"
+        ],
+        "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "Dexie.js", "Recharts", "date-fns"],
+        "github": "https://github.com/prasad-gade05/Habit-Tracker",
+        "demo": "https://prasadgade.dev/Habit-Tracker/"
+      },
+      {
+        "name": "Portfolio",
+        "description": "Personal Developer Portfolio",
+        "date": "2026",
+        "highlights": [
+          "Built a personal portfolio with four themes, a Minecraft skin viewer, and a paper physics playground",
+          "Added static JSON APIs, agent discovery files, and llms.txt support for machine readability",
+          "Designed the site to show both technical work and personality"
+        ],
+        "tech": ["React", "Three.js", "Framer Motion", "Vite"],
+        "github": "https://github.com/prasad-gade05/prasad-gade05.github.io",
+        "demo": "https://prasadgade.dev"
+      }
+    ],
+    "skills": {
+      "Languages": ["Python", "C", "C++", "Java", "JavaScript"],
+      "Frameworks": ["Flask", "Django"],
+      "Data-Science/ML": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "PyTorch", "Scikit-Learn", "TensorFlow", "Hugging Face", "Keras", "OpenCV"],
+      "Databases/DevOps": ["SQL", "MongoDB", "Firebase", "Git", "GitHub"],
+      "Business Intelligence Tools": ["Power BI"],
+      "Soft Skills": ["Leadership", "Time Management", "Public Speaking", "Writing", "Communication"]
+    },
+    "certifications": [
+      {
+        "name": "Data Science Job Simulation",
+        "organization": "Boston Consulting Group (Forage)",
+        "date": "January 2025",
+        "url": "https://drive.google.com/file/d/1gpK6qqplU6bqYPZBVsR0iIuJwvS9_HoX/view?usp=drive_link"
+      },
+      {
+        "name": "Developer and Technology Job Simulation",
+        "organization": "Accenture UK (Forage)",
+        "date": "January 2025",
+        "url": "https://drive.google.com/file/d/1pOHKmObTLFRdyLv6xlPkTdhbIK2NTT4Y/view?usp=drive_link"
+      },
+      {
+        "name": "Introduction to Cloud Computing on AWS",
+        "organization": "Udemy",
+        "date": "July 2024",
+        "url": "https://drive.google.com/file/d/1ax32PpCzf4mP2hFectfl5lubdnKU5FV6/view?usp=drive_link"
+      },
+      {
+        "name": "Java Training",
+        "organization": "IIT Bombay",
+        "date": "March 2024",
+        "url": "https://drive.google.com/file/d/1i7k6dmtUvIENZHQk_xJkmoKe2Lyhjnpv/view?usp=drive_link"
+      },
+      {
+        "name": "The World of Computer Networking",
+        "organization": "Udemy",
+        "date": "June 2024",
+        "url": "https://drive.google.com/file/d/1yzSMpeOIgKBUel5RJ9TANkUIbMajd_FE/view?usp=drive_link"
+      },
+      {
+        "name": "Arduino Course",
+        "organization": "Robo-Tech-X",
+        "date": "August 2023",
+        "url": "https://drive.google.com/file/d/1_KanO9G-0zxvE5QHhNoXH5scV6_l41uX/view?usp=sharing"
+      },
+      {
+        "name": "Introduction to Machine Learning",
+        "organization": "Infosys",
+        "date": "November 2022",
+        "url": "https://drive.google.com/file/d/1j7Sl8MKKwrFZTFEhu8LLuMYr257_oYrS/view?usp=sharing"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Winner — Tech Horizon National Hackathon",
+        "description": "Secured 1st place out of 80+ national teams in a 36-hour hackathon by designing KindHearts, a full-stack donation platform.",
+        "date": "March 2025",
+        "url": "https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform",
+        "certificate": "https://drive.google.com/file/d/19EXpm1wVqM35qLiHvbcFzmwwwEiFSr_4/view?usp=sharing"
+      },
+      {
+        "title": "Published Researcher",
+        "description": "Published research on postpartum depression prediction using machine learning in IJIES.",
+        "date": "April 2024",
+        "doi": "https://doi.org/10.46335/IJIES.2024.9.1.8"
+      },
+      {
+        "title": "Open-Source Dataset Contributor",
+        "description": "Published IPL and India UPI datasets on Kaggle and Hugging Face.",
+        "date": "2025",
+        "links": [
+          "https://www.kaggle.com/datasets/prasadgade/ipl-2008-2025-enriched-dataset",
+          "https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025",
+          "https://www.kaggle.com/datasets/prasadgade/india-upi-ecosystem-2018-2025",
+          "https://huggingface.co/datasets/prasad-gade05/india-upi-ecosystem-2018-2025"
+        ]
+      }
+    ],
+    "publications": [
+      {
+        "title": "Postpartum Depression Predictor using Machine Learning",
+        "journal": "IJIES Vol. 9, No. 1, 2024",
+        "pages": "39-43",
+        "date": "April 2024",
+        "doi": "https://doi.org/10.46335/IJIES.2024.9.1.8",
+        "highlights": [
+          "Published findings on the accuracy of multiple machine-learning algorithms for predicting postpartum depression"
+        ],
+        "tech": ["Decision Tree", "XGBoost", "Random Forest", "NumPy", "Matplotlib", "Pandas"]
+      }
+    ],
+    "leadership": [
+      {
+        "title": "General Secretary of Students Council",
+        "organization": "K. K. Wagh Polytechnic",
+        "location": "Nashik, India",
+        "startDate": "2023-08",
+        "endDate": "2024-06",
+        "highlights": [
+          "Spearheaded the institute annual gathering fest Sparsh 2024 on the theme Swaraj"
+        ]
+      }
+    ],
+    "resume_pdf": "https://prasadgade.dev/Prasad_Gade_Resume.pdf"
+  }
+}
