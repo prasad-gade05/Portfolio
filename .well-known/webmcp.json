@@ -10,7 +10,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full primary resume dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
@@ -25,7 +30,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full detailed master resume dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
@@ -40,7 +50,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full public projects dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
@@ -55,7 +70,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full categorized skills dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
@@ -70,7 +90,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full contact and social profile dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
@@ -85,7 +110,12 @@
       "parameters": [],
       "inputSchema": {
         "type": "object",
-        "properties": {}
+        "description": "Invoke with an empty object to fetch the full about and personality dataset.",
+        "properties": {},
+        "additionalProperties": false,
+        "minProperties": 0,
+        "maxProperties": 0,
+        "examples": [{}]
       },
       "annotations": {
         "readOnlyHint": true,
