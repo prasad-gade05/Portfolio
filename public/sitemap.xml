@@ -97,6 +97,30 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://prasadgade.dev/agents.json</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://prasadgade.dev/.well-known/webmcp</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://prasadgade.dev/.well-known/webmcp.json</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://prasadgade.dev/.well-known/mcp.json</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://prasadgade.dev/.well-known/api-catalog</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,0 +1,156 @@
+{
+  "mcp_version": "2025-11",
+  "server": {
+    "id": "prasadgade_portfolio",
+    "name": "Prasad Gade Portfolio Static Discovery",
+    "description": "Read-only discovery surface for Prasad Gade's portfolio. The site publishes static JSON resources and discovery metadata on GitHub Pages, and does not currently expose a live JSON-RPC MCP transport.",
+    "contact": "mailto:prasadgade4405@gmail.com",
+    "protocols": [],
+    "transport": [],
+    "auth": {
+      "type": "none"
+    },
+    "capabilities": [
+      "tool-discovery",
+      "resource-list",
+      "read-only"
+    ]
+  },
+  "mcpServers": {
+    "prasadgade_portfolio": {
+      "url": "https://prasadgade.dev/agent/",
+      "name": "Prasad Gade Portfolio Static Discovery",
+      "description": "Discovery landing page for the read-only portfolio resources published on prasadgade.dev. Use the listed HTTPS JSON endpoints directly."
+    }
+  },
+  "resources": [
+    {
+      "name": "agent_page",
+      "description": "Landing page for the site's public agent-facing discovery files.",
+      "mimeType": "text/html",
+      "url": "https://prasadgade.dev/agent/"
+    },
+    {
+      "name": "openapi",
+      "description": "OpenAPI description of the static JSON API.",
+      "mimeType": "application/openapi+json",
+      "url": "https://prasadgade.dev/openapi.json"
+    },
+    {
+      "name": "webmcp_manifest",
+      "description": "WebMCP manifest for the same read-only tool catalog.",
+      "mimeType": "application/json",
+      "url": "https://prasadgade.dev/.well-known/webmcp.json"
+    },
+    {
+      "name": "agents_directory",
+      "description": "Agent directory that lists the site's public discovery surface.",
+      "mimeType": "application/json",
+      "url": "https://prasadgade.dev/.well-known/agents.json"
+    }
+  ],
+  "tools": [
+    {
+      "id": "get_resume",
+      "name": "get_resume",
+      "description": "Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/resume.json"
+      }
+    },
+    {
+      "id": "get_resume_master",
+      "name": "get_resume_master",
+      "description": "Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/resume-master.json"
+      }
+    },
+    {
+      "id": "get_projects",
+      "name": "get_projects",
+      "description": "Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/projects.json"
+      }
+    },
+    {
+      "id": "get_skills",
+      "name": "get_skills",
+      "description": "Get categorized technical skills across programming, data science, web development, databases, and DevOps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/skills.json"
+      }
+    },
+    {
+      "id": "get_social",
+      "name": "get_social",
+      "description": "Get contact information and public social profile links for Prasad Gade.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/social.json"
+      }
+    },
+    {
+      "id": "get_about",
+      "name": "get_about",
+      "description": "Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "endpoint": {
+        "method": "GET",
+        "url": "https://prasadgade.dev/api/about.json"
+      }
+    }
+  ]
+}

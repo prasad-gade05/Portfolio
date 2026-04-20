@@ -1,17 +1,37 @@
 {
   "linkset": [
     {
-      "anchor": "https://prasadgade.dev/api/",
+      "anchor": "https://prasadgade.dev/",
       "service-desc": [
         {
           "href": "https://prasadgade.dev/openapi.json",
           "type": "application/openapi+json"
+        },
+        {
+          "href": "https://prasadgade.dev/.well-known/webmcp.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://prasadgade.dev/.well-known/mcp.json",
+          "type": "application/json"
         }
       ],
       "service-doc": [
         {
           "href": "https://prasadgade.dev/llms-full.txt",
           "type": "text/plain"
+        },
+        {
+          "href": "https://prasadgade.dev/.well-known/agents.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://prasadgade.dev/.well-known/agent.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://prasadgade.dev/agent/",
+          "type": "text/html"
         }
       ]
     }

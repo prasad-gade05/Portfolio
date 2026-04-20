@@ -1,0 +1,104 @@
+{
+  "spec": "webmcp/0.1",
+  "version": "1.0",
+  "tools": [
+    {
+      "name": "get_resume",
+      "description": "Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements.",
+      "url": "https://prasadgade.dev/api/resume.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_resume_master",
+      "description": "Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set.",
+      "url": "https://prasadgade.dev/api/resume-master.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_projects",
+      "description": "Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links.",
+      "url": "https://prasadgade.dev/api/projects.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_skills",
+      "description": "Get categorized technical skills across programming, data science, web development, databases, and DevOps.",
+      "url": "https://prasadgade.dev/api/skills.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_social",
+      "description": "Get contact information and public social profile links for Prasad Gade.",
+      "url": "https://prasadgade.dev/api/social.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "get_about",
+      "description": "Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio.",
+      "url": "https://prasadgade.dev/api/about.json",
+      "method": "GET",
+      "parameters": [],
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      }
+    }
+  ],
+  "discovery": {
+    "site": "https://prasadgade.dev",
+    "agent": "https://prasadgade.dev/agent/",
+    "agents": "https://prasadgade.dev/.well-known/agents.json",
+    "mcp": "https://prasadgade.dev/.well-known/mcp.json",
+    "sitemap": "https://prasadgade.dev/sitemap.xml",
+    "generated": "2026-04-20"
+  }
+}

@@ -50,7 +50,11 @@ This site is optimized for discovery by AI agents (ChatGPT, Perplexity, Google A
 - `/api/about.json` — Site philosophy, personality, hobbies
 
 **Agent Protocol Discovery**
-- `/.well-known/agents.json` — Agent capabilities and endpoint catalog
+- `/.well-known/agent.json` — A2A-style agent card
+- `/.well-known/agents.json` — Primary agent directory
+- `/agents.json` — Root alias for agent directory discovery
+- `/.well-known/webmcp.json` — WebMCP manifest for pre-navigation tool discovery
+- `/.well-known/mcp.json` — MCP discovery metadata for the static portfolio surface
 
 **Security**
 - HTTPS enforced by GitHub Pages
