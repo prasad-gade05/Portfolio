@@ -310,21 +310,33 @@
     <!-- WebMCP Declarative — tool-annotated forms for AI agent discovery -->
     <div hidden>
       <form tool-name="get_resume" tool-description="Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" action="/api/resume.json" method="GET">
+        <label for="get_resume_expected_input">Expected input</label>
+        <input id="get_resume_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full primary resume dataset." disabled>
         <button type="submit">Get Resume</button>
       </form>
       <form tool-name="get_resume_master" tool-description="Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set" action="/api/resume-master.json" method="GET">
+        <label for="get_resume_master_expected_input">Expected input</label>
+        <input id="get_resume_master_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full detailed master resume dataset." disabled>
         <button type="submit">Get Detailed Resume</button>
       </form>
       <form tool-name="get_projects" tool-description="Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links" action="/api/projects.json" method="GET">
+        <label for="get_projects_expected_input">Expected input</label>
+        <input id="get_projects_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full public projects dataset." disabled>
         <button type="submit">Get Projects</button>
       </form>
       <form tool-name="get_skills" tool-description="Get categorized technical skills across programming, data science, web development, databases, and DevOps" action="/api/skills.json" method="GET">
+        <label for="get_skills_expected_input">Expected input</label>
+        <input id="get_skills_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full categorized skills dataset." disabled>
         <button type="submit">Get Skills</button>
       </form>
       <form tool-name="get_social" tool-description="Get contact information and public social profile links for Prasad Gade" action="/api/social.json" method="GET">
+        <label for="get_social_expected_input">Expected input</label>
+        <input id="get_social_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full contact and social profile dataset." disabled>
         <button type="submit">Get Social Links</button>
       </form>
       <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio" action="/api/about.json" method="GET">
+        <label for="get_about_expected_input">Expected input</label>
+        <input id="get_about_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full about and personality dataset." disabled>
         <button type="submit">Get About</button>
       </form>
     </div>
@@ -399,18 +411,53 @@
       (function() {
         if (typeof navigator !== 'undefined' && navigator.modelContext && typeof navigator.modelContext.provideContext === 'function') {
           var endpoints = {
-            get_resume: { path: '/api/resume.json', desc: "Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" },
-            get_resume_master: { path: '/api/resume-master.json', desc: 'Get Prasad Gade\'s detailed master resume with broader background, publications, leadership, and the same public project set' },
-            get_projects: { path: '/api/projects.json', desc: 'Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links' },
-            get_skills: { path: '/api/skills.json', desc: 'Get categorized technical skills across programming, data science, web development, databases, and DevOps' },
-            get_social: { path: '/api/social.json', desc: 'Get contact information and public social profile links for Prasad Gade' },
-            get_about: { path: '/api/about.json', desc: 'Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio' }
+            get_resume: {
+              path: '/api/resume.json',
+              desc: "Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements",
+              schemaDesc: 'Invoke with an empty object to fetch the full primary resume dataset.'
+            },
+            get_resume_master: {
+              path: '/api/resume-master.json',
+              desc: 'Get Prasad Gade\'s detailed master resume with broader background, publications, leadership, and the same public project set',
+              schemaDesc: 'Invoke with an empty object to fetch the full detailed master resume dataset.'
+            },
+            get_projects: {
+              path: '/api/projects.json',
+              desc: 'Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links',
+              schemaDesc: 'Invoke with an empty object to fetch the full public projects dataset.'
+            },
+            get_skills: {
+              path: '/api/skills.json',
+              desc: 'Get categorized technical skills across programming, data science, web development, databases, and DevOps',
+              schemaDesc: 'Invoke with an empty object to fetch the full categorized skills dataset.'
+            },
+            get_social: {
+              path: '/api/social.json',
+              desc: 'Get contact information and public social profile links for Prasad Gade',
+              schemaDesc: 'Invoke with an empty object to fetch the full contact and social profile dataset.'
+            },
+            get_about: {
+              path: '/api/about.json',
+              desc: 'Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio',
+              schemaDesc: 'Invoke with an empty object to fetch the full about and personality dataset.'
+            }
+          };
+          var createNoInputSchema = function(description) {
+            return {
+              type: 'object',
+              description: description,
+              properties: {},
+              additionalProperties: false,
+              minProperties: 0,
+              maxProperties: 0,
+              examples: [{}]
+            };
           };
           var tools = Object.keys(endpoints).map(function(name) {
             return {
               name: name,
               description: endpoints[name].desc,
-              inputSchema: { type: 'object', properties: {} },
+              inputSchema: createNoInputSchema(endpoints[name].schemaDesc),
               annotations: { readOnlyHint: true, idempotentHint: true },
               execute: (function(p) { return function() { return fetch(p).then(function(r) { return r.json(); }); }; })(endpoints[name].path)
             };
