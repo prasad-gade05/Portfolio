@@ -42,19 +42,43 @@
       a {
         word-break: break-word;
       }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        padding-left: 20px;
+        margin-top: 12px;
+      }
+
+      footer {
+        margin-top: 36px;
+        font-size: 0.95rem;
+        opacity: 0.85;
+      }
     </style>
   </head>
   <body>
-    <main>
+    <header>
       <h1>Prasad Gade Agent Endpoint</h1>
       <p>
         This page is the public agent entry point for
         <a href="https://prasadgade.dev/">prasadgade.dev</a>.
         It exists so AI agents and developers can find the structured, static files that describe the portfolio.
       </p>
+      <nav aria-label="Agent discovery">
+        <ul>
+          <li><a href="https://prasadgade.dev/">Portfolio home</a></li>
+          <li><a href="https://prasadgade.dev/.well-known/webmcp.json">WebMCP manifest</a></li>
+          <li><a href="https://prasadgade.dev/.well-known/agents.json">agents.json</a></li>
+          <li><a href="https://prasadgade.dev/openapi.json">OpenAPI</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <main>
       <section aria-labelledby="what-this-site-is">
-        <h2 id="what-this-site-is">What this site is</h2>
+        <h2 id="what-this-site-is">What is this agent endpoint for?</h2>
         <p>
           Prasad Gade's portfolio is a personal website, not just a resume. It presents technical work, projects, skills,
           and contact information, while also showing personality, hobbies, favorite media, and creative interactions such as
@@ -63,7 +87,7 @@
       </section>
 
       <section aria-labelledby="machine-readable-files">
-        <h2 id="machine-readable-files">Machine-readable files</h2>
+        <h2 id="machine-readable-files">Which machine-readable files are published?</h2>
         <ul>
           <li><a href="https://prasadgade.dev/.well-known/agent.json">A2A Agent Card</a></li>
           <li><a href="https://prasadgade.dev/.well-known/agents.json">agents.json discovery file</a></li>
@@ -81,7 +105,7 @@
       </section>
 
       <section aria-labelledby="resume-model">
-        <h2 id="resume-model">Resume model</h2>
+        <h2 id="resume-model">Which resume models are available?</h2>
         <p>
           The agent layer exposes two resume variants:
           <code>/api/resume.json</code> is the primary slim resume and
@@ -91,7 +115,7 @@
       </section>
 
       <section aria-labelledby="static-api">
-        <h2 id="static-api">Static API endpoints</h2>
+        <h2 id="static-api">Which static API endpoints can agents use?</h2>
         <ul>
           <li><a href="https://prasadgade.dev/api/resume.json">/api/resume.json</a> - primary slim resume</li>
           <li><a href="https://prasadgade.dev/api/resume-master.json">/api/resume-master.json</a> - detailed master resume</li>
@@ -103,7 +127,7 @@
       </section>
 
       <section aria-labelledby="usage-notes">
-        <h2 id="usage-notes">Usage notes</h2>
+        <h2 id="usage-notes">What usage limits should agents know about?</h2>
         <p>
           The portfolio is hosted as a static GitHub Pages site. The discovery files describe the current read-only JSON resources
           and agent-facing metadata that are available today. There is still no live OAuth flow or interactive MCP transport server
@@ -111,5 +135,9 @@
         </p>
       </section>
     </main>
+
+    <footer>
+      <p>These discovery files are static, read-only metadata published from GitHub Pages.</p>
+    </footer>
   </body>
 </html>

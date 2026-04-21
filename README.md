@@ -38,6 +38,11 @@ This site is optimized for discovery by AI agents (ChatGPT, Perplexity, Google A
 - `/llms.txt` — Short summary for LLMs ([llms.txt spec](https://llmstxt.org/))
 - `/llms-full.txt` — Full profile with all projects, skills, and personality
 
+**Semantic HTML for Agents**
+- Root HTML shell and `/agent/` expose semantic landmarks (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- Static fallback sections use question-based H2 headings for direct query matching
+- Tool-annotated discovery forms include explicit autocomplete metadata, even for fixed no-input hints
+
 **Structured Data (JSON-LD in page head)**
 - Person, WebSite, WebPage, ProfilePage, BreadcrumbList, ItemList (Projects)
 - Schema.org vocabulary with entity linking via `sameAs` and `@id` references

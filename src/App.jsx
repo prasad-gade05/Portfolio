@@ -128,10 +128,10 @@ function App() {
           <NeuralBackground />
         </Suspense>
         
-        {/* Main Content - Single View */}
-        <main>
+        {/* Main content lives in the root HTML landmark; this section labels the interactive surface. */}
+        <section aria-label="Interactive portfolio">
           <Hero onStartDoodle={handlePeel} />
-        </main>
+        </section>
       </motion.div>
 
       {/* Tissue Paper Physics Mode */}

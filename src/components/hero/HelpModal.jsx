@@ -21,7 +21,7 @@ const HelpModal = ({ onClose }) => {
       >
         <div className="help-modal-header">
           <HelpCircle className="help-icon" />
-          <h2>Welcome! Start Here</h2>
+          <h2>How do I get started here?</h2>
           <button className="help-modal-close" onClick={onClose}>
             <X size={20} />
           </button>
