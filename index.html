@@ -49,6 +49,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Bebas+Neue&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 10001;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        color: #111827;
+        text-decoration: none;
+        font: 600 0.95rem/1.2 Inter, system-ui, sans-serif;
+        transform: translateY(-200%);
+        transition: transform 0.2s ease;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+    </style>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -303,111 +335,141 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-BC_GE4E_.js"></script>
+    <script type="module" crossorigin src="/assets/index-nqGoij0K.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/three-vendor-Dqg4GjvC.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-CMd5IQAy.js">
     <link rel="modulepreload" crossorigin href="/assets/animation-vendor-JmQ6pXjs.js">
     <link rel="stylesheet" crossorigin href="/assets/index-wKwndAKL.css">
   </head>
   <body>
-    <div id="root"></div>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- WebMCP Declarative — tool-annotated forms for AI agent discovery -->
-    <div hidden>
-      <form tool-name="get_resume" tool-description="Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" action="/api/resume.json" method="GET">
-        <label for="get_resume_expected_input">Expected input</label>
-        <input id="get_resume_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full primary resume dataset." disabled>
-        <button type="submit">Get Resume</button>
-      </form>
-      <form tool-name="get_resume_master" tool-description="Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set" action="/api/resume-master.json" method="GET">
-        <label for="get_resume_master_expected_input">Expected input</label>
-        <input id="get_resume_master_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full detailed master resume dataset." disabled>
-        <button type="submit">Get Detailed Resume</button>
-      </form>
-      <form tool-name="get_projects" tool-description="Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links" action="/api/projects.json" method="GET">
-        <label for="get_projects_expected_input">Expected input</label>
-        <input id="get_projects_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full public projects dataset." disabled>
-        <button type="submit">Get Projects</button>
-      </form>
-      <form tool-name="get_skills" tool-description="Get categorized technical skills across programming, data science, web development, databases, and DevOps" action="/api/skills.json" method="GET">
-        <label for="get_skills_expected_input">Expected input</label>
-        <input id="get_skills_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full categorized skills dataset." disabled>
-        <button type="submit">Get Skills</button>
-      </form>
-      <form tool-name="get_social" tool-description="Get contact information and public social profile links for Prasad Gade" action="/api/social.json" method="GET">
-        <label for="get_social_expected_input">Expected input</label>
-        <input id="get_social_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full contact and social profile dataset." disabled>
-        <button type="submit">Get Social Links</button>
-      </form>
-      <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio" action="/api/about.json" method="GET">
-        <label for="get_about_expected_input">Expected input</label>
-        <input id="get_about_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full about and personality dataset." disabled>
-        <button type="submit">Get About</button>
-      </form>
-    </div>
+    <header class="sr-only">
+      <nav aria-label="Primary">
+        <a href="#main-content">Portfolio content</a>
+        <a href="https://prasadgade.dev/agent/">Agent endpoint</a>
+        <a href="https://prasadgade.dev/llms.txt">LLMs summary</a>
+      </nav>
+    </header>
 
-    <noscript>
-      <div style="max-width:800px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif;color:#e6edf3;background:#0d1117;">
-        <h1>Prasad Gade</h1>
-        <p><strong>Data Scientist &amp; Computer Engineer</strong> — Mumbai, India</p>
-        <p>B.Tech in Computer Engineering at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, and interactive web applications.</p>
-        <p>This portfolio requires JavaScript to display the interactive version. Below is a summary of the content.</p>
+    <main id="main-content">
+      <div id="root"></div>
 
-        <h2>Contact</h2>
-        <ul>
-          <li>Email: <a href="mailto:prasadgade4405@gmail.com">prasadgade4405@gmail.com</a></li>
-          <li>Website: <a href="https://prasadgade.dev">prasadgade.dev</a></li>
-          <li>GitHub: <a href="https://github.com/prasad-gade05">github.com/prasad-gade05</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/prasad-gade05/">linkedin.com/in/prasad-gade05</a></li>
-          <li>Kaggle: <a href="https://kaggle.com/prasadgade">kaggle.com/prasadgade</a></li>
-        </ul>
-
-        <h2>Skills</h2>
-        <p><strong>Languages:</strong> Python, JavaScript, TypeScript, Java, C++, SQL</p>
-        <p><strong>ML/DS:</strong> Pandas, NumPy, Scikit-Learn, PyTorch, TensorFlow, LangChain, Keras</p>
-        <p><strong>Web:</strong> React, Flask, FastAPI, Node.js, Streamlit</p>
-        <p><strong>Databases:</strong> MongoDB, SQLite, ChromaDB, PostgreSQL</p>
-        <p><strong>DevOps:</strong> Git, Docker, AWS, Linux</p>
-
-        <h2>Projects</h2>
-        <ul>
-          <li><strong>IPL Analytics Platform</strong> — 3-stage pipeline over 278K ball-by-ball records, 14 dashboard pages. <a href="https://analytics-ipl.streamlit.app/">Demo</a></li>
-          <li><strong>UPI Analytics</strong> — 9,026 JSON files processed, 788 districts analyzed, 68 visualizations. <a href="https://upi-analytics.streamlit.app/">Demo</a></li>
-          <li><strong>Lex Simulacra</strong> — 8-agent legal courtroom simulator with 99% citation accuracy. <a href="https://github.com/prasad-gade05/Law_Courtroom_Simulator">GitHub</a></li>
-          <li><strong>Intrusion Detection</strong> — 99.99% recall benchmarking 6 models on 8.6M samples. <a href="https://github.com/prasad-gade05/IDS_on_TII-SSRC-23">GitHub</a></li>
-          <li><strong>KindHearts</strong> — Donation platform, 1st place at Tech Horizon Hackathon. <a href="https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform">GitHub</a></li>
-        </ul>
-
-        <h2>Education</h2>
-        <ul>
-          <li>B.Tech Computer Engineering — SPIT Mumbai (CGPA 9.26/10, Expected 2027)</li>
-          <li>Minor in Management — SPJIMR</li>
-          <li>Diploma in Computer Technology — K. K. Wagh Polytechnic (96.51%, 2021-2024)</li>
-        </ul>
-
-        <h2>Achievements</h2>
-        <ul>
-          <li>Winner — Tech Horizon National Hackathon (1st/80+ teams, March 2025)</li>
-          <li>Published Researcher — IJIES Journal (April 2024)</li>
-          <li>Open-Source Dataset Contributor — Kaggle &amp; Hugging Face</li>
-        </ul>
-
-        <h2>About This Site</h2>
-        <p>This interactive portfolio has 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs. It is built for everyone — recruiters, friends, and anyone curious about who Prasad is.</p>
-
-        <h2>Machine-Readable Data</h2>
-        <ul>
-          <li><a href="https://prasadgade.dev/llms.txt">llms.txt</a> — Short summary for LLMs</li>
-          <li><a href="https://prasadgade.dev/llms-full.txt">llms-full.txt</a> — Full profile for LLMs</li>
-          <li><a href="https://prasadgade.dev/api/resume.json">resume.json</a> — Structured resume</li>
-          <li><a href="https://prasadgade.dev/api/projects.json">projects.json</a> — All projects</li>
-          <li><a href="https://prasadgade.dev/api/skills.json">skills.json</a> — Skills by category</li>
-          <li><a href="https://prasadgade.dev/api/social.json">social.json</a> — Social profiles</li>
-          <li><a href="https://prasadgade.dev/api/about.json">about.json</a> — Personality and interests</li>
-          <li><a href="https://prasadgade.dev/Prasad_Gade_Resume.pdf">Resume (PDF)</a></li>
-        </ul>
+      <!-- WebMCP Declarative — tool-annotated forms for AI agent discovery -->
+      <div hidden>
+        <form tool-name="get_resume" tool-description="Get Prasad Gade's primary resume data with education, experience, projects, skills, certifications, and achievements" action="/api/resume.json" method="GET">
+          <label for="get_resume_expected_input">Expected input</label>
+          <input id="get_resume_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full primary resume dataset." disabled>
+          <button type="submit">Get Resume</button>
+        </form>
+        <form tool-name="get_resume_master" tool-description="Get Prasad Gade's detailed master resume with broader background, publications, leadership, and the same public project set" action="/api/resume-master.json" method="GET">
+          <label for="get_resume_master_expected_input">Expected input</label>
+          <input id="get_resume_master_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full detailed master resume dataset." disabled>
+          <button type="submit">Get Detailed Resume</button>
+        </form>
+        <form tool-name="get_projects" tool-description="Get all public portfolio projects with descriptions, tech stacks, metrics, demo links, and source links" action="/api/projects.json" method="GET">
+          <label for="get_projects_expected_input">Expected input</label>
+          <input id="get_projects_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full public projects dataset." disabled>
+          <button type="submit">Get Projects</button>
+        </form>
+        <form tool-name="get_skills" tool-description="Get categorized technical skills across programming, data science, web development, databases, and DevOps" action="/api/skills.json" method="GET">
+          <label for="get_skills_expected_input">Expected input</label>
+          <input id="get_skills_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full categorized skills dataset." disabled>
+          <button type="submit">Get Skills</button>
+        </form>
+        <form tool-name="get_social" tool-description="Get contact information and public social profile links for Prasad Gade" action="/api/social.json" method="GET">
+          <label for="get_social_expected_input">Expected input</label>
+          <input id="get_social_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full contact and social profile dataset." disabled>
+          <button type="submit">Get Social Links</button>
+        </form>
+        <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio" action="/api/about.json" method="GET">
+          <label for="get_about_expected_input">Expected input</label>
+          <input id="get_about_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full about and personality dataset." disabled>
+          <button type="submit">Get About</button>
+        </form>
       </div>
-    </noscript>
+
+      <noscript>
+        <article style="max-width:800px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif;color:#e6edf3;background:#0d1117;">
+          <h1>Prasad Gade</h1>
+          <p><strong>Data Scientist &amp; Computer Engineer</strong> — Mumbai, India</p>
+          <p>B.Tech in Computer Engineering at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, and interactive web applications.</p>
+          <p>This portfolio requires JavaScript to display the interactive version. Below is a summary of the content.</p>
+
+          <section>
+            <h2>How can you contact Prasad Gade?</h2>
+            <ul>
+              <li>Email: <a href="mailto:prasadgade4405@gmail.com">prasadgade4405@gmail.com</a></li>
+              <li>Website: <a href="https://prasadgade.dev">prasadgade.dev</a></li>
+              <li>GitHub: <a href="https://github.com/prasad-gade05">github.com/prasad-gade05</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/prasad-gade05/">linkedin.com/in/prasad-gade05</a></li>
+              <li>Kaggle: <a href="https://kaggle.com/prasadgade">kaggle.com/prasadgade</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What technical skills does Prasad Gade use?</h2>
+            <p><strong>Languages:</strong> Python, JavaScript, TypeScript, Java, C++, SQL</p>
+            <p><strong>ML/DS:</strong> Pandas, NumPy, Scikit-Learn, PyTorch, TensorFlow, LangChain, Keras</p>
+            <p><strong>Web:</strong> React, Flask, FastAPI, Node.js, Streamlit</p>
+            <p><strong>Databases:</strong> MongoDB, SQLite, ChromaDB, PostgreSQL</p>
+            <p><strong>DevOps:</strong> Git, Docker, AWS, Linux</p>
+          </section>
+
+          <section>
+            <h2>Which projects has Prasad Gade built?</h2>
+            <ul>
+              <li><strong>IPL Analytics Platform</strong> — 3-stage pipeline over 278K ball-by-ball records, 14 dashboard pages. <a href="https://analytics-ipl.streamlit.app/">Demo</a></li>
+              <li><strong>UPI Analytics</strong> — 9,026 JSON files processed, 788 districts analyzed, 68 visualizations. <a href="https://upi-analytics.streamlit.app/">Demo</a></li>
+              <li><strong>Lex Simulacra</strong> — 8-agent legal courtroom simulator with 99% citation accuracy. <a href="https://github.com/prasad-gade05/Law_Courtroom_Simulator">GitHub</a></li>
+              <li><strong>Intrusion Detection</strong> — 99.99% recall benchmarking 6 models on 8.6M samples. <a href="https://github.com/prasad-gade05/IDS_on_TII-SSRC-23">GitHub</a></li>
+              <li><strong>KindHearts</strong> — Donation platform, 1st place at Tech Horizon Hackathon. <a href="https://github.com/prasad-gade05/KindHearts-Multi-Role-Donation-Management-Platform">GitHub</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What is Prasad Gade&apos;s education?</h2>
+            <ul>
+              <li>B.Tech Computer Engineering — SPIT Mumbai (CGPA 9.26/10, Expected 2027)</li>
+              <li>Minor in Management — SPJIMR</li>
+              <li>Diploma in Computer Technology — K. K. Wagh Polytechnic (96.51%, 2021-2024)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What achievements stand out in Prasad Gade&apos;s work?</h2>
+            <ul>
+              <li>Winner — Tech Horizon National Hackathon (1st/80+ teams, March 2025)</li>
+              <li>Published Researcher — IJIES Journal (April 2024)</li>
+              <li>Open-Source Dataset Contributor — Kaggle &amp; Hugging Face</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What makes this portfolio site different?</h2>
+            <p>This interactive portfolio has 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs. It is built for everyone — recruiters, friends, and anyone curious about who Prasad is.</p>
+          </section>
+
+          <section>
+            <h2>Where can AI agents find machine-readable data?</h2>
+            <ul>
+              <li><a href="https://prasadgade.dev/llms.txt">llms.txt</a> — Short summary for LLMs</li>
+              <li><a href="https://prasadgade.dev/llms-full.txt">llms-full.txt</a> — Full profile for LLMs</li>
+              <li><a href="https://prasadgade.dev/api/resume.json">resume.json</a> — Structured resume</li>
+              <li><a href="https://prasadgade.dev/api/projects.json">projects.json</a> — All projects</li>
+              <li><a href="https://prasadgade.dev/api/skills.json">skills.json</a> — Skills by category</li>
+              <li><a href="https://prasadgade.dev/api/social.json">social.json</a> — Social profiles</li>
+              <li><a href="https://prasadgade.dev/api/about.json">about.json</a> — Personality and interests</li>
+              <li><a href="https://prasadgade.dev/Prasad_Gade_Resume.pdf">Resume (PDF)</a></li>
+            </ul>
+          </section>
+        </article>
+      </noscript>
+    </main>
+
+    <footer class="sr-only">
+      <p>Prasad Gade portfolio with static agent discovery files on GitHub Pages.</p>
+    </footer>
 
 
     <!-- WebMCP — expose portfolio data to AI agents via browser -->
