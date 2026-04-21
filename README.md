@@ -63,5 +63,6 @@ This site is optimized for discovery by AI agents (ChatGPT, Perplexity, Google A
 
 **Security**
 - HTTPS enforced by GitHub Pages
-- CSP and referrer-policy via meta tags
+- CSP and referrer-policy via meta tags on shipped HTML pages
+- GitHub Pages cannot set custom response headers from this repo, so a true `Referrer-Policy` HTTP header would require a proxy/CDN layer such as Cloudflare, Netlify, or Vercel
 - Noscript fallback for crawlers that do not execute JavaScript
