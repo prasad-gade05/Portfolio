@@ -154,7 +154,7 @@ body {
 main {
   max-width: var(--blog-max-width);
   margin: 0 auto;
-  padding: clamp(32px, 6vw, 64px) clamp(20px, 5vw, 32px);
+  padding: clamp(16px, 3vw, 32px) clamp(20px, 5vw, 32px);
 }
 
 /* ---- Blog Header ---- */
@@ -233,6 +233,12 @@ main {
 
 .blog-content p {
   margin-bottom: 1.4em;
+  text-align: justify;
+}
+
+.blog-content li {
+  margin-bottom: 0.5em;
+  text-align: justify;
 }
 
 .blog-content h1,
@@ -309,8 +315,6 @@ main {
   margin-bottom: 1.4em;
 }
 
-.blog-content li { margin-bottom: 0.5em; }
-
 .blog-content hr {
   border: none;
   border-top: 1px solid var(--blog-border);
@@ -329,25 +333,25 @@ main {
   font-size: 13px;
   color: var(--blog-text-muted);
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  text-align: center;
 }
 
 .footer-links {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-links a {
   font-size: 14px;
-  color: var(--blog-text-secondary);
-  text-decoration: none;
-  transition: color 0.2s;
+  color: var(--blog-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
 }
 
-.footer-links a:hover { color: var(--blog-accent); }
+.footer-links a:hover { opacity: 0.75; }
 
 /* ---- Responsive ---- */
 @media (max-width: 600px) {

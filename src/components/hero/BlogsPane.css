@@ -31,31 +31,55 @@
 .blogs-manifesto {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-cyan);
   border-radius: 12px;
-  padding: clamp(12px, 2vmin, 18px);
+  padding: clamp(12px, 2vmin, 18px) clamp(14px, 2.5vmin, 20px);
   flex-shrink: 0;
 }
 
-.manifesto-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  background: rgba(var(--rgb-cyan), 0.12);
-  border: 1px solid rgba(var(--rgb-cyan), 0.3);
-  border-radius: 50px;
-  font-size: 11px;
-  font-weight: 600;
+.manifesto-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--accent-cyan);
-  margin-bottom: 10px;
-  letter-spacing: 0.03em;
+  opacity: 0.85;
+  margin-bottom: 8px;
 }
 
-.manifesto-text {
+.manifesto-intro {
+  margin: 0 0 10px;
+  font-size: clamp(12px, 1.5vmin, 13.5px);
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.manifesto-bullets {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  font-size: clamp(12px, 1.5vmin, 14px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.manifesto-bullets li {
+  font-size: clamp(11px, 1.3vmin, 12.5px);
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.45;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.manifesto-bullets li::before {
+  content: "—";
+  color: var(--accent-cyan);
+  opacity: 0.55;
+  flex-shrink: 0;
+  font-size: 11px;
 }
 
 /* ---- Controls ---- */

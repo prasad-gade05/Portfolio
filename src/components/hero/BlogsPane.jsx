@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import Fuse from "fuse.js";
-import { ExternalLink, Search, X, Share2, Check, ChevronDown } from "lucide-react";
+import { ExternalLink, Share2, Check, ChevronDown } from "lucide-react";
 import blogsData from "../../../public/blogs/blogs.json";
 import "./BlogsPane.css";
 
@@ -8,16 +7,6 @@ const formatDate = (dateStr) => {
   const d = new Date(dateStr);
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 };
-
-const fuse = new Fuse(blogsData, {
-  keys: [
-    { name: "title", weight: 3 },
-    { name: "categories", weight: 2 },
-    { name: "excerpt", weight: 1 },
-  ],
-  threshold: 0.4,
-  includeScore: true,
-});
 
 const ALL_CATEGORIES = ["All", ...Array.from(new Set(blogsData.flatMap((b) => b.categories)))];
 
@@ -78,12 +67,10 @@ const BlogCard = ({ blog }) => {
 };
 
 const BlogsPane = () => {
-  const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("newest");
   const [showSort, setShowSort] = useState(false);
   const sortRef = useRef(null);
-  const inputRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -96,9 +83,7 @@ const BlogsPane = () => {
   }, [showSort]);
 
   const results = useMemo(() => {
-    let list = query.trim()
-      ? fuse.search(query.trim()).map((r) => r.item)
-      : [...blogsData];
+    let list = [...blogsData];
 
     if (activeCategory !== "All") {
       list = list.filter((b) => b.categories.includes(activeCategory));
@@ -111,44 +96,25 @@ const BlogsPane = () => {
     });
 
     return list;
-  }, [query, activeCategory, sortOrder]);
-
-  const clearSearch = () => {
-    setQuery("");
-    inputRef.current?.focus();
-  };
+  }, [activeCategory, sortOrder]);
 
   return (
     <div className="blogs-pane">
       {/* Manifesto */}
       <div className="blogs-manifesto">
-        <div className="manifesto-badge">✍ Digital Garden</div>
-        <p className="manifesto-text">
-          100% human written thoughts on tech, data, building things, and whatever else catches my
-          attention. No AI content. No fluff. Just honest writing.
+        <span className="manifesto-label">About this space</span>
+        <p className="manifesto-intro">
+          Welcome to my blog space — a place for my thoughts on tech, data, and life.
         </p>
+        <ul className="manifesto-bullets">
+          <li>From automated data pipelines to insightful 3 AM thoughts</li>
+          <li>No fluff · 100% human-written</li>
+          <li>Just my journey, shared honestly</li>
+        </ul>
       </div>
 
       {/* Controls */}
       <div className="blogs-controls">
-        <div className="blogs-search-wrap">
-          <Search size={14} className="search-icon" />
-          <input
-            ref={inputRef}
-            type="text"
-            className="blogs-search"
-            placeholder="Search blogs..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            aria-label="Search blogs"
-          />
-          {query && (
-            <button className="search-clear" onClick={clearSearch} aria-label="Clear search">
-              <X size={13} />
-            </button>
-          )}
-        </div>
-
         <div className="blogs-filters-row">
           <div className="blogs-categories">
             {ALL_CATEGORIES.map((cat) => (
@@ -197,8 +163,8 @@ const BlogsPane = () => {
           results.map((blog) => <BlogCard key={blog.slug} blog={blog} />)
         ) : (
           <div className="blogs-empty">
-            <p>No blogs found for <strong>"{query}"</strong></p>
-            <button className="blogs-empty-clear" onClick={() => { setQuery(""); setActiveCategory("All"); }}>
+            <p>No blogs in this category yet.</p>
+            <button className="blogs-empty-clear" onClick={() => setActiveCategory("All")}>
               Clear filters
             </button>
           </div>
