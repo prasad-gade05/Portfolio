@@ -17,6 +17,7 @@
     "@splinetool/react-spline": "^4.1.0",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.23.25",
+    "fuse.js": "^7.3.0",
     "html2canvas": "^1.4.1",
     "lucide-react": "^0.556.0",
     "react": "^19.2.0",

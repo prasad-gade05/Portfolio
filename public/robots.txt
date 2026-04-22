@@ -52,6 +52,7 @@ Allow: /
 
 # Sitemap
 Sitemap: https://prasadgade.dev/sitemap.xml
+Sitemap: https://prasadgade.dev/blogs/rss.xml
 
 # LLM-readable content
 Llms-txt: https://prasadgade.dev/llms.txt

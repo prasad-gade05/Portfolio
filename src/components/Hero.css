@@ -25,6 +25,57 @@
   overflow: hidden;
 }
 
+/* Blogs tab pane fills its container */
+.blogs-tab-pane {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Desktop: blogs-mode has NO effect on layout — sidebar stays visible.
+   Mobile (≤900px): hide the top info bar when blogs tab is active. */
+@media (max-width: 900px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+
+  .hero-grid.blogs-mode .hero-right {
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+
+  .hero-grid.blogs-mode .hero-right {
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+}
+
 /* ============================================
    LEFT COLUMN - Info + Code + Social
    ============================================ */
@@ -853,9 +904,9 @@
 .tab-btn {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.6vmin, 6px);
-  padding: clamp(8px, 1.2vmin, 12px) clamp(12px, 1.6vmin, 16px);
-  font-size: clamp(11px, 1.3vmin, 14px);
+  gap: clamp(3px, 0.5vmin, 5px);
+  padding: clamp(7px, 1.1vmin, 11px) clamp(8px, 1.1vmin, 12px);
+  font-size: clamp(10.5px, 1.2vmin, 12.5px);
   font-weight: 500;
   color: var(--text-muted);
   border-bottom: 2px solid transparent;

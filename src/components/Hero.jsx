@@ -16,6 +16,7 @@ const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
 const Hero = ({ onStartDoodle }) => {
   const [showMinecraftModal, setShowMinecraftModal] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
+  const [isBlogsActive, setIsBlogsActive] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -31,16 +32,20 @@ const Hero = ({ onStartDoodle }) => {
   return (
     <section className="hero">
       <ClickSparkle />
-      <div className="hero-grid">
-        {/* Left Column - Name First, then Code Card, then Social */}
-        <div className="hero-left">
+      <div className={`hero-grid${isBlogsActive ? ' blogs-mode' : ''}`}>
+        {/* Left Column — always visible on desktop, hidden on mobile when blogs is active */}
+        <div className={`hero-left${isBlogsActive ? ' blogs-hidden' : ''}`}>
           <ProfileSection />
           <CodeCard onOpenResume={() => setShowResumeModal(true)} />
           <SocialLinks />
         </div>
 
         {/* Right Column - Tabbed Content */}
-        <ContentTabs onOpenMinecraft={() => setShowMinecraftModal(true)} onStartDoodle={onStartDoodle} />
+        <ContentTabs
+          onOpenMinecraft={() => setShowMinecraftModal(true)}
+          onStartDoodle={onStartDoodle}
+          onBlogsActiveChange={setIsBlogsActive}
+        />
       </div>
 
       {/* Minecraft Skin Modal - Centrally Managed */}
