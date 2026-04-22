@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "introduction-blogging-journey",
+    "title": "Introduction: My Blogging Journey",
+    "date": "2026-04-22",
+    "thumbnail": "/blogs/assets/thumbnail-introduction-blogging-journey.png",
+    "categories": ["Personal"],
+    "excerpt": "A warm welcome to my blog space. I begin a new journey of writing about computers, data, AI, building stuff, and everything in between that catches my attention.",
+    "readTime": 3,
+    "url": "/blogs/introduction-blogging-journey/"
+  }
+]

@@ -1,5 +1,6 @@
 # A blogs/ directory in my portfolio itself this blogs directory will hold all of the blogs 
-# when opening prasadgade.dev/blogs/[blogname] i will want it to open as a new web page like not in my portfolio
+# when opening prasadgade.dev/blogs/[blogname] i will want it to open as a new web page like not in my portfolio IN THE SAME TAB JUST LIKE PREVIOUS PAGE AND NEXT PAGE 
+
 1. Another tab in portfolio
 
 2. Opening blog tab will cause the sidebar(currently has three elements 1. an element with my profile pic and name 2. 
@@ -45,7 +46,7 @@ what will be at prasadgade.dev/blogs ???
 > Since the blog tab will be inside my portfolio which is a single page react app thus opening the blog tab in portfolio will show prasadgade.dev on the address bar 
 so like whenever someone types prasadgade.dev/blogs i just route it to prasadgade.dev with blogs tab selected 
 
-opening a blog by individual url like prasadgade.dev/blogs/[blogname] should open that blog in new tab (open of blog can be via link direct or via card clicking from portfolio)
+opening a blog by individual url like prasadgade.dev/blogs/[blogname] should open that blog in SAME tab (open of blog can be via link direct or via card clicking from portfolio)
 
 
 9. i already have both google analytics and goat counter embedded in my main app so each of the blogs etc. should include both of these for analytics 

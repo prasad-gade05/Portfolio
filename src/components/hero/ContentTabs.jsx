@@ -19,6 +19,7 @@ import {
   Palette,
   Pencil,
   User,
+  BookOpen,
 } from "lucide-react";
 import { FaGithub, FaKaggle, FaSpotify } from "react-icons/fa";
 import { SiHuggingface } from "react-icons/si";
@@ -28,6 +29,7 @@ import { TbBrandMinecraft } from "react-icons/tb";
 import "../../components/hero/MoviesModal.css";
 
 const MoviesModal = lazy(() => import("./MoviesModal"));
+const BlogsPane = lazy(() => import("./BlogsPane"));
 
 // Data Imports
 import {
@@ -80,7 +82,7 @@ const getMaxColsForWidth = () => {
   return 4;
 };
 
-const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
+const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const themes = [
     { id: 'dark', label: 'Dark', icon: Moon },
@@ -204,6 +206,16 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
     return <ExternalLink size={10} />;
   };
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('tab') === 'blogs') {
+      setActiveTabs(['blogs']);
+      onBlogsActiveChange?.(true);
+      window.history.replaceState({}, '', '/');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const tabs = [
     { id: "projects", label: "Projects", icon: Folder },
     {
@@ -249,6 +261,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
       splitGroup: "vol-hob",
     },
     { id: "hobbies", label: "Hobbies", icon: Music, splitGroup: "vol-hob" },
+    { id: "blogs", label: "Blogs", icon: BookOpen },
   ];
 
   const splitGroups = {
@@ -259,6 +272,12 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
   };
 
   const handleTabClick = (tab) => {
+    if (tab.id === "blogs") {
+      setActiveTabs(["blogs"]);
+      onBlogsActiveChange?.(true);
+      return;
+    }
+    onBlogsActiveChange?.(false);
     if (tab.splitGroup && splitGroups[tab.splitGroup]) {
       setActiveTabs(splitGroups[tab.splitGroup]);
     } else {
@@ -948,6 +967,20 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle }) => {
                   <div className="hobby-card-decoration"></div>
                 </div>
               </div>
+            </motion.div>
+          )}
+          {activeTabs.includes("blogs") && (
+            <motion.div
+              key="blogs"
+              className="tab-pane blogs-tab-pane"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              transition={{ duration: 0.15 }}
+            >
+              <Suspense fallback={<div style={{ padding: "20px", color: "var(--text-muted)", fontSize: "13px" }}>Loading blogs...</div>}>
+                <BlogsPane />
+              </Suspense>
             </motion.div>
           )}
         </AnimatePresence>

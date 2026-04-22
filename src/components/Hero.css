@@ -25,6 +25,57 @@
   overflow: hidden;
 }
 
+/* Blogs tab pane fills its container */
+.blogs-tab-pane {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Desktop: blogs-mode has NO effect on layout — sidebar stays visible.
+   Mobile (≤900px): hide the top info bar when blogs tab is active. */
+@media (max-width: 900px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+
+  .hero-grid.blogs-mode .hero-right {
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+
+  .hero-grid.blogs-mode .hero-right {
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-grid.blogs-mode {
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+
+  .hero-left.blogs-hidden {
+    display: none;
+  }
+}
+
 /* ============================================
    LEFT COLUMN - Info + Code + Social
    ============================================ */
