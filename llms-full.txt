@@ -216,6 +216,23 @@ Leadership (served as General Secretary, Student Council), Time Management, Publ
 - Favorite Series: Squid Games, Money Heist
 - Favorite Movies: 12th Fail, Sam Bahadur, American Sniper, Hacksaw Ridge, The Green Mile, 1917, WALL-E, Ratatouille, Kung Fu Panda series, Toy Story series, and more (47 movies listed on the portfolio)
 
+## Blogs
+
+Prasad writes a personal blog at prasadgade.dev. All written content is 100% human-written. Thumbnails are AI-generated.
+
+- Blog listing: https://prasadgade.dev/?tab=blogs
+- Blog metadata (JSON): https://prasadgade.dev/blogs/blogs.json
+- RSS feed: https://prasadgade.dev/blogs/rss.xml
+
+### Published Posts
+
+#### Introduction: My Blogging Journey
+- URL: https://prasadgade.dev/blogs/introduction-blogging-journey/
+- Date: April 22, 2026
+- Category: Personal
+- Read time: 3 min
+- Summary: First blog post introducing Prasad's writing journey. Covers why he started blogging, his philosophy (100% human-written, no AI content, no fluff, to the point), who the blogs are for, and what content to expect — from data engineering deep-dives to 3 AM thoughts.
+
 ## Sub-Projects Hosted on prasadgade.dev
 
 - Audio Visualizer: https://prasadgade.dev/audio_visualizer_app/

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prasad Gade — Blog</title>
+    <link>https://prasadgade.dev/?tab=blogs</link>
+    <description>100% human written thoughts on tech, data, building things, and whatever else catches my attention. No AI content. No fluff. Just honest writing.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Apr 2026 00:00:00 +0530</lastBuildDate>
+    <managingEditor>prasadgade05@gmail.com (Prasad Gade)</managingEditor>
+    <webMaster>prasadgade05@gmail.com (Prasad Gade)</webMaster>
+    <atom:link href="https://prasadgade.dev/blogs/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://prasadgade.dev/profile.jpg</url>
+      <title>Prasad Gade — Blog</title>
+      <link>https://prasadgade.dev/?tab=blogs</link>
+    </image>
+
+    <item>
+      <title>Introduction: My Blogging Journey</title>
+      <link>https://prasadgade.dev/blogs/introduction-blogging-journey/</link>
+      <guid isPermaLink="true">https://prasadgade.dev/blogs/introduction-blogging-journey/</guid>
+      <description>A warm welcome to my blog space. I begin a new journey of writing about computers, data, AI, building stuff, and everything in between that catches my attention.</description>
+      <pubDate>Tue, 22 Apr 2026 00:00:00 +0530</pubDate>
+      <author>prasadgade05@gmail.com (Prasad Gade)</author>
+      <category>Personal</category>
+      <enclosure url="https://prasadgade.dev/blogs/assets/thumbnail-introduction-blogging-journey.png" type="image/png" length="0" />
+    </item>
+  </channel>
+</rss>
