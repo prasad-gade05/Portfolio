@@ -48,6 +48,7 @@
   <link rel="alternate" type="application/rss+xml" title="Prasad Gade — Blog RSS" href="https://prasadgade.dev/blogs/rss.xml" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" as="image" href="/blogs/assets/thumbnail-introduction-blogging-journey.png" fetchpriority="high" />
   <link rel="stylesheet" href="/blogs/blog.css" />
 
   <!-- Structured Data -->
@@ -83,9 +84,8 @@
 
   <!-- Navigation -->
   <nav class="blog-nav" aria-label="Blog navigation">
-    <a href="https://prasadgade.dev" class="nav-logo">← prasadgade.dev</a>
+    <a href="https://prasadgade.dev/?tab=blogs" class="nav-logo">← All Blogs</a>
     <div class="nav-actions">
-      <a href="https://prasadgade.dev/?tab=blogs" class="nav-blogs-link">All Blogs</a>
       <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" aria-label="Toggle theme">☀ Light</button>
       <button class="share-btn" onclick="sharePost()" id="share-btn" aria-label="Share this post">⇪ Share</button>
     </div>
@@ -110,7 +110,10 @@
           <img
             src="/blogs/assets/thumbnail-introduction-blogging-journey.png"
             alt="Introduction: My Blogging Journey thumbnail"
+            width="1376"
+            height="768"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
       </header>
@@ -153,7 +156,7 @@
         <h3>Blog content structure and style:</h3>
 
         <ol>
-          <li>My blogs will be posted under prasadgade.dev/blogs/ domain.</li>
+          <li>My blogs will be posted under <a href="https://prasadgade.dev/blogs/" rel="noopener noreferrer">prasadgade.dev/blogs/</a> domain.</li>
           <li>You may additionally access them even via my portfolio prasadgade.dev then navigating to the blogs tab.</li>
           <li>My blogs section will have some of my philosophies written so as to have a quick onboarding, all of my blogs will be perfectly categorized so as to deliver the right genre to the right people.</li>
           <li>Additionally each of my blog posts will have a link to my portfolio, my blogs landing page and my GitHub for you to find me on other platforms if you want.</li>
@@ -176,6 +179,7 @@
       <a href="https://prasadgade.dev" rel="noopener noreferrer">Portfolio</a>
       <a href="https://prasadgade.dev/?tab=blogs" rel="noopener noreferrer">All Blogs</a>
       <a href="https://github.com/prasad-gade05" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="mailto:prasadgade4405@gmail.com">Mail</a>
     </div>
   </footer>
 

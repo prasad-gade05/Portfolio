@@ -23,7 +23,7 @@ const BlogCard = ({ blog }) => {
   };
 
   const handleCardClick = () => {
-    window.open(`https://prasadgade.dev${blog.url}`, "_blank", "noopener,noreferrer");
+    window.location.href = `https://prasadgade.dev${blog.url}`;
   };
 
   return (
