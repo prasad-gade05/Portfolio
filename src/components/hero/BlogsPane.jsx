@@ -23,6 +23,8 @@ const BlogCard = ({ blog }) => {
   };
 
   const handleCardClick = () => {
+    // Stamp ?tab=blogs on current history entry so browser back returns to blogs tab
+    window.history.replaceState({}, '', '/?tab=blogs');
     window.location.href = `https://prasadgade.dev${blog.url}`;
   };
 
