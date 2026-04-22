@@ -13,6 +13,12 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 - Kaggle: https://kaggle.com/prasadgade
 - Email: prasadgade4405@gmail.com
 
+## Blogs
+
+- Blog listing: https://prasadgade.dev/?tab=blogs
+- Blog metadata (JSON): https://prasadgade.dev/blogs/blogs.json
+- RSS feed: https://prasadgade.dev/blogs/rss.xml
+
 ## Structured Data
 
 - Resume (Primary Slim JSON): https://prasadgade.dev/api/resume.json
