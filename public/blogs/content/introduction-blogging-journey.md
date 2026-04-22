@@ -1,3 +1,10 @@
+---
+title: "Introduction: My Blogging Journey"
+date: "2026-04-22"
+thumbnail: "__THUMBNAIL_PATH__"
+category: ["Personal"]
+---
+
 # Introduction: My Blogging Journey
 
 A very warm welcome to my blog space. With this blog I begin a new journey of writing about things that happen to catch my interest. First let me introduce myself: I am a 21-year-old who is currently into computers, data, AI and building stuff with a combination of these.
@@ -26,7 +33,7 @@ Since I am a Computer Engineer, many of my blogs will revolve around the same th
 
 As I have mentioned, this is going to be my personal _digital garden_ if you'd call it. So this is going to have a varied genre of content from Technology to personal blogs from sports opinions to video games anything and everything which happens to catch my attention and which is stimulating enough for me to write about it.
 
-One day I may write how I built an automated end to end data pipeline which ingests a million records from 5 sources combines them and performs end to end analytics other day you might find me writing about _a random but insightful thought which I might have had on a holiday's night by the beach at 3 am._ Some day you might hear about ghost buses (yeah something which I recently discovered exist via a friend) if I find it interesting enough.
+One day I may write how I built an automated end to end data pipeline which ingests a million records from 5 sources combines them and performs end to end analytics other day you might find me writing about a random but insightful thought which I might have had on a holiday's night by the beach at 3 am. Some day you might hear about ghost buses (yeah something which I recently discovered exist via a friend) if I find it interesting enough.
 
 Additionally I acknowledge the fact that there may be grammatical and/or structural errors in my blogs initially (I will try to my best effort to not have them) but I believe I will improve upon them along the way while writing.
 
@@ -40,7 +47,7 @@ Additionally I acknowledge the fact that there may be grammatical and/or structu
 
 4. Additionally each of my blog posts will have a link to my portfolio, my blogs landing page and my GitHub for you to find me on other platforms if you want.
 
-5. _I'd personally suggest navigating to my portfolio site would be the better choice since it contains every section you are looking for in an organized manner with quick and easy access_.
+5. I'd personally suggest navigating to my portfolio site would be the better choice since it contains every section you are looking for in an organized manner with quick and easy access.
 
 ---
 
