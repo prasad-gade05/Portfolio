@@ -1,7 +1,7 @@
 ---
 title: "Introduction: My Blogging Journey"
 date: "2026-04-22"
-thumbnail: "__THUMBNAIL_PATH__"
+thumbnail: "/blogs/assets/thumbnail-introduction-blogging-journey.png"
 category: ["Personal"]
 ---
 
