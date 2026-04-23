@@ -90,9 +90,11 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
     { id: 'arcade-dark', label: 'Arcade Dark', icon: Joystick },
     { id: 'arcade-light', label: 'Arcade Light', icon: Gamepad2 },
   ];
-  const [theme, setTheme] = useState(() =>
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'arcade-light'
-  );
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'arcade-light';
+  });
   const [showThemePicker, setShowThemePicker] = useState(false);
   const [pickerPos, setPickerPos] = useState({ top: 0, right: 0 });
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
@@ -142,6 +144,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
 
   useEffect(() => {
