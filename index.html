@@ -29,8 +29,15 @@
     <meta http-equiv="content-language" content="en">
 
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://gc.zgo.at; worker-src blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https:;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Apply saved theme before first paint to prevent flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('portfolio-theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
 
     <!-- OpenGraph -->
     <meta property="og:type" content="website">
@@ -339,7 +346,7 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-CPQsgBu-.js"></script>
+    <script type="module" crossorigin src="/assets/index-BOlq4tCX.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/three-vendor-Dqg4GjvC.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-DmYlUK-g.js">
     <link rel="modulepreload" crossorigin href="/assets/animation-vendor-TyM3h3nt.js">
