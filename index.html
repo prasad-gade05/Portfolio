@@ -34,7 +34,12 @@
     <!-- Apply saved theme before first paint to prevent flash -->
     <script>
       (function() {
-        var t = localStorage.getItem('portfolio-theme');
+        var params = new URLSearchParams(window.location.search);
+        var requestedTheme = params.get('theme');
+        if (requestedTheme) {
+          localStorage.setItem('portfolio-theme', requestedTheme);
+        }
+        var t = requestedTheme || localStorage.getItem('portfolio-theme');
         if (t) document.documentElement.setAttribute('data-theme', t);
       })();
     </script>
