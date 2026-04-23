@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense, useCallback } from 'react'
+import { useEffect, useRef, useState, lazy, Suspense, useCallback } from 'react'
 import { motion, AnimatePresence, useMotionValue } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import { captureDOM } from './utils/domCapture'
@@ -17,6 +17,13 @@ function App() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
+  // Ref so the stable keydown handler can always read the latest value
+  // without needing to be re-created whenever isTissueMode changes.
+  const isTissueModeRef = useRef(isTissueMode)
+  useEffect(() => {
+    isTissueModeRef.current = isTissueMode
+  }, [isTissueMode])
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX)
@@ -33,37 +40,29 @@ function App() {
       'b', 'a'
     ]
     const hesoyamCode = ['h', 'e', 's', 'o', 'y', 'a', 'm']
-    let keys = []
+    const keys = []
+
+    const checkCode = (code) => {
+      if (keys.length < code.length) return false
+      const recentKeys = keys.slice(-code.length)
+      return recentKeys.every((key, i) => key.toLowerCase() === code[i].toLowerCase())
+    }
 
     const handleKeyDown = (e) => {
-      // Exit tissue mode on Escape
-      if (e.key === 'Escape' && isTissueMode) {
+      if (e.key === 'Escape' && isTissueModeRef.current) {
         setIsTissueMode(false)
         setCapturedImage(null)
         return
       }
 
       keys.push(e.key)
-      if (keys.length > konamiCode.length) {
-        keys.shift()
-      }
-
-      const checkCode = (code) => {
-        if (keys.length < code.length) return false
-        const recentKeys = keys.slice(-code.length)
-        return recentKeys.every((key, index) => key.toLowerCase() === code[index].toLowerCase())
-      }
+      if (keys.length > konamiCode.length) keys.shift()
 
       if (checkCode(konamiCode) || checkCode(hesoyamCode)) {
         const count = 200
-        const defaults = { origin: { y: 0.7 } }
-
+        const defaults = { origin: { y: 0.7 }, zIndex: 200000 }
         const fire = (particleRatio, opts) => {
-          confetti({
-            ...defaults,
-            ...opts,
-            particleCount: Math.floor(count * particleRatio)
-          })
+          confetti({ ...defaults, ...opts, particleCount: Math.floor(count * particleRatio) })
         }
 
         fire(0.25, { spread: 26, startVelocity: 55 })
@@ -72,13 +71,13 @@ function App() {
         fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 })
         fire(0.1, { spread: 120, startVelocity: 45 })
 
-        keys = []
+        keys.length = 0
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isTissueMode])
+  }, [])
 
   const handlePeel = useCallback(async () => {
     if (isCapturing || isTissueMode) return
