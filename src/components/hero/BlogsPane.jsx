@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { ExternalLink, Share2, Check, ChevronDown } from "lucide-react";
 import blogsData from "../../../public/blogs/blogs.json";
 import "./BlogsPane.css";
+import { handleCardTilt, resetCardTilt } from "../../utils/cardTilt";
 
 const formatDate = (dateStr) => {
   const d = new Date(dateStr);
@@ -103,7 +104,11 @@ const BlogsPane = () => {
   return (
     <div className="blogs-pane">
       {/* Manifesto */}
-      <div className="blogs-manifesto">
+      <div
+        className="blogs-manifesto"
+        onMouseMove={handleCardTilt}
+        onMouseLeave={resetCardTilt}
+      >
         <span className="manifesto-label">About this space</span>
         <p className="manifesto-intro">
           Welcome to my blog space — a place for my thoughts on tech, data, and life.

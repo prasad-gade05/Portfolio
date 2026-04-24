@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Folder,
@@ -27,6 +27,7 @@ import { GiCricketBat, GiBookCover } from "react-icons/gi";
 import { MdMovie } from "react-icons/md";
 import { TbBrandMinecraft } from "react-icons/tb";
 import "../../components/hero/MoviesModal.css";
+import { handleCardTilt, resetCardTilt } from "../../utils/cardTilt";
 
 const MoviesModal = lazy(() => import("./MoviesModal"));
 const BlogsPane = lazy(() => import("./BlogsPane"));
@@ -124,23 +125,6 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
   }, [isMoviesModalOpen]);
   const themePickerRef = useRef(null);
   const toggleBtnRef = useRef(null);
-
-  const handleCardTilt = useCallback((e) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const MAX_ROTATION = 25;
-    const rotateY = ((x - centerX) / centerX) * MAX_ROTATION;
-    const rotateX = ((centerY - y) / centerY) * MAX_ROTATION;
-    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-  }, []);
-
-  const handleCardTiltReset = useCallback((e) => {
-    e.currentTarget.style.transform = '';
-  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -382,7 +366,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                       className="project-card"
                       style={i === lastRowStartIdx ? { gridColumnStart: lastRowOffset } : undefined}
                       onMouseMove={handleCardTilt}
-                      onMouseLeave={handleCardTiltReset}
+                      onMouseLeave={resetCardTilt}
                     >
                       {project.badge && (
                         <span className={`project-badge${project.badge === "1st Place" ? " first-place" : ""}`}>
@@ -496,7 +480,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
               </div>
               <div className="about-card"
                 onMouseMove={handleCardTilt}
-                onMouseLeave={handleCardTiltReset}
+                onMouseLeave={resetCardTilt}
               >
                 <p className="about-intro">
                   I'm a Computer Engineer with expertise in Data Analytics, Data Science, and Cross-Platform App Development. I build scalable, insight-driven solutions that merge data with clean engineering.
@@ -538,7 +522,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                 {Object.entries(skills).map(([category, items]) => (
                   <div key={category} className="skill-group"
                     onMouseMove={handleCardTilt}
-                    onMouseLeave={handleCardTiltReset}
+                    onMouseLeave={resetCardTilt}
                   >
                     <span className="skill-category">{category}</span>
                     <div className="skill-items">
@@ -575,7 +559,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
               </div>
               <div className="exp-card"
                 onMouseMove={handleCardTilt}
-                onMouseLeave={handleCardTiltReset}
+                onMouseLeave={resetCardTilt}
               >
                 <div className="exp-header">
                   <div>
@@ -630,7 +614,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                 {education.map((edu, i) => (
                   <div key={i} className="edu-item"
                     onMouseMove={handleCardTilt}
-                    onMouseLeave={handleCardTiltReset}
+                    onMouseLeave={resetCardTilt}
                   >
                     <div className="edu-main">
                       <h3>{edu.degree}</h3>
@@ -682,7 +666,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                       className={`achieve-item ${achievementLinks.length > 1 ? "multi-link" : ""}`}
                       style={{ "--accent": ach.color }}
                       onMouseMove={handleCardTilt}
-                      onMouseLeave={handleCardTiltReset}
+                      onMouseLeave={resetCardTilt}
                     >
                       <div className="achieve-dot"></div>
                       <div className="achieve-content">
@@ -732,7 +716,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                 {certifications.map((cert, i) => (
                   <div key={i} className="cert-item"
                     onMouseMove={handleCardTilt}
-                    onMouseLeave={handleCardTiltReset}
+                    onMouseLeave={resetCardTilt}
                   >
                     <div className="cert-badge">
                       {cert.org.slice(0, 3).toUpperCase()}
@@ -787,7 +771,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
                   return (
                     <div key={i} className="volunteer-item"
                       onMouseMove={handleCardTilt}
-                      onMouseLeave={handleCardTiltReset}
+                      onMouseLeave={resetCardTilt}
                     >
                       <div className="volunteer-icon">
                         <Heart size={16} />
@@ -849,7 +833,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
               <div className="hobbies-grid">
                 <div className="hobby-card hobby-sports"
                   onMouseMove={handleCardTilt}
-                  onMouseLeave={handleCardTiltReset}
+                  onMouseLeave={resetCardTilt}
                 >
                   <div className="hobby-card-header">
                     <div className="hobby-card-icon">
@@ -884,7 +868,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
 
                 <div className="hobby-card hobby-reading"
                   onMouseMove={handleCardTilt}
-                  onMouseLeave={handleCardTiltReset}
+                  onMouseLeave={resetCardTilt}
                 >
                   <div className="hobby-card-header">
                     <div className="hobby-card-icon">
@@ -907,7 +891,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
 
                 <div className="hobby-card hobby-music"
                   onMouseMove={handleCardTilt}
-                  onMouseLeave={handleCardTiltReset}
+                  onMouseLeave={resetCardTilt}
                 >
                   <div className="hobby-card-header">
                     <div className="hobby-card-icon">
@@ -942,7 +926,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
 
                 <div className="hobby-card hobby-series"
                   onMouseMove={handleCardTilt}
-                  onMouseLeave={handleCardTiltReset}
+                  onMouseLeave={resetCardTilt}
                 >
                   <div className="hobby-card-header">
                     <div className="hobby-card-icon">
