@@ -15,9 +15,16 @@ This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page 
 
 ## Blogs
 
+Prasad writes a personal blog at prasadgade.dev. All written content is 100% human-written. Thumbnails are AI-generated.
+
 - Blog listing: https://prasadgade.dev/?tab=blogs
 - Blog metadata (JSON): https://prasadgade.dev/blogs/blogs.json
 - RSS feed: https://prasadgade.dev/blogs/rss.xml
+
+### Published Posts
+
+- Agent Readiness on Websites...: https://prasadgade.dev/blogs/agent-readiness-on-websites/
+- Introduction: My Blogging Journey: https://prasadgade.dev/blogs/introduction-blogging-journey/
 
 ## Structured Data
 

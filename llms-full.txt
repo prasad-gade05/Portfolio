@@ -226,12 +226,19 @@ Prasad writes a personal blog at prasadgade.dev. All written content is 100% hum
 
 ### Published Posts
 
+#### Agent Readiness on Websites...
+- URL: https://prasadgade.dev/blogs/agent-readiness-on-websites/
+- Date: April 26, 2026
+- Category: Technical
+- Read time: 4 min
+- Summary: Recently I made my portfolio website agent-ready. You might ask what exactly do I mean by making my site agent ready? Well, in today's landscape, AI agents have access to web searching tools. This means that AI agents can access the internet, access URLs and fetch data from them. But the issue is, via normal scraping, such agents may fetch the incorrect...
+
 #### Introduction: My Blogging Journey
 - URL: https://prasadgade.dev/blogs/introduction-blogging-journey/
 - Date: April 22, 2026
 - Category: Personal
-- Read time: 3 min
-- Summary: First blog post introducing Prasad's writing journey. Covers why he started blogging, his philosophy (100% human-written, no AI content, no fluff, to the point), who the blogs are for, and what content to expect — from data engineering deep-dives to 3 AM thoughts.
+- Read time: 4 min
+- Summary: A very warm welcome to my blog space. With this blog I begin a new journey of writing about things that happen to catch my interest. First let me introduce myself: I am a 21-year-old who is currently into computers, data, AI and building stuff with a combination of these. For the past few years, I have been experimenting with a lot of stuff, building and...
 
 ## Sub-Projects Hosted on prasadgade.dev
 
