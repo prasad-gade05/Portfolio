@@ -141,16 +141,11 @@
         <p>Recently I made my <a href="https://prasadgade.dev">portfolio website</a> <strong>agent-ready</strong>. You might ask what exactly do I mean by making my site agent ready? Well, in today&#39;s landscape, AI agents have access to web searching tools. This means that AI agents can access the internet, access URLs and fetch data from them. But the issue is, via normal scraping, such agents may fetch the incorrect information like ads or navigation of your site or misinterpret some pages or miss some important pages or different bots may interpret different sites differently.</p>
         <p>Making your site agent ready solves this problem. Here is exactly(but is not limited to) what making sites agent ready mean :</p>
         <ol>
-        <li><p>Adding files to website&#39;s root directory, which have structured information about your site. Example: <strong>robots.txt</strong> and allowing AI agents to scrape, <strong>llms-full.txt</strong> etc.</p>
-        </li>
-        <li><p>Creating API endpoints for bots to call and directly fetch dynamic data on the go.</p>
-        </li>
-        <li><p>Having MCP configurations set up on your site.</p>
-        </li>
-        <li><p>Having A2A agent readiness cards.</p>
-        </li>
-        <li><p>Adding HSTS headers and Cross Referrer Policy set which allow AI agents and bots.</p>
-        </li>
+        <li>Adding files to website&#39;s root directory, which have structured information about your site. Example: <strong>robots.txt</strong> and allowing AI agents to scrape, <strong>llms-full.txt</strong> etc.</li>
+        <li>Creating API endpoints for bots to call and directly fetch dynamic data on the go.</li>
+        <li>Having MCP configurations set up on your site.</li>
+        <li>Having A2A agent readiness cards.</li>
+        <li>Adding HSTS headers and Cross Referrer Policy set which allow AI agents and bots.</li>
         </ol>
         <blockquote>
         <p>In short, having files which contain structured data for bots and which are not visible on your frontend as well as having <em>bot-friendly</em> settings configured.</p>
@@ -167,16 +162,11 @@
         <p>Of these, I found the 2nd one to be more comprehensive and detailed.
         Now let me quickly explain to you the agent readiness parameters that these sites check.</p>
         <ol>
-        <li><p><strong>Machine readable files:</strong> refer to files which AI agents can access to get information from your site, including robots.txt, llms.txt, llm-fulltext.txt, sitemap.xml etc.</p>
-        </li>
-        <li><p><strong>AI search signals:</strong> includes author attribution, JSON-LD, website schema, FAQ Page schema etc.</p>
-        </li>
-        <li><p><strong>Semantics:</strong> checks whether you are using correct HTML tags or if your site is just a <code>&lt;div&gt;</code> mess, checks accessibility settings, titles etc.</p>
-        </li>
-        <li><p><strong>Protocols:</strong> checks if you have <strong>MCP (model context protocol)</strong> enabled on your site for agents to directly interact with it and perform transactions etc., checks A2A agent cards, agents.json files.</p>
-        </li>
-        <li><p><strong>Security:</strong> checks for HTTP headers, HSTS headers, content security policy, CORS configuration, referrer policy etc.</p>
-        </li>
+        <li><strong>Machine readable files:</strong> refer to files which AI agents can access to get information from your site, including robots.txt, llms.txt, llm-fulltext.txt, sitemap.xml etc.</li>
+        <li><strong>AI search signals:</strong> includes author attribution, JSON-LD, website schema, FAQ Page schema etc.</li>
+        <li><strong>Semantics:</strong> checks whether you are using correct HTML tags or if your site is just a <code>&lt;div&gt;</code> mess, checks accessibility settings, titles etc.</li>
+        <li><strong>Protocols:</strong> checks if you have <strong>MCP (model context protocol)</strong> enabled on your site for agents to directly interact with it and perform transactions etc., checks A2A agent cards, agents.json files.</li>
+        <li><strong>Security:</strong> checks for HTTP headers, HSTS headers, content security policy, CORS configuration, referrer policy etc.</li>
         </ol>
         <h3>What did I implement in my site?</h3>
         <p>Here is a quick summary of everything that I implemented on my site which got me a score of <strong>87/100</strong> on <strong><a href="https://isagentready.com/en/">isagentready.com</a></strong> as of writing this blog.</p>
@@ -216,10 +206,8 @@
         </code></pre>
         <h4>Some Key design decision points.</h4>
         <ol>
-        <li><p>Static APIs: since my site is a static React app, all of the API endpoints return static JSON data with no server-side processing involved.</p>
-        </li>
-        <li><p>Since my site is hosted on GitHub-Pages (GH-Pages) thus I could not configure most of the security parameters which is where my site is lagging behind in terms of agent readiness. Since I do not plan to move my deployment architecture, I am okay with this.</p>
-        </li>
+        <li>Static APIs: since my site is a static React app, all of the API endpoints return static JSON data with no server-side processing involved.</li>
+        <li>Since my site is hosted on GitHub-Pages (GH-Pages) thus I could not configure most of the security parameters which is where my site is lagging behind in terms of agent readiness. Since I do not plan to move my deployment architecture, I am okay with this.</li>
         </ol>
         <h3>My take on &quot;agent readiness&quot;</h3>
         <p>I feel having your site agent ready will become an unspoken rule in a few years. And you will be left behind if you are not complying with it. Having a site which an AI agent can easily access, understand, and interact with will no longer be a flex but rather a necessity. I also feel sites which we use for completing a certain task, such as buying things or fetching information, will heavily be replaced by AI agents doing the work for us. Additionally there might be many recruiters who might just be going on chatbots and asking them to find candidates with certain skill set and criteria, thus having your site ready for such agents to understand is going to be a massive advantage.
