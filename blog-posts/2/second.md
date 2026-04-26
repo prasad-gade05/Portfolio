@@ -13,9 +13,7 @@ Recently I made my [portfolio website](https://prasadgade.dev) **agent-ready**. 
 Making your site agent ready solves this problem. Here is exactly(but is not limited to) what making sites agent ready mean :
 
 1. Adding files to website's root directory, which have structured information about your site. Example: **robots.txt** and allowing AI agents to scrape, **llms-full.txt** etc.
-
 2. Creating API endpoints for bots to call and directly fetch dynamic data on the go.
-
 3. Having MCP configurations set up on your site.
 4. Having A2A agent readiness cards.
 5. Adding HSTS headers and Cross Referrer Policy set which allow AI agents and bots.
@@ -39,13 +37,9 @@ Of these, I found the 2nd one to be more comprehensive and detailed.
 Now let me quickly explain to you the agent readiness parameters that these sites check.
 
 1. **Machine readable files:** refer to files which AI agents can access to get information from your site, including robots.txt, llms.txt, llm-fulltext.txt, sitemap.xml etc.
-
 2. **AI search signals:** includes author attribution, JSON-LD, website schema, FAQ Page schema etc.
-
 3. **Semantics:** checks whether you are using correct HTML tags or if your site is just a `<div>` mess, checks accessibility settings, titles etc.
-
 4. **Protocols:** checks if you have **MCP (model context protocol)** enabled on your site for agents to directly interact with it and perform transactions etc., checks A2A agent cards, agents.json files.
-
 5. **Security:** checks for HTTP headers, HSTS headers, content security policy, CORS configuration, referrer policy etc.
 
 ### What did I implement in my site?
@@ -92,7 +86,6 @@ public/
 #### Some Key design decision points.
 
 1. Static APIs: since my site is a static React app, all of the API endpoints return static JSON data with no server-side processing involved.
-
 2. Since my site is hosted on GitHub-Pages (GH-Pages) thus I could not configure most of the security parameters which is where my site is lagging behind in terms of agent readiness. Since I do not plan to move my deployment architecture, I am okay with this.
 
 ### My take on "agent readiness"
