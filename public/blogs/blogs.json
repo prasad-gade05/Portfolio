@@ -1,12 +1,26 @@
 [
   {
+    "slug": "agent-readiness-on-websites",
+    "title": "Agent Readiness on Websites...",
+    "date": "2026-04-26",
+    "thumbnail": "/blogs/assets/agent-readiness-on-websites.png",
+    "categories": [
+      "Technical"
+    ],
+    "excerpt": "Recently I made my portfolio website agent-ready. You might ask what exactly do I mean by making my site agent ready? Well, in today's landscape, AI agents have access to web searching tools. This...",
+    "readTime": 4,
+    "url": "/blogs/agent-readiness-on-websites/"
+  },
+  {
     "slug": "introduction-blogging-journey",
     "title": "Introduction: My Blogging Journey",
     "date": "2026-04-22",
     "thumbnail": "/blogs/assets/thumbnail-introduction-blogging-journey.png",
-    "categories": ["Personal"],
-    "excerpt": "A warm welcome to my blog space. I begin a new journey of writing about computers, data, AI, building stuff, and everything in between that catches my attention.",
-    "readTime": 3,
+    "categories": [
+      "Personal"
+    ],
+    "excerpt": "A very warm welcome to my blog space. With this blog I begin a new journey of writing about things that happen to catch my interest. First let me introduce myself: I am a 21-year-old who is currently...",
+    "readTime": 4,
     "url": "/blogs/introduction-blogging-journey/"
   }
 ]

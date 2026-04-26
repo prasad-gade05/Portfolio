@@ -3,6 +3,7 @@ title: "Introduction: My Blogging Journey"
 date: "2026-04-22"
 thumbnail: "/blogs/assets/thumbnail-introduction-blogging-journey.png"
 category: ["Personal"]
+slug: "introduction-blogging-journey"
 ---
 
 # Introduction: My Blogging Journey
