@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 agent_ready/
+
+# Blog scratch files
+blog-posts/rough_work.txt
+blog-posts/refinment.md
+blog-posts/@rough_work.txt
+blog-posts/@refinment.md
