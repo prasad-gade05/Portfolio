@@ -431,7 +431,7 @@ ${articleTags}
       </header>
 
       <div class="blog-content">
-${indentHtml(post.contentHtml.trim(), 8)}
+${post.contentHtml.trim()}
       </div>
     </article>
   </main>
@@ -710,14 +710,6 @@ function compareSourceFolders(left, right) {
   }
 
   return left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" });
-}
-
-function indentHtml(value, spaces) {
-  const indent = " ".repeat(spaces);
-  return value
-    .split("\n")
-    .map((line) => `${indent}${line}`)
-    .join("\n");
 }
 
 function ensureDirectory(directoryPath) {

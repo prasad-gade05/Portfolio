@@ -68,43 +68,46 @@ On the UI part since on the mobile screens my default way to present the site wa
 
 Now let me explain the technical architecture to you. So whenever I have to write a new blog this is what I do:
 
-- Go to the `blog-posts/` directory present in the root of my site.
+First, I go to the `blog-posts/` directory present in the root of my site.
 
-- Create a sub-directory named as the blog number eg. `3/ `.
+Then I create a sub-directory named after the blog number, for example `3/`.
 
-- Create two files: `[blog_name].md` and `[thumbnail].png`
-  So the structures looks like this:
+After that I create two files: `[blog_name].md` and `[thumbnail].png`.
 
-  ```
-  blog-posts/
-  └── 3/
-      ├── third.md
-      └── the-philosophy-behind-my-site.png
-  ```
+The structure looks like this:
 
-- The `[blog_name].md` has markdown frontmatter at the beginning like:
+```text
+blog-posts/
+└── 3/
+    ├── third.md
+    └── the-philosophy-behind-my-site.png
+```
 
-  ```yaml
-  title: "The Philosophy Behind My Site"
-  date: "2026-xx-xx"
-  thumbnail: "/blogs/assets/the-philosophy-behind-my-site.png"
-  category: ["Technical", "Personal"]
-  slug: "the-philosophy-behind-my-site"
-  ```
+The `[blog_name].md` starts with frontmatter like this:
 
-- Then I run: `npm run blogs:sync`
+```yaml
+---
+title: "The Philosophy Behind My Site"
+date: "2026-xx-xx"
+thumbnail: "/blogs/assets/the-philosophy-behind-my-site.png"
+category: ["Technical", "Personal"]
+slug: "the-philosophy-behind-my-site"
+---
+```
 
-  This command reads every folder inside `blog-posts\` and then:
-  1. validates that each folder has one markdown file and one PNG file.
-  2. parses the frontmatter and markdown body
-  3. creates or updates the static blog page at `public\blogs\<slug>\index.html`
-  4. copies the PNG into `public\blogs\assets\`
-  5. rebuilds `public\blogs\blogs.json`
-  6. rebuilds `public\blogs\rss.xml`
-  7. updates `public\sitemap.xml`
-  8. updates the blog sections in `public\llms.txt` and `public\llms-full.txt`
+Then I run `npm run blogs:sync`.
 
-- After which I rebuild the project and deploy it.
+This command reads every folder inside `blog-posts\` and then:
+1. validates that each folder has one markdown file and one PNG file.
+2. parses the frontmatter and markdown body
+3. creates or updates the static blog page at `public\blogs\<slug>\index.html`
+4. copies the PNG into `public\blogs\assets\`
+5. rebuilds `public\blogs\blogs.json`
+6. rebuilds `public\blogs\rss.xml`
+7. updates `public\sitemap.xml`
+8. updates the blog sections in `public\llms.txt` and `public\llms-full.txt`
+
+After that I rebuild the project and deploy it.
 
 ### Paper Playground
 
