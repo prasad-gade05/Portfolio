@@ -498,7 +498,7 @@ export const hobbies = {
       link: "https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN?si=59e59c8d6f1747a6",
     },
   ],
-  series: ["Squid Games", "Money Heist"],
+  series: ["Squid Games", "Money Heist", "WondLa"],
 };
 
 export const movies = [
@@ -601,6 +601,15 @@ export const movies = [
   { title: "Klaus", year: "2019", genre: "Animation, Adventure, Comedy" },
   { title: "Free Birds", year: "2013", genre: "Animation, Adventure, Comedy" },
   { title: "Baymax!", year: "2022", genre: "Animation, Adventure, Family" },
+  { title: "Mai Atal Hoon", year: "2024", genre: "Biography, Drama" },
+  { title: "Article 15", year: "2019", genre: "Crime, Drama, Thriller" },
+  { title: "Whiplash", year: "2014", genre: "Drama, Music" },
+  { title: "Tangled", year: "2010", genre: "Animation, Adventure, Comedy" },
+  { title: "Mulan", year: "1998", genre: "Animation, Adventure, Family" },
+  { title: "Brave", year: "2012", genre: "Animation, Adventure, Family" },
+  { title: "Moana", year: "2016", genre: "Animation, Adventure, Comedy" },
+  { title: "Inside Out", year: "2015", genre: "Animation, Adventure, Comedy" },
+  { title: "Inside Out 2", year: "2024", genre: "Animation, Adventure, Comedy" },
 ];
 
 export const webShows = [
@@ -619,6 +628,7 @@ export const webShows = [
   { title: "The Terminal List", seasons: 1, genre: "Action, Drama, Thriller" },
   { title: "Kaala Pani", seasons: 1, genre: "Drama, Thriller" },
   { title: "Bodyguard", seasons: 1, genre: "Crime, Drama, Thriller" },
+  { title: "WondLa", seasons: 3, genre: "Animation, Adventure, Sci-Fi" },
 ];
 
 export const profileData = {
