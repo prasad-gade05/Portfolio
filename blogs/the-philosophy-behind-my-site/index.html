@@ -97,7 +97,7 @@
     "Personal",
     "Blog"
   ],
-  "wordCount": 1472,
+  "wordCount": 1475,
   "timeRequired": "PT7M"
 }
   </script>
@@ -202,25 +202,21 @@
         </li>
         <li><p>Create two files: <code>[blog_name].md</code> and <code>[thumbnail].png</code>
         So the structures looks like this:</p>
-        <pre><code>blog-posts\
-          3\
-            third.md
-            the-philosophy-behind-my-site.png
+        <pre><code>blog-posts/
+        └── 3/
+            ├── third.md
+            └── the-philosophy-behind-my-site.png
         </code></pre>
         </li>
-        <li><p>The <code>[blogname].md</code> has markdown frontmatter at the beginning like:</p>
-        <pre><code>---
-        title: &quot;The Philosophy Behind My Site&quot;
+        <li><p>The <code>[blog_name].md</code> has markdown frontmatter at the beginning like:</p>
+        <pre><code>title: &quot;The Philosophy Behind My Site&quot;
         date: &quot;2026-xx-xx&quot;
         thumbnail: &quot;/blogs/assets/the-philosophy-behind-my-site.png&quot;
         category: [&quot;Technical&quot;, &quot;Personal&quot;]
         slug: &quot;the-philosophy-behind-my-site&quot;
-        ---
         </code></pre>
         </li>
-        <li><p>Then I run</p>
-        <pre><code>npm run blogs:sync
-        </code></pre>
+        <li><p>Then I run: <code>npm run blogs:sync</code></p>
         <p>This command reads every folder inside <code>blog-posts\</code> and then:</p>
         <ol>
         <li>validates that each folder has one markdown file and one PNG file.</li>
