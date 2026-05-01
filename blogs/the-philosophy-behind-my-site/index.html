@@ -97,7 +97,7 @@
     "Personal",
     "Blog"
   ],
-  "wordCount": 1475,
+  "wordCount": 1471,
   "timeRequired": "PT7M"
 }
   </script>
@@ -141,126 +141,120 @@
       </header>
 
       <div class="blog-content">
-        <p>So this is going to be a mix of a personal as well as a technical blog about my <a href="https://prasadgade.dev">website</a>. Why I made it, what my thought process is behind all of the features it has, how I have implemented them, and in doing so, you would also get to know a bit about how I think, how I process things, and what my perspectives are.</p>
-        <p>A lot of people I showed my site to for the first time asked me: &quot;Okay, so who is this site for? What do I do with it? What does this site do?&quot; To answer these questions and to get straight to the point:</p>
-        <blockquote>
-        <p>This is my personal website, created for anyone who is curious about me to find out who I am.</p>
-        </blockquote>
-        <h3>Deeper Dive...</h3>
-        <p>Okay so that was the crisp one-liner. Now if we had to dive deeper, I&#39;d start by saying that I created this site on the 8th of December 2025 with a few simple points in mind:</p>
-        <ol>
-        <li><p>Create something of <strong>mine</strong> which people can see and know who I am by looking at it.</p>
-        </li>
-        <li><p>Create a piece of the internet which reflects my vision, my perspective and how I look at the world.</p>
-        </li>
-        <li><p>Create something with a truly meaningful output, a vision, and something that tells a story rather than a site just to tick a box.</p>
-        </li>
-        </ol>
-        <p>So with these goals I set out to create my site, and let me start by telling you that endlessly scrolling websites are not really my thing; I feel kinda lost in scrolling websites. Yes, I know we have nav bars for the same purpose but it just doesn&#39;t cut it for me. So the first and very clear vision that I had for the design was I will be having a <strong>SINGLE PAGE, NO SCROLL</strong> site. I feel a user should get exactly what they are visiting the site for. If you are visiting my site to check out my projects you shouldn&#39;t have to scroll through my about section and my education then to finally get to the projects - it is simply not efficient!!! So that is what I have implemented. You are on my site for my projects? Boom right there in front of you. Perhaps you are here to look for something cool? You&#39;ve got the paper playground mini-game or my Minecraft skin to interact with. Maybe you are there to read my blogs? Bingo, one click away. Without any of the unnecessary fluff getting in the way.</p>
-        <h3>A Bit of the Philosophy and Vision Behind It</h3>
-        <p>As I earlier mentioned, this site is made for anyone trying to know me. A recruiter trying to look at my work and skills. A friend trying to peep on what I have been up to. Someone who met me for the first time and wants to know more about me. A family member, perhaps my mom or dad, who wants to look at what their son is doing or wants to show to someone else what their son does. Basically, you get the point-it is for everybody, and I have made sure that everyone feels welcomed once they open my site. The way that I have made sure this happens is by primarily taking care of small UI/UX tricks which do not seem like much, but trust me, they surely make the difference:</p>
-        <ul>
-        <li><p>Having a <em>Start Here</em> modal on the site which clearly explains everything about the site, its navigation and its purpose in layman&#39;s terms.</p>
-        </li>
-        <li><p>Having 4 different themes for the site, because hey, everyone has different perspectives. Having 4 themes gives everyone a feeling of being heard and the feeling of seeing my creation via their preferred choice of color blend.</p>
-        </li>
-        <li><p>Having a short introduction of mine in Python code style just to keep things punchy for the geeks.</p>
-        </li>
-        <li><p>Having a modal to open my resume in-site so that users are not redirected to another site and does not break the user flow.</p>
-        </li>
-        <li><p>Having keyboard accessibility shortcuts just to keep the flow going for someone who is glued to their keyboard.</p>
-        </li>
-        <li><p>Having the site responsive across all the screen sizes. (Idk this should not even be a talking point, having a responsive site is a necessity!!! But having seen several personal sites not being one, I had to mention it).</p>
-        </li>
-        </ul>
-        <h3>Personality Touch</h3>
-        <p>Since I had the goal of making this place my piece of the Internet I have made sure to truly reflect who I am as a person beyond tech as well. I&#39;ve done this by adding quite a few things:</p>
-        <ul>
-        <li><p><em>Hobbies &amp; Interests</em> section which has things listed that I enjoy doing when I am not on my laptop <em>(P.S very rare)</em>.</p>
-        </li>
-        <li><p>I have my favourite movies and web shows listed.</p>
-        </li>
-        <li><p>A small easter egg which is triggered by one of the famous cheat codes from a GTA game as well as triggered by a legacy keyboard sequence. <em>(Enough hints already!!!)</em></p>
-        </li>
-        <li><p>I have my favourite songs listed.</p>
-        </li>
-        <li><p>My favourite book listed.</p>
-        </li>
-        <li><p>My Minecraft skin in 3D which you can interact with.</p>
-        </li>
-        <li><p>My personal favourite feature: <strong><em>The Paper Playground</em></strong> mini-game which literally turns my site into a paper which you can play around with, drag, stretch, pin and have fun with. <em>(More on the technical sides of this feature later)</em>.</p>
-        </li>
-        </ul>
-        <h3>Blogs Pipeline</h3>
-        <p>Moving to a bit of the technical side, since I have started writing blogs now (you can check out why: <a href="https://prasadgade.dev/blogs/introduction-blogging-journey/">here</a>) before starting I had a decision to make. Where to write my blogs? Third party blogging platforms like Medium, etc.? Or host on my own platform? I decided to write and host my blogs on my own site. With this simple architecture: The blogs landing page will be a simple tab in my portfolio just like other tabs and each blog will have its individual new web page. Clean and scalable architecture.</p>
-        <p>On the UI part since on the mobile screens my default way to present the site was dividing the screen into two horizontal parts and showing tab contents in one part and the main intro section in top part. However this would not have been ideal for the blog. So I specially made it such that the blogs tab whenever opened occupies the whole page instead of dividing it into two parts. Honestly these are the small things that matter, choosing the solution that the situation demands and adapting instead of being stubborn on one vision.</p>
-        <p>Now let me explain the technical architecture to you. So whenever I have to write a new blog this is what I do:</p>
-        <ul>
-        <li><p>Go to the <code>blog-posts/</code> directory present in the root of my site.</p>
-        </li>
-        <li><p>Create a sub-directory named as the blog number eg. <code>3/ </code>.</p>
-        </li>
-        <li><p>Create two files: <code>[blog_name].md</code> and <code>[thumbnail].png</code>
-        So the structures looks like this:</p>
-        <pre><code>blog-posts/
-        └── 3/
-            ├── third.md
-            └── the-philosophy-behind-my-site.png
-        </code></pre>
-        </li>
-        <li><p>The <code>[blog_name].md</code> has markdown frontmatter at the beginning like:</p>
-        <pre><code class="language-yaml">title: &quot;The Philosophy Behind My Site&quot;
-        date: &quot;2026-xx-xx&quot;
-        thumbnail: &quot;/blogs/assets/the-philosophy-behind-my-site.png&quot;
-        category: [&quot;Technical&quot;, &quot;Personal&quot;]
-        slug: &quot;the-philosophy-behind-my-site&quot;
-        </code></pre>
-        </li>
-        <li><p>Then I run: <code>npm run blogs:sync</code></p>
-        <p>This command reads every folder inside <code>blog-posts\</code> and then:</p>
-        <ol>
-        <li>validates that each folder has one markdown file and one PNG file.</li>
-        <li>parses the frontmatter and markdown body</li>
-        <li>creates or updates the static blog page at <code>public\blogs\&lt;slug&gt;\index.html</code></li>
-        <li>copies the PNG into <code>public\blogs\assets\</code></li>
-        <li>rebuilds <code>public\blogs\blogs.json</code></li>
-        <li>rebuilds <code>public\blogs\rss.xml</code></li>
-        <li>updates <code>public\sitemap.xml</code></li>
-        <li>updates the blog sections in <code>public\llms.txt</code> and <code>public\llms-full.txt</code></li>
-        </ol>
-        </li>
-        <li><p>After which I rebuild the project and deploy it.</p>
-        </li>
-        </ul>
-        <h3>Paper Playground</h3>
-        <p>Now talking about my personal feature of the site which is the <strong>Paper Playground</strong>.</p>
-        <blockquote>
-        <p>It is a physics-based mini-game which turns my site into a cloth-like simulation which you can interact with in 3D and play around with actions like dragging, pinning and stretching.</p>
-        </blockquote>
-        <p>Here is the technical breakdown:</p>
-        <p>I capture the DOM as a texture using <strong>html2canvas</strong>, swap it onto a <strong>Three.js</strong> plane mesh which is a 30 x 30 particle grid, and run <strong>Verlet integration</strong> physics with constraint solving to simulate realistic folding and dragging which is raycast-based.</p>
-        <h3>Other Technical Features</h3>
-        <ol>
-        <li><p><strong>Agent readiness:</strong>
-        Although I have an entire <a href="https://prasadgade.dev/blogs/agent-readiness-on-websites/">blog</a> about this still it is worth mentioning here. So this site of mine is 100% readable by machines and AI agents. Thus it is safe to say that this site is literally for everybody, be it humans or bots.
-        <em>You can read about how I implemented agent readiness <a href="https://prasadgade.dev/blogs/agent-readiness-on-websites/">here</a></em>.</p>
-        </li>
-        <li><p><strong>Hosting and Deployment:</strong>
-        This site is hosted on GitHub Pages (GH-Pages), and the custom domain is configured via <code>public/CNAME</code> which contains this domain <strong>prasadgade.dev</strong></p>
-        </li>
-        <li><p><strong>Performance and optimization</strong></p>
-        <ul>
-        <li>I have implemented bundle splitting via manual chunking.</li>
-        <li>Lazy loading for heavy components.</li>
-        <li>Typed arrays <code>(Float32Array)</code> instead of objects for paper playground since typed arrays are cache friendly.</li>
-        <li>Single-pass updates : Verlet + boundary collision merged.</li>
-        </ul>
-        </li>
-        </ol>
-        <blockquote>
-        <p>Yeah, that was about why and how I have created my site. With love, with intention and with clear vision in mind.
-        That was the story behind the piece of creation that I call my <a href="https://prasadgade.dev"><strong>website</strong></a>.</p>
-        </blockquote>
+<p>So this is going to be a mix of a personal as well as a technical blog about my <a href="https://prasadgade.dev">website</a>. Why I made it, what my thought process is behind all of the features it has, how I have implemented them, and in doing so, you would also get to know a bit about how I think, how I process things, and what my perspectives are.</p>
+<p>A lot of people I showed my site to for the first time asked me: &quot;Okay, so who is this site for? What do I do with it? What does this site do?&quot; To answer these questions and to get straight to the point:</p>
+<blockquote>
+<p>This is my personal website, created for anyone who is curious about me to find out who I am.</p>
+</blockquote>
+<h3>Deeper Dive...</h3>
+<p>Okay so that was the crisp one-liner. Now if we had to dive deeper, I&#39;d start by saying that I created this site on the 8th of December 2025 with a few simple points in mind:</p>
+<ol>
+<li><p>Create something of <strong>mine</strong> which people can see and know who I am by looking at it.</p>
+</li>
+<li><p>Create a piece of the internet which reflects my vision, my perspective and how I look at the world.</p>
+</li>
+<li><p>Create something with a truly meaningful output, a vision, and something that tells a story rather than a site just to tick a box.</p>
+</li>
+</ol>
+<p>So with these goals I set out to create my site, and let me start by telling you that endlessly scrolling websites are not really my thing; I feel kinda lost in scrolling websites. Yes, I know we have nav bars for the same purpose but it just doesn&#39;t cut it for me. So the first and very clear vision that I had for the design was I will be having a <strong>SINGLE PAGE, NO SCROLL</strong> site. I feel a user should get exactly what they are visiting the site for. If you are visiting my site to check out my projects you shouldn&#39;t have to scroll through my about section and my education then to finally get to the projects - it is simply not efficient!!! So that is what I have implemented. You are on my site for my projects? Boom right there in front of you. Perhaps you are here to look for something cool? You&#39;ve got the paper playground mini-game or my Minecraft skin to interact with. Maybe you are there to read my blogs? Bingo, one click away. Without any of the unnecessary fluff getting in the way.</p>
+<h3>A Bit of the Philosophy and Vision Behind It</h3>
+<p>As I earlier mentioned, this site is made for anyone trying to know me. A recruiter trying to look at my work and skills. A friend trying to peep on what I have been up to. Someone who met me for the first time and wants to know more about me. A family member, perhaps my mom or dad, who wants to look at what their son is doing or wants to show to someone else what their son does. Basically, you get the point-it is for everybody, and I have made sure that everyone feels welcomed once they open my site. The way that I have made sure this happens is by primarily taking care of small UI/UX tricks which do not seem like much, but trust me, they surely make the difference:</p>
+<ul>
+<li><p>Having a <em>Start Here</em> modal on the site which clearly explains everything about the site, its navigation and its purpose in layman&#39;s terms.</p>
+</li>
+<li><p>Having 4 different themes for the site, because hey, everyone has different perspectives. Having 4 themes gives everyone a feeling of being heard and the feeling of seeing my creation via their preferred choice of color blend.</p>
+</li>
+<li><p>Having a short introduction of mine in Python code style just to keep things punchy for the geeks.</p>
+</li>
+<li><p>Having a modal to open my resume in-site so that users are not redirected to another site and does not break the user flow.</p>
+</li>
+<li><p>Having keyboard accessibility shortcuts just to keep the flow going for someone who is glued to their keyboard.</p>
+</li>
+<li><p>Having the site responsive across all the screen sizes. (Idk this should not even be a talking point, having a responsive site is a necessity!!! But having seen several personal sites not being one, I had to mention it).</p>
+</li>
+</ul>
+<h3>Personality Touch</h3>
+<p>Since I had the goal of making this place my piece of the Internet I have made sure to truly reflect who I am as a person beyond tech as well. I&#39;ve done this by adding quite a few things:</p>
+<ul>
+<li><p><em>Hobbies &amp; Interests</em> section which has things listed that I enjoy doing when I am not on my laptop <em>(P.S very rare)</em>.</p>
+</li>
+<li><p>I have my favourite movies and web shows listed.</p>
+</li>
+<li><p>A small easter egg which is triggered by one of the famous cheat codes from a GTA game as well as triggered by a legacy keyboard sequence. <em>(Enough hints already!!!)</em></p>
+</li>
+<li><p>I have my favourite songs listed.</p>
+</li>
+<li><p>My favourite book listed.</p>
+</li>
+<li><p>My Minecraft skin in 3D which you can interact with.</p>
+</li>
+<li><p>My personal favourite feature: <strong><em>The Paper Playground</em></strong> mini-game which literally turns my site into a paper which you can play around with, drag, stretch, pin and have fun with. <em>(More on the technical sides of this feature later)</em>.</p>
+</li>
+</ul>
+<h3>Blogs Pipeline</h3>
+<p>Moving to a bit of the technical side, since I have started writing blogs now (you can check out why: <a href="https://prasadgade.dev/blogs/introduction-blogging-journey/">here</a>) before starting I had a decision to make. Where to write my blogs? Third party blogging platforms like Medium, etc.? Or host on my own platform? I decided to write and host my blogs on my own site. With this simple architecture: The blogs landing page will be a simple tab in my portfolio just like other tabs and each blog will have its individual new web page. Clean and scalable architecture.</p>
+<p>On the UI part since on the mobile screens my default way to present the site was dividing the screen into two horizontal parts and showing tab contents in one part and the main intro section in top part. However this would not have been ideal for the blog. So I specially made it such that the blogs tab whenever opened occupies the whole page instead of dividing it into two parts. Honestly these are the small things that matter, choosing the solution that the situation demands and adapting instead of being stubborn on one vision.</p>
+<p>Now let me explain the technical architecture to you. So whenever I have to write a new blog this is what I do:</p>
+<p>First, I go to the <code>blog-posts/</code> directory present in the root of my site.</p>
+<p>Then I create a sub-directory named after the blog number, for example <code>3/</code>.</p>
+<p>After that I create two files: <code>[blog_name].md</code> and <code>[thumbnail].png</code>.</p>
+<p>The structure looks like this:</p>
+<pre><code class="language-text">blog-posts/
+└── 3/
+    ├── third.md
+    └── the-philosophy-behind-my-site.png
+</code></pre>
+<p>The <code>[blog_name].md</code> starts with frontmatter like this:</p>
+<pre><code class="language-yaml">---
+title: &quot;The Philosophy Behind My Site&quot;
+date: &quot;2026-xx-xx&quot;
+thumbnail: &quot;/blogs/assets/the-philosophy-behind-my-site.png&quot;
+category: [&quot;Technical&quot;, &quot;Personal&quot;]
+slug: &quot;the-philosophy-behind-my-site&quot;
+---
+</code></pre>
+<p>Then I run <code>npm run blogs:sync</code>.</p>
+<p>This command reads every folder inside <code>blog-posts\</code> and then:</p>
+<ol>
+<li>validates that each folder has one markdown file and one PNG file.</li>
+<li>parses the frontmatter and markdown body</li>
+<li>creates or updates the static blog page at <code>public\blogs\&lt;slug&gt;\index.html</code></li>
+<li>copies the PNG into <code>public\blogs\assets\</code></li>
+<li>rebuilds <code>public\blogs\blogs.json</code></li>
+<li>rebuilds <code>public\blogs\rss.xml</code></li>
+<li>updates <code>public\sitemap.xml</code></li>
+<li>updates the blog sections in <code>public\llms.txt</code> and <code>public\llms-full.txt</code></li>
+</ol>
+<p>After that I rebuild the project and deploy it.</p>
+<h3>Paper Playground</h3>
+<p>Now talking about my personal feature of the site which is the <strong>Paper Playground</strong>.</p>
+<blockquote>
+<p>It is a physics-based mini-game which turns my site into a cloth-like simulation which you can interact with in 3D and play around with actions like dragging, pinning and stretching.</p>
+</blockquote>
+<p>Here is the technical breakdown:</p>
+<p>I capture the DOM as a texture using <strong>html2canvas</strong>, swap it onto a <strong>Three.js</strong> plane mesh which is a 30 x 30 particle grid, and run <strong>Verlet integration</strong> physics with constraint solving to simulate realistic folding and dragging which is raycast-based.</p>
+<h3>Other Technical Features</h3>
+<ol>
+<li><p><strong>Agent readiness:</strong>
+Although I have an entire <a href="https://prasadgade.dev/blogs/agent-readiness-on-websites/">blog</a> about this still it is worth mentioning here. So this site of mine is 100% readable by machines and AI agents. Thus it is safe to say that this site is literally for everybody, be it humans or bots.
+<em>You can read about how I implemented agent readiness <a href="https://prasadgade.dev/blogs/agent-readiness-on-websites/">here</a></em>.</p>
+</li>
+<li><p><strong>Hosting and Deployment:</strong>
+This site is hosted on GitHub Pages (GH-Pages), and the custom domain is configured via <code>public/CNAME</code> which contains this domain <strong>prasadgade.dev</strong></p>
+</li>
+<li><p><strong>Performance and optimization</strong></p>
+<ul>
+<li>I have implemented bundle splitting via manual chunking.</li>
+<li>Lazy loading for heavy components.</li>
+<li>Typed arrays <code>(Float32Array)</code> instead of objects for paper playground since typed arrays are cache friendly.</li>
+<li>Single-pass updates : Verlet + boundary collision merged.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Yeah, that was about why and how I have created my site. With love, with intention and with clear vision in mind.
+That was the story behind the piece of creation that I call my <a href="https://prasadgade.dev"><strong>website</strong></a>.</p>
+</blockquote>
       </div>
     </article>
   </main>
