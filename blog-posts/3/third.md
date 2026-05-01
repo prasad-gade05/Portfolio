@@ -76,29 +76,23 @@ Now let me explain the technical architecture to you. So whenever I have to writ
   So the structures looks like this:
 
   ```
-  blog-posts\
-    3\
-      third.md
-      the-philosophy-behind-my-site.png
+  blog-posts/
+  └── 3/
+      ├── third.md
+      └── the-philosophy-behind-my-site.png
   ```
 
-- The `[blogname].md` has markdown frontmatter at the beginning like:
+- The `[blog_name].md` has markdown frontmatter at the beginning like:
 
   ```
-  ---
   title: "The Philosophy Behind My Site"
   date: "2026-xx-xx"
   thumbnail: "/blogs/assets/the-philosophy-behind-my-site.png"
   category: ["Technical", "Personal"]
   slug: "the-philosophy-behind-my-site"
-  ---
   ```
 
-- Then I run
-
-  ```
-  npm run blogs:sync
-  ```
+- Then I run: `npm run blogs:sync`
 
   This command reads every folder inside `blog-posts\` and then:
   1. validates that each folder has one markdown file and one PNG file.
