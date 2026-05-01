@@ -239,7 +239,7 @@ ${posts
     (post) => `#### ${post.title}
 - URL: ${post.absoluteUrl}
 - Date: ${post.dateLabel}
-- Category: ${post.categories.join(", ")}
+- ${post.categories.length === 1 ? "Category" : "Categories"}: ${post.categories.join(", ")}
 - Read time: ${post.readTime} min
 - Summary: ${post.summary}`
   )
@@ -551,7 +551,10 @@ function normalizeRequiredDate(value, folderName) {
 
 function normalizeCategories(value, folderName) {
   const categories = Array.isArray(value) ? value : typeof value === "string" ? [value] : [];
-  const cleaned = categories.map((category) => category?.toString().trim()).filter(Boolean);
+  const cleaned = categories
+    .flatMap((category) => category?.toString().split(",") ?? [])
+    .map((category) => category.trim())
+    .filter(Boolean);
 
   if (cleaned.length === 0) {
     throw new Error(`Blog "${folderName}" must define at least one category.`);

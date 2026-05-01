@@ -23,6 +23,7 @@ Prasad writes a personal blog at prasadgade.dev. All written content is 100% hum
 
 ### Published Posts
 
+- The Philosophy Behind My Site: https://prasadgade.dev/blogs/the-philosophy-behind-my-site/
 - Agent Readiness on Websites...: https://prasadgade.dev/blogs/agent-readiness-on-websites/
 - Introduction: My Blogging Journey: https://prasadgade.dev/blogs/introduction-blogging-journey/
 

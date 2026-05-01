@@ -1,5 +1,18 @@
 [
   {
+    "slug": "the-philosophy-behind-my-site",
+    "title": "The Philosophy Behind My Site",
+    "date": "2026-05-01",
+    "thumbnail": "/blogs/assets/the-philosophy-behind-my-site.png",
+    "categories": [
+      "Technical",
+      "Personal"
+    ],
+    "excerpt": "So this is going to be a mix of a personal as well as a technical blog about my website. Why I made it, what my thought process is behind all of the features it has, how I have implemented them, and...",
+    "readTime": 7,
+    "url": "/blogs/the-philosophy-behind-my-site/"
+  },
+  {
     "slug": "agent-readiness-on-websites",
     "title": "Agent Readiness on Websites...",
     "date": "2026-04-26",

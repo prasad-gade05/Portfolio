@@ -32,6 +32,7 @@ category: ["Technical"]
 ```
 
 `slug` is also supported when you want a fixed URL that should not change after the post is published.
+For multiple categories, write them as separate entries like `category: ["Technical", "Personal"]`.
 
 ## Command
 
