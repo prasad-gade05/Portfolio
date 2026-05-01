@@ -226,6 +226,13 @@ Prasad writes a personal blog at prasadgade.dev. All written content is 100% hum
 
 ### Published Posts
 
+#### The Philosophy Behind My Site
+- URL: https://prasadgade.dev/blogs/the-philosophy-behind-my-site/
+- Date: May 1, 2026
+- Categories: Technical, Personal
+- Read time: 7 min
+- Summary: So this is going to be a mix of a personal as well as a technical blog about my website. Why I made it, what my thought process is behind all of the features it has, how I have implemented them, and in doing so, you would also get to know a bit about how I think, how I process things, and what my perspectives are. A lot of people I showed my site to for the...
+
 #### Agent Readiness on Websites...
 - URL: https://prasadgade.dev/blogs/agent-readiness-on-websites/
 - Date: April 26, 2026
