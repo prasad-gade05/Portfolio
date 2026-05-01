@@ -44,7 +44,7 @@
           "spotify": "https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN"
         }
       ],
-      "favorite_series": ["Squid Games", "Money Heist"]
+      "favorite_series": ["Squid Games", "Money Heist", "WondLa"]
     },
     "minecraft_gamertag": "prasadgade05",
     "sub_projects_under_same_domain": [
@@ -64,9 +64,9 @@
         "description": "Privacy-first habit tracking with GitHub-style contribution charts and streaks"
       }
     ],
-    "movies_count": 47,
-    "web_shows_count": 15,
-    "favorite_movies": ["12th Fail", "Sam Bahadur", "American Sniper", "Hacksaw Ridge", "The Green Mile", "1917", "WALL-E", "Ratatouille", "Kung Fu Panda", "Toy Story", "The Wild Robot", "Coco"],
-    "favorite_web_shows": ["Money Heist", "Squid Game", "The Family Man", "Special Ops", "Scam 1992"]
+    "movies_count": 56,
+    "web_shows_count": 16,
+    "favorite_movies": ["12th Fail", "Sam Bahadur", "American Sniper", "Hacksaw Ridge", "The Green Mile", "1917", "WALL-E", "Ratatouille", "Kung Fu Panda", "Toy Story", "The Wild Robot", "Coco", "Mai Atal Hoon", "Article 15", "Whiplash", "Tangled", "Mulan", "Brave", "Moana", "Inside Out", "Inside Out 2"],
+    "favorite_web_shows": ["Money Heist", "Squid Game", "The Family Man", "Special Ops", "Scam 1992", "WondLa"]
   }
 }
