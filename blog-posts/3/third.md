@@ -84,7 +84,7 @@ Now let me explain the technical architecture to you. So whenever I have to writ
 
 - The `[blog_name].md` has markdown frontmatter at the beginning like:
 
-  ```
+  ```yaml
   title: "The Philosophy Behind My Site"
   date: "2026-xx-xx"
   thumbnail: "/blogs/assets/the-philosophy-behind-my-site.png"
