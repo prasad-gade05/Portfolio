@@ -498,7 +498,7 @@ export const hobbies = {
       link: "https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN?si=59e59c8d6f1747a6",
     },
   ],
-  series: ["Squid Games", "Money Heist", "WondLa"],
+  series: ["Squid Games", "Money Heist"],
 };
 
 export const movies = [
