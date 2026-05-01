@@ -75,7 +75,7 @@ Now let me explain the technical architecture to you. So whenever I have to writ
 - Create two files: `[blog_name].md` and `[thumbnail].png`
   So the structures looks like this:
 
-  ```text
+  ```
   blog-posts\
     3\
       third.md
@@ -84,7 +84,7 @@ Now let me explain the technical architecture to you. So whenever I have to writ
 
 - The `[blogname].md` has markdown frontmatter at the beginning like:
 
-  ```md
+  ```
   ---
   title: "The Philosophy Behind My Site"
   date: "2026-xx-xx"
@@ -96,7 +96,7 @@ Now let me explain the technical architecture to you. So whenever I have to writ
 
 - Then I run
 
-  ```bash
+  ```
   npm run blogs:sync
   ```
 

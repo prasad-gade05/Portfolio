@@ -202,14 +202,14 @@
         </li>
         <li><p>Create two files: <code>[blog_name].md</code> and <code>[thumbnail].png</code>
         So the structures looks like this:</p>
-        <pre><code class="language-text">blog-posts\
+        <pre><code>blog-posts\
           3\
             third.md
             the-philosophy-behind-my-site.png
         </code></pre>
         </li>
         <li><p>The <code>[blogname].md</code> has markdown frontmatter at the beginning like:</p>
-        <pre><code class="language-md">---
+        <pre><code>---
         title: &quot;The Philosophy Behind My Site&quot;
         date: &quot;2026-xx-xx&quot;
         thumbnail: &quot;/blogs/assets/the-philosophy-behind-my-site.png&quot;
@@ -219,7 +219,7 @@
         </code></pre>
         </li>
         <li><p>Then I run</p>
-        <pre><code class="language-bash">npm run blogs:sync
+        <pre><code>npm run blogs:sync
         </code></pre>
         <p>This command reads every folder inside <code>blog-posts\</code> and then:</p>
         <ol>
