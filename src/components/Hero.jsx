@@ -52,6 +52,7 @@ const Hero = ({ onStartDoodle }) => {
       <AnimatePresence>
         {showResumeModal && (
           <motion.div
+            key="resume-modal"
             className="resume-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -79,6 +80,7 @@ const Hero = ({ onStartDoodle }) => {
         )}
         {showMinecraftModal && (
           <motion.div
+            key="minecraft-modal"
             className="minecraft-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

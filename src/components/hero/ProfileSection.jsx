@@ -68,6 +68,7 @@ const ProfileSection = () => {
       <AnimatePresence>
         {showProfileModal && (
           <motion.div 
+            key="profile-modal"
             className="profile-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -97,7 +98,7 @@ const ProfileSection = () => {
           </motion.div>
         )}
         {showHelpModal && (
-          <HelpModal onClose={() => setShowHelpModal(false)} />
+          <HelpModal key="help-modal" onClose={() => setShowHelpModal(false)} />
         )}
       </AnimatePresence>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import './ClickSparkle.css';
@@ -58,10 +58,11 @@ const Sparkle = ({ x, y, lines, onComplete }) => {  return (
 
 const ClickSparkle = () => {
   const [sparkles, setSparkles] = useState([]);
+  const nextSparkleIdRef = useRef(0);
 
   const addSparkle = useCallback((e) => {
     const newSparkle = {
-      id: Date.now(),
+      id: nextSparkleIdRef.current++,
       x: e.clientX,
       y: e.clientY,
       lines: generateSparkleConfig()
