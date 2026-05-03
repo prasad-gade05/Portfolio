@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useCallback, useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import "../../components/hero/MoviesModal.css";
 import { movies, webShows } from "../../data/portfolioData";
@@ -9,10 +9,11 @@ import { useThemePicker } from "./contentTabs/useThemePicker";
 
 const MoviesModal = lazy(() => import("./MoviesModal"));
 
-const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) => {
+const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange, onShortcutApiReady }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
   const {
+    cycleTheme,
     pickerPos,
     showThemePicker,
     switchTheme,
@@ -43,7 +44,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleTabClick = (tab) => {
+  const handleTabClick = useCallback((tab) => {
     if (tab.id === "blogs") {
       setActiveTabs(["blogs"]);
       onBlogsActiveChange?.(true);
@@ -58,7 +59,24 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange }) =>
     }
 
     setActiveTabs([tab.id]);
-  };
+  }, [onBlogsActiveChange]);
+
+  const selectTabByIndex = useCallback((index) => {
+    const tab = tabs[index];
+    if (tab) {
+      handleTabClick(tab);
+    }
+  }, [handleTabClick]);
+
+  useEffect(() => {
+    onShortcutApiReady?.({
+      cycleTheme,
+      isBlocked: isMoviesModalOpen,
+      selectTabByIndex,
+    });
+
+    return () => onShortcutApiReady?.(null);
+  }, [cycleTheme, isMoviesModalOpen, onShortcutApiReady, selectTabByIndex]);
 
   return (
     <motion.div

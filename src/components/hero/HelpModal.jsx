@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, FileText, BookOpen } from "lucide-react";
+import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, FileText, BookOpen, Keyboard } from "lucide-react";
 import "./HelpModal.css";
 
 const HelpModal = ({ onClose }) => {
@@ -63,6 +63,23 @@ const HelpModal = ({ onClose }) => {
               <li><strong>Social icons</strong>: my profiles like LinkedIn and GitHub</li>
               <li><strong>Resume</strong>: opens my traditional PDF resume</li>
             </ul>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-title">
+              <Keyboard size={16} />
+              <h3>Keyboard shortcuts</h3>
+            </div>
+            <ul className="help-list">
+              <li><strong>?</strong>: open this guide</li>
+              <li><strong>1</strong> to <strong>9</strong>, <strong>0</strong>: switch tabs</li>
+              <li><strong>R</strong>: open resume</li>
+              <li><strong>T</strong>: cycle themes</li>
+              <li><strong>Esc</strong>: close the current modal or overlay</li>
+            </ul>
+            <p className="help-subtext">
+              <em>Tab mapping: 1 Projects, 2 About, 3 Skills, 4 Experience, 5 Education, 6 Achievements, 7 Certs, 8 Volunteer, 9 Hobbies, 0 Blogs.</em>
+            </p>
           </section>
 
           <section className="help-section">

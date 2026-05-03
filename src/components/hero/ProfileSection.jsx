@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { MapPin, HelpCircle } from "lucide-react";
@@ -8,20 +8,39 @@ import CurrentTime from "./CurrentTime";
 import HelpModal from "./HelpModal";
 import "./HelpModal.css";
 
-const ProfileSection = () => {
+const ProfileSection = ({ onOpenHelp, onCloseHelp, showHelpModal }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [showHelpModal, setShowHelpModal] = useState(false);
+  const [internalShowHelpModal, setInternalShowHelpModal] = useState(false);
+  const isHelpModalControlled = typeof showHelpModal === "boolean";
+  const isHelpModalOpen = isHelpModalControlled ? showHelpModal : internalShowHelpModal;
+  const openHelpModal = useCallback(() => {
+    if (onOpenHelp) {
+      onOpenHelp();
+      return;
+    }
+
+    setInternalShowHelpModal(true);
+  }, [onOpenHelp]);
+
+  const closeHelpModal = useCallback(() => {
+    if (onCloseHelp) {
+      onCloseHelp();
+      return;
+    }
+
+    setInternalShowHelpModal(false);
+  }, [onCloseHelp]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         if (showProfileModal) setShowProfileModal(false);
-        if (showHelpModal) setShowHelpModal(false);
+        if (isHelpModalOpen) closeHelpModal();
       }
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [showProfileModal, showHelpModal]);
+  }, [closeHelpModal, isHelpModalOpen, showProfileModal]);
 
   return (
     <motion.div
@@ -42,8 +61,8 @@ const ProfileSection = () => {
         <CurrentTime />
         <button 
           className="help-button"
-          onClick={() => setShowHelpModal(true)}
-          title="Start Here - Guide for visitors"
+          onClick={openHelpModal}
+          title="Start Here and keyboard shortcuts (?)"
           aria-label="Open help guide"
         >
           <HelpCircle />
@@ -97,8 +116,8 @@ const ProfileSection = () => {
             </motion.div>
           </motion.div>
         )}
-        {showHelpModal && (
-          <HelpModal key="help-modal" onClose={() => setShowHelpModal(false)} />
+        {isHelpModalOpen && (
+          <HelpModal key="help-modal" onClose={closeHelpModal} />
         )}
       </AnimatePresence>
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useRef, useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TbBrandMinecraft } from "react-icons/tb";
 import { Move3D } from "lucide-react";
@@ -9,6 +9,7 @@ import CodeCard from "./hero/CodeCard";
 import SocialLinks from "./hero/SocialLinks";
 import ContentTabs from "./hero/ContentTabs";
 import ClickSparkle from "./ClickSparkle";
+import { getTabIndexForShortcutKey, isEditableShortcutTarget } from "../utils/keyboardShortcuts";
 
 const ResumeViewer = lazy(() => import("./ResumeViewer"));
 const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
@@ -16,18 +17,65 @@ const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
 const Hero = ({ onStartDoodle }) => {
   const [showMinecraftModal, setShowMinecraftModal] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
   const [isBlogsActive, setIsBlogsActive] = useState(false);
+  const shortcutApiRef = useRef(null);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (showResumeModal) setShowResumeModal(false);
-        if (showMinecraftModal) setShowMinecraftModal(false);
+        if (showHelpModal) {
+          setShowHelpModal(false);
+          return;
+        }
+        if (showResumeModal) {
+          setShowResumeModal(false);
+          return;
+        }
+        if (showMinecraftModal) {
+          setShowMinecraftModal(false);
+          return;
+        }
+      }
+
+      if (isEditableShortcutTarget(e.target)) {
+        return;
+      }
+
+      if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+        if (showResumeModal || showMinecraftModal) {
+          return;
+        }
+        e.preventDefault();
+        setShowHelpModal((prev) => !prev);
+        return;
+      }
+
+      if (showHelpModal || showResumeModal || showMinecraftModal || shortcutApiRef.current?.isBlocked) {
+        return;
+      }
+
+      const tabIndex = getTabIndexForShortcutKey(e.key);
+      if (tabIndex !== null) {
+        e.preventDefault();
+        shortcutApiRef.current?.selectTabByIndex?.(tabIndex);
+        return;
+      }
+
+      if (e.key.toLowerCase() === 'r') {
+        e.preventDefault();
+        setShowResumeModal(true);
+        return;
+      }
+
+      if (e.key.toLowerCase() === 't') {
+        e.preventDefault();
+        shortcutApiRef.current?.cycleTheme?.();
       }
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [showResumeModal, showMinecraftModal]);
+  }, [showHelpModal, showResumeModal, showMinecraftModal]);
 
   return (
     <section className="hero">
@@ -35,7 +83,11 @@ const Hero = ({ onStartDoodle }) => {
       <div className={`hero-grid${isBlogsActive ? ' blogs-mode' : ''}`}>
         {/* Left Column — always visible on desktop, hidden on mobile when blogs is active */}
         <div className={`hero-left${isBlogsActive ? ' blogs-hidden' : ''}`}>
-          <ProfileSection />
+          <ProfileSection
+            onOpenHelp={() => setShowHelpModal(true)}
+            onCloseHelp={() => setShowHelpModal(false)}
+            showHelpModal={showHelpModal}
+          />
           <CodeCard onOpenResume={() => setShowResumeModal(true)} />
           <SocialLinks />
         </div>
@@ -45,6 +97,9 @@ const Hero = ({ onStartDoodle }) => {
           onOpenMinecraft={() => setShowMinecraftModal(true)}
           onStartDoodle={onStartDoodle}
           onBlogsActiveChange={setIsBlogsActive}
+          onShortcutApiReady={(api) => {
+            shortcutApiRef.current = api;
+          }}
         />
       </div>
 

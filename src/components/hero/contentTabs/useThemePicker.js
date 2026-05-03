@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { themes } from "./config";
 
 export const useThemePicker = () => {
   const [theme, setTheme] = useState(() => {
@@ -42,14 +43,15 @@ export const useThemePicker = () => {
     setShowThemePicker((prev) => !prev);
   };
 
-  const switchTheme = (newThemeId, event) => {
+  const switchTheme = useCallback((newThemeId, event) => {
     if (newThemeId === theme) {
       setShowThemePicker(false);
       return;
     }
 
-    const x = event.clientX;
-    const y = event.clientY;
+    const toggleRect = toggleBtnRef.current?.getBoundingClientRect();
+    const x = event?.clientX ?? (toggleRect ? toggleRect.left + toggleRect.width / 2 : window.innerWidth / 2);
+    const y = event?.clientY ?? (toggleRect ? toggleRect.top + toggleRect.height / 2 : window.innerHeight / 2);
 
     if (!document.startViewTransition) {
       setTheme(newThemeId);
@@ -79,11 +81,18 @@ export const useThemePicker = () => {
           easing: "ease-in-out",
           pseudoElement: "::view-transition-new(root)",
         },
-      );
-    });
-  };
+        );
+      });
+  }, [theme]);
+
+  const cycleTheme = useCallback(() => {
+    const currentIndex = themes.findIndex((themeOption) => themeOption.id === theme);
+    const nextThemeId = themes[(currentIndex + 1 + themes.length) % themes.length].id;
+    switchTheme(nextThemeId);
+  }, [theme, switchTheme]);
 
   return {
+    cycleTheme,
     pickerPos,
     showThemePicker,
     switchTheme,

@@ -131,6 +131,14 @@ describe('hero content tabs', () => {
     })
 
     expect(result.current.showThemePicker).toBe(false)
+
+    act(() => {
+      result.current.cycleTheme()
+    })
+
+    await Promise.resolve()
+
+    expect(result.current.theme).toBe('light')
   })
 
   it('renders the tabs header and theme options', () => {
@@ -256,5 +264,32 @@ describe('hero content tabs', () => {
     await waitFor(() => {
       expect(screen.queryByText('Binge Watching Collection')).not.toBeInTheDocument()
     })
+  })
+
+  it('registers a shortcut api for tab switching and theme cycling', async () => {
+    const onShortcutApiReady = vi.fn()
+
+    render(
+      <ContentTabs
+        onOpenMinecraft={vi.fn()}
+        onStartDoodle={vi.fn()}
+        onBlogsActiveChange={vi.fn()}
+        onShortcutApiReady={onShortcutApiReady}
+      />,
+    )
+
+    const latestApi = onShortcutApiReady.mock.calls.at(-1)?.[0]
+
+    expect(latestApi).toMatchObject({
+      isBlocked: false,
+      selectTabByIndex: expect.any(Function),
+      cycleTheme: expect.any(Function),
+    })
+
+    act(() => {
+      latestApi.selectTabByIndex(9)
+    })
+
+    expect(await screen.findByText('Blogs Pane Mock')).toBeInTheDocument()
   })
 })

@@ -28,6 +28,28 @@ _(PS: You might’ve just learned something new about how GitHub Pages routing w
 
 ---
 
+## Keyboard Shortcuts
+
+- `?` — open the help and shortcut guide
+- `1` to `9`, `0` — switch the main tabs
+  - `1` Projects
+  - `2` About
+  - `3` Skills
+  - `4` Experience
+  - `5` Education
+  - `6` Achievements
+  - `7` Certs
+  - `8` Volunteer
+  - `9` Hobbies
+  - `0` Blogs
+- `R` — open the resume
+- `T` — cycle themes
+- `Esc` — close the current modal or overlay
+
+Shortcuts are ignored while typing inside text inputs or editable fields.
+
+---
+
 ## Agent Readiness
 
 This site is optimized for discovery by AI agents (ChatGPT, Perplexity, Google AI Overviews, etc.).
