@@ -24,6 +24,10 @@ dist-ssr
 *.sw?
 
 agent_ready/
+graphify-out/
+
+# Test output
+coverage/
 
 # Blog scratch files
 blog-posts/rough_work.txt
