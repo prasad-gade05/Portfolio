@@ -23,6 +23,8 @@ const BLOG_RSS_PATH = path.join(BLOGS_DIR, "rss.xml");
 const SITEMAP_PATH = path.join(PUBLIC_DIR, "sitemap.xml");
 const LLMS_PATH = path.join(PUBLIC_DIR, "llms.txt");
 const LLMS_FULL_PATH = path.join(PUBLIC_DIR, "llms-full.txt");
+const BLOG_LIST_URL = `${SITE_URL}/blogs/blogs.json`;
+const BLOG_RSS_URL = `${SITE_URL}/blogs/rss.xml`;
 
 marked.setOptions({
   gfm: true,
@@ -192,17 +194,30 @@ function updateSitemap(posts) {
     `$1${rootLastmod}$3`
   );
 
-  sitemap = sitemap.replace(/\s*<url>\s*<loc>https:\/\/prasadgade\.dev\/blogs\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+  sitemap = removeSitemapEntries(sitemap, [BLOG_LIST_URL, BLOG_RSS_URL]);
+  sitemap = sitemap.replace(/\s*<url>\s*<loc>https:\/\/prasadgade\.dev\/blogs\/[^<]+\/<\/loc>[\s\S]*?<\/url>/g, "");
 
-  const blogEntries = posts
-    .map(
-      (post) => `  <url>
-    <loc>${post.absoluteUrl}</loc>
-    <lastmod>${post.date}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>`
-    )
+  const blogEntries = [
+    {
+      loc: BLOG_LIST_URL,
+      lastmod: rootLastmod,
+      changefreq: "monthly",
+      priority: "0.5",
+    },
+    {
+      loc: BLOG_RSS_URL,
+      lastmod: rootLastmod,
+      changefreq: "monthly",
+      priority: "0.5",
+    },
+    ...posts.map((post) => ({
+      loc: post.absoluteUrl,
+      lastmod: post.date,
+      changefreq: "yearly",
+      priority: "0.8",
+    })),
+  ]
+    .map(formatSitemapEntry)
     .join("\n");
 
   sitemap = sitemap.replace(
@@ -211,6 +226,23 @@ function updateSitemap(posts) {
   );
 
   fs.writeFileSync(SITEMAP_PATH, `${sitemap.trim()}\n`, "utf8");
+}
+
+function formatSitemapEntry(entry) {
+  return `  <url>
+    <loc>${entry.loc}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>`;
+}
+
+function removeSitemapEntries(sitemap, urls) {
+  return urls.reduce(
+    (currentSitemap, url) =>
+      currentSitemap.replace(new RegExp(`\\s*<url>\\s*<loc>${escapeRegExp(url)}</loc>[\\s\\S]*?</url>`, "g"), ""),
+    sitemap
+  );
 }
 
 function updateLlmsFiles(posts) {
