@@ -30,61 +30,47 @@ _(PS: You might’ve just learned something new about how GitHub Pages routing w
 
 ## Keyboard Shortcuts
 
-- `?` — open the help and shortcut guide
-- `1` to `9`, `0` — switch the main tabs
-  - `1` Projects
-  - `2` About
-  - `3` Skills
-  - `4` Experience
-  - `5` Education
-  - `6` Achievements
-  - `7` Certs
-  - `8` Volunteer
-  - `9` Hobbies
-  - `0` Blogs
-- `R` — open the resume
-- `T` — cycle themes
-- `Esc` — close the current modal or overlay
-
-Shortcuts are ignored while typing inside text inputs or editable fields.
+Keyboard shortcuts are available in the app. Press `?` to open the in-app guide.
 
 ---
 
 ## Agent Readiness
 
-This site is optimized for discovery by AI agents (ChatGPT, Perplexity, Google AI Overviews, etc.).
+The agent-facing files live under `public\`:
 
-**Discovery Layer**
-- `/robots.txt` — Crawler permissions (all 13 major AI bots explicitly allowed)
-- `/sitemap.xml` — Page listing for search engines and crawlers
-- `/llms.txt` — Short summary for LLMs ([llms.txt spec](https://llmstxt.org/))
-- `/llms-full.txt` — Full profile with all projects, skills, and personality
+```
+public/
+├── .well-known/
+│   ├── agent.json                 # A2A Agent Card
+│   ├── agents.json                # Agents Directory
+│   ├── webmcp.json                # WebMCP Manifest
+│   ├── webmcp                     # WebMCP Alias
+│   ├── mcp.json                   # MCP Discovery
+│   ├── api-catalog                # API Catalog
+│   ├── agent-skills/
+│   │   └── index.json             # Agent Skills Index
+│   └── openapi                    # OpenAPI Alias
+├── agent/
+│   └── index.html                 # Agent Landing Page
+├── api/
+│   ├── resume.json                # Primary Slim Resume
+│   ├── resume-master.json         # Detailed Master Resume
+│   ├── projects.json              # Projects Portfolio
+│   ├── skills.json                # Skills Taxonomy
+│   ├── social.json                # Contact & Social
+│   └── about.json                 # Personality & Hobbies
+├── blogs/
+│   ├── blogs.json                 # Blog Metadata
+│   ├── rss.xml                    # RSS Feed
+│   └── content/
+│       └── introduction-blogging-journey.md
+├── openapi.json                   # OpenAPI Specification
+├── agents.json                    # Root Agents Directory
+├── llms.txt                       # LLM Summary
+├── llms-full.txt                  # LLM Full Content
+├── robots.txt                     # Crawler Policy
+├── sitemap.xml                    # XML Sitemap
+└── Prasad_Gade_Resume.pdf         # PDF Resume
+```
 
-**Semantic HTML for Agents**
-- Root HTML shell and `/agent/` expose semantic landmarks (`<header>`, `<nav>`, `<main>`, `<footer>`)
-- Static fallback sections use question-based H2 headings for direct query matching
-- Tool-annotated discovery forms include explicit autocomplete metadata, even for fixed no-input hints
-
-**Structured Data (JSON-LD in page head)**
-- Person, WebSite, WebPage, ProfilePage, BreadcrumbList, ItemList (Projects)
-- Schema.org vocabulary with entity linking via `sameAs` and `@id` references
-
-**Static JSON API (no server needed)**
-- `/api/resume.json` — Structured resume data
-- `/api/projects.json` — All projects with descriptions and links
-- `/api/skills.json` — Categorized technical skills
-- `/api/social.json` — Contact info and social profiles
-- `/api/about.json` — Site philosophy, personality, hobbies
-
-**Agent Protocol Discovery**
-- `/.well-known/agent.json` — A2A-style agent card
-- `/.well-known/agents.json` — Primary agent directory
-- `/agents.json` — Root alias for agent directory discovery
-- `/.well-known/webmcp.json` — WebMCP manifest for pre-navigation tool discovery
-- `/.well-known/mcp.json` — MCP discovery metadata for the static portfolio surface
-
-**Security**
-- HTTPS enforced by GitHub Pages
-- CSP and referrer-policy via meta tags on shipped HTML pages
-- GitHub Pages cannot set custom response headers from this repo, so a true `Referrer-Policy` HTTP header would require a proxy/CDN layer such as Cloudflare, Netlify, or Vercel
-- Noscript fallback for crawlers that do not execute JavaScript
+More detail: `docs\KEYBOARD_AND_AGENT_READINESS.md`

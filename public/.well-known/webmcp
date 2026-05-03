@@ -79,7 +79,7 @@
     },
     {
       "name": "get_about",
-      "description": "Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio.",
+      "description": "Get personality, hobbies, interests, favorite media, site philosophy, and in-app keyboard shortcut details.",
       "url": "https://prasadgade.dev/api/about.json",
       "method": "GET",
       "parameters": [],

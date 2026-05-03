@@ -3,7 +3,7 @@
     "source": "prasadgade.dev",
     "generated": "2026-04-20",
     "version": "1.0",
-    "description": "Personality, hobbies, site philosophy, and interests of Prasad Gade"
+    "description": "Personality, hobbies, site philosophy, site features, keyboard shortcuts, and interests of Prasad Gade"
   },
   "data": {
     "who": "Prasad Gade is a computer engineer and a data analyst who builds software, works with data, and creates intelligent tools to solve real problems.",
@@ -20,12 +20,32 @@
       "3D Minecraft skin viewer using skinview3d and Three.js",
       "Paper playground: screen turns into a crumpled paper with real cloth physics simulation",
       "Hidden easter eggs: Konami code and hesoyam trigger animations",
+      "Keyboard shortcuts available across the app; press ? to open the in-app guide",
       "Start Here modal for non-tech visitors explaining all sections",
       "Resume opens in an in-app modal (no redirect)",
       "Responsive for mobile, tablet, and desktop-site-on-mobile",
       "Every modal closes on ESC key",
       "Custom domain: prasadgade.dev"
     ],
+    "keyboard_shortcuts": {
+      "open_guide": "?",
+      "switch_tabs": {
+        "1": "Projects",
+        "2": "About",
+        "3": "Skills",
+        "4": "Experience",
+        "5": "Education",
+        "6": "Achievements",
+        "7": "Certs",
+        "8": "Volunteer",
+        "9": "Hobbies",
+        "0": "Blogs"
+      },
+      "open_resume": "R",
+      "cycle_themes": "T",
+      "close_current_modal_or_overlay": "Esc",
+      "note": "Shortcuts are ignored while typing inside inputs, textareas, selects, and contenteditable fields."
+    },
     "hobbies": {
       "sports": ["Cricket", "Minecraft"],
       "favorite_book": {

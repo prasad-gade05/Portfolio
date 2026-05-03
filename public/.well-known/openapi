@@ -240,7 +240,7 @@
     "/api/about.json": {
       "get": {
         "summary": "Personality, hobbies, and interests",
-        "description": "Returns site philosophy, hobbies, interests, and site features as JSON with meta and data wrappers.",
+        "description": "Returns site philosophy, hobbies, interests, site features, and keyboard shortcut details as JSON with meta and data wrappers.",
         "operationId": "getAbout",
         "tags": ["Personal"],
         "responses": {
@@ -266,6 +266,6 @@
   "tags": [
     { "name": "Professional", "description": "Resume, projects, and skills data" },
     { "name": "Contact", "description": "Contact and social profile information" },
-    { "name": "Personal", "description": "Personality, hobbies, and site philosophy" }
+    { "name": "Personal", "description": "Personality, hobbies, site philosophy, and site features" }
   ]
 }

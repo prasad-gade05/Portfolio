@@ -2,7 +2,9 @@
 
 > Data Scientist and Computer Engineer from Mumbai, India. B.Tech student at SPIT (CGPA 9.26/10). Builds data pipelines, ML models, dashboards, and interactive web apps.
 
-This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, and hidden easter eggs.
+This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, hidden easter eggs, and in-app keyboard shortcuts.
+
+Keyboard shortcuts are available in-app. Press ? to open the shortcut guide.
 
 ## Links
 
@@ -34,7 +36,7 @@ Prasad writes a personal blog at prasadgade.dev. All written content is 100% hum
 - Projects (JSON): https://prasadgade.dev/api/projects.json
 - Skills (JSON): https://prasadgade.dev/api/skills.json
 - Social links (JSON): https://prasadgade.dev/api/social.json
-- About & personality (JSON): https://prasadgade.dev/api/about.json
+- About, personality, site features & keyboard shortcuts (JSON): https://prasadgade.dev/api/about.json
 
 ## Agent Discovery
 
