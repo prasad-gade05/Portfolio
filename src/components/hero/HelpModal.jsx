@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, Link2, FileText } from "lucide-react";
+import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, FileText, BookOpen } from "lucide-react";
 import "./HelpModal.css";
 
 const HelpModal = ({ onClose }) => {
@@ -28,7 +28,6 @@ const HelpModal = ({ onClose }) => {
         </div>
 
         <div className="help-modal-content">
-          {/* Row 1 */}
           <section className="help-section">
             <div className="help-section-title">
               <User size={16} />
@@ -56,6 +55,18 @@ const HelpModal = ({ onClose }) => {
 
           <section className="help-section">
             <div className="help-section-title">
+              <Compass size={16} />
+              <h3>How to explore</h3>
+            </div>
+            <ul className="help-list">
+              <li><strong>Tabs</strong>: Skills, Projects, Education, Hobbies, and Blogs</li>
+              <li><strong>Social icons</strong>: my profiles like LinkedIn and GitHub</li>
+              <li><strong>Resume</strong>: opens my traditional PDF resume</li>
+            </ul>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-title">
               <Folder size={16} />
               <h3>What are "projects"?</h3>
             </div>
@@ -65,43 +76,37 @@ const HelpModal = ({ onClose }) => {
             </p>
           </section>
 
-          {/* Row 2 */}
+          <section className="help-section">
+            <div className="help-section-title">
+              <BookOpen size={16} />
+              <h3>Why blogs?</h3>
+            </div>
+            <p>
+              The <strong>Blogs</strong> tab is where I write about what I am learning, building, and noticing along the way.
+            </p>
+            <p className="help-subtext">
+              <em>Every blog post here is 100% human written.</em>
+            </p>
+            <p className="help-subtext">
+              <em>Projects show the final result. Blogs show the thinking, lessons, and experiments behind the work.</em>
+            </p>
+          </section>
+
           <section className="help-section">
             <div className="help-section-title">
               <Github size={16} />
               <h3>Project links</h3>
             </div>
             <ul className="help-list">
-              <li><strong>GitHub</strong>: where developers store and share code</li>
-              <li><strong>HuggingFace</strong>: a platform for AI models and demos</li>
-              <li><strong>Kaggle</strong>: a site for data science projects and competitions</li>
+              <li><strong>GitHub</strong>: where I store and share code</li>
+              <li><strong>Hugging Face</strong>: where I share AI models and demos</li>
+              <li><strong>Kaggle</strong>: where I share data science work</li>
             </ul>
-          </section>
-
-          <section className="help-section">
-            <div className="help-section-title">
-              <Link2 size={16} />
-              <h3>Why two links?</h3>
-            </div>
-            <p>
-              Some projects have <strong>GitHub</strong> (source code) + <strong>Live</strong> (try it yourself). 
-              ML projects often lack live links since they're about training models, not hosting apps.
+            <p className="help-subtext">
+              <strong>GitHub</strong> shows the code. <strong>Live</strong> lets you try the project. Some AI or data work only has repo or demo links because the main output is the model or analysis.
             </p>
           </section>
 
-          <section className="help-section">
-            <div className="help-section-title">
-              <Compass size={16} />
-              <h3>How to explore</h3>
-            </div>
-            <ul className="help-list">
-              <li><strong>Tabs</strong>: Skills, Projects, Education, Hobbies</li>
-              <li><strong>Social icons</strong>: my profiles (LinkedIn, GitHub)</li>
-              <li><strong>Resume</strong>: opens traditional PDF resume</li>
-            </ul>
-          </section>
-
-          {/* Row 3 */}
           <section className="help-section">
             <div className="help-section-title">
               <Palette size={16} />

@@ -27,28 +27,9 @@
   cursor: default;
   max-width: 900px;
   width: 95%;
+  max-height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
-}
-
-/* Desktop: fit in viewport without scroll */
-@media (min-width: 769px) {
-  .help-modal-card {
-    max-height: calc(100vh - 32px);
-  }
-  .help-modal-content {
-    overflow: hidden;
-  }
-}
-
-/* Tablet/Mobile: allow scrolling */
-@media (max-width: 768px) {
-  .help-modal-card {
-    max-height: 90vh;
-  }
-  .help-modal-content {
-    overflow-y: auto;
-  }
 }
 
 .help-modal-header {
@@ -105,9 +86,13 @@
   padding: 12px;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(3, 1fr) auto;
   gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  align-items: stretch;
 }
 
 /* Scrollbar styling */
@@ -134,6 +119,7 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .help-section-title {
@@ -320,8 +306,12 @@
    TABLET RESPONSIVE (2 columns)
    ============================================ */
 @media (max-width: 768px) {
+  .help-modal-card {
+    max-height: 90vh;
+  }
+
   .help-modal-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 10px;
   }
