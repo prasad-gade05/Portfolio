@@ -1,0 +1,853 @@
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet screens */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(260px, 320px) 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skills-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .hero {
+    padding: 8px;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 25vh 1fr;
+    gap: 8px;
+    height: 100%;
+  }
+  
+  .hero-left {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    max-height: 25vh;
+    gap: 8px;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+  
+  .hero-left > * {
+    flex-shrink: 0;
+    width: 100%;
+    min-width: 280px;
+  }
+  
+  .hero-left::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hero-right {
+    height: 100%;
+    min-height: 0;
+    max-height: 75vh;
+  }
+  
+  .info-section {
+    flex: 0 0 auto;
+    padding: 12px;
+  }
+  
+  .code-card {
+    display: flex;
+    flex: 0 0 auto;
+  }
+  
+  .code-content {
+    container-type: inline-size;
+  }
+  
+  .code-content code {
+    height: auto;
+    font-size: clamp(7px, 2.5cqw, 12px);
+  }
+  
+  .code-content .line {
+    flex: 0 0 auto;
+    min-height: clamp(12px, 4cqw, 18px);
+  }
+  
+  .social-section {
+    flex: 0 0 auto;
+  }
+  
+  .social-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 6px;
+  }
+  
+  .social-card-fun {
+    padding: 9px 6px;
+  }
+  
+  .social-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .social-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .social-platform {
+    font-size: 9px;
+  }
+  
+  .social-handle {
+    display: none;
+  }
+  
+  .name {
+    font-size: 28px;
+  }
+  
+  .role-typing {
+    font-size: 14px;
+    min-height: 18px;
+  }
+  
+  .bio-tag {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .skills-section {
+    display: none;
+  }
+  
+  .tab-btn span {
+    display: none;
+  }
+  
+  .tab-btn {
+    padding: 10px 12px;
+  }
+  
+  .tabs-content {
+    padding: 12px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .project-header {
+    height: 40px;
+  }
+  
+  .project-body {
+    padding: 10px;
+  }
+  
+  .project-title {
+    font-size: 13px;
+  }
+  
+  .project-subtitle {
+    font-size: 11px;
+  }
+  
+  .project-desc {
+    font-size: 10px;
+    -webkit-line-clamp: 2;
+  }
+  
+  .project-tech {
+    gap: 4px;
+  }
+  
+  .tech-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  
+  .skills-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-group {
+    padding: 10px;
+  }
+  
+  .skill-category {
+    font-size: 11px;
+  }
+  
+  .skill-chip {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .hobby-card {
+    padding: 12px;
+  }
+  
+  .hobby-card-header h4 {
+    font-size: 12px;
+  }
+  
+  .hobby-activity-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .minecraft-clickable {
+    flex-wrap: wrap;
+  }
+
+  .minecraft-clickable::after {
+    position: static;
+    width: 100%;
+    font-size: 9px;
+    margin-top: -2px;
+  }
+  
+  .book-title {
+    font-size: 12px;
+  }
+  
+  .book-author {
+    font-size: 10px;
+  }
+  
+  .series-tag {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .song-link {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pane-header {
+    font-size: 13px;
+  }
+  
+  .edu-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .edu-meta {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .exp-card {
+    padding: 14px;
+  }
+  
+  .exp-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .achieve-item {
+    padding: 12px;
+  }
+  
+  .cert-item {
+    padding: 10px;
+  }
+  
+  .volunteer-item {
+    padding: 12px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .hero {
+    padding: 6px;
+  }
+  
+  .hero-grid {
+    gap: 6px;
+  }
+  
+  .hero-left {
+    gap: 6px;
+  }
+  
+  .info-section {
+    padding: 10px;
+    min-height: fit-content;
+    overflow: visible;
+  }
+  
+  .name {
+    font-size: 24px;
+  }
+  
+  .role-typing {
+    font-size: 12px;
+    min-height: 16px;
+  }
+  
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .location {
+    font-size: 10px;
+  }
+  
+  .bio-tags {
+    gap: 4px;
+  }
+  
+  .bio-tag {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .skills-section {
+    min-height: fit-content;
+  }
+
+  .skills-label {
+    font-size: 9px;
+  }
+
+  .skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .skill-tag {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  
+  .social-cards-grid {
+    gap: 4px;
+  }
+  
+  .social-card-fun {
+    padding: 7px 4px;
+  }
+  
+  .social-icon-wrap {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .social-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .social-platform {
+    font-size: 8px;
+  }
+  
+  .tabs-content {
+    padding: 10px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  
+  .project-header {
+    height: 35px;
+  }
+  
+  .project-body {
+    padding: 8px;
+  }
+  
+  .project-title {
+    font-size: 12px;
+  }
+  
+  .project-subtitle {
+    font-size: 10px;
+  }
+  
+  .project-desc {
+    display: none;
+  }
+  
+  .project-tech {
+    display: none;
+  }
+  
+  .project-card-links {
+    margin-top: 6px;
+  }
+  
+  .skills-compact {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .skill-group {
+    padding: 8px;
+  }
+  
+  .skill-category {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .skill-chip {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  
+  .skill-chip svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  
+  .hobby-card {
+    padding: 10px;
+  }
+  
+  .hobby-card-header {
+    margin-bottom: 8px;
+  }
+  
+  .hobby-card-header h4 {
+    font-size: 11px;
+  }
+  
+  .hobby-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .hobby-activity-item {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .minecraft-clickable {
+    flex-wrap: wrap;
+  }
+
+  .minecraft-clickable::after {
+    position: static;
+    width: 100%;
+    font-size: 8px;
+    margin-top: -2px;
+  }
+  
+  .hobby-activity-item svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .book-info {
+    padding: 8px;
+  }
+  
+  .book-title {
+    font-size: 11px;
+  }
+  
+  .book-author {
+    font-size: 9px;
+  }
+  
+  .series-tag {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  
+  .series-tag svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .song-link {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+  
+  .pane-header {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .edu-list {
+    gap: 8px;
+  }
+  
+  .edu-item {
+    padding: 10px;
+  }
+  
+  .edu-main h3 {
+    font-size: 12px;
+  }
+  
+  .edu-main p {
+    font-size: 10px;
+  }
+  
+  .edu-grade {
+    font-size: 11px;
+  }
+  
+  .exp-card {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .exp-header h3 {
+    font-size: 14px;
+  }
+  
+  .exp-company {
+    font-size: 12px;
+  }
+  
+  .exp-points li {
+    font-size: 11px;
+  }
+  
+  .exp-tag {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  
+  .achieve-list {
+    gap: 8px;
+  }
+  
+  .achieve-item {
+    padding: 10px 12px;
+  }
+  
+  .achieve-content h3 {
+    font-size: 12px;
+  }
+  
+  .achieve-content p {
+    font-size: 10px;
+  }
+  
+  .certs-grid {
+    gap: 6px;
+  }
+  
+  .cert-item {
+    padding: 8px 10px;
+  }
+  
+  .cert-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 9px;
+  }
+  
+  .cert-name {
+    font-size: 11px;
+  }
+  
+  .cert-org {
+    font-size: 9px;
+  }
+  
+  .volunteer-list {
+    gap: 8px;
+  }
+  
+  .volunteer-item {
+    padding: 10px;
+  }
+  
+  .volunteer-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .volunteer-content h3 {
+    font-size: 13px;
+  }
+  
+  .volunteer-org {
+    font-size: 11px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .name {
+    font-size: 20px;
+  }
+  
+  .role-typing {
+    font-size: 11px;
+  }
+  
+  .social-platform {
+    font-size: 7px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-grid {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .hero-left {
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .info-section {
+    flex: 0 0 auto;
+  }
+  
+  .code-card {
+    display: flex;
+    flex: 0 0 auto;
+  }
+  
+  .code-content {
+    container-type: inline-size;
+  }
+  
+  .code-content code {
+    height: auto;
+    font-size: clamp(7px, 2.5cqw, 12px);
+  }
+  
+  .code-content .line {
+    flex: 0 0 auto;
+    min-height: clamp(12px, 4cqw, 18px);
+  }
+  
+  .social-section {
+    flex: 1 1 auto;
+  }
+  
+  .bio-section, .skills-section {
+    display: none;
+  }
+  
+  .name {
+    font-size: 20px;
+  }
+  
+  .role-typing {
+    font-size: 12px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .hero-grid {
+    grid-template-columns: minmax(380px, 480px) 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1800px) {
+  .hero {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+}
+
+/* Cap height for extremely tall viewports (desktop mode on mobile) */
+@media (min-width: 769px) {
+  .hero {
+    align-items: center;
+  }
+
+  .hero-grid {
+    max-height: min(100dvh, 1200px);
+  }
+}
+
+/* ============================================
+   DESKTOP VIEW ON SMALL PHYSICAL SCREENS
+   (Desktop site requested on mobile browser)
+   Targets screens with desktop width but small physical size
+   ============================================ */
+@media (max-height: 500px), (max-resolution: 150dpi) and (min-width: 900px) and (max-width: 1400px) {
+  /* Constrain left column cards */
+  .info-section {
+    padding: 8px 10px;
+  }
+  
+  .code-card {
+    /* No max-height - let it show all content */
+  }
+  
+  .social-section {
+    max-height: 140px;
+  }
+  
+  .social-card-fun {
+    max-height: 45px;
+    padding: 4px;
+  }
+  
+  .social-icon-wrap {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Constrain right column tabs content */
+  .tabs-content {
+    padding: 10px;
+  }
+  
+  /* Skills grid - tighter */
+  .skills-compact {
+    gap: 8px;
+  }
+  
+  .skill-category-card {
+    padding: 8px;
+  }
+  
+  .skill-category-title {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  
+  .skill-item {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+  
+  .skill-icon-mini {
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Projects grid - tighter */
+  .projects-grid {
+    gap: 6px;
+  }
+  
+  .project-card {
+    padding: 0;
+  }
+  
+  .project-title {
+    font-size: 12px;
+  }
+  
+  .project-subtitle {
+    font-size: 10px;
+  }
+  
+  .project-desc {
+    font-size: 10px;
+    -webkit-line-clamp: 2;
+  }
+  
+  .project-tech {
+    gap: 4px;
+  }
+  
+  .project-tech span {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+  
+  /* Education cards - tighter */
+  .edu-card, .cert-card, .achieve-card, .vol-card {
+    padding: 8px 10px;
+  }
+  
+  .edu-degree, .cert-name, .achieve-title, .vol-role {
+    font-size: 11px;
+  }
+  
+  .edu-school, .cert-org, .achieve-desc, .vol-org {
+    font-size: 10px;
+  }
+  
+  /* Hobbies - tighter */
+  .hobbies-grid {
+    gap: 8px;
+  }
+  
+  .hobby-card {
+    padding: 10px;
+  }
+  
+  .hobby-title {
+    font-size: 11px;
+  }
+  
+  .hobby-content {
+    font-size: 10px;
+  }
+  
+  /* Experience card */
+  .exp-card {
+    padding: 10px;
+  }
+  
+  .exp-title {
+    font-size: 12px;
+  }
+  
+  .exp-company {
+    font-size: 11px;
+  }
+  
+  .exp-points li {
+    font-size: 10px;
+  }
+}
+

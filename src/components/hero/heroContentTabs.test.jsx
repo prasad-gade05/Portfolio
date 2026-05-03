@@ -1,0 +1,260 @@
+import { act, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+import { projects } from '../../data/portfolioData'
+import ContentTabs from './ContentTabs'
+import {
+  AchievementsPane,
+  CertificationsPane,
+  EducationPane,
+  ExperiencePane,
+  VolunteeringPane,
+} from './contentTabs/CareerPanes'
+import ContentTabPanes from './contentTabs/ContentTabPanes'
+import { tabs, themes, splitGroups } from './contentTabs/config'
+import { BlogsTabPane, HobbiesPane } from './contentTabs/PersonalPanes'
+import { AboutPane, SkillsPane } from './contentTabs/ProfilePanes'
+import ProjectsPane from './contentTabs/ProjectsPane'
+import TabsHeader from './contentTabs/TabsHeader'
+import { tabPaneMotionProps } from './contentTabs/motion'
+import { useProjectGrid } from './contentTabs/useProjectGrid'
+import { useThemePicker } from './contentTabs/useThemePicker'
+
+vi.mock('framer-motion', async () => {
+  const React = await vi.importActual('react')
+
+  const makeComponent = (tag) =>
+    React.forwardRef(({ children, ...props }, ref) =>
+      React.createElement(tag, { ref, ...props }, children),
+    )
+
+  return {
+    AnimatePresence: ({ children }) => React.createElement(React.Fragment, null, children),
+    motion: new Proxy(
+      {},
+      {
+        get: (_, tag) => makeComponent(tag),
+      },
+    ),
+  }
+})
+
+vi.mock('./BlogsPane', () => ({
+  default: () => <div>Blogs Pane Mock</div>,
+}))
+
+describe('hero content tabs', () => {
+  beforeEach(() => {
+    localStorage.clear()
+    window.history.replaceState({}, '', '/')
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('keeps the tab config and motion props stable', () => {
+    expect(themes).toHaveLength(4)
+    expect(tabs.some((tab) => tab.id === 'blogs')).toBe(true)
+    expect(splitGroups['about-skills']).toEqual(['about', 'skills'])
+    expect(tabPaneMotionProps.transition).toMatchObject({ duration: 0.15 })
+  })
+
+  it('calculates project grid layout and updates on resize', () => {
+    window.innerWidth = 1280
+    const { result } = renderHook(() => useProjectGrid(7))
+
+    expect(result.current.adaptiveGridStyle).toEqual({
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    })
+    expect(result.current.lastRowStartIdx).toBe(4)
+    expect(result.current.lastRowOffset).toBe(1)
+
+    act(() => {
+      window.innerWidth = 320
+      window.dispatchEvent(new Event('resize'))
+    })
+
+    expect(result.current.adaptiveGridStyle).toEqual({
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    })
+  })
+
+  it('handles theme picker state, storage, outside clicks, and transitions', async () => {
+    localStorage.setItem('portfolio-theme', 'light')
+    const animateSpy = vi.fn()
+    const startViewTransition = vi.fn((callback) => {
+      callback()
+      return { ready: Promise.resolve() }
+    })
+    document.startViewTransition = startViewTransition
+    document.documentElement.animate = animateSpy
+
+    const { result } = renderHook(() => useThemePicker())
+
+    expect(result.current.theme).toBe('light')
+    expect(document.documentElement).toHaveAttribute('data-theme', 'light')
+
+    result.current.toggleBtnRef.current = {
+      getBoundingClientRect: () => ({ bottom: 24, right: 100 }),
+    }
+
+    act(() => {
+      result.current.toggleThemePicker()
+    })
+
+    expect(result.current.showThemePicker).toBe(true)
+    expect(result.current.pickerPos).toEqual({ top: 30, right: window.innerWidth - 100 })
+
+    result.current.themePickerRef.current = {
+      contains: () => false,
+    }
+
+    act(() => {
+      document.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }))
+    })
+
+    expect(result.current.showThemePicker).toBe(false)
+
+    act(() => {
+      result.current.switchTheme('dark', { clientX: 25, clientY: 35 })
+    })
+
+    await Promise.resolve()
+
+    expect(startViewTransition).toHaveBeenCalledTimes(1)
+    expect(result.current.theme).toBe('dark')
+    expect(animateSpy).toHaveBeenCalledTimes(1)
+
+    act(() => {
+      result.current.switchTheme('dark', { clientX: 25, clientY: 35 })
+    })
+
+    expect(result.current.showThemePicker).toBe(false)
+  })
+
+  it('renders the tabs header and theme options', () => {
+    const onTabClick = vi.fn()
+    const switchTheme = vi.fn()
+
+    render(
+      <TabsHeader
+        activeTabs={['projects']}
+        onTabClick={onTabClick}
+        pickerPos={{ top: 10, right: 20 }}
+        showThemePicker
+        switchTheme={switchTheme}
+        theme="dark"
+        themePickerRef={{ current: null }}
+        toggleBtnRef={{ current: null }}
+        toggleThemePicker={vi.fn()}
+        tabs={tabs.slice(0, 2)}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /projects/i }))
+    expect(onTabClick).toHaveBeenCalledWith(tabs[0])
+
+    fireEvent.click(screen.getByRole('button', { name: 'Light' }))
+    expect(switchTheme).toHaveBeenCalled()
+  })
+
+  it('renders the split profile and career panes', () => {
+    const { container } = render(
+      <>
+        <AboutPane isSplit />
+        <SkillsPane isSplit />
+        <ExperiencePane isSplit />
+        <EducationPane isSplit />
+        <AchievementsPane isSplit />
+        <CertificationsPane isSplit />
+        <VolunteeringPane isSplit />
+      </>,
+    )
+
+    expect(screen.getByText('About Me')).toBeInTheDocument()
+    expect(screen.getByText('Core Skills')).toBeInTheDocument()
+    expect(screen.getByText('Experience')).toBeInTheDocument()
+    expect(screen.getByText('Education')).toBeInTheDocument()
+    expect(screen.getByText('Achievements')).toBeInTheDocument()
+    expect(screen.getByText('Certifications')).toBeInTheDocument()
+    expect(screen.getByText('Volunteering')).toBeInTheDocument()
+    expect(container.querySelectorAll('.split')).not.toHaveLength(0)
+  })
+
+  it('renders hobbies and blogs panes and fires callbacks', async () => {
+    const onOpenMinecraft = vi.fn()
+    const onOpenMovies = vi.fn()
+    const onStartDoodle = vi.fn()
+
+    render(
+      <>
+        <HobbiesPane
+          isSplit={false}
+          onOpenMinecraft={onOpenMinecraft}
+          onOpenMovies={onOpenMovies}
+          onStartDoodle={onStartDoodle}
+        />
+        <BlogsTabPane />
+      </>,
+    )
+
+    fireEvent.click(screen.getByText('Minecraft'))
+    fireEvent.click(screen.getByText('Paper Playground'))
+    fireEvent.click(screen.getByRole('button', { name: /see all movies & shows/i }))
+
+    expect(onOpenMinecraft).toHaveBeenCalledTimes(1)
+    expect(onStartDoodle).toHaveBeenCalledTimes(1)
+    expect(onOpenMovies).toHaveBeenCalledTimes(1)
+    expect(await screen.findByText('Blogs Pane Mock')).toBeInTheDocument()
+  })
+
+  it('renders projects and tab panes for split mode', async () => {
+    render(
+      <>
+        <ProjectsPane />
+        <ContentTabPanes
+          activeTabs={['projects', 'hobbies', 'blogs']}
+          onOpenMinecraft={vi.fn()}
+          onOpenMovies={vi.fn()}
+          onStartDoodle={vi.fn()}
+        />
+      </>,
+    )
+
+    expect(screen.getAllByText(projects[0].title)[0]).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /view all on github/i }).length).toBeGreaterThan(0)
+
+    await waitFor(() => {
+      expect(screen.getByText('Blogs Pane Mock')).toBeInTheDocument()
+    })
+  })
+
+  it('opens the blogs tab from the url param and closes the movies modal on escape', async () => {
+    const onBlogsActiveChange = vi.fn()
+
+    window.history.replaceState({}, '', '/?tab=blogs')
+
+    render(
+      <ContentTabs
+        onOpenMinecraft={vi.fn()}
+        onStartDoodle={vi.fn()}
+        onBlogsActiveChange={onBlogsActiveChange}
+      />,
+    )
+
+    expect(await screen.findByText('Blogs Pane Mock')).toBeInTheDocument()
+    expect(onBlogsActiveChange).toHaveBeenCalledWith(true)
+
+    fireEvent.click(screen.getByRole('button', { name: /hobbies/i }))
+    fireEvent.click(screen.getByRole('button', { name: /see all movies & shows/i }))
+
+    expect(await screen.findByText('Binge Watching Collection')).toBeInTheDocument()
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+
+    await waitFor(() => {
+      expect(screen.queryByText('Binge Watching Collection')).not.toBeInTheDocument()
+    })
+  })
+})

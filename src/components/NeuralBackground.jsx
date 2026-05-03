@@ -1,5 +1,10 @@
 import { useEffect, useRef } from 'react'
 import './NeuralBackground.css'
+import {
+  CONNECTION_DISTANCE,
+  forEachNearbyPair,
+  getParticleCount,
+} from './neuralBackgroundUtils'
 
 const NeuralBackground = () => {
   const canvasRef = useRef(null)
@@ -25,7 +30,7 @@ const NeuralBackground = () => {
 
     const initParticles = () => {
       particles = []
-      const numParticles = Math.floor((canvas.width * canvas.height) / 20000)
+      const numParticles = getParticleCount(canvas.width, canvas.height)
       
       for (let i = 0; i < numParticles; i++) {
         const color = colors[Math.floor(Math.random() * colors.length)]
@@ -54,8 +59,7 @@ const NeuralBackground = () => {
     }
 
     const drawConnection = (p1, p2, distance) => {
-      const maxDist = 120
-      const opacity = (1 - distance / maxDist) * 0.08
+      const opacity = (1 - distance / CONNECTION_DISTANCE) * 0.08
       
       // Gradient line
       const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y)
@@ -73,7 +77,7 @@ const NeuralBackground = () => {
     const animate = (time) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
-      particles.forEach((p, i) => {
+      particles.forEach((p) => {
         // Smooth movement
         p.x += p.vx
         p.y += p.vy
@@ -101,20 +105,10 @@ const NeuralBackground = () => {
         p.vy *= 0.999
         
         drawParticle(p, time * 0.001)
-        
-        // Connections
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j]
-          const dx = p.x - p2.x
-          const dy = p.y - p2.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-          
-          if (distance < 120) {
-            drawConnection(p, p2, distance)
-          }
-        }
       })
-      
+
+      forEachNearbyPair(particles, CONNECTION_DISTANCE, drawConnection)
+       
       animationId = requestAnimationFrame(animate)
     }
 

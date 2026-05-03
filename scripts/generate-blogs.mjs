@@ -315,23 +315,53 @@ function renderBlogPage(post) {
     wordCount: post.wordCount,
     timeRequired: `PT${post.readTime}M`,
   };
+  const analyticsLoaderScript = `(() => {
+    const schedule = (callback) => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(callback, { timeout: 2000 });
+        return;
+      }
+
+      window.setTimeout(callback, 1200);
+    };
+
+    const appendScript = (attributes) => {
+      const script = document.createElement('script');
+      Object.entries(attributes).forEach(([key, value]) => {
+        if (value === true) {
+          script.setAttribute(key, '');
+          return;
+        }
+
+        script.setAttribute(key, value);
+      });
+      document.head.appendChild(script);
+    };
+
+    schedule(() => {
+      appendScript({
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}',
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', '${GOOGLE_ANALYTICS_ID}');
+
+      appendScript({
+        async: true,
+        'data-goatcounter': '${GOATCOUNTER_URL}',
+        src: '//gc.zgo.at/count.js',
+      });
+    });
+  })();`;
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${GOOGLE_ANALYTICS_ID}');
-  </script>
-
-  <!-- GoatCounter -->
-  <script data-goatcounter="${GOATCOUNTER_URL}"
-          async src="//gc.zgo.at/count.js"></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title} — ${AUTHOR_NAME}</title>
@@ -367,6 +397,12 @@ ${articleTags}
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preload" as="image" href="${post.thumbnail}" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+  />
   <script>
     (function() {
       var portfolioTheme = null;
@@ -386,6 +422,7 @@ ${articleTags}
       }
     })();
   </script>
+  <script>${analyticsLoaderScript}</script>
   <link rel="stylesheet" href="/blogs/blog.css" />
 
   <!-- Structured Data -->

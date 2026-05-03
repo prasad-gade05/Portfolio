@@ -1,0 +1,99 @@
+import {
+  FaGithub,
+  FaLinkedin,
+  FaKaggle,
+  FaTwitter,
+  FaInstagram,
+  FaKeyboard,
+  FaSpotify,
+  FaReddit,
+} from "react-icons/fa";
+import { SiLeetcode, SiStreamlit, SiHuggingface } from "react-icons/si";
+import { HiMail } from "react-icons/hi";
+
+export const socialLinks = [
+  {
+    icon: FaGithub,
+    href: "https://github.com/prasad-gade05",
+    label: "GitHub",
+    handle: "prasad-gade05",
+    vibe: "github",
+  },
+  {
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/prasad-gade05/",
+    label: "LinkedIn",
+    handle: "prasad-gade05",
+    vibe: "linkedin",
+  },
+  {
+    icon: HiMail,
+    href: "mailto:prasadgade4405@gmail.com",
+    label: "Email",
+    handle: "prasadgade4405@gmail.com",
+    vibe: "email",
+  },
+  {
+    icon: FaKaggle,
+    href: "https://kaggle.com/prasadgade",
+    label: "Kaggle",
+    handle: "prasadgade",
+    vibe: "kaggle",
+  },
+  {
+    icon: SiLeetcode,
+    href: "https://leetcode.com/u/prasad-gade05/",
+    label: "LeetCode",
+    handle: "prasad-gade05",
+    vibe: "leetcode",
+  },
+  {
+    icon: SiStreamlit,
+    href: "https://share.streamlit.io/user/prasad-gade05",
+    label: "Streamlit",
+    handle: "prasad-gade05",
+    vibe: "streamlit",
+  },
+  {
+    icon: SiHuggingface,
+    href: "https://huggingface.co/prasad-gade05",
+    label: "Hugging Face",
+    handle: "prasad-gade05",
+    vibe: "huggingface",
+  },
+  {
+    icon: FaKeyboard,
+    href: "https://monkeytype.com/profile/prasad_gade05",
+    label: "Monkeytype",
+    handle: "prasad_gade05",
+    vibe: "monkeytype",
+  },
+  {
+    icon: FaTwitter,
+    href: "https://twitter.com/prasad_gade05",
+    label: "Twitter",
+    handle: "@prasad_gade05",
+    vibe: "twitter",
+  },
+  {
+    icon: FaReddit,
+    href: "https://www.reddit.com/user/prasad_gade05/",
+    label: "Reddit",
+    handle: "prasad_gade05",
+    vibe: "reddit",
+  },
+  {
+    icon: FaInstagram,
+    href: "https://instagram.com/prasad_gade05",
+    label: "Instagram",
+    handle: "@prasad_gade05",
+    vibe: "instagram",
+  },
+  {
+    icon: FaSpotify,
+    href: "https://open.spotify.com/user/31uuwb7ecf3gglu7rwpl6oxx4hau?si=kXL6l30RRi-wn_ZMEHL7HQ",
+    label: "Spotify",
+    handle: "prasad_gade",
+    vibe: "spotify",
+  },
+];

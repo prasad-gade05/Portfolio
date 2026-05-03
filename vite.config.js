@@ -13,16 +13,15 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // @react-three must stay with React to avoid initialization order issues
-            if (id.includes('@react-three')) {
-              return 'vendor';
+            if (id.includes('lucide-react') || id.includes('react-icons')) {
+              return 'icons-vendor';
             }
             // Keep skinview3d and its bundled three.js together (they're tightly coupled)
             if (id.includes('skinview3d')) {
               return 'skinview-vendor';
             }
-            // Main three.js for @react-three/fiber usage
-            if (id.includes('three')) {
+            // Load the react-three stack only when the tissue playground is opened.
+            if (id.includes('@react-three') || id.includes('three')) {
               return 'three-vendor';
             }
             if (id.includes('react-pdf') || id.includes('pdfjs-dist')) {
@@ -36,6 +35,6 @@ export default defineConfig({
         }
       }
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 800
   }
 })

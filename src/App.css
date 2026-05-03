@@ -2,21 +2,19 @@
    APP STYLES - SINGLE VIEW NO SCROLL
    ============================================ */
 
-.app {
+.app,
+.content-wrapper,
+main {
   position: relative;
   height: 100%;
+  height: 100vh;
   height: 100dvh;
-  max-height: 100vh;
   max-height: 100dvh;
   overflow: hidden;
 }
 
 .content-wrapper {
-  height: 100%;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow: hidden;
+  position: relative;
 }
 
 /* Cursor Glow Effect */
@@ -38,11 +36,5 @@
 }
 
 main {
-  position: relative;
   z-index: 1;
-  height: 100%;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  overflow: hidden;
 }

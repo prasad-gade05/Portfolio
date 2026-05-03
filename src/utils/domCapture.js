@@ -1,8 +1,18 @@
+let html2canvasPromise
+
+const loadHtml2Canvas = async () => {
+  if (!html2canvasPromise) {
+    html2canvasPromise = import('html2canvas').then((module) => module.default)
+  }
+
+  return html2canvasPromise
+}
+
 export const captureDOM = async (element) => {
   if (!element) return null
 
   try {
-    const html2canvas = (await import('html2canvas')).default
+    const html2canvas = await loadHtml2Canvas()
     const canvas = await html2canvas(element, {
       useCORS: true,
       scale: 1,

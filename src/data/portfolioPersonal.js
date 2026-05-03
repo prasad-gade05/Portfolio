@@ -1,0 +1,344 @@
+export const hobbies = {
+  sports: {
+    cricket: "Cricket",
+    minecraft: "Minecraft",
+  },
+  book: {
+    title: "How to Win Friends and Influence People",
+    author: "Dale Carnegie",
+  },
+  songs: [
+    {
+      name: "Take Me Home, Country Roads - John Denver",
+      link: "https://open.spotify.com/track/1YYhDizHx7PnDhAhko6cDS?si=b5b58f4e8aa2480e",
+    },
+    {
+      name: "Main Zindagi Ka Saath Nibhata Chala Gaya - Mohammed Rafi",
+      link: "https://open.spotify.com/track/1TAoZRnSmZOOXUSoJqycxN?si=59e59c8d6f1747a6",
+    },
+  ],
+  series: ["Squid Games", "Money Heist"],
+};
+
+export const movies = [
+  { title: "12th Fail", year: "2023", genre: "Drama, Biography" },
+  { title: "Sam Bahadur", year: "2023", genre: "Biography, Drama, War" },
+  { title: "Article 370", year: "2024", genre: "Action, Thriller" },
+  { title: "From Paris with Love", year: "2010", genre: "Action, Thriller" },
+  { title: "Shaurya", year: "2008", genre: "Drama, Thriller" },
+  {
+    title: "The Greatest Beer Run Ever",
+    year: "2022",
+    genre: "Adventure, Comedy, Drama",
+  },
+  { title: "Ground Zero", year: "1987", genre: "Drama, Thriller" },
+  { title: "American Sniper", year: "2014", genre: "Action, Biography, Drama" },
+  { title: "Hacksaw Ridge", year: "2016", genre: "Biography, Drama, War" },
+  { title: "Meet Dave", year: "2008", genre: "Comedy, Family, Sci-Fi" },
+  { title: "The Green Mile", year: "1999", genre: "Crime, Drama, Fantasy" },
+  { title: "Snowden", year: "2016", genre: "Biography, Drama, Thriller" },
+  { title: "Unbroken", year: "2014", genre: "Biography, Drama, War" },
+  { title: "1917", year: "2019", genre: "Drama, War" },
+  {
+    title: "Kingdom of Heaven",
+    year: "2005",
+    genre: "Action, Adventure, Drama",
+  },
+  {
+    title: "All Quiet on the Western Front",
+    year: "2022",
+    genre: "Action, Drama, War",
+  },
+  {
+    title: "Kung Fu Panda",
+    year: "2008",
+    genre: "Animation, Action, Adventure",
+  },
+  {
+    title: "Kung Fu Panda 2",
+    year: "2011",
+    genre: "Animation, Action, Adventure",
+  },
+  {
+    title: "Kung Fu Panda 3",
+    year: "2016",
+    genre: "Animation, Action, Adventure",
+  },
+  {
+    title: "Kung Fu Panda 4",
+    year: "2024",
+    genre: "Animation, Action, Adventure",
+  },
+  { title: "Toy Story", year: "1995", genre: "Animation, Adventure, Comedy" },
+  { title: "Toy Story 2", year: "1999", genre: "Animation, Adventure, Comedy" },
+  { title: "Toy Story 3", year: "2010", genre: "Animation, Adventure, Comedy" },
+  { title: "Toy Story 4", year: "2019", genre: "Animation, Adventure, Comedy" },
+  { title: "Cars", year: "2006", genre: "Animation, Adventure, Comedy" },
+  { title: "Cars 2", year: "2011", genre: "Animation, Adventure, Comedy" },
+  { title: "Cars 3", year: "2017", genre: "Animation, Adventure, Comedy" },
+  { title: "Planes", year: "2013", genre: "Animation, Adventure, Comedy" },
+  {
+    title: "Planes: Fire & Rescue",
+    year: "2014",
+    genre: "Animation, Adventure, Comedy",
+  },
+  { title: "Rio", year: "2011", genre: "Animation, Adventure, Comedy" },
+  { title: "Rio 2", year: "2014", genre: "Animation, Adventure, Comedy" },
+  {
+    title: "The Incredibles",
+    year: "2004",
+    genre: "Animation, Action, Adventure",
+  },
+  {
+    title: "Incredibles 2",
+    year: "2018",
+    genre: "Animation, Action, Adventure",
+  },
+  {
+    title: "Finding Nemo",
+    year: "2003",
+    genre: "Animation, Adventure, Comedy",
+  },
+  {
+    title: "Finding Dory",
+    year: "2016",
+    genre: "Animation, Adventure, Comedy",
+  },
+  { title: "WALL·E", year: "2008", genre: "Animation, Adventure, Sci-Fi" },
+  { title: "Big Hero 6", year: "2014", genre: "Animation, Action, Adventure" },
+  { title: "Ratatouille", year: "2007", genre: "Animation, Adventure, Comedy" },
+  {
+    title: "The Wild Robot",
+    year: "2024",
+    genre: "Animation, Adventure, Sci-Fi",
+  },
+  { title: "Up", year: "2009", genre: "Animation, Adventure, Comedy" },
+  { title: "Coco", year: "2017", genre: "Animation, Adventure, Family" },
+  { title: "Zootopia", year: "2016", genre: "Animation, Adventure, Comedy" },
+  { title: "Zootopia 2", year: "2025", genre: "Animation, Adventure, Comedy" },
+  { title: "Bolt", year: "2008", genre: "Animation, Adventure, Comedy" },
+  { title: "Klaus", year: "2019", genre: "Animation, Adventure, Comedy" },
+  { title: "Free Birds", year: "2013", genre: "Animation, Adventure, Comedy" },
+  { title: "Baymax!", year: "2022", genre: "Animation, Adventure, Family" },
+  { title: "Mai Atal Hoon", year: "2024", genre: "Biography, Drama" },
+  { title: "Article 15", year: "2019", genre: "Crime, Drama, Thriller" },
+  { title: "Whiplash", year: "2014", genre: "Drama, Music" },
+  { title: "Tangled", year: "2010", genre: "Animation, Adventure, Comedy" },
+  { title: "Mulan", year: "1998", genre: "Animation, Adventure, Family" },
+  { title: "Brave", year: "2012", genre: "Animation, Adventure, Family" },
+  { title: "Moana", year: "2016", genre: "Animation, Adventure, Comedy" },
+  { title: "Inside Out", year: "2015", genre: "Animation, Adventure, Comedy" },
+  { title: "Inside Out 2", year: "2024", genre: "Animation, Adventure, Comedy" },
+];
+
+export const webShows = [
+  { title: "Money Heist", seasons: 5, genre: "Action, Crime, Drama" },
+  { title: "Money Heist: Berlin", seasons: 1, genre: "Action, Crime, Drama" },
+  { title: "Squid Game", seasons: 3, genre: "Action, Drama, Thriller" },
+  { title: "The Family Man", seasons: 2, genre: "Action, Drama, Thriller" },
+  { title: "Special Ops", seasons: 2, genre: "Action, Drama, Thriller" },
+  { title: "Scam 1992", seasons: 1, genre: "Crime, Drama" },
+  { title: "Treason", seasons: 1, genre: "Drama, Thriller" },
+  { title: "Scam 2003", seasons: 1, genre: "Crime, Drama" },
+  { title: "Kaala", seasons: 1, genre: "Drama, Thriller" },
+  { title: "Ranneeti", seasons: 1, genre: "Drama, Thriller" },
+  { title: "Lucky Bhaskar", seasons: 1, genre: "Drama, Thriller" },
+  { title: "The Railway Men", seasons: 1, genre: "Drama, History" },
+  { title: "The Terminal List", seasons: 1, genre: "Action, Drama, Thriller" },
+  { title: "Kaala Pani", seasons: 1, genre: "Drama, Thriller" },
+  { title: "Bodyguard", seasons: 1, genre: "Crime, Drama, Thriller" },
+  { title: "WondLa", seasons: 3, genre: "Animation, Adventure, Sci-Fi" },
+];
+
+export const profileData = {
+  name: "Prasad Gade",
+  status: "Open to Work",
+  location: "Mumbai, India",
+  profileImage: "profile.jpg",
+  typingRoles: [
+    "Data Scientist",
+    2000,
+    "ML Engineer",
+    2000,
+    "Computer Engineer",
+    2000,
+    "Data Analyst",
+    2000,
+    "Data Science & Business Intelligence",
+    2000,
+    "Cross Platform Application Developer",
+    2000,
+  ],
+  bioTags: [
+    { text: "B.Tech CE @ SPIT", type: "education" },
+    { text: "Minor @ SPJIMR", type: "education" },
+    { text: "Data Storytelling", type: "passion" },
+  ],
+  topSkills: [
+    "Data Analytics",
+    "Data Science",
+    "Machine Learning",
+    "Web Dev",
+    "Android",
+  ],
+};
+
+export const codeCardData = {
+  filename: "prasad_gade.py",
+  resumeLink:
+    "https://drive.google.com/file/d/134zdT9FaQX6siuHMxnICxBqZrK_R3YXV/view?usp=sharing",
+  codeLines: [
+    {
+      lineNum: 1,
+      tokens: [
+        { type: "kw", content: "class" },
+        { type: "text", content: " " },
+        { type: "cls", content: "ComputerEngineer" },
+        { type: "p", content: ":" },
+      ],
+    },
+    {
+      lineNum: 2,
+      tokens: [
+        { type: "text", content: "    " },
+        { type: "cm", content: '"""DS | DA | ML | Cross-Platform Apps"""' },
+      ],
+    },
+    {
+      lineNum: 3,
+      tokens: [],
+    },
+    {
+      lineNum: 4,
+      tokens: [
+        { type: "text", content: "    " },
+        { type: "kw", content: "def" },
+        { type: "text", content: " " },
+        { type: "fn", content: "pipeline" },
+        { type: "p", content: "(" },
+        { type: "sf", content: "self" },
+        { type: "p", content: ", " },
+        { type: "pm", content: "raw_data" },
+        { type: "p", content: "):" },
+      ],
+    },
+    {
+      lineNum: 5,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "cm", content: "# Clean & transform with Python & SQL" },
+      ],
+    },
+    {
+      lineNum: 6,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "pr", content: "clean_data" },
+        { type: "text", content: " " },
+        { type: "op", content: "=" },
+        { type: "text", content: " " },
+        { type: "sf", content: "self" },
+        { type: "p", content: "." },
+        { type: "fn", content: "transform" },
+        { type: "p", content: "(" },
+        { type: "pm", content: "raw_data" },
+        { type: "p", content: ")" },
+      ],
+    },
+    {
+      lineNum: 7,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "cm", content: "# Interactive dashboards in Power BI" },
+      ],
+    },
+    {
+      lineNum: 8,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "sf", content: "self" },
+        { type: "p", content: "." },
+        { type: "fn", content: "visualize" },
+        { type: "p", content: "(" },
+        { type: "pr", content: "clean_data" },
+        { type: "p", content: ")" },
+      ],
+    },
+    {
+      lineNum: 9,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "cm", content: "# ML: prediction & classification" },
+      ],
+    },
+    {
+      lineNum: 10,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "kw", content: "return" },
+        { type: "text", content: " " },
+        { type: "sf", content: "self" },
+        { type: "p", content: "." },
+        { type: "fn", content: "predict" },
+        { type: "p", content: "(" },
+        { type: "pr", content: "clean_data" },
+        { type: "p", content: ")" },
+      ],
+    },
+    {
+      lineNum: 11,
+      tokens: [],
+    },
+    {
+      lineNum: 12,
+      tokens: [
+        { type: "text", content: "    " },
+        { type: "kw", content: "def" },
+        { type: "text", content: " " },
+        { type: "fn", content: "build" },
+        { type: "p", content: "(" },
+        { type: "sf", content: "self" },
+        { type: "p", content: "):" },
+      ],
+    },
+    {
+      lineNum: 13,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "cm", content: "# Scalable, insight-driven solutions" },
+      ],
+    },
+    {
+      lineNum: 14,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "cm", content: "# Product mindset + clean code" },
+      ],
+    },
+    {
+      lineNum: 15,
+      tokens: [
+        { type: "text", content: "        " },
+        { type: "kw", content: "return" },
+        { type: "text", content: " " },
+        { type: "p", content: "{" },
+        { type: "st", content: '"quality"' },
+        { type: "p", content: ", " },
+        { type: "st", content: '"performance"' },
+        { type: "p", content: ", " },
+        { type: "st", content: '"impact"' },
+        { type: "p", content: "}" },
+      ],
+    },
+    {
+      lineNum: 16,
+      tokens: [],
+    },
+    {
+      lineNum: 17,
+      tokens: [
+        { type: "cm", content: "# Open to: DA | DS | App Dev opportunities" },
+      ],
+    },
+  ],
+};

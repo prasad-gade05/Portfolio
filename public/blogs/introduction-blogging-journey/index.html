@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-382G6DQ243"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-382G6DQ243');
-  </script>
-
-  <!-- GoatCounter -->
-  <script data-goatcounter="https://prasadgade05.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction: My Blogging Journey — Prasad Gade</title>
@@ -49,6 +36,12 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preload" as="image" href="/blogs/assets/thumbnail-introduction-blogging-journey.png" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+  />
   <script>
     (function() {
       var portfolioTheme = null;
@@ -68,6 +61,49 @@
       }
     })();
   </script>
+  <script>(() => {
+    const schedule = (callback) => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(callback, { timeout: 2000 });
+        return;
+      }
+
+      window.setTimeout(callback, 1200);
+    };
+
+    const appendScript = (attributes) => {
+      const script = document.createElement('script');
+      Object.entries(attributes).forEach(([key, value]) => {
+        if (value === true) {
+          script.setAttribute(key, '');
+          return;
+        }
+
+        script.setAttribute(key, value);
+      });
+      document.head.appendChild(script);
+    };
+
+    schedule(() => {
+      appendScript({
+        async: true,
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-382G6DQ243',
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-382G6DQ243');
+
+      appendScript({
+        async: true,
+        'data-goatcounter': 'https://prasadgade05.goatcounter.com/count',
+        src: '//gc.zgo.at/count.js',
+      });
+    });
+  })();</script>
   <link rel="stylesheet" href="/blogs/blog.css" />
 
   <!-- Structured Data -->

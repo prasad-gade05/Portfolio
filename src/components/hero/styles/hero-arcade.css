@@ -1,0 +1,992 @@
+/* ============================================
+   3D TILT ANIMATION - All interactive cards
+   ============================================ */
+
+.social-card-fun,
+.skill-group,
+.about-card,
+.exp-card,
+.edu-item,
+.achieve-item,
+.cert-item,
+.volunteer-item,
+.hobby-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.15s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ============================================
+   ARCADE THEMES - Soft Neo-Brutalism Fintech SaaS Overrides
+   ============================================ */
+
+/* Shared arcade styles (both dark and light) */
+[data-theme='arcade-dark'] .info-section,
+[data-theme='arcade-light'] .info-section {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .hero-right,
+[data-theme='arcade-light'] .hero-right {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow-lg);
+}
+
+[data-theme='arcade-dark'] .code-card,
+[data-theme='arcade-light'] .code-card {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .social-card-fun,
+[data-theme='arcade-light'] .social-card-fun {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+  transition: all 0.15s ease;
+}
+
+[data-theme='arcade-dark'] .social-card-fun:hover,
+[data-theme='arcade-light'] .social-card-fun:hover {
+  box-shadow: var(--arcade-shadow-lg);
+  transform: translateY(-2px);
+}
+
+[data-theme='arcade-dark'] .social-card-fun:active,
+[data-theme='arcade-light'] .social-card-fun:active {
+  box-shadow: 0px 0px 0px 0px transparent;
+  transform: translateY(2px);
+}
+
+/* Tabs header - reduced sizing */
+[data-theme='arcade-dark'] .tabs-header,
+[data-theme='arcade-light'] .tabs-header {
+  border-bottom: var(--arcade-border);
+  background: var(--bg-tertiary);
+  padding: 0 3px;
+}
+
+[data-theme='arcade-dark'] .tab-btn,
+[data-theme='arcade-light'] .tab-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: clamp(10px, 1.2vmin, 13px);
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  padding: clamp(5px, 0.8vmin, 8px) clamp(8px, 1.2vmin, 12px);
+}
+
+[data-theme='arcade-dark'] .tab-btn svg,
+[data-theme='arcade-light'] .tab-btn svg {
+  width: clamp(12px, 1.3vmin, 15px);
+  height: clamp(12px, 1.3vmin, 15px);
+}
+
+[data-theme='arcade-dark'] .tab-btn.active,
+[data-theme='arcade-light'] .tab-btn.active {
+  border-bottom: 3px solid var(--accent-cyan);
+}
+
+/* Reduced content area padding */
+[data-theme='arcade-dark'] .tabs-content,
+[data-theme='arcade-light'] .tabs-content {
+  padding: clamp(6px, 0.8vmin, 10px);
+  gap: clamp(4px, 0.6vmin, 8px);
+}
+
+/* Project cards - vibrant borders */
+[data-theme='arcade-dark'] .project-card,
+[data-theme='arcade-light'] .project-card {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-theme='arcade-dark'] .project-card {
+  border-color: #8B9FFF;
+  box-shadow: 3px 3px 0px 0px #8B9FFF;
+}
+
+[data-theme='arcade-dark'] .project-card:hover {
+  box-shadow: 6px 6px 0px 0px #8B9FFF;
+  border-color: #A0B2FF;
+  transform: translateY(-2px);
+}
+
+[data-theme='arcade-light'] .project-card:hover {
+  box-shadow: var(--arcade-shadow-lg);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+/* Reduced project card sizing */
+[data-theme='arcade-dark'] .project-body,
+[data-theme='arcade-light'] .project-body {
+  padding: 6px 8px;
+}
+
+[data-theme='arcade-dark'] .project-header,
+[data-theme='arcade-light'] .project-header {
+  height: 30px;
+}
+
+[data-theme='arcade-dark'] .project-title,
+[data-theme='arcade-light'] .project-title {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+[data-theme='arcade-dark'] .project-desc,
+[data-theme='arcade-light'] .project-desc {
+  font-size: 9px;
+  margin-bottom: 5px;
+}
+
+[data-theme='arcade-dark'] .project-subtitle,
+[data-theme='arcade-light'] .project-subtitle {
+  margin-bottom: 3px;
+  font-size: 10px;
+}
+
+[data-theme='arcade-dark'] .project-tech,
+[data-theme='arcade-light'] .project-tech {
+  margin-bottom: 5px;
+  gap: 3px;
+}
+
+[data-theme='arcade-dark'] .project-meta,
+[data-theme='arcade-light'] .project-meta {
+  margin-bottom: 3px;
+}
+
+[data-theme='arcade-dark'] .project-badge,
+[data-theme='arcade-light'] .project-badge {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  padding: 2px 8px;
+  font-weight: 700;
+}
+
+[data-theme='arcade-dark'] .project-badge.first-place {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-light'] .project-badge.first-place {
+  background: var(--accent-green);
+  color: #1a1a2e;
+}
+
+[data-theme='arcade-dark'] .tech-tag,
+[data-theme='arcade-light'] .tech-tag {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 2px 5px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-theme='arcade-dark'] .tech-tag {
+  background: rgba(139, 159, 255, 0.15);
+  color: var(--accent-cyan);
+}
+
+[data-theme='arcade-light'] .tech-tag {
+  background: rgba(92, 111, 255, 0.12);
+  color: var(--accent-cyan);
+}
+
+[data-theme='arcade-dark'] .project-card-link,
+[data-theme='arcade-light'] .project-card-link {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  box-shadow: var(--arcade-shadow);
+  transition: all 0.1s ease;
+}
+
+[data-theme='arcade-dark'] .project-card-link:hover,
+[data-theme='arcade-light'] .project-card-link:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+[data-theme='arcade-dark'] .view-all-btn,
+[data-theme='arcade-light'] .view-all-btn {
+  border: var(--arcade-border);
+  border-left: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: all 0.1s ease;
+  padding: 8px 14px;
+  font-size: clamp(11px, 1.2vmin, 13px);
+}
+
+[data-theme='arcade-dark'] .view-all-btn {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-light'] .view-all-btn {
+  background: var(--accent-green);
+  color: #1a1a2e;
+}
+
+[data-theme='arcade-dark'] .view-all-btn:hover,
+[data-theme='arcade-light'] .view-all-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--border-separator);
+}
+
+[data-theme='arcade-dark'] .view-all-btn:active,
+[data-theme='arcade-light'] .view-all-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+/* About card - vibrant purple border */
+[data-theme='arcade-dark'] .about-card,
+[data-theme='arcade-light'] .about-card {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .about-card {
+  border-color: #C9A0DC;
+  box-shadow: 3px 3px 0px 0px #C9A0DC;
+}
+
+[data-theme='arcade-dark'] .about-cta {
+  color: #C9A0DC;
+}
+
+[data-theme='arcade-light'] .about-cta {
+  color: var(--accent-purple);
+}
+
+[data-theme='arcade-dark'] .about-points li::before {
+  color: #C9A0DC;
+}
+
+[data-theme='arcade-light'] .about-points li::before {
+  color: var(--accent-purple);
+}
+
+/* Skill chips */
+[data-theme='arcade-dark'] .skill-chip,
+[data-theme='arcade-light'] .skill-chip {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+  padding: clamp(3px, 0.4vmin, 5px) clamp(7px, 0.8vmin, 10px);
+}
+
+[data-theme='arcade-light'] .skill-chip {
+  border-color: #1a1a2e;
+  box-shadow: 2px 2px 0px 0px #1a1a2e;
+}
+
+[data-theme='arcade-dark'] .skill-category,
+[data-theme='arcade-light'] .skill-category {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  font-size: clamp(11px, 1.2vmin, 13px);
+}
+
+/* Reduced skill group sizing */
+[data-theme='arcade-dark'] .skill-group,
+[data-theme='arcade-light'] .skill-group {
+  border: var(--arcade-border);
+  box-shadow: var(--arcade-shadow);
+  border-radius: 14px;
+  padding: clamp(6px, 0.8vmin, 10px);
+  gap: clamp(3px, 0.4vmin, 6px);
+}
+
+[data-theme='arcade-dark'] .skill-group {
+  border-color: #FFD666;
+  box-shadow: 3px 3px 0px 0px #FFD666;
+}
+
+[data-theme='arcade-dark'] .skill-items,
+[data-theme='arcade-light'] .skill-items {
+  gap: clamp(4px, 0.5vmin, 6px);
+}
+
+/* Experience, Education, Achievements panes */
+[data-theme='arcade-dark'] .tab-pane.split,
+[data-theme='arcade-light'] .tab-pane.split {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow);
+  padding: clamp(8px, 1vmin, 12px);
+}
+
+[data-theme='arcade-dark'] .pane-header,
+[data-theme='arcade-light'] .pane-header {
+  border-bottom: var(--arcade-border);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: clamp(13px, 1.5vmin, 16px);
+  font-weight: 700;
+  margin-bottom: clamp(6px, 0.8vmin, 10px);
+  padding-bottom: clamp(4px, 0.6vmin, 8px);
+}
+
+/* Experience card - vibrant salmon border */
+[data-theme='arcade-dark'] .exp-card,
+[data-theme='arcade-light'] .exp-card {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius);
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .exp-card {
+  border-color: #FF7B6B;
+  box-shadow: 3px 3px 0px 0px #FF7B6B;
+}
+
+[data-theme='arcade-dark'] .exp-tag,
+[data-theme='arcade-light'] .exp-tag {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+[data-theme='arcade-dark'] .exp-cert-link,
+[data-theme='arcade-light'] .exp-cert-link {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* Education cards - vibrant yellow border */
+[data-theme='arcade-dark'] .edu-item,
+[data-theme='arcade-light'] .edu-item {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .edu-item {
+  border-color: #FFD666;
+  box-shadow: 3px 3px 0px 0px #FFD666;
+}
+
+[data-theme='arcade-dark'] .edu-grade,
+[data-theme='arcade-light'] .edu-grade {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+/* Achievement cards - vibrant green border */
+[data-theme='arcade-dark'] .achieve-item,
+[data-theme='arcade-light'] .achieve-item {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .achieve-item {
+  border-color: #6EDCB1;
+  box-shadow: 3px 3px 0px 0px #6EDCB1;
+}
+
+[data-theme='arcade-dark'] .achieve-dot,
+[data-theme='arcade-light'] .achieve-dot {
+  border: var(--arcade-border);
+}
+
+[data-theme='arcade-dark'] .achieve-link,
+[data-theme='arcade-light'] .achieve-link {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  padding: 2px 10px;
+}
+
+/* Certifications - vibrant blue border */
+[data-theme='arcade-dark'] .cert-item,
+[data-theme='arcade-light'] .cert-item {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .cert-item {
+  border-color: #7EB5FF;
+  box-shadow: 3px 3px 0px 0px #7EB5FF;
+}
+
+/* Cert badges - high contrast readable colors */
+[data-theme='arcade-dark'] .cert-badge,
+[data-theme='arcade-light'] .cert-badge {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+[data-theme='arcade-dark'] .cert-badge {
+  background: #8B9FFF;
+  color: #181818;
+  border-color: #8B9FFF;
+}
+
+[data-theme='arcade-light'] .cert-badge {
+  background: var(--accent-blue);
+  color: #ffffff;
+}
+
+[data-theme='arcade-dark'] .cert-link,
+[data-theme='arcade-light'] .cert-link {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  box-shadow: var(--arcade-shadow);
+}
+
+/* Volunteering - vibrant magenta border */
+[data-theme='arcade-dark'] .volunteer-item,
+[data-theme='arcade-light'] .volunteer-item {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .volunteer-item {
+  border-color: #FF6B9D;
+  box-shadow: 3px 3px 0px 0px #FF6B9D;
+}
+
+[data-theme='arcade-dark'] .volunteer-icon,
+[data-theme='arcade-light'] .volunteer-icon {
+  border: var(--arcade-border);
+  border-radius: 8px;
+}
+
+[data-theme='arcade-dark'] .volunteer-icon {
+  border-color: #FF6B9D;
+  color: #FF6B9D;
+}
+
+[data-theme='arcade-dark'] .volunteer-cert-link,
+[data-theme='arcade-light'] .volunteer-cert-link {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  padding: 2px 10px;
+}
+
+/* Hobbies */
+[data-theme='arcade-dark'] .hobby-card,
+[data-theme='arcade-light'] .hobby-card {
+  border: var(--arcade-border);
+  border-radius: 14px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .hobby-card-header h4,
+[data-theme='arcade-light'] .hobby-card-header h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* Hobby icons - vibrant high contrast */
+[data-theme='arcade-dark'] .hobby-card-icon,
+[data-theme='arcade-light'] .hobby-card-icon {
+  border: var(--arcade-border);
+  border-radius: 8px;
+}
+
+[data-theme='arcade-dark'] .hobby-card-icon {
+  border-color: #FFD666;
+  color: #FFD666;
+}
+
+/* Hobby specific icon colors for dark theme - vibrant */
+[data-theme='arcade-dark'] .hobby-sports .hobby-card-icon {
+  color: #6EDCB1;
+  border-color: #6EDCB1;
+}
+
+[data-theme='arcade-dark'] .hobby-reading .hobby-card-icon {
+  color: #FF7B6B;
+  border-color: #FF7B6B;
+}
+
+[data-theme='arcade-dark'] .hobby-music .hobby-card-icon {
+  color: #C9A0DC;
+  border-color: #C9A0DC;
+}
+
+[data-theme='arcade-dark'] .hobby-series .hobby-card-icon {
+  color: #FF6B85;
+  border-color: #FF6B85;
+}
+
+/* Hobby activity item icons - vibrant */
+[data-theme='arcade-dark'] .hobby-activity-item svg {
+  color: #8B9FFF;
+}
+
+[data-theme='arcade-dark'] .hobby-sports .hobby-activity-item svg {
+  color: #6EDCB1;
+}
+
+/* Cricket, Minecraft, Spotify, Headphones, Book icons */
+[data-theme='arcade-dark'] .hobby-activity-item {
+  border-color: #383838;
+}
+
+[data-theme='arcade-dark'] .series-tag,
+[data-theme='arcade-light'] .series-tag {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+[data-theme='arcade-dark'] .song-link,
+[data-theme='arcade-light'] .song-link {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+/* Hobby text font overrides for arcade themes */
+[data-theme='arcade-dark'] .hobby-activity-item,
+[data-theme='arcade-light'] .hobby-activity-item {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  border: var(--arcade-border);
+  border-radius: 10px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .book-title,
+[data-theme='arcade-light'] .book-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+}
+
+[data-theme='arcade-dark'] .book-author,
+[data-theme='arcade-light'] .book-author {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+[data-theme='arcade-dark'] .book-info,
+[data-theme='arcade-light'] .book-info {
+  border: var(--arcade-border);
+  border-left: 4px solid var(--accent-orange);
+  border-radius: 10px;
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .see-more-btn,
+[data-theme='arcade-light'] .see-more-btn {
+  border: var(--arcade-border) !important;
+  border-radius: var(--arcade-radius-pill) !important;
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+[data-theme='arcade-dark'] .see-more-btn {
+  background: var(--accent-red) !important;
+  color: #181818 !important;
+}
+
+[data-theme='arcade-light'] .see-more-btn {
+  background: var(--accent-red) !important;
+  color: #ffffff !important;
+}
+
+[data-theme='arcade-light'] .hobby-music h4 {
+  color: var(--accent-purple);
+}
+
+[data-theme='arcade-dark'] .hobby-music h4 {
+  color: var(--accent-purple);
+}
+
+[data-theme='arcade-dark'] .see-more-btn:hover,
+[data-theme='arcade-light'] .see-more-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px var(--border-separator);
+}
+
+/* Profile image - arcade style */
+[data-theme='arcade-dark'] .profile-image,
+[data-theme='arcade-light'] .profile-image {
+  border: var(--arcade-border);
+  box-shadow: var(--arcade-shadow);
+}
+
+[data-theme='arcade-dark'] .profile-image:hover,
+[data-theme='arcade-light'] .profile-image:hover {
+  box-shadow: var(--arcade-shadow-lg);
+}
+
+/* Profile modal - arcade style */
+[data-theme='arcade-dark'] .profile-modal-card,
+[data-theme='arcade-light'] .profile-modal-card {
+  border: var(--arcade-border);
+  border-radius: 16px;
+  box-shadow: var(--arcade-shadow-lg);
+}
+
+/* Status badge */
+[data-theme='arcade-dark'] .status-badge,
+[data-theme='arcade-light'] .status-badge {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+[data-theme='arcade-dark'] .status-badge {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-light'] .status-badge {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-dark'] .status-dot {
+  box-shadow: none;
+  background: #181818;
+}
+
+[data-theme='arcade-light'] .status-dot {
+  box-shadow: none;
+  background: #181818;
+}
+
+/* Code card header */
+[data-theme='arcade-dark'] .code-header,
+[data-theme='arcade-light'] .code-header {
+  border-bottom: var(--arcade-border);
+}
+
+[data-theme='arcade-dark'] .code-header .resume-btn,
+[data-theme='arcade-light'] .code-header .resume-btn {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  box-shadow: var(--arcade-shadow);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: all 0.1s ease;
+}
+
+[data-theme='arcade-dark'] .code-header .resume-btn {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-light'] .code-header .resume-btn {
+  background: var(--accent-green);
+  color: #181818;
+}
+
+[data-theme='arcade-dark'] .code-header .resume-btn:hover,
+[data-theme='arcade-light'] .code-header .resume-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px transparent;
+}
+
+/* Theme toggle button - arcade active state */
+[data-theme='arcade-dark'] .theme-toggle-tab,
+[data-theme='arcade-light'] .theme-toggle-tab {
+  border: var(--arcade-border);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+
+[data-theme='arcade-dark'] .theme-toggle-tab {
+  background: var(--accent-red);
+  color: #181818;
+  animation: arcade-dark-btn-glow 2.5s ease-in-out infinite;
+}
+
+[data-theme='arcade-light'] .theme-toggle-tab {
+  background: var(--accent-red);
+  color: #181818;
+  animation: arcade-light-btn-glow 2.5s ease-in-out infinite;
+}
+
+[data-theme='arcade-dark'] .theme-toggle-tab:hover,
+[data-theme='arcade-light'] .theme-toggle-tab:hover {
+  transform: translate(1px, 1px);
+  animation: none;
+  box-shadow: 1px 1px 0px 0px var(--border-separator), 0 0 18px rgba(255, 107, 133, 0.5);
+}
+
+@keyframes arcade-dark-btn-glow {
+  0%, 100% { 
+    box-shadow: 3px 3px 0px 0px #383838, 0 0 8px rgba(255, 107, 133, 0.45), 0 0 16px rgba(255, 107, 133, 0.15); 
+  }
+  50% { 
+    box-shadow: 3px 3px 0px 0px #383838, 0 0 16px rgba(255, 107, 133, 0.65), 0 0 30px rgba(255, 107, 133, 0.25); 
+  }
+}
+
+@keyframes arcade-light-btn-glow {
+  0%, 100% { 
+    box-shadow: 3px 3px 0px 0px #1a1a2e, 0 0 10px rgba(232, 68, 94, 0.5), 0 0 18px rgba(232, 68, 94, 0.2); 
+  }
+  50% { 
+    box-shadow: 3px 3px 0px 0px #1a1a2e, 0 0 18px rgba(232, 68, 94, 0.7), 0 0 34px rgba(232, 68, 94, 0.3); 
+  }
+}
+
+[data-theme='arcade-dark'] .theme-picker-dropdown,
+[data-theme='arcade-light'] .theme-picker-dropdown {
+  border: var(--arcade-border);
+  border-radius: 12px;
+  box-shadow: var(--arcade-shadow);
+  backdrop-filter: none;
+}
+
+[data-theme='arcade-dark'] .theme-picker-dropdown {
+  background: var(--bg-secondary);
+}
+
+[data-theme='arcade-light'] .theme-picker-dropdown {
+  background: var(--bg-secondary);
+}
+
+[data-theme='arcade-dark'] .theme-option,
+[data-theme='arcade-light'] .theme-option {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+[data-theme='arcade-dark'] .theme-option:hover {
+  background: rgba(255, 107, 133, 0.15);
+}
+
+[data-theme='arcade-light'] .theme-option:hover {
+  background: rgba(232, 68, 94, 0.1);
+}
+
+[data-theme='arcade-dark'] .theme-option.active {
+  background: rgba(255, 107, 133, 0.2);
+  color: var(--accent-red);
+}
+
+[data-theme='arcade-light'] .theme-option.active {
+  background: rgba(92, 111, 255, 0.15);
+  color: var(--accent-cyan);
+}
+
+/* Skill tags in info section */
+[data-theme='arcade-dark'] .skill-tag,
+[data-theme='arcade-light'] .skill-tag {
+  border: var(--arcade-border);
+  border-radius: var(--arcade-radius-pill);
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+/* Animated name - arcade style */
+[data-theme='arcade-dark'] .animated-name,
+[data-theme='arcade-light'] .animated-name {
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Hobby minecraft clickable */
+[data-theme='arcade-dark'] .minecraft-clickable,
+[data-theme='arcade-light'] .minecraft-clickable {
+  border: var(--arcade-border) !important;
+  border-left: 3px solid var(--accent-green) !important;
+  border-radius: 8px;
+  box-shadow: var(--arcade-shadow);
+  padding: 4px 8px;
+  animation: mc-subtle-pulse 3s ease-in-out infinite, mc-arcade-bounce 2.5s ease-in-out infinite;
+}
+
+[data-theme='arcade-dark'] .minecraft-clickable:hover,
+[data-theme='arcade-light'] .minecraft-clickable:hover {
+  box-shadow: var(--arcade-shadow-lg);
+  transform: translate(-2px, -2px) !important;
+}
+
+[data-theme='arcade-dark'] .minecraft-clickable {
+  background: linear-gradient(135deg, rgba(255, 214, 102, 0.1) 0%, rgba(139, 159, 255, 0.1) 100%) !important;
+}
+
+[data-theme='arcade-dark'] .minecraft-clickable:hover {
+  background: linear-gradient(135deg, rgba(255, 214, 102, 0.2) 0%, rgba(139, 159, 255, 0.2) 100%) !important;
+}
+
+[data-theme='arcade-dark'] .minecraft-clickable::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 214, 102, 0.08) 50%, transparent 100%);
+}
+
+[data-theme='arcade-light'] .minecraft-clickable {
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(92, 111, 255, 0.08) 100%) !important;
+}
+
+[data-theme='arcade-light'] .minecraft-clickable:hover {
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.18) 0%, rgba(92, 111, 255, 0.18) 100%) !important;
+}
+
+[data-theme='arcade-light'] .minecraft-clickable::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 160, 23, 0.08) 50%, transparent 100%);
+}
+
+[data-theme='arcade-dark'] .minecraft-clickable::after,
+[data-theme='arcade-light'] .minecraft-clickable::after {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes mc-arcade-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+/* Arcade light specific background pattern (dot grid notebook) */
+[data-theme='arcade-light'] .hero {
+  background-image: radial-gradient(#C0B8A8 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Arcade dark specific background pattern (subtle grid) */
+[data-theme='arcade-dark'] .hero {
+  background-image: radial-gradient(rgba(139, 159, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+[data-theme='arcade-light'] .projects-pane {
+  background: #d9d9d9;
+}
+
+/* Reduced spacing for projects grid in arcade themes */
+[data-theme='arcade-dark'] .projects-grid,
+[data-theme='arcade-light'] .projects-grid {
+  gap: clamp(5px, 0.7vmin, 8px);
+}
+
+/* Reduced split pane spacing */
+[data-theme='arcade-dark'] .tabs-content.split-view,
+[data-theme='arcade-light'] .tabs-content.split-view {
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+/* Reduced hobby grid spacing */
+[data-theme='arcade-dark'] .hobbies-grid,
+[data-theme='arcade-light'] .hobbies-grid {
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+[data-theme='arcade-dark'] .hobby-card,
+[data-theme='arcade-light'] .hobby-card {
+  padding: clamp(8px, 1vmin, 12px);
+}
+
+/* Reduced education/volunteer/cert list spacing */
+[data-theme='arcade-dark'] .edu-list,
+[data-theme='arcade-light'] .edu-list,
+[data-theme='arcade-dark'] .achieve-list,
+[data-theme='arcade-light'] .achieve-list,
+[data-theme='arcade-dark'] .volunteer-list,
+[data-theme='arcade-light'] .volunteer-list {
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+[data-theme='arcade-dark'] .certs-grid,
+[data-theme='arcade-light'] .certs-grid {
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+/* Reduced card inner padding */
+[data-theme='arcade-dark'] .edu-item,
+[data-theme='arcade-light'] .edu-item,
+[data-theme='arcade-dark'] .achieve-item,
+[data-theme='arcade-light'] .achieve-item,
+[data-theme='arcade-dark'] .volunteer-item,
+[data-theme='arcade-light'] .volunteer-item,
+[data-theme='arcade-dark'] .cert-item,
+[data-theme='arcade-light'] .cert-item {
+  padding: clamp(8px, 1vmin, 12px);
+}
+
+[data-theme='arcade-dark'] .exp-card,
+[data-theme='arcade-light'] .exp-card {
+  padding: clamp(10px, 1.2vmin, 14px);
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+[data-theme='arcade-dark'] .about-card,
+[data-theme='arcade-light'] .about-card {
+  padding: clamp(10px, 1.2vmin, 14px);
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+/* Reduced info section padding for arcade themes */
+[data-theme='arcade-dark'] .info-section,
+[data-theme='arcade-light'] .info-section {
+  padding: clamp(6px, 0.8vmin, 10px);
+}
+

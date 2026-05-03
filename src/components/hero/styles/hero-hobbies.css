@@ -1,0 +1,397 @@
+/* ============================================
+   HOBBIES PANE - LIVELY DESIGN
+   ============================================ */
+
+.hobbies-pane {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.hobbies-pane.split {
+  flex: 0.55;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(8px, 1.2vmin, 12px);
+  flex: 1;
+}
+
+.hobby-card {
+  position: relative;
+  padding: clamp(10px, 1.4vmin, 16px);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-card:hover::before {
+  opacity: 1;
+}
+
+.hobby-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hobby-card-decoration {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0.06;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hobby-card:hover .hobby-card-decoration {
+  transform: scale(1.2);
+  opacity: 0.1;
+}
+
+/* Sports Card */
+.hobby-sports::before { background: var(--gradient-tertiary); }
+.hobby-sports .hobby-card-icon { color: var(--accent-green); }
+.hobby-sports .hobby-card-decoration { background: var(--accent-green); }
+.hobby-sports { border-left: 4px solid var(--accent-green); }
+
+/* Reading Card */
+.hobby-reading::before { background: linear-gradient(135deg, var(--accent-orange), var(--accent-red)); }
+.hobby-reading .hobby-card-icon { color: var(--accent-orange); }
+.hobby-reading .hobby-card-decoration { background: var(--accent-orange); }
+.hobby-reading { border-left: 4px solid var(--accent-orange); }
+
+/* Music Card - Purple/Magenta Theme */
+.hobby-music::before { background: var(--gradient-secondary); }
+.hobby-music .hobby-card-icon { color: var(--accent-purple); }
+.hobby-music .hobby-card-decoration { background: var(--accent-purple); }
+.hobby-music { border-left: 4px solid var(--accent-purple); }
+
+/* Series Card */
+.hobby-series::before { background: linear-gradient(135deg, var(--accent-red), var(--accent-magenta)); }
+.hobby-series .hobby-card-icon { color: var(--accent-red); }
+.hobby-series .hobby-card-decoration { background: var(--accent-red); }
+.hobby-series { border-left: 4px solid var(--accent-red); }
+
+.hobby-card-icon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.hobby-card-icon svg {
+  width: clamp(20px, 2.5vmin, 26px);
+  height: clamp(20px, 2.5vmin, 26px);
+}
+
+.hobby-card-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vmin, 12px);
+  margin-bottom: clamp(8px, 1vmin, 12px);
+}
+
+.hobby-card-header h4 {
+  font-size: clamp(12px, 1.4vmin, 15px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hobby-card-content p {
+  font-size: clamp(10px, 1.2vmin, 13px);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.hobby-songs {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.8vmin, 10px);
+}
+
+.song-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(11px, 1.3vmin, 13px);
+  color: var(--accent-purple);
+  text-decoration: none;
+  padding: clamp(8px, 1vmin, 10px) clamp(12px, 1.4vmin, 16px);
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.song-link:hover {
+  background: rgba(167, 139, 250, 0.15);
+  border-color: var(--accent-purple);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.song-link svg {
+  flex-shrink: 0;
+  color: var(--accent-purple);
+}
+
+.song-link span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hobby-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.see-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(10px, 1.2vmin, 14px) clamp(16px, 1.8vmin, 20px);
+  background: rgba(251, 113, 133, 0.15);
+  border: 1px solid rgba(251, 113, 133, 0.3);
+  border-radius: 8px;
+  font-size: clamp(12px, 1.4vmin, 14px);
+  font-weight: 600;
+  color: var(--accent-red);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.see-more-btn:hover {
+  background: rgba(251, 113, 133, 0.25);
+  border-color: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 113, 133, 0.3);
+}
+
+.see-more-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.see-more-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.series-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(6px, 0.8vmin, 10px) clamp(12px, 1.4vmin, 16px);
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.2);
+  border-radius: 50px;
+  font-size: clamp(12px, 1.4vmin, 14px);
+  color: var(--accent-red);
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.series-tag:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.series-tag:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.series-tag:hover {
+  background: rgba(251, 113, 133, 0.2);
+  border-color: var(--accent-red);
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Hobby Activities (Sports & Gaming) */
+.hobby-activities {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vmin, 12px);
+}
+
+.hobby-activity-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vmin, 14px);
+  padding: clamp(8px, 1vmin, 12px) clamp(12px, 1.4vmin, 16px);
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.1);
+  border-radius: 8px;
+  font-size: clamp(13px, 1.5vmin, 15px);
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.hobby-activity-item:hover {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.3);
+  transform: translateX(4px);
+}
+
+.minecraft-clickable {
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.08) 0%, rgba(0, 229, 255, 0.08) 100%) !important;
+  border: 1px solid rgba(0, 230, 118, 0.25) !important;
+  border-left: 3px solid var(--accent-green) !important;
+  overflow: hidden;
+  animation: mc-subtle-pulse 3s ease-in-out infinite;
+}
+
+.minecraft-clickable:hover {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.18) 0%, rgba(0, 229, 255, 0.18) 100%) !important;
+  border-color: var(--accent-green) !important;
+  border-left-color: var(--accent-green) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 2px 12px rgba(0, 230, 118, 0.2);
+}
+
+.minecraft-clickable::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 230, 118, 0.06) 50%, transparent 100%);
+  transform: translateX(-100%);
+  animation: mc-shimmer 4s ease-in-out infinite;
+}
+
+.minecraft-clickable:hover::before {
+  animation: none;
+  background: none;
+}
+
+.minecraft-clickable::after {
+  content: 'Click to View 3D ▸';
+  position: absolute;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--accent-green);
+  opacity: 0.7;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.minecraft-clickable:hover::after {
+  opacity: 1;
+}
+
+.minecraft-clickable.doodle-clickable::after {
+  content: 'Start Playing Game ▸';
+}
+
+@keyframes mc-shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes mc-subtle-pulse {
+  0%, 100% { border-left-color: var(--accent-green); }
+  50% { border-left-color: transparent; }
+}
+
+.hobby-activity-item svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+/* Sports Card Activity Items - Keep Green */
+.hobby-sports .hobby-activity-item {
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.hobby-sports .hobby-activity-item:hover {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.hobby-sports .hobby-activity-item svg {
+  color: var(--accent-green);
+}
+
+/* Book Info */
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.5vmin, 6px);
+  padding: clamp(12px, 1.4vmin, 16px);
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-left: 3px solid var(--accent-orange);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.book-info:hover {
+  background: rgba(251, 191, 36, 0.12);
+  transform: translateX(2px);
+}
+
+.book-title {
+  font-size: clamp(13px, 1.5vmin, 16px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.book-author {
+  font-size: clamp(11px, 1.3vmin, 13px);
+  color: var(--accent-orange);
+  font-style: italic;
+}
+
+/* Equalizer Animation */
+.equalizer {
+  display: flex;
+  gap: 2px;
+  height: 12px;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+.bar {
+  width: 3px;
+  background: var(--accent-purple);
+  animation: equalize 1s infinite ease-in-out;
+  border-radius: 1px;
+}
+
+.bar:nth-child(1) { animation-delay: 0.0s; height: 6px; }
+.bar:nth-child(2) { animation-delay: 0.2s; height: 10px; }
+.bar:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+.bar:nth-child(4) { animation-delay: 0.1s; height: 12px; }
+
+@keyframes equalize {
+  0%, 100% { height: 4px; opacity: 0.6; }
+  50% { height: 100%; opacity: 1; }
+}
+

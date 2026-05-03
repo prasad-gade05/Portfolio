@@ -3,16 +3,21 @@ import { ExternalLink, Share2, Check, ChevronDown } from "lucide-react";
 import blogsData from "../../../public/blogs/blogs.json";
 import "./BlogsPane.css";
 import { handleCardTilt, resetCardTilt } from "../../utils/cardTilt";
+import { getListItemKey, getRenderableListValues } from "../../utils/listRendering";
 
 const formatDate = (dateStr) => {
   const d = new Date(dateStr);
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 };
 
-const ALL_CATEGORIES = ["All", ...Array.from(new Set(blogsData.flatMap((b) => b.categories)))];
+const ALL_CATEGORIES = [
+  "All",
+  ...Array.from(new Set(blogsData.flatMap((blog) => getRenderableListValues(blog.categories)))),
+];
 
 const BlogCard = ({ blog }) => {
   const [copied, setCopied] = useState(false);
+  const categories = getRenderableListValues(blog.categories);
 
   const handleShare = (e) => {
     e.stopPropagation();
@@ -50,8 +55,13 @@ const BlogCard = ({ blog }) => {
       </div>
       <div className="blog-card-body">
         <div className="blog-card-categories">
-          {blog.categories.map((cat) => (
-            <span key={cat} className="blog-category-tag">{cat}</span>
+          {categories.map((cat, index) => (
+            <span
+              key={getListItemKey(`${blog.slug || blog.title || "blog"}-category`, cat, index)}
+              className="blog-category-tag"
+            >
+              {cat}
+            </span>
           ))}
         </div>
         <h3 className="blog-card-title">{blog.title}</h3>
@@ -89,7 +99,7 @@ const BlogsPane = () => {
     let list = [...blogsData];
 
     if (activeCategory !== "All") {
-      list = list.filter((b) => b.categories.includes(activeCategory));
+      list = list.filter((blog) => getRenderableListValues(blog.categories).includes(activeCategory));
     }
 
     list.sort((a, b) => {
@@ -124,9 +134,9 @@ const BlogsPane = () => {
       <div className="blogs-controls">
         <div className="blogs-filters-row">
           <div className="blogs-categories">
-            {ALL_CATEGORIES.map((cat) => (
+            {ALL_CATEGORIES.map((cat, index) => (
               <button
-                key={cat}
+                key={getListItemKey("blog-filter", cat, index)}
                 className={`cat-chip ${activeCategory === cat ? "active" : ""}`}
                 onClick={() => setActiveCategory(cat)}
               >
@@ -167,7 +177,9 @@ const BlogsPane = () => {
       {/* Blog Grid */}
       <div className="blogs-grid">
         {results.length > 0 ? (
-          results.map((blog) => <BlogCard key={blog.slug} blog={blog} />)
+          results.map((blog, index) => (
+            <BlogCard key={blog.slug || `${blog.title || "blog"}-${index}`} blog={blog} />
+          ))
         ) : (
           <div className="blogs-empty">
             <p>No blogs in this category yet.</p>

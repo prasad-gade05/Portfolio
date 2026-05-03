@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TbBrandMinecraft } from "react-icons/tb";
-import { Move3D, FileText } from "lucide-react";
+import { Move3D } from "lucide-react";
 import "./Hero.css";
 import "./MinecraftSkinViewer.css";
 import ProfileSection from "./hero/ProfileSection";
