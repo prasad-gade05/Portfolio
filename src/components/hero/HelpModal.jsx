@@ -65,7 +65,7 @@ const HelpModal = ({ onClose }) => {
             </ul>
           </section>
 
-          <section className="help-section">
+          <section className="help-section help-section-wide">
             <div className="help-section-title">
               <Keyboard size={16} />
               <h3>Keyboard shortcuts</h3>
@@ -82,18 +82,7 @@ const HelpModal = ({ onClose }) => {
             </p>
           </section>
 
-          <section className="help-section">
-            <div className="help-section-title">
-              <Folder size={16} />
-              <h3>What are "projects"?</h3>
-            </div>
-            <p>
-              Each card is a real project: apps, data analysis, or AI tools. 
-              The title tells you what problem it solves.
-            </p>
-          </section>
-
-          <section className="help-section">
+          <section className="help-section help-section-wide">
             <div className="help-section-title">
               <BookOpen size={16} />
               <h3>Why blogs?</h3>
@@ -106,6 +95,17 @@ const HelpModal = ({ onClose }) => {
             </p>
             <p className="help-subtext">
               <em>Projects show the final result. Blogs show the thinking, lessons, and experiments behind the work.</em>
+            </p>
+          </section>
+
+          <section className="help-section">
+            <div className="help-section-title">
+              <Folder size={16} />
+              <h3>What are "projects"?</h3>
+            </div>
+            <p>
+              Each card is a real project: apps, data analysis, or AI tools. 
+              The title tells you what problem it solves.
             </p>
           </section>
 
@@ -135,7 +135,7 @@ const HelpModal = ({ onClose }) => {
             </p>
           </section>
 
-          <section className="help-section">
+          <section className="help-section help-section-wide">
             <div className="help-section-title">
               <Sparkles size={16} />
               <h3>Interactive bits</h3>
@@ -148,7 +148,7 @@ const HelpModal = ({ onClose }) => {
             </ul>
           </section>
 
-          <section className="help-section">
+          <section className="help-section help-section-wide">
             <div className="help-section-title">
               <FileText size={16} />
               <h3>Paper Playground</h3>
