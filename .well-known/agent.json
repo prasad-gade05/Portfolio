@@ -53,7 +53,7 @@
     {
       "id": "get_about",
       "name": "Get About Info",
-      "description": "Retrieve personality traits, hobbies, site philosophy, and favorite movies and songs",
+      "description": "Retrieve personality traits, hobbies, site philosophy, keyboard shortcut details, and favorite movies and songs",
       "tags": ["about", "personal", "hobbies"],
       "examples": ["What are Prasad's hobbies?", "Tell me about Prasad"]
     }

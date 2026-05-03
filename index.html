@@ -398,7 +398,7 @@
           <input id="get_social_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full contact and social profile dataset." disabled>
           <button type="submit">Get Social Links</button>
         </form>
-        <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio" action="/api/about.json" method="GET">
+        <form tool-name="get_about" tool-description="Get personality, hobbies, interests, favorite media, site philosophy, and in-app keyboard shortcut details" action="/api/about.json" method="GET">
           <label for="get_about_expected_input">Expected input</label>
           <input id="get_about_expected_input" name="expected_input" type="text" value="{}" pattern="\{\}" autocomplete="off" tool-param-description="Read-only invocation hint for agents. Keep this fixed to {} because this tool accepts no arguments and returns the full about and personality dataset." disabled>
           <button type="submit">Get About</button>
@@ -520,7 +520,7 @@
             },
             get_about: {
               path: '/api/about.json',
-              desc: 'Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio',
+              desc: 'Get personality, hobbies, interests, favorite media, site philosophy, and in-app keyboard shortcut details',
               schemaDesc: 'Invoke with an empty object to fetch the full about and personality dataset.'
             }
           };

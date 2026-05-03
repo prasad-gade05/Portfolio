@@ -6,7 +6,7 @@
 
 prasadgade.dev is Prasad's personal portfolio. It is a single-page React app hosted on GitHub Pages.
 
-This site is not just a resume. It represents who Prasad is as a person. It has technical projects, but also hobbies, favorite movies, a 3D Minecraft skin, a paper physics playground, and hidden easter eggs. The site is built for everyone - recruiters, friends, colleagues, and anyone curious.
+This site is not just a resume. It represents who Prasad is as a person. It has technical projects, but also hobbies, favorite movies, a 3D Minecraft skin, a paper physics playground, in-app keyboard shortcuts, and hidden easter eggs. The site is built for everyone - recruiters, friends, colleagues, and anyone curious.
 
 Site features:
 - 4 visual themes: dark, light, arcade dark, arcade light
@@ -15,6 +15,8 @@ Site features:
 - 3D Minecraft skin viewer (using skinview3d and Three.js)
 - Paper playground: the screen turns into a crumpled paper with real physics
 - Hidden easter eggs: Konami code and "hesoyam" trigger animations
+- Keyboard shortcuts available across the app; press ? to open the shortcut guide
+- Tab shortcuts: 1 to 9 and 0 switch the main tabs, R opens the resume, T cycles themes
 - "Start Here" modal for non-tech visitors explaining every section
 - Resume opens in an in-app modal
 - Responsive for mobile, tablet, and desktop-site-on-mobile

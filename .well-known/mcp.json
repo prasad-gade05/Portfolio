@@ -163,7 +163,7 @@
     {
       "id": "get_about",
       "name": "get_about",
-      "description": "Get personality, hobbies, interests, favorite media, and the site philosophy behind this portfolio.",
+      "description": "Get personality, hobbies, interests, favorite media, site philosophy, and in-app keyboard shortcut details.",
       "inputSchema": {
         "type": "object",
         "description": "Invoke with an empty object to fetch the full about and personality dataset.",

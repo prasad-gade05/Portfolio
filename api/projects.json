@@ -171,7 +171,8 @@
         "detailed_description": [
           "4 visual themes with auto-detect device preference",
           "3D Minecraft skin viewer (skinview3d + Three.js), paper physics playground",
-          "Hidden easter eggs (Konami code, hesoyam), responsive for all screen sizes"
+          "In-app keyboard shortcuts with a ? help guide, plus responsive support for all screen sizes",
+          "Hidden easter eggs (Konami code, hesoyam)"
         ],
         "tech": ["React", "Three.js", "Framer Motion", "Vite"],
         "github": "https://github.com/prasad-gade05/prasad-gade05.github.io",
