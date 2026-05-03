@@ -20,10 +20,6 @@ export default defineConfig({
             if (id.includes('skinview3d')) {
               return 'skinview-vendor';
             }
-            // Load the react-three stack only when the tissue playground is opened.
-            if (id.includes('@react-three') || id.includes('three')) {
-              return 'three-vendor';
-            }
             if (id.includes('react-pdf') || id.includes('pdfjs-dist')) {
               return 'pdf-vendor';
             }
