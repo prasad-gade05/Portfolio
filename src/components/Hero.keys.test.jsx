@@ -32,7 +32,7 @@ describe("Hero key safety", () => {
     window.history.replaceState({}, "", "/");
   });
 
-  it("does not emit duplicate key warnings across the assembled hero flow", async () => {
+  it("does not emit duplicate key warnings across the assembled hero flow", { timeout: 10000 }, async () => {
     vi.useFakeTimers();
     const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 

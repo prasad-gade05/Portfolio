@@ -23,7 +23,15 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
       <span>Hobbies & Interests</span>
     </div>
     <div className="hobbies-grid">
-      <div className="hobby-card hobby-sports" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
+      <div
+        className="hobby-card hobby-sports"
+        data-shortcut-target="true"
+        aria-label="Sports and gaming card"
+        role="group"
+        tabIndex={-1}
+        onMouseMove={handleCardTilt}
+        onMouseLeave={resetCardTilt}
+      >
         <div className="hobby-card-header">
           <div className="hobby-card-icon">
             <Gamepad2 size={20} />
@@ -36,20 +44,38 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
               <GiCricketBat size={18} />
               <span>{hobbies.sports.cricket}</span>
             </div>
-            <div className="hobby-activity-item minecraft-clickable" onClick={onOpenMinecraft}>
+            <button
+              type="button"
+              className="hobby-activity-item minecraft-clickable"
+              data-shortcut-target="true"
+              onClick={onOpenMinecraft}
+            >
               <TbBrandMinecraft size={18} />
               <span>{hobbies.sports.minecraft}</span>
-            </div>
-            <div className="hobby-activity-item minecraft-clickable doodle-clickable" onClick={onStartDoodle}>
+            </button>
+            <button
+              type="button"
+              className="hobby-activity-item minecraft-clickable doodle-clickable"
+              data-shortcut-target="true"
+              onClick={onStartDoodle}
+            >
               <Pencil size={18} />
               <span>Paper Playground</span>
-            </div>
+            </button>
           </div>
         </div>
         <div className="hobby-card-decoration"></div>
       </div>
 
-      <div className="hobby-card hobby-reading" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
+      <div
+        className="hobby-card hobby-reading"
+        data-shortcut-target="true"
+        aria-label="Currently reading card"
+        role="group"
+        tabIndex={-1}
+        onMouseMove={handleCardTilt}
+        onMouseLeave={resetCardTilt}
+      >
         <div className="hobby-card-header">
           <div className="hobby-card-icon">
             <GiBookCover size={20} />
@@ -65,7 +91,15 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
         <div className="hobby-card-decoration"></div>
       </div>
 
-      <div className="hobby-card hobby-music" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
+      <div
+        className="hobby-card hobby-music"
+        data-shortcut-target="true"
+        aria-label="Favorite tracks card"
+        role="group"
+        tabIndex={-1}
+        onMouseMove={handleCardTilt}
+        onMouseLeave={resetCardTilt}
+      >
         <div className="hobby-card-header">
           <div className="hobby-card-icon">
             <Headphones size={20} />
@@ -87,6 +121,7 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
                 target="_blank"
                 rel="noopener noreferrer"
                 className="song-link"
+                data-shortcut-target="true"
               >
                 <FaSpotify size={14} />
                 <span>{song.name}</span>
@@ -97,7 +132,15 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
         <div className="hobby-card-decoration"></div>
       </div>
 
-      <div className="hobby-card hobby-series" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
+      <div
+        className="hobby-card hobby-series"
+        data-shortcut-target="true"
+        aria-label="Binge watching card"
+        role="group"
+        tabIndex={-1}
+        onMouseMove={handleCardTilt}
+        onMouseLeave={resetCardTilt}
+      >
         <div className="hobby-card-header">
           <div className="hobby-card-icon">
             <Tv size={20} />
@@ -113,7 +156,7 @@ export const HobbiesPane = ({ isSplit, onOpenMinecraft, onOpenMovies, onStartDoo
               </span>
             ))}
           </div>
-          <button className="see-more-btn" onClick={onOpenMovies}>
+          <button className="see-more-btn" type="button" data-shortcut-target="true" onClick={onOpenMovies}>
             <MdMovie size={14} />
             <span>See All Movies & Shows</span>
           </button>

@@ -40,7 +40,17 @@ vi.mock('framer-motion', async () => {
 })
 
 vi.mock('./BlogsPane', () => ({
-  default: () => <div>Blogs Pane Mock</div>,
+  default: () => (
+    <div>
+      <button type="button" data-shortcut-target="true">
+        Blogs Shortcut Target A
+      </button>
+      <button type="button" data-shortcut-target="true">
+        Blogs Shortcut Target B
+      </button>
+      <div>Blogs Pane Mock</div>
+    </div>
+  ),
 }))
 
 describe('hero content tabs', () => {
@@ -257,7 +267,9 @@ describe('hero content tabs', () => {
     fireEvent.click(screen.getByRole('button', { name: /hobbies/i }))
     fireEvent.click(screen.getByRole('button', { name: /see all movies & shows/i }))
 
-    expect(await screen.findByText('Binge Watching Collection')).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', { name: /binge watching collection/i }, { timeout: 5000 }),
+    ).toBeInTheDocument()
 
     fireEvent.keyDown(document, { key: 'Escape' })
 
@@ -281,15 +293,33 @@ describe('hero content tabs', () => {
     const latestApi = onShortcutApiReady.mock.calls.at(-1)?.[0]
 
     expect(latestApi).toMatchObject({
+      focusShortcutBoundary: expect.any(Function),
       isBlocked: false,
+      moveShortcutFocus: expect.any(Function),
       selectTabByIndex: expect.any(Function),
       cycleTheme: expect.any(Function),
     })
 
     act(() => {
-      latestApi.selectTabByIndex(9)
+      latestApi.selectTabByIndex(9, { focusTarget: true })
     })
 
     expect(await screen.findByText('Blogs Pane Mock')).toBeInTheDocument()
+
+    await waitFor(() => {
+      expect(document.activeElement).toHaveTextContent('Blogs Shortcut Target A')
+    })
+
+    act(() => {
+      latestApi.moveShortcutFocus(1)
+    })
+
+    expect(document.activeElement).toHaveTextContent('Blogs Shortcut Target B')
+
+    act(() => {
+      latestApi.focusShortcutBoundary('start')
+    })
+
+    expect(document.activeElement).toHaveTextContent('Blogs Shortcut Target A')
   })
 })

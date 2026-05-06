@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "prasadgade.dev",
-    "generated": "2026-04-20",
+    "generated": "2026-05-06",
     "version": "1.0",
-    "description": "Personality, hobbies, site philosophy, site features, keyboard shortcuts, and interests of Prasad Gade"
+    "description": "Personality, hobbies, site philosophy, site features, nested keyboard shortcuts, and interests of Prasad Gade"
   },
   "data": {
     "who": "Prasad Gade is a computer engineer and a data analyst who builds software, works with data, and creates intelligent tools to solve real problems.",
@@ -20,7 +20,9 @@
       "3D Minecraft skin viewer using skinview3d and Three.js",
       "Paper playground: screen turns into a crumpled paper with real cloth physics simulation",
       "Hidden easter eggs: Konami code and hesoyam trigger animations",
-      "Keyboard shortcuts available across the app; press ? to open the in-app guide",
+      "Nested keyboard navigation across cards, filters, and links; press ? to open the in-app guide",
+      "Theme cycling remains available even while the help, movies, resume, or Minecraft modal is open",
+      "The Minecraft skin viewer supports a space-to-jump shortcut when focused",
       "Start Here modal for non-tech visitors explaining all sections",
       "Resume opens in an in-app modal (no redirect)",
       "Responsive for mobile, tablet, and desktop-site-on-mobile",
@@ -41,10 +43,19 @@
         "9": "Hobbies",
         "0": "Blogs"
       },
+      "navigate_active_tab": ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+      "jump_within_active_tab": {
+        "home": "Focus the first interactive item in the active tab",
+        "end": "Focus the last interactive item in the active tab"
+      },
+      "activate_focused_item": "Enter",
+      "minecraft_modal_jump": "Space",
       "open_resume": "R",
       "cycle_themes": "T",
       "close_current_modal_or_overlay": "Esc",
-      "note": "Shortcuts are ignored while typing inside inputs, textareas, selects, and contenteditable fields."
+      "note": "Shortcuts are ignored while typing inside inputs, textareas, selects, and contenteditable fields.",
+      "focus_order_note": "Inside interactive tabs, focus moves through cards first and then their nested links or actions. About and Skills do not have in-tab interactive targets.",
+      "modal_note": "Theme cycling stays available while the Start Here, movies, resume, or Minecraft modal is open. The Minecraft viewer responds to Space when it is focused."
     },
     "hobbies": {
       "sports": ["Cricket", "Minecraft"],

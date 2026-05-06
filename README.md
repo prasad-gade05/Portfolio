@@ -32,6 +32,15 @@ _(PS: You might’ve just learned something new about how GitHub Pages routing w
 
 Keyboard shortcuts are available in the app. Press `?` to open the in-app guide.
 
+- `1` to `9`, `0` switch the main tabs
+- `Arrow` keys move through interactive items in the active tab
+- `Home` / `End` jump to the first or last interactive item in the active tab
+- `Enter` opens the focused card action or link
+- `Space` makes the Minecraft skin jump when the viewer is focused
+- `R` opens the resume
+- `T` cycles themes, even while the help, movies, resume, or Minecraft modal is open
+- `Esc` closes the current modal or overlay
+
 ---
 
 ## Agent Readiness

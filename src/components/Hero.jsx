@@ -9,7 +9,12 @@ import CodeCard from "./hero/CodeCard";
 import SocialLinks from "./hero/SocialLinks";
 import ContentTabs from "./hero/ContentTabs";
 import ClickSparkle from "./ClickSparkle";
-import { getTabIndexForShortcutKey, isEditableShortcutTarget } from "../utils/keyboardShortcuts";
+import {
+  getTabIndexForShortcutKey,
+  IN_PANE_FOCUS_NEXT_KEYS,
+  IN_PANE_FOCUS_PREV_KEYS,
+  isEditableShortcutTarget,
+} from "../utils/keyboardShortcuts";
 
 const ResumeViewer = lazy(() => import("./ResumeViewer"));
 const MinecraftSkinViewer = lazy(() => import("./MinecraftSkinViewer"));
@@ -23,6 +28,8 @@ const Hero = ({ onStartDoodle }) => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      const normalizedKey = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+
       if (e.key === 'Escape') {
         if (showHelpModal) {
           setShowHelpModal(false);
@@ -51,6 +58,12 @@ const Hero = ({ onStartDoodle }) => {
         return;
       }
 
+      if (normalizedKey === 't') {
+        e.preventDefault();
+        shortcutApiRef.current?.cycleTheme?.();
+        return;
+      }
+
       if (showHelpModal || showResumeModal || showMinecraftModal || shortcutApiRef.current?.isBlocked) {
         return;
       }
@@ -58,19 +71,45 @@ const Hero = ({ onStartDoodle }) => {
       const tabIndex = getTabIndexForShortcutKey(e.key);
       if (tabIndex !== null) {
         e.preventDefault();
-        shortcutApiRef.current?.selectTabByIndex?.(tabIndex);
+        shortcutApiRef.current?.selectTabByIndex?.(tabIndex, { focusTarget: true });
         return;
       }
 
-      if (e.key.toLowerCase() === 'r') {
+      if (normalizedKey === 'r') {
         e.preventDefault();
         setShowResumeModal(true);
         return;
       }
 
-      if (e.key.toLowerCase() === 't') {
-        e.preventDefault();
-        shortcutApiRef.current?.cycleTheme?.();
+      if (IN_PANE_FOCUS_NEXT_KEYS.includes(normalizedKey)) {
+        const handled = shortcutApiRef.current?.moveShortcutFocus?.(1);
+        if (handled) {
+          e.preventDefault();
+        }
+        return;
+      }
+
+      if (IN_PANE_FOCUS_PREV_KEYS.includes(normalizedKey)) {
+        const handled = shortcutApiRef.current?.moveShortcutFocus?.(-1);
+        if (handled) {
+          e.preventDefault();
+        }
+        return;
+      }
+
+      if (normalizedKey === 'Home') {
+        const handled = shortcutApiRef.current?.focusShortcutBoundary?.('start');
+        if (handled) {
+          e.preventDefault();
+        }
+        return;
+      }
+
+      if (normalizedKey === 'End') {
+        const handled = shortcutApiRef.current?.focusShortcutBoundary?.('end');
+        if (handled) {
+          e.preventDefault();
+        }
       }
     };
     document.addEventListener('keydown', handleKeyDown);

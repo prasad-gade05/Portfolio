@@ -34,9 +34,25 @@ const BlogCard = ({ blog }) => {
     window.location.href = `https://prasadgade.dev${blog.url}`;
   };
 
+  const handleCardKeyDown = (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    handleCardClick();
+  };
+
   return (
-    <div className="blog-card" onClick={handleCardClick} role="article" tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && handleCardClick()}>
+    <div
+      className="blog-card"
+      data-shortcut-target="true"
+      onClick={handleCardClick}
+      role="article"
+      tabIndex={0}
+      aria-label={`Open blog ${blog.title}`}
+      onKeyDown={handleCardKeyDown}
+    >
       <div className="blog-card-thumb-wrap">
         <img
           src={blog.thumbnail}
@@ -49,6 +65,7 @@ const BlogCard = ({ blog }) => {
           onClick={handleShare}
           title={copied ? "Link copied!" : "Copy link"}
           aria-label="Copy blog link"
+          data-shortcut-target="true"
         >
           {copied ? <Check size={13} /> : <Share2 size={13} />}
         </button>
@@ -138,6 +155,7 @@ const BlogsPane = () => {
               <button
                 key={getListItemKey("blog-filter", cat, index)}
                 className={`cat-chip ${activeCategory === cat ? "active" : ""}`}
+                data-shortcut-target="true"
                 onClick={() => setActiveCategory(cat)}
               >
                 {cat}
@@ -150,6 +168,7 @@ const BlogsPane = () => {
               className="sort-btn"
               onClick={() => setShowSort((p) => !p)}
               aria-label="Sort blogs"
+              data-shortcut-target="true"
             >
               {sortOrder === "newest" ? "Newest" : "Oldest"}
               <ChevronDown size={13} style={{ transform: showSort ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
@@ -158,12 +177,14 @@ const BlogsPane = () => {
               <div className="sort-menu">
                 <button
                   className={`sort-option ${sortOrder === "newest" ? "active" : ""}`}
+                  data-shortcut-target="true"
                   onClick={() => { setSortOrder("newest"); setShowSort(false); }}
                 >
                   Newest First
                 </button>
                 <button
                   className={`sort-option ${sortOrder === "oldest" ? "active" : ""}`}
+                  data-shortcut-target="true"
                   onClick={() => { setSortOrder("oldest"); setShowSort(false); }}
                 >
                   Oldest First
@@ -183,7 +204,7 @@ const BlogsPane = () => {
         ) : (
           <div className="blogs-empty">
             <p>No blogs in this category yet.</p>
-            <button className="blogs-empty-clear" onClick={() => setActiveCategory("All")}>
+            <button className="blogs-empty-clear" data-shortcut-target="true" onClick={() => setActiveCategory("All")}>
               Clear filters
             </button>
           </div>

@@ -5,6 +5,9 @@ import Hero from './Hero'
 
 const selectTabByIndex = vi.fn()
 const cycleTheme = vi.fn()
+const moveShortcutFocus = vi.fn()
+const focusShortcutBoundary = vi.fn()
+let shortcutApiBlocked = false
 
 vi.mock('framer-motion', async () => {
   const React = await vi.importActual('react')
@@ -49,7 +52,15 @@ vi.mock('./hero/SocialLinks', () => ({
 
 vi.mock('./hero/ContentTabs', () => ({
   default: ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange, onShortcutApiReady }) => {
-    onShortcutApiReady?.({ cycleTheme, isBlocked: false, selectTabByIndex })
+    onShortcutApiReady?.({
+      cycleTheme,
+      focusShortcutBoundary,
+      get isBlocked() {
+        return shortcutApiBlocked
+      },
+      moveShortcutFocus,
+      selectTabByIndex,
+    })
 
     return (
       <div>
@@ -61,6 +72,9 @@ vi.mock('./hero/ContentTabs', () => ({
         </button>
         <button type="button" onClick={() => onBlogsActiveChange(true)}>
           Activate Blogs
+        </button>
+        <button type="button" onClick={() => { shortcutApiBlocked = true }}>
+          Block Shortcuts
         </button>
       </div>
     )
@@ -86,6 +100,7 @@ describe('Hero', () => {
   it('opens managed modals, handles escape, and updates blog mode classes', async () => {
     selectTabByIndex.mockReset()
     cycleTheme.mockReset()
+    shortcutApiBlocked = false
 
     const onStartDoodle = vi.fn()
     const { container } = render(<Hero onStartDoodle={onStartDoodle} />)
@@ -116,6 +131,9 @@ describe('Hero', () => {
   it('handles global keyboard shortcuts and ignores them while typing', async () => {
     selectTabByIndex.mockReset()
     cycleTheme.mockReset()
+    moveShortcutFocus.mockReset()
+    focusShortcutBoundary.mockReset()
+    shortcutApiBlocked = false
 
     render(<Hero onStartDoodle={vi.fn()} />)
 
@@ -127,8 +145,8 @@ describe('Hero', () => {
 
     fireEvent.keyDown(document, { key: '2' })
     fireEvent.keyDown(document, { key: '0' })
-    expect(selectTabByIndex).toHaveBeenNthCalledWith(1, 1)
-    expect(selectTabByIndex).toHaveBeenNthCalledWith(2, 9)
+    expect(selectTabByIndex).toHaveBeenNthCalledWith(1, 1, { focusTarget: true })
+    expect(selectTabByIndex).toHaveBeenNthCalledWith(2, 9, { focusTarget: true })
 
     fireEvent.keyDown(document, { key: 'r' })
     expect(await screen.findByText('/Prasad_Gade_Resume.pdf')).toBeInTheDocument()
@@ -139,15 +157,54 @@ describe('Hero', () => {
     fireEvent.keyDown(document, { key: 't' })
     expect(cycleTheme).toHaveBeenCalledTimes(1)
 
+    fireEvent.keyDown(document, { key: 'ArrowDown' })
+    fireEvent.keyDown(document, { key: 'ArrowLeft' })
+    fireEvent.keyDown(document, { key: 'Home' })
+    fireEvent.keyDown(document, { key: 'End' })
+
+    expect(moveShortcutFocus).toHaveBeenNthCalledWith(1, 1)
+    expect(moveShortcutFocus).toHaveBeenNthCalledWith(2, -1)
+    expect(focusShortcutBoundary).toHaveBeenNthCalledWith(1, 'start')
+    expect(focusShortcutBoundary).toHaveBeenNthCalledWith(2, 'end')
+
     const input = document.createElement('input')
     document.body.appendChild(input)
 
     fireEvent.keyDown(input, { key: '3' })
     fireEvent.keyDown(input, { key: '?' })
+    fireEvent.keyDown(input, { key: 'ArrowDown' })
 
     expect(selectTabByIndex).toHaveBeenCalledTimes(2)
+    expect(moveShortcutFocus).toHaveBeenCalledTimes(2)
     expect(screen.queryByText('Help Modal Mock')).not.toBeInTheDocument()
 
     input.remove()
+  })
+
+  it('keeps theme cycling available while help, resume, minecraft, and movies modals are open', async () => {
+    cycleTheme.mockReset()
+    shortcutApiBlocked = false
+
+    render(<Hero onStartDoodle={vi.fn()} />)
+
+    fireEvent.keyDown(document, { key: '?' })
+    expect(screen.getByText('Help Modal Mock')).toBeInTheDocument()
+    fireEvent.keyDown(document, { key: 't' })
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    fireEvent.click(screen.getByText('Open Resume'))
+    expect(await screen.findByText('/Prasad_Gade_Resume.pdf')).toBeInTheDocument()
+    fireEvent.keyDown(document, { key: 't' })
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    fireEvent.click(screen.getByText('Open Minecraft'))
+    expect(await screen.findByText('/minecraft-skin.png')).toBeInTheDocument()
+    fireEvent.keyDown(document, { key: 't' })
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    fireEvent.click(screen.getByText('Block Shortcuts'))
+    fireEvent.keyDown(document, { key: 't' })
+
+    expect(cycleTheme).toHaveBeenCalledTimes(4)
   })
 })

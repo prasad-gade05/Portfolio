@@ -29,7 +29,15 @@ export const ExperiencePane = ({ isSplit }) => (
       <Briefcase size={16} />
       <span>Experience</span>
     </div>
-    <div className="exp-card" onMouseMove={handleCardTilt} onMouseLeave={resetCardTilt}>
+    <div
+      className="exp-card"
+      data-shortcut-target="true"
+      aria-label={`${experience.title} at ${experience.company}`}
+      role="group"
+      tabIndex={-1}
+      onMouseMove={handleCardTilt}
+      onMouseLeave={resetCardTilt}
+    >
       <div className="exp-header">
         <div>
           <h3>{experience.title}</h3>
@@ -55,6 +63,7 @@ export const ExperiencePane = ({ isSplit }) => (
           target="_blank"
           rel="noopener noreferrer"
           className="exp-cert-link"
+          data-shortcut-target="true"
         >
           <ExternalLink size={12} />
           View Certificate
@@ -123,6 +132,10 @@ export const AchievementsPane = ({ isSplit }) => (
           <div
             key={`${achievement.title || "achievement"}-${achievementIndex}`}
             className={`achieve-item ${achievementLinks.length > 1 ? "multi-link" : ""}`}
+            data-shortcut-target="true"
+            aria-label={achievement.title}
+            role="group"
+            tabIndex={-1}
             style={{ "--accent": achievement.color }}
             onMouseMove={handleCardTilt}
             onMouseLeave={resetCardTilt}
@@ -140,6 +153,7 @@ export const AchievementsPane = ({ isSplit }) => (
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`achieve-link ${link.platform ? `platform-${link.platform}` : ""}`}
+                      data-shortcut-target="true"
                     >
                       {getAchievementLinkIcon(link.platform)}
                       {link.text}
@@ -171,6 +185,10 @@ export const CertificationsPane = ({ isSplit }) => (
         <div
           key={`${certification.name || "certification"}-${certification.org || index}`}
           className="cert-item"
+          data-shortcut-target="true"
+          aria-label={`${certification.name} certification`}
+          role="group"
+          tabIndex={-1}
           onMouseMove={handleCardTilt}
           onMouseLeave={resetCardTilt}
         >
@@ -187,6 +205,9 @@ export const CertificationsPane = ({ isSplit }) => (
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cert-link"
+                data-shortcut-target="true"
+                aria-label={`Open ${certification.name} certificate`}
+                title={`Open ${certification.name} certificate`}
               >
                 <ExternalLink size={10} />
               </a>
@@ -221,6 +242,10 @@ export const VolunteeringPane = ({ isSplit }) => (
           <div
             key={`${volunteer.title}-${index}`}
             className="volunteer-item"
+            data-shortcut-target="true"
+            aria-label={volunteer.title}
+            role="group"
+            tabIndex={-1}
             onMouseMove={handleCardTilt}
             onMouseLeave={resetCardTilt}
           >
@@ -247,6 +272,7 @@ export const VolunteeringPane = ({ isSplit }) => (
                           target="_blank"
                           rel="noopener noreferrer"
                           className="volunteer-cert-link"
+                          data-shortcut-target="true"
                           aria-label={`Open ${certificate.label || `Certificate ${certificateIndex + 1}`}`}
                         >
                           {certificate.label || `Certificate ${certificateIndex + 1}`}

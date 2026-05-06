@@ -150,6 +150,7 @@ describe('hero basics', () => {
     expect(within(articles[0]).getByText('Introduction: My Blogging Journey')).toBeInTheDocument()
 
     const shareButtons = screen.getAllByLabelText('Copy blog link')
+    expect(shareButtons[0]).toHaveAttribute('data-shortcut-target', 'true')
     fireEvent.click(shareButtons[0])
     await act(async () => {
       await Promise.resolve()
@@ -165,7 +166,9 @@ describe('hero basics', () => {
       expect(screen.queryByText('Newest First')).not.toBeInTheDocument()
     })
 
-    fireEvent.keyDown(articles[0], { key: 'Enter' })
+    expect(articles[0]).toHaveAttribute('data-shortcut-target', 'true')
+
+    fireEvent.keyDown(articles[0], { key: ' ' })
     expect(replaceStateSpy).toHaveBeenCalledWith({}, '', '/?tab=blogs')
   })
 })

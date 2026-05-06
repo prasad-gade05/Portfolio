@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, lazy, Suspense } from "react";
+import { useCallback, useEffect, useRef, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import "../../components/hero/MoviesModal.css";
 import { movies, webShows } from "../../data/portfolioData";
@@ -6,12 +6,15 @@ import { splitGroups, tabs } from "./contentTabs/config";
 import ContentTabPanes from "./contentTabs/ContentTabPanes";
 import TabsHeader from "./contentTabs/TabsHeader";
 import { useThemePicker } from "./contentTabs/useThemePicker";
+import { focusShortcutBoundaryTarget, moveShortcutFocus } from "../../utils/keyboardShortcuts";
 
 const MoviesModal = lazy(() => import("./MoviesModal"));
 
 const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange, onShortcutApiReady }) => {
   const [activeTabs, setActiveTabs] = useState(["projects"]);
   const [isMoviesModalOpen, setIsMoviesModalOpen] = useState(false);
+  const contentRef = useRef(null);
+  const pendingShortcutFocusRef = useRef(null);
   const {
     cycleTheme,
     pickerPos,
@@ -61,22 +64,43 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange, onSh
     setActiveTabs([tab.id]);
   }, [onBlogsActiveChange]);
 
-  const selectTabByIndex = useCallback((index) => {
+  const focusShortcutBoundary = useCallback((boundary) => (
+    focusShortcutBoundaryTarget(contentRef.current, boundary)
+  ), []);
+
+  const movePaneShortcutFocus = useCallback((direction) => (
+    moveShortcutFocus(contentRef.current, direction)
+  ), []);
+
+  const selectTabByIndex = useCallback((index, options = {}) => {
     const tab = tabs[index];
     if (tab) {
+      pendingShortcutFocusRef.current = options.focusTarget ? "start" : null;
       handleTabClick(tab);
     }
   }, [handleTabClick]);
 
   useEffect(() => {
+    const boundary = pendingShortcutFocusRef.current;
+    if (!boundary) {
+      return;
+    }
+
+    pendingShortcutFocusRef.current = null;
+    focusShortcutBoundary(boundary);
+  }, [activeTabs, focusShortcutBoundary]);
+
+  useEffect(() => {
     onShortcutApiReady?.({
       cycleTheme,
+      focusShortcutBoundary,
       isBlocked: isMoviesModalOpen,
+      moveShortcutFocus: movePaneShortcutFocus,
       selectTabByIndex,
     });
 
     return () => onShortcutApiReady?.(null);
-  }, [cycleTheme, isMoviesModalOpen, onShortcutApiReady, selectTabByIndex]);
+  }, [cycleTheme, focusShortcutBoundary, isMoviesModalOpen, movePaneShortcutFocus, onShortcutApiReady, selectTabByIndex]);
 
   return (
     <motion.div
@@ -100,6 +124,7 @@ const ContentTabs = ({ onOpenMinecraft, onStartDoodle, onBlogsActiveChange, onSh
 
       <ContentTabPanes
         activeTabs={activeTabs}
+        contentRef={contentRef}
         onOpenMinecraft={onOpenMinecraft}
         onOpenMovies={() => setIsMoviesModalOpen(true)}
         onStartDoodle={onStartDoodle}

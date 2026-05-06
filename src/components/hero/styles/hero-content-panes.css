@@ -181,6 +181,14 @@
   border-color: var(--accent-cyan);
 }
 
+.exp-card:focus,
+.achieve-item:focus,
+.cert-item:focus,
+.volunteer-item:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(var(--rgb-cyan), 0.14);
+}
+
 .exp-header {
   display: flex;
   justify-content: space-between;

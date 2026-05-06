@@ -192,6 +192,42 @@
   display: none;
 }
 
+[data-shortcut-target="true"] {
+  scroll-margin: 18px;
+}
+
+[data-shortcut-target="true"]:focus {
+  outline: 2px solid rgba(var(--rgb-cyan), 0.9);
+  outline-offset: 2px;
+}
+
+[data-shortcut-target="true"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+[data-shortcut-target="true"]:focus-visible {
+  outline: 2px solid rgba(var(--rgb-cyan), 0.9);
+  outline-offset: 2px;
+}
+
+[data-shortcut-target="true"] {
+  scroll-margin: 18px;
+}
+
+[data-shortcut-target="true"]:focus {
+  outline: 2px solid rgba(var(--rgb-cyan), 0.9);
+  outline-offset: 2px;
+}
+
+[data-shortcut-target="true"]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+[data-shortcut-target="true"]:focus-visible {
+  outline: 2px solid rgba(var(--rgb-cyan), 0.9);
+  outline-offset: 2px;
+}
+
 .tab-pane {
   flex: 1;
   display: flex;
@@ -292,6 +328,12 @@
 .project-card:hover {
   border-color: var(--accent-cyan);
   box-shadow: 0 8px 30px rgba(0, 229, 255, 0.15);
+}
+
+.project-card:focus,
+.project-card:focus-visible {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(var(--rgb-cyan), 0.14);
 }
 
 /* Dark theme - subtle cyan default border that intensifies on hover */

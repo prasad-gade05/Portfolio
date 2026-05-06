@@ -90,6 +90,13 @@ describe('MinecraftSkinViewer', () => {
     viewer.animation.callback(player, 2, 0.1)
     viewer.animation.callback(player, 2.5, 0.1)
     expect(player.position.y).toBeGreaterThan(0)
+    viewer.animation.callback(player, 3.1, 0.1)
+    expect(player.position.y).toBe(0)
+
+    fireEvent.keyDown(screen.getByLabelText('Minecraft skin viewer'), { key: ' ', code: 'Space' })
+    viewer.animation.callback(player, 3, 0.1)
+    viewer.animation.callback(player, 3.5, 0.1)
+    expect(player.position.y).toBeGreaterThan(0)
 
     unmount()
     expect(viewer.dispose).toHaveBeenCalledTimes(1)

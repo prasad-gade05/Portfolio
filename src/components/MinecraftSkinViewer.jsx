@@ -1,10 +1,36 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import * as skinview3d from 'skinview3d';
+import { isEditableShortcutTarget } from '../utils/keyboardShortcuts';
 
 const MinecraftSkinViewer = ({ skinUrl, width = 300, height = 400 }) => {
   const canvasRef = useRef(null);
   const viewerRef = useRef(null);
   const jumpStateRef = useRef({ active: false, startTime: null });
+
+  const handleJump = useCallback(() => {
+    if (jumpStateRef.current && !jumpStateRef.current.active) {
+      jumpStateRef.current.active = true;
+      jumpStateRef.current.startTime = null;
+    }
+  }, []);
+
+  const handleJumpShortcut = useCallback((event) => {
+    const isSpaceKey = event.code === 'Space' || event.key === ' ' || event.key === 'Spacebar';
+    if (!isSpaceKey) {
+      return;
+    }
+
+    if (isEditableShortcutTarget(event.target)) {
+      return;
+    }
+
+    if (event.target instanceof HTMLElement && event.target.closest('button, a, [role="button"]')) {
+      return;
+    }
+
+    event.preventDefault();
+    handleJump();
+  }, [handleJump]);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -130,15 +156,18 @@ const MinecraftSkinViewer = ({ skinUrl, width = 300, height = 400 }) => {
     };
   }, [skinUrl, width, height]);
 
-  const handleJump = () => {
-    if (jumpStateRef.current && !jumpStateRef.current.active) {
-      jumpStateRef.current.active = true;
-      jumpStateRef.current.startTime = null;
-    }
-  };
+  useEffect(() => {
+    document.addEventListener('keydown', handleJumpShortcut);
+    return () => document.removeEventListener('keydown', handleJumpShortcut);
+  }, [handleJumpShortcut]);
 
   return (
-    <div style={{ position: 'relative', width: width, height: height }}>
+    <div
+      aria-label="Minecraft skin viewer"
+      onKeyDown={handleJumpShortcut}
+      style={{ position: 'relative', width: width, height: height }}
+      tabIndex={0}
+    >
       <canvas
         ref={canvasRef}
         style={{

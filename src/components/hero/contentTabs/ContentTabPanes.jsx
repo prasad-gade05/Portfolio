@@ -12,6 +12,7 @@ import { BlogsTabPane, HobbiesPane } from "./PersonalPanes";
 
 const ContentTabPanes = ({
   activeTabs,
+  contentRef,
   onOpenMinecraft,
   onOpenMovies,
   onStartDoodle,
@@ -19,7 +20,7 @@ const ContentTabPanes = ({
   const isSplit = activeTabs.length > 1;
 
   return (
-    <div className={`tabs-content ${isSplit ? "split-view" : ""}`}>
+    <div ref={contentRef} className={`tabs-content ${isSplit ? "split-view" : ""}`}>
       <AnimatePresence mode="sync">
         {activeTabs.includes("projects") && <ProjectsPane />}
         {activeTabs.includes("about") && <AboutPane isSplit={isSplit} />}

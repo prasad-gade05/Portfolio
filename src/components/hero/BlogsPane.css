@@ -297,6 +297,15 @@
   outline-offset: 2px;
 }
 
+.cat-chip:focus-visible,
+.sort-btn:focus-visible,
+.sort-option:focus-visible,
+.blog-card-share:focus-visible,
+.blogs-empty-clear:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
 .blog-card-thumb-wrap {
   position: relative;
   aspect-ratio: 16/9;

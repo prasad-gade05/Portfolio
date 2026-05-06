@@ -22,6 +22,10 @@ const ProjectsPane = () => {
             <div
               key={`${project.title || "project"}-${index}`}
               className="project-card"
+              data-shortcut-target="true"
+              aria-label={`${project.title} project card`}
+              role="group"
+              tabIndex={-1}
               style={index === lastRowStartIdx ? { gridColumnStart: lastRowOffset } : undefined}
               onMouseMove={handleCardTilt}
               onMouseLeave={resetCardTilt}
@@ -59,6 +63,9 @@ const ProjectsPane = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-card-link"
+                      data-shortcut-target="true"
+                      aria-label={`${project.title} GitHub`}
+                      title={`${project.title} GitHub`}
                     >
                       <FaGithub size={14} />
                     </a>
@@ -69,6 +76,9 @@ const ProjectsPane = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-card-link demo"
+                      data-shortcut-target="true"
+                      aria-label={`${project.title} live demo`}
+                      title={`${project.title} live demo`}
                     >
                       <ExternalLink size={14} />
                     </a>
@@ -80,6 +90,8 @@ const ProjectsPane = () => {
                       rel="noopener noreferrer"
                       className="project-card-link"
                       title="Hugging Face Dataset"
+                      data-shortcut-target="true"
+                      aria-label={`${project.title} Hugging Face dataset`}
                     >
                       <SiHuggingface size={14} />
                     </a>
@@ -91,6 +103,8 @@ const ProjectsPane = () => {
                       rel="noopener noreferrer"
                       className="project-card-link"
                       title="Kaggle Dataset"
+                      data-shortcut-target="true"
+                      aria-label={`${project.title} Kaggle dataset`}
                     >
                       <FaKaggle size={14} />
                     </a>
@@ -106,6 +120,7 @@ const ProjectsPane = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="view-all-btn"
+        data-shortcut-target="true"
       >
         <FaGithub size={14} />
         <span>View All on GitHub</span>
