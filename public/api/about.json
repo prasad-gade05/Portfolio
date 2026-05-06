@@ -44,6 +44,10 @@
         "0": "Blogs"
       },
       "navigate_active_tab": ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+      "movies_modal_tab_switch": {
+        "arrow_left": "Switch to Movies",
+        "arrow_right": "Switch to Web Shows"
+      },
       "jump_within_active_tab": {
         "home": "Focus the first interactive item in the active tab",
         "end": "Focus the last interactive item in the active tab"

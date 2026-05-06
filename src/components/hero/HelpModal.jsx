@@ -76,6 +76,7 @@ const HelpModal = ({ onClose }) => {
               <li><strong>Arrow keys</strong>: move through interactive items in the active tab</li>
               <li><strong>Home</strong> / <strong>End</strong>: jump to the first or last interactive item in the active tab</li>
               <li><strong>Enter</strong>: open the focused card action or link</li>
+              <li><strong>Left</strong> / <strong>Right</strong> in the movies modal: switch between Movies and Web Shows</li>
               <li><strong>Space</strong>: make the Minecraft skin jump when that viewer is focused</li>
               <li><strong>R</strong>: open resume</li>
               <li><strong>T</strong>: cycle themes, even while a modal is open</li>

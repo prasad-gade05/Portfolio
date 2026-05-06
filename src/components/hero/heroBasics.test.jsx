@@ -127,6 +127,12 @@ describe('hero basics', () => {
     expect(screen.getByText('Show One')).toBeInTheDocument()
     expect(screen.getByText('2 Seasons')).toBeInTheDocument()
 
+    fireEvent.keyDown(document, { key: 'ArrowLeft' })
+    expect(screen.getByText('Movie One')).toBeInTheDocument()
+
+    fireEvent.keyDown(document, { key: 'ArrowRight' })
+    expect(screen.getByText('Show One')).toBeInTheDocument()
+
     fireEvent.click(container.querySelector('.movies-modal-close'))
     expect(onClose).toHaveBeenCalled()
   })

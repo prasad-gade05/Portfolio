@@ -34,6 +34,7 @@ Keyboard shortcuts are available in the app. Press `?` to open the in-app guide.
 
 - `1` to `9`, `0` switch the main tabs
 - `Arrow` keys move through interactive items in the active tab
+- `Left` / `Right` in the movies modal switch between Movies and Web Shows
 - `Home` / `End` jump to the first or last interactive item in the active tab
 - `Enter` opens the focused card action or link
 - `Space` makes the Minecraft skin jump when the viewer is focused
