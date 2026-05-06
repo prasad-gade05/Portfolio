@@ -59,12 +59,15 @@ This command:
 1. reads each post folder inside `blog-posts\`
 2. validates the folder contents
 3. parses frontmatter and markdown
-4. generates `public\blogs\<slug>\index.html`
-5. copies thumbnails into `public\blogs\assets\`
+4. regenerates `public\blogs\<slug>\index.html` only when that post output changed
+5. copies thumbnails into `public\blogs\assets\` only when that image changed
 6. rebuilds `public\blogs\blogs.json`
 7. rebuilds `public\blogs\rss.xml`
 8. updates blog URLs in `public\sitemap.xml`
 9. updates the blog sections in `public\llms.txt` and `public\llms-full.txt`
+10. removes stale generated blog folders and assets when a source post was deleted or renamed
+
+Unchanged blog pages and thumbnails are skipped instead of being recreated every run.
 
 ## What build and deploy do now
 

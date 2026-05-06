@@ -14,15 +14,6 @@ const AUTHOR_EMAIL = "prasadgade4405@gmail.com";
 const GOOGLE_ANALYTICS_ID = "G-382G6DQ243";
 const GOATCOUNTER_URL = "https://prasadgade05.goatcounter.com/count";
 
-const SOURCE_DIR = path.join(ROOT_DIR, "blog-posts");
-const PUBLIC_DIR = path.join(ROOT_DIR, "public");
-const BLOGS_DIR = path.join(PUBLIC_DIR, "blogs");
-const BLOG_ASSETS_DIR = path.join(BLOGS_DIR, "assets");
-const BLOG_LIST_PATH = path.join(BLOGS_DIR, "blogs.json");
-const BLOG_RSS_PATH = path.join(BLOGS_DIR, "rss.xml");
-const SITEMAP_PATH = path.join(PUBLIC_DIR, "sitemap.xml");
-const LLMS_PATH = path.join(PUBLIC_DIR, "llms.txt");
-const LLMS_FULL_PATH = path.join(PUBLIC_DIR, "llms-full.txt");
 const BLOG_LIST_URL = `${SITE_URL}/blogs/blogs.json`;
 const BLOG_RSS_URL = `${SITE_URL}/blogs/rss.xml`;
 
@@ -30,34 +21,65 @@ marked.setOptions({
   gfm: true,
 });
 
-function main() {
-  ensureDirectory(SOURCE_DIR);
-  ensureDirectory(BLOGS_DIR);
+function createPaths(rootDir = ROOT_DIR) {
+  const publicDir = path.join(rootDir, "public");
+  const blogsDir = path.join(publicDir, "blogs");
 
-  const posts = loadPosts().sort(comparePostsNewestFirst);
-
-  cleanGeneratedBlogDirectories();
-  resetBlogAssetsDirectory();
-  writeBlogPages(posts);
-  writeBlogList(posts);
-  writeRssFeed(posts);
-  updateSitemap(posts);
-  updateLlmsFiles(posts);
-
-  console.log(`Generated ${posts.length} blog post(s).`);
+  return {
+    sourceDir: path.join(rootDir, "blog-posts"),
+    publicDir,
+    blogsDir,
+    blogAssetsDir: path.join(blogsDir, "assets"),
+    blogListPath: path.join(blogsDir, "blogs.json"),
+    blogRssPath: path.join(blogsDir, "rss.xml"),
+    sitemapPath: path.join(publicDir, "sitemap.xml"),
+    llmsPath: path.join(publicDir, "llms.txt"),
+    llmsFullPath: path.join(publicDir, "llms-full.txt"),
+  };
 }
 
-function loadPosts() {
+function syncBlogs({ rootDir = ROOT_DIR } = {}) {
+  const paths = createPaths(rootDir);
+  ensureDirectory(paths.sourceDir);
+  ensureDirectory(paths.blogsDir);
+  ensureDirectory(paths.blogAssetsDir);
+
+  const posts = loadPosts(paths).sort(comparePostsNewestFirst);
+  const removedDirectories = pruneGeneratedBlogDirectories(paths, posts);
+  const removedAssets = pruneUnusedBlogAssets(paths, posts);
+  const postResults = writeBlogPages(paths, posts);
+  const outputs = {
+    blogList: writeBlogList(paths, posts),
+    rss: writeRssFeed(paths, posts),
+    sitemap: updateSitemap(paths, posts),
+    ...updateLlmsFiles(paths, posts),
+  };
+
+  return {
+    posts,
+    postResults,
+    outputs,
+    removedDirectories,
+    removedAssets,
+  };
+}
+
+function main() {
+  const summary = syncBlogs();
+  console.log(formatSyncSummary(summary));
+}
+
+function loadPosts(paths) {
   const folders = fs
-    .readdirSync(SOURCE_DIR, { withFileTypes: true })
+    .readdirSync(paths.sourceDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .sort((left, right) => compareSourceFolders(left.name, right.name));
 
-  return folders.map((folder) => loadPost(folder.name));
+  return folders.map((folder) => loadPost(paths, folder.name));
 }
 
-function loadPost(folderName) {
-  const folderPath = path.join(SOURCE_DIR, folderName);
+function loadPost(paths, folderName) {
+  const folderPath = path.join(paths.sourceDir, folderName);
   const files = fs
     .readdirSync(folderPath, { withFileTypes: true })
     .filter((entry) => entry.isFile() && !isIgnorableFile(entry.name));
@@ -119,16 +141,26 @@ function loadPost(folderName) {
   };
 }
 
-function writeBlogPages(posts) {
+function writeBlogPages(paths, posts) {
+  const results = [];
+
   for (const post of posts) {
-    const postDirectory = path.join(BLOGS_DIR, post.slug);
+    const postDirectory = path.join(paths.blogsDir, post.slug);
     ensureDirectory(postDirectory);
-    fs.copyFileSync(post.sourceImagePath, path.join(BLOG_ASSETS_DIR, path.basename(post.thumbnail)));
-    fs.writeFileSync(path.join(postDirectory, "index.html"), renderBlogPage(post), "utf8");
+    const assetPath = path.join(paths.blogAssetsDir, path.basename(post.thumbnail));
+    const pagePath = path.join(postDirectory, "index.html");
+
+    results.push({
+      slug: post.slug,
+      asset: copyFileIfChanged(post.sourceImagePath, assetPath),
+      page: writeFileIfChanged(pagePath, renderBlogPage(post)),
+    });
   }
+
+  return results;
 }
 
-function writeBlogList(posts) {
+function writeBlogList(paths, posts) {
   const payload = posts.map((post) => ({
     slug: post.slug,
     title: post.title,
@@ -140,10 +172,10 @@ function writeBlogList(posts) {
     url: post.url,
   }));
 
-  fs.writeFileSync(BLOG_LIST_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  return writeFileIfChanged(paths.blogListPath, `${JSON.stringify(payload, null, 2)}\n`);
 }
 
-function writeRssFeed(posts) {
+function writeRssFeed(paths, posts) {
   const lastBuildDate = posts[0] ? formatRssDate(posts[0].date) : formatRssDate(new Date().toISOString().slice(0, 10));
   const items = posts
     .map(
@@ -182,11 +214,11 @@ ${items}
 </rss>
 `;
 
-  fs.writeFileSync(BLOG_RSS_PATH, rss, "utf8");
+  return writeFileIfChanged(paths.blogRssPath, rss);
 }
 
-function updateSitemap(posts) {
-  let sitemap = fs.readFileSync(SITEMAP_PATH, "utf8");
+function updateSitemap(paths, posts) {
+  let sitemap = fs.readFileSync(paths.sitemapPath, "utf8");
   const rootLastmod = posts[0]?.date ?? new Date().toISOString().slice(0, 10);
 
   sitemap = sitemap.replace(
@@ -225,7 +257,7 @@ function updateSitemap(posts) {
     (_, rootBlock) => `${rootBlock}\n${blogEntries}`
   );
 
-  fs.writeFileSync(SITEMAP_PATH, `${sitemap.trim()}\n`, "utf8");
+  return writeFileIfChanged(paths.sitemapPath, `${sitemap.trim()}\n`);
 }
 
 function formatSitemapEntry(entry) {
@@ -245,7 +277,7 @@ function removeSitemapEntries(sitemap, urls) {
   );
 }
 
-function updateLlmsFiles(posts) {
+function updateLlmsFiles(paths, posts) {
   const llmsBlogSection = `Prasad writes a personal blog at prasadgade.dev. All written content is 100% human-written. Thumbnails are AI-generated.
 
 - Blog listing: ${SITE_URL}/?tab=blogs
@@ -277,25 +309,36 @@ ${posts
   )
   .join("\n\n")}`;
 
-  replaceMarkdownHeadingSection(LLMS_PATH, "Blogs", llmsBlogSection);
-  replaceMarkdownHeadingSection(LLMS_FULL_PATH, "Blogs", llmsFullBlogSection);
+  const llmsSource = fs.readFileSync(paths.llmsPath, "utf8");
+  const llmsFullSource = fs.readFileSync(paths.llmsFullPath, "utf8");
+
+  return {
+    llms: writeFileIfChanged(
+      paths.llmsPath,
+      replaceMarkdownHeadingSection(llmsSource, "Blogs", llmsBlogSection, path.basename(paths.llmsPath))
+    ),
+    llmsFull: writeFileIfChanged(
+      paths.llmsFullPath,
+      replaceMarkdownHeadingSection(llmsFullSource, "Blogs", llmsFullBlogSection, path.basename(paths.llmsFullPath))
+    ),
+  };
 }
 
-function replaceMarkdownHeadingSection(filePath, heading, replacementBody) {
-  const source = fs.readFileSync(filePath, "utf8");
+function replaceMarkdownHeadingSection(source, heading, replacementBody, sourceLabel = "source") {
   const normalizedSource = source.replace(/\r\n/g, "\n");
   const sectionPattern = new RegExp(`## ${escapeRegExp(heading)}\\n\\n[\\s\\S]*?(?=\\n## |$)`);
 
   if (!sectionPattern.test(normalizedSource)) {
-    throw new Error(`Could not find "## ${heading}" section in ${path.basename(filePath)}.`);
+    throw new Error(`Could not find "## ${heading}" section in ${sourceLabel}.`);
   }
 
-  const updated = normalizedSource.replace(sectionPattern, `## ${heading}\n\n${replacementBody.trim()}\n`);
-  fs.writeFileSync(filePath, updated, "utf8");
+  return normalizedSource.replace(sectionPattern, `## ${heading}\n\n${replacementBody.trim()}\n`);
 }
 
-function cleanGeneratedBlogDirectories() {
-  const entries = fs.readdirSync(BLOGS_DIR, { withFileTypes: true });
+function pruneGeneratedBlogDirectories(paths, posts) {
+  const activeSlugs = new Set(posts.map((post) => post.slug));
+  const entries = fs.readdirSync(paths.blogsDir, { withFileTypes: true });
+  const removed = [];
 
   for (const entry of entries) {
     if (!entry.isDirectory()) {
@@ -306,13 +349,34 @@ function cleanGeneratedBlogDirectories() {
       continue;
     }
 
-    fs.rmSync(path.join(BLOGS_DIR, entry.name), { recursive: true, force: true });
+    if (activeSlugs.has(entry.name)) {
+      continue;
+    }
+
+    fs.rmSync(path.join(paths.blogsDir, entry.name), { recursive: true, force: true });
+    removed.push(entry.name);
   }
+
+  return removed;
 }
 
-function resetBlogAssetsDirectory() {
-  fs.rmSync(BLOG_ASSETS_DIR, { recursive: true, force: true });
-  ensureDirectory(BLOG_ASSETS_DIR);
+function pruneUnusedBlogAssets(paths, posts) {
+  ensureDirectory(paths.blogAssetsDir);
+
+  const activeAssets = new Set(posts.map((post) => path.basename(post.thumbnail)));
+  const entries = fs.readdirSync(paths.blogAssetsDir, { withFileTypes: true });
+  const removed = [];
+
+  for (const entry of entries) {
+    if (!entry.isFile() || isIgnorableFile(entry.name) || activeAssets.has(entry.name)) {
+      continue;
+    }
+
+    fs.rmSync(path.join(paths.blogAssetsDir, entry.name), { force: true });
+    removed.push(entry.name);
+  }
+
+  return removed;
 }
 
 function renderBlogPage(post) {
@@ -785,6 +849,41 @@ function ensureDirectory(directoryPath) {
   fs.mkdirSync(directoryPath, { recursive: true });
 }
 
+function writeFileIfChanged(filePath, nextContent) {
+  ensureDirectory(path.dirname(filePath));
+
+  if (fs.existsSync(filePath)) {
+    const currentContent = fs.readFileSync(filePath, "utf8");
+    if (currentContent === nextContent) {
+      return "unchanged";
+    }
+
+    fs.writeFileSync(filePath, nextContent, "utf8");
+    return "updated";
+  }
+
+  fs.writeFileSync(filePath, nextContent, "utf8");
+  return "created";
+}
+
+function copyFileIfChanged(sourcePath, targetPath) {
+  ensureDirectory(path.dirname(targetPath));
+  const sourceBuffer = fs.readFileSync(sourcePath);
+
+  if (fs.existsSync(targetPath)) {
+    const targetBuffer = fs.readFileSync(targetPath);
+    if (sourceBuffer.equals(targetBuffer)) {
+      return "unchanged";
+    }
+
+    fs.writeFileSync(targetPath, sourceBuffer);
+    return "updated";
+  }
+
+  fs.writeFileSync(targetPath, sourceBuffer);
+  return "created";
+}
+
 function isIgnorableFile(fileName) {
   return fileName.startsWith(".") || fileName.toLowerCase() === "thumbs.db";
 }
@@ -806,4 +905,32 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-main();
+function formatSyncSummary(summary) {
+  const pageCounts = countStatuses(summary.postResults.map((result) => result.page));
+  const assetCounts = countStatuses(summary.postResults.map((result) => result.asset));
+  const outputCounts = countStatuses(Object.values(summary.outputs));
+
+  return [
+    `Processed ${summary.posts.length} blog post(s).`,
+    `Pages: ${pageCounts.created} created, ${pageCounts.updated} updated, ${pageCounts.unchanged} unchanged.`,
+    `Assets: ${assetCounts.created} created, ${assetCounts.updated} updated, ${assetCounts.unchanged} unchanged.`,
+    `Shared files: ${outputCounts.created} created, ${outputCounts.updated} updated, ${outputCounts.unchanged} unchanged.`,
+    `Pruned ${summary.removedDirectories.length} stale blog director${summary.removedDirectories.length === 1 ? "y" : "ies"} and ${summary.removedAssets.length} stale asset(s).`,
+  ].join(" ");
+}
+
+function countStatuses(statuses) {
+  return statuses.reduce(
+    (counts, status) => {
+      counts[status] += 1;
+      return counts;
+    },
+    { created: 0, updated: 0, unchanged: 0 }
+  );
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main();
+}
+
+export { syncBlogs };
