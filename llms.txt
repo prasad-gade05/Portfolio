@@ -4,7 +4,7 @@
 
 This is Prasad Gade's personal portfolio at prasadgade.dev. It is a single-page React app with 4 visual themes, a 3D Minecraft skin viewer, a paper physics playground, hidden easter eggs, and in-app keyboard shortcuts with nested in-tab navigation.
 
-Keyboard shortcuts are available in-app. Press ? to open the shortcut guide. Use 1 to 9 and 0 for tabs, Arrow keys to move through interactive items inside the active tab, Home/End to jump within that tab, Enter to trigger the focused action, Space to make the focused Minecraft viewer jump, R for resume, T for themes even while help/movies/resume/Minecraft modals are open, and Esc to close overlays.
+Keyboard shortcuts are available in-app. Press ? to open the shortcut guide. Use 1 to 9 and 0 for tabs, Arrow keys to move through interactive items inside the active tab, Left/Right in the movies modal to switch between Movies and Web Shows, Home/End to jump within that tab, Enter to trigger the focused action, Space to make the focused Minecraft viewer jump, R for resume, T for themes even while help/movies/resume/Minecraft modals are open, and Esc to close overlays.
 
 ## Links
 
