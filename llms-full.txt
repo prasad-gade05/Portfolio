@@ -16,7 +16,10 @@ Site features:
 - Paper playground: the screen turns into a crumpled paper with real physics
 - Hidden easter eggs: Konami code and "hesoyam" trigger animations
 - Keyboard shortcuts available across the app; press ? to open the shortcut guide
-- Tab shortcuts: 1 to 9 and 0 switch the main tabs, R opens the resume, T cycles themes
+- Tab shortcuts: 1 to 9 and 0 switch the main tabs
+- In interactive tabs, Arrow keys move through cards and their nested links/actions, Home/End jump to the first or last interactive item, and Enter opens the focused action
+- Space makes the Minecraft skin jump when the viewer is focused
+- T still cycles themes while the Start Here, movies, resume, or Minecraft modal is open
 - "Start Here" modal for non-tech visitors explaining every section
 - Resume opens in an in-app modal
 - Responsive for mobile, tablet, and desktop-site-on-mobile
