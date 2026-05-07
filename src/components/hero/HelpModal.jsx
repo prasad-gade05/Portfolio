@@ -82,15 +82,6 @@ const HelpModal = ({ onClose }) => {
               <li><strong>T</strong>: cycle themes, even while a modal is open</li>
               <li><strong>Esc</strong>: close the current modal or overlay</li>
             </ul>
-            <p className="help-subtext">
-              <em>Tab mapping: 1 Projects, 2 About, 3 Skills, 4 Experience, 5 Education, 6 Achievements, 7 Certs, 8 Volunteer, 9 Hobbies, 0 Blogs.</em>
-            </p>
-            <p className="help-subtext">
-              <em>Inside interactive tabs, focus moves through cards first and then any nested links or actions inside them. About and Skills do not need in-tab shortcuts because they have no interactive targets.</em>
-            </p>
-            <p className="help-subtext">
-              <em>Theme cycling still works while this guide, the resume, movies, or the Minecraft modal is open.</em>
-            </p>
           </section>
 
           <section className="help-section help-section-wide">
