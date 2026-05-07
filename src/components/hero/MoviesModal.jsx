@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Film, Tv } from "lucide-react";
 import { MdMovie } from "react-icons/md";
@@ -6,11 +6,44 @@ import { isEditableShortcutTarget } from "../../utils/keyboardShortcuts";
 
 const MoviesModal = ({ isOpen, onClose, movies, shows }) => {
   const [activeTab, setActiveTab] = useState("movies");
+  const contentRef = useRef(null);
+
+  const focusContent = useCallback(() => {
+    contentRef.current?.focus();
+  }, []);
+
+  const setActiveTabAndFocus = useCallback((nextTab) => {
+    setActiveTab(nextTab);
+    focusContent();
+  }, [focusContent]);
+
+  const scrollContent = useCallback((direction) => {
+    const content = contentRef.current;
+    if (!content) {
+      return;
+    }
+
+    const distance = Math.max(160, Math.round(content.clientHeight * 0.8));
+    content.scrollBy({
+      top: distance * direction,
+      behavior: "smooth",
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+
+    focusContent();
+  }, [focusContent, isOpen]);
 
   useEffect(() => {
     if (!isOpen) {
       return undefined;
     }
+
+    focusContent();
 
     const handleKeyDown = (event) => {
       if (isEditableShortcutTarget(event.target)) {
@@ -19,19 +52,30 @@ const MoviesModal = ({ isOpen, onClose, movies, shows }) => {
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        setActiveTab("movies");
+        setActiveTabAndFocus("movies");
         return;
       }
 
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        setActiveTab("shows");
+        setActiveTabAndFocus("shows");
+        return;
+      }
+
+      const isSpaceKey = event.code === "Space" || event.key === " " || event.key === "Spacebar";
+      if (isSpaceKey) {
+        if (event.target instanceof HTMLElement && event.target.closest('button, a, [role="button"]')) {
+          return;
+        }
+
+        event.preventDefault();
+        scrollContent(event.shiftKey ? -1 : 1);
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [focusContent, isOpen, scrollContent, setActiveTabAndFocus]);
 
   if (!isOpen) return null;
 
@@ -65,23 +109,23 @@ const MoviesModal = ({ isOpen, onClose, movies, shows }) => {
           <div className="movies-modal-tabs">
             <button
               className={`movies-tab-btn ${activeTab === "movies" ? "active" : ""}`}
-              onClick={() => setActiveTab("movies")}
-            >
+                onClick={() => setActiveTabAndFocus("movies")}
+              >
               <Film size={16} />
               <span>Movies</span>
               <span className="movies-count">{movies.length}</span>
             </button>
             <button
               className={`movies-tab-btn ${activeTab === "shows" ? "active" : ""}`}
-              onClick={() => setActiveTab("shows")}
-            >
+                onClick={() => setActiveTabAndFocus("shows")}
+              >
               <Tv size={16} />
               <span>Web Shows</span>
               <span className="movies-count">{shows.length}</span>
             </button>
           </div>
 
-          <div className="movies-modal-content">
+          <div className="movies-modal-content" ref={contentRef} tabIndex={0}>
             <AnimatePresence mode="wait">
               {activeTab === "movies" && (
                 <motion.div

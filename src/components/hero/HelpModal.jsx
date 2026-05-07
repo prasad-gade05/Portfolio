@@ -1,8 +1,48 @@
+import { useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { X, HelpCircle, User, Globe, Folder, Github, Compass, Palette, Gamepad2, Sparkles, FileText, BookOpen, Keyboard } from "lucide-react";
+import { isEditableShortcutTarget } from "../../utils/keyboardShortcuts";
 import "./HelpModal.css";
 
 const HelpModal = ({ onClose }) => {
+  const contentRef = useRef(null);
+
+  const scrollContent = useCallback((direction) => {
+    const content = contentRef.current;
+    if (!content) {
+      return;
+    }
+
+    const distance = Math.max(160, Math.round(content.clientHeight * 0.8));
+    content.scrollBy({
+      top: distance * direction,
+      behavior: "smooth",
+    });
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const isSpaceKey = event.code === "Space" || event.key === " " || event.key === "Spacebar";
+      if (!isSpaceKey) {
+        return;
+      }
+
+      if (isEditableShortcutTarget(event.target)) {
+        return;
+      }
+
+      if (event.target instanceof HTMLElement && event.target.closest('button, a, [role="button"]')) {
+        return;
+      }
+
+      event.preventDefault();
+      scrollContent(event.shiftKey ? -1 : 1);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [scrollContent]);
+
   return (
     <motion.div
       className="help-modal-overlay"
@@ -27,7 +67,7 @@ const HelpModal = ({ onClose }) => {
           </button>
         </div>
 
-        <div className="help-modal-content">
+        <div className="help-modal-content" ref={contentRef}>
           <section className="help-section">
             <div className="help-section-title">
               <User size={16} />

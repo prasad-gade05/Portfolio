@@ -44,11 +44,28 @@ describe('hero basics', () => {
 
   it('renders the help modal content and closes correctly', async () => {
     const onClose = vi.fn()
-    render(<HelpModal onClose={onClose} />)
+    const { container } = render(<HelpModal onClose={onClose} />)
 
     expect(screen.getByText('How do I get started here?')).toBeInTheDocument()
     expect(screen.getByText('Why blogs?')).toBeInTheDocument()
     expect(screen.getByText('Every blog post here is 100% human written.')).toBeInTheDocument()
+
+    const modalContent = container.querySelector('.help-modal-content')
+    const scrollBy = vi.fn()
+    Object.defineProperty(modalContent, 'clientHeight', {
+      configurable: true,
+      value: 300,
+    })
+    Object.defineProperty(modalContent, 'scrollBy', {
+      configurable: true,
+      value: scrollBy,
+    })
+
+    fireEvent.keyDown(document, { key: ' ', code: 'Space' })
+    expect(scrollBy).toHaveBeenLastCalledWith({ top: 240, behavior: 'smooth' })
+
+    fireEvent.keyDown(document, { key: ' ', code: 'Space', shiftKey: true })
+    expect(scrollBy).toHaveBeenLastCalledWith({ top: -240, behavior: 'smooth' })
 
     fireEvent.click(screen.getByText('How do I get started here?'))
     expect(onClose).not.toHaveBeenCalled()
@@ -123,7 +140,28 @@ describe('hero basics', () => {
     expect(screen.getByText('Binge Watching Collection')).toBeInTheDocument()
     expect(screen.getByText('Movie One')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: /web shows/i }))
+    const modalContent = container.querySelector('.movies-modal-content')
+    const scrollBy = vi.fn()
+    Object.defineProperty(modalContent, 'clientHeight', {
+      configurable: true,
+      value: 320,
+    })
+    Object.defineProperty(modalContent, 'scrollBy', {
+      configurable: true,
+      value: scrollBy,
+    })
+
+    fireEvent.keyDown(document, { key: ' ', code: 'Space' })
+    expect(scrollBy).toHaveBeenLastCalledWith({ top: 256, behavior: 'smooth' })
+
+    fireEvent.keyDown(document, { key: ' ', code: 'Space', shiftKey: true })
+    expect(scrollBy).toHaveBeenLastCalledWith({ top: -256, behavior: 'smooth' })
+
+    const moviesTabButton = screen.getByRole('button', { name: /movies/i })
+    moviesTabButton.focus()
+    expect(moviesTabButton).toHaveFocus()
+
+    fireEvent.keyDown(moviesTabButton, { key: 'ArrowRight' })
     expect(screen.getByText('Show One')).toBeInTheDocument()
     expect(screen.getByText('2 Seasons')).toBeInTheDocument()
 

@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import * as skinview3d from 'skinview3d';
 import { isEditableShortcutTarget } from '../utils/keyboardShortcuts';
 
 const MinecraftSkinViewer = ({ skinUrl, width = 300, height = 400 }) => {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
   const viewerRef = useRef(null);
   const jumpStateRef = useRef({ active: false, startTime: null });
 
@@ -161,10 +162,15 @@ const MinecraftSkinViewer = ({ skinUrl, width = 300, height = 400 }) => {
     return () => document.removeEventListener('keydown', handleJumpShortcut);
   }, [handleJumpShortcut]);
 
+  useLayoutEffect(() => {
+    containerRef.current?.focus();
+  }, []);
+
   return (
     <div
       aria-label="Minecraft skin viewer"
       onKeyDown={handleJumpShortcut}
+      ref={containerRef}
       style={{ position: 'relative', width: width, height: height }}
       tabIndex={0}
     >

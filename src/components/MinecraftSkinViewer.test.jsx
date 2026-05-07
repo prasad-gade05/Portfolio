@@ -52,6 +52,9 @@ describe('MinecraftSkinViewer', () => {
       <MinecraftSkinViewer skinUrl="/skin.png" width={280} height={400} />,
     )
 
+    const viewerElement = screen.getByLabelText('Minecraft skin viewer')
+    expect(viewerElement).toHaveFocus()
+
     const viewer = viewerInstances.at(-1)
     expect(viewer.options).toMatchObject({
       width: 280,
@@ -93,7 +96,7 @@ describe('MinecraftSkinViewer', () => {
     viewer.animation.callback(player, 3.1, 0.1)
     expect(player.position.y).toBe(0)
 
-    fireEvent.keyDown(screen.getByLabelText('Minecraft skin viewer'), { key: ' ', code: 'Space' })
+    fireEvent.keyDown(viewerElement, { key: ' ', code: 'Space' })
     viewer.animation.callback(player, 3, 0.1)
     viewer.animation.callback(player, 3.5, 0.1)
     expect(player.position.y).toBeGreaterThan(0)
