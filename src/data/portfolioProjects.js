@@ -29,8 +29,8 @@ export const projects = [
     category: "Data",
     stats: "18 Seasons",
     description:
-      "3-stage pipeline over 278K ball-by-ball records with 14 dashboard pages, custom SQL query builder, and validated IPL aggregates.",
-    tech: ["Python", "Streamlit", "DuckDB", "Plotly"],
+      "3-stage IPL data pipeline over 278,205 ball-by-ball records, a 15-page Streamlit app with 19 DuckDB views, deterministic SQL-backed semantic search, and 52 pytest checks.",
+    tech: ["Python", "DuckDB", "Pandas", "NumPy", "PyArrow", "Apache Parquet", "pytest"],
     github: "https://github.com/prasad-gade05/IPL_Analysis",
     demo: "https://analytics-ipl.streamlit.app/",
     dataset: "https://huggingface.co/datasets/prasad-gade05/ipl-enriched-2008-2025",

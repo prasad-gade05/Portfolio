@@ -93,9 +93,11 @@ Site features:
 The public agent-facing layer intentionally exposes these 11 projects and no more:
 
 ### IPL Analytics Platform - Interactive Cricket Data Dashboard
-- Engineered a 3-stage data pipeline processing 278,205 ball-by-ball records across 18 IPL seasons (2008-2025)
-- Built 14 interactive dashboard pages with 58 preset SQL queries and a custom query builder
-- Achieved zero data mismatches across player aggregates, validated with 25 automated tests
+- Engineered a 3-stage IPL data pipeline over 278,205 ball-by-ball records from 18 seasons, producing a feature parquet plus 18 aggregate parquet datasets for fast analytics
+- Built a 15-page Streamlit app backed by 19 DuckDB views, including player, team, venue, matchup, phase, records, tournament, and match-level analysis for 1,169 IPL matches
+- Implemented a deterministic semantic search engine that compiles supported cricket questions into whitelisted SQL, ships with 40 example prompts, and exposes assumptions plus generated SQL instead of guessing unsupported requests
+- Added a schema-driven per-visual control system and expanded regression coverage to 52 pytest checks to keep interactive filters and statistics aligned across the analytics pages
+- Tech: Python, Streamlit, DuckDB, Plotly, Pandas, NumPy, PyArrow, Apache Parquet, SQL, pytest
 - Demo: https://analytics-ipl.streamlit.app/
 - GitHub: https://github.com/prasad-gade05/IPL_Analysis
 
