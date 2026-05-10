@@ -81,9 +81,10 @@
         "description": "Interactive Cricket Data Dashboard",
         "date": "March 2026",
         "highlights": [
-          "Engineered a 3-stage data pipeline processing 278,205 ball-by-ball records across 18 IPL seasons (2008-2025), producing 90 derived features and 15 aggregate parquet files",
-          "Built 14 interactive dashboard pages with 58 preset SQL queries, a custom query builder supporting 9 entity types, and one-click chart generation for 1,169 matches and 703 players",
-          "Achieved zero data mismatches across 703 batters and 550 bowlers by fixing a critical aggregation bug and validating integrity with 25 automated tests"
+          "Engineered a 3-stage IPL data pipeline over 278,205 ball-by-ball records from 18 seasons, producing a feature parquet plus 18 aggregate parquet datasets for fast analytics",
+          "Built a 15-page Streamlit app backed by 19 DuckDB views, including player, team, venue, matchup, phase, records, tournament, and match-level analysis for 1,169 IPL matches",
+          "Implemented a deterministic semantic search engine that compiles supported cricket questions into whitelisted SQL, ships with 40 example prompts, and exposes assumptions plus generated SQL instead of guessing unsupported requests",
+          "Added a schema-driven per-visual control system and expanded regression coverage to 52 pytest checks to keep interactive filters and statistics aligned across the analytics pages"
         ],
         "tech": ["Python", "Streamlit", "DuckDB", "Plotly", "Pandas", "NumPy", "PyArrow", "Apache Parquet", "SQL", "pytest"],
         "github": "https://github.com/prasad-gade05/IPL_Analysis",
